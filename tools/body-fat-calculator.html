@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your body fat percentage with our free body fat calculator. Uses multiple methods including US Navy, BMI, and skinfold measurements for accurate results.">
+    <meta name="keywords" content="body fat calculator, body fat percentage, body composition, fitness calculator, lean mass, fat mass">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Body Fat Calculator - Free Body Fat Percentage Calculator">
+    <meta property="og:description" content="Calculate your body fat percentage using multiple scientifically validated methods">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstools.com/tools/body-fat-calculator.html">
+    <title>Body Fat Calculator - Free Body Fat Percentage Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstools.com/tools/body-fat-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../calculator-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <span class="brand-icon">⚡</span>
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
+                            <li role="none"><a href="#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#about" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">Body Fat Calculator</h1>
+                <p class="tool-subtitle">Calculate your body fat percentage using multiple scientifically validated methods for accurate body composition analysis</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="calculator-form">
+                        <div class="calculator-card">
+                            <h2>Calculate Your Body Fat Percentage</h2>
+                            <form id="body-fat-form" aria-labelledby="body-fat-form-title">
+                                <h3 id="body-fat-form-title" class="sr-only">Body Fat Calculation Form</h3>
+                                
+                                <div class="form-group">
+                                    <label for="method">Calculation Method</label>
+                                    <select id="method" name="method" required aria-describedby="method-help">
+                                        <option value="">Select calculation method</option>
+                                        <option value="us-navy">US Navy Method</option>
+                                        <option value="bmi">BMI-Based Method</option>
+                                        <option value="skinfold">Skinfold Method</option>
+                                    </select>
+                                    <small id="method-help">Choose your preferred calculation method</small>
+                                </div>
+
+                                <!-- Common fields -->
+                                <div class="form-group">
+                                    <fieldset>
+                                        <legend>Gender</legend>
+                                        <div class="radio-group">
+                                            <label>
+                                                <input type="radio" name="gender" value="male" required>
+                                                <span>Male</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="gender" value="female" required>
+                                                <span>Female</span>
+                                            </label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" name="age" min="18" max="100" required 
+                                           aria-describedby="age-help" placeholder="Enter your age">
+                                    <small id="age-help">Enter your age in years</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="weight">Weight</label>
+                                    <div class="input-group">
+                                        <input type="number" id="weight" name="weight" step="0.1" min="30" required 
+                                               aria-describedby="weight-help" placeholder="Enter your weight">
+                                        <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
+                                            <option value="kg">kg</option>
+                                            <option value="lbs">lbs</option>
+                                        </select>
+                                    </div>
+                                    <small id="weight-help">Enter your body weight</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="height">Height</label>
+                                    <div class="input-group">
+                                        <input type="number" id="height" name="height" step="0.1" min="100" required 
+                                               aria-describedby="height-help" placeholder="Enter your height">
+                                        <select id="height-unit" name="height-unit" aria-label="Height unit">
+                                            <option value="cm">cm</option>
+                                            <option value="ft">ft/in</option>
+                                        </select>
+                                    </div>
+                                    <small id="height-help">Enter your height</small>
+                                </div>
+
+                                <!-- US Navy Method Fields -->
+                                <div id="us-navy-fields" class="method-fields" style="display: none;">
+                                    <h4>US Navy Method Measurements</h4>
+                                    <div class="form-group">
+                                        <label for="neck">Neck Circumference</label>
+                                        <div class="input-group">
+                                            <input type="number" id="neck" name="neck" step="0.1" min="20" 
+                                                   aria-describedby="neck-help" placeholder="Neck circumference">
+                                            <select id="neck-unit" name="neck-unit" aria-label="Neck unit">
+                                                <option value="cm">cm</option>
+                                                <option value="in">inches</option>
+                                            </select>
+                                        </div>
+                                        <small id="neck-help">Measure at the narrowest point</small>
+                                    </div>
+
+                                    <div class="form-group" id="waist-group">
+                                        <label for="waist">Waist Circumference</label>
+                                        <div class="input-group">
+                                            <input type="number" id="waist" name="waist" step="0.1" min="50" 
+                                                   aria-describedby="waist-help" placeholder="Waist circumference">
+                                            <select id="waist-unit" name="waist-unit" aria-label="Waist unit">
+                                                <option value="cm">cm</option>
+                                                <option value="in">inches</option>
+                                            </select>
+                                        </div>
+                                        <small id="waist-help">Measure at the navel level</small>
+                                    </div>
+
+                                    <div class="form-group" id="hip-group" style="display: none;">
+                                        <label for="hip">Hip Circumference</label>
+                                        <div class="input-group">
+                                            <input type="number" id="hip" name="hip" step="0.1" min="70" 
+                                                   aria-describedby="hip-help" placeholder="Hip circumference">
+                                            <select id="hip-unit" name="hip-unit" aria-label="Hip unit">
+                                                <option value="cm">cm</option>
+                                                <option value="in">inches</option>
+                                            </select>
+                                        </div>
+                                        <small id="hip-help">Measure at the widest point</small>
+                                    </div>
+                                </div>
+
+                                <!-- Skinfold Method Fields -->
+                                <div id="skinfold-fields" class="method-fields" style="display: none;">
+                                    <h4>Skinfold Measurements (mm)</h4>
+                                    <p class="method-description">Use calipers to measure skinfold thickness in millimeters</p>
+                                    
+                                    <div class="form-group">
+                                        <label for="chest">Chest Skinfold</label>
+                                        <input type="number" id="chest" name="chest" step="0.1" min="1" max="50" 
+                                               placeholder="Chest measurement in mm">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="abdominal">Abdominal Skinfold</label>
+                                        <input type="number" id="abdominal" name="abdominal" step="0.1" min="1" max="50" 
+                                               placeholder="Abdominal measurement in mm">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="thigh">Thigh Skinfold</label>
+                                        <input type="number" id="thigh" name="thigh" step="0.1" min="1" max="50" 
+                                               placeholder="Thigh measurement in mm">
+                                    </div>
+
+                                    <div class="form-group female-only" style="display: none;">
+                                        <label for="triceps">Triceps Skinfold</label>
+                                        <input type="number" id="triceps" name="triceps" step="0.1" min="1" max="50" 
+                                               placeholder="Triceps measurement in mm">
+                                    </div>
+
+                                    <div class="form-group female-only" style="display: none;">
+                                        <label for="suprailiac">Suprailiac Skinfold</label>
+                                        <input type="number" id="suprailiac" name="suprailiac" step="0.1" min="1" max="50" 
+                                               placeholder="Suprailiac measurement in mm">
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary calculator-btn">Calculate Body Fat</button>
+                                <button type="reset" class="btn btn-secondary calculator-btn">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="calculator-results">
+                        <div class="results-card" id="body-fat-results" style="display: none;">
+                            <h2>Your Body Fat Results</h2>
+                            
+                            <div class="body-fat-display">
+                                <div class="body-fat-percentage">
+                                    <h3>Body Fat Percentage</h3>
+                                    <div class="bf-value" id="bf-percentage">--</div>
+                                    <small id="bf-category">--</small>
+                                </div>
+                                
+                                <div class="body-composition">
+                                    <h3>Body Composition</h3>
+                                    <div class="composition-grid">
+                                        <div class="comp-item">
+                                            <div class="comp-label">Fat Mass</div>
+                                            <div class="comp-value" id="fat-mass">--</div>
+                                        </div>
+                                        <div class="comp-item">
+                                            <div class="comp-label">Lean Mass</div>
+                                            <div class="comp-value" id="lean-mass">--</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bf-chart">
+                                <h3>Body Fat Categories</h3>
+                                <div class="bf-ranges" id="bf-ranges">
+                                    <!-- Categories will be populated based on gender -->
+                                </div>
+                            </div>
+
+                            <div class="bf-recommendations" id="bf-recommendations">
+                                <h3>Recommendations</h3>
+                                <div id="recommendation-text" class="recommendation-content">
+                                    <!-- Recommendations will be inserted here -->
+                                </div>
+                            </div>
+
+                            <div class="bf-actions">
+                                <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                                <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                            </div>
+                        </div>
+
+                        <!-- Body Fat Information -->
+                        <div class="info-card">
+                            <h2>About Body Fat Calculation</h2>
+                            <p>Body fat percentage is a key health metric that provides insight into your body composition beyond just weight.</p>
+                            
+                            <h3>Calculation Methods</h3>
+                            <ul>
+                                <li><strong>US Navy Method:</strong> Uses circumference measurements for good accuracy</li>
+                                <li><strong>BMI-Based Method:</strong> Simple estimation using BMI, less accurate</li>
+                                <li><strong>Skinfold Method:</strong> Uses caliper measurements, most accurate when done properly</li>
+                            </ul>
+                            
+                            <h3>Measurement Tips</h3>
+                            <ul>
+                                <li>Take measurements in the morning before eating</li>
+                                <li>Use a flexible measuring tape for circumference measurements</li>
+                                <li>Measure at the same locations consistently</li>
+                                <li>For skinfold measurements, use proper calipers</li>
+                                <li>Take multiple measurements and use the average</li>
+                            </ul>
+                            
+                            <h3>Healthy Body Fat Ranges</h3>
+                            <div class="healthy-ranges">
+                                <h4>Men:</h4>
+                                <ul>
+                                    <li>Athletes: 6-13%</li>
+                                    <li>Fitness: 14-17%</li>
+                                    <li>Acceptable: 18-24%</li>
+                                    <li>Obese: 25%+</li>
+                                </ul>
+                                
+                                <h4>Women:</h4>
+                                <ul>
+                                    <li>Athletes: 14-20%</li>
+                                    <li>Fitness: 21-24%</li>
+                                    <li>Acceptable: 25-31%</li>
+                                    <li>Obese: 32%+</li>
+                                </ul>
+                            </div>
+                            
+                            <h3>Limitations</h3>
+                            <ul>
+                                <li>These are estimates, not clinical measurements</li>
+                                <li>Hydration levels can affect measurements</li>
+                                <li>Individual variations in body composition</li>
+                                <li>Consult professionals for medical assessments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tools & Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="#fitness-calculators">BMI Calculator</a></li>
+                            <li><a href="#performance-trackers">Pace Calculator</a></li>
+                            <li><a href="#nutrition-tools">Macro Calculator</a></li>
+                            <li><a href="#training-equipment">Equipment Guides</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../blog.html">Blog</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Get the latest fitness tips and tool updates delivered to your inbox.</p>
+                    <form class="newsletter-form" action="#subscribe" method="post">
+                        <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Body Fat Calculator functionality
+        document.getElementById('method').addEventListener('change', function() {
+            // Hide all method fields
+            document.querySelectorAll('.method-fields').forEach(field => {
+                field.style.display = 'none';
+            });
+            
+            // Show selected method fields
+            const selectedMethod = this.value;
+            if (selectedMethod === 'us-navy') {
+                document.getElementById('us-navy-fields').style.display = 'block';
+            } else if (selectedMethod === 'skinfold') {
+                document.getElementById('skinfold-fields').style.display = 'block';
+            }
+        });
+
+        // Show/hide female-specific fields
+        document.querySelectorAll('input[name="gender"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const femaleFields = document.querySelectorAll('.female-only');
+                const hipGroup = document.getElementById('hip-group');
+                
+                if (this.value === 'female') {
+                    femaleFields.forEach(field => field.style.display = 'block');
+                    hipGroup.style.display = 'block';
+                } else {
+                    femaleFields.forEach(field => field.style.display = 'none');
+                    hipGroup.style.display = 'none';
+                }
+            });
+        });
+
+        document.getElementById('body-fat-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateBodyFat();
+        });
+
+        function calculateBodyFat() {
+            // Get input values
+            const method = document.getElementById('method').value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const age = parseInt(document.getElementById('age').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const weightUnit = document.getElementById('weight-unit').value;
+            const heightUnit = document.getElementById('height-unit').value;
+
+            // Convert to metric units if needed
+            let weightKg = weight;
+            let heightCm = height;
+
+            if (weightUnit === 'lbs') {
+                weightKg = weight * 0.453592;
+            }
+
+            if (heightUnit === 'ft') {
+                const feet = Math.floor(height);
+                const inches = Math.round((height - feet) * 10);
+                heightCm = (feet * 12 + inches) * 2.54;
+            }
+
+            let bodyFatPercentage;
+
+            // Calculate based on method
+            if (method === 'us-navy') {
+                bodyFatPercentage = calculateUSNavy(gender, heightCm, weightKg);
+            } else if (method === 'bmi') {
+                bodyFatPercentage = calculateBMIBased(gender, weightKg, heightCm, age);
+            } else if (method === 'skinfold') {
+                bodyFatPercentage = calculateSkinfold(gender, age);
+            }
+
+            // Calculate body composition
+            const fatMassKg = weightKg * (bodyFatPercentage / 100);
+            const leanMassKg = weightKg - fatMassKg;
+
+            // Get category
+            const category = getBodyFatCategory(gender, bodyFatPercentage);
+
+            // Display results
+            document.getElementById('bf-percentage').textContent = bodyFatPercentage.toFixed(1) + '%';
+            document.getElementById('bf-category').textContent = category;
+            document.getElementById('fat-mass').textContent = fatMassKg.toFixed(1) + ' kg';
+            document.getElementById('lean-mass').textContent = leanMassKg.toFixed(1) + ' kg';
+
+            // Display categories chart
+            displayBodyFatCategories(gender, bodyFatPercentage);
+
+            // Generate recommendations
+            const recommendations = generateRecommendations(gender, bodyFatPercentage, age);
+            document.getElementById('recommendation-text').textContent = recommendations;
+
+            // Show results section
+            const resultsElement = document.getElementById('body-fat-results');
+            resultsElement.style.display = 'block';
+            resultsElement.classList.add('show');
+
+            // Scroll to results
+            document.getElementById('body-fat-results').scrollIntoView({ behavior: 'smooth' });
+
+            // Track usage
+            if (window.calculatorUtils) {
+                window.calculatorUtils.trackToolUsage('Body Fat Calculator');
+            }
+        }
+
+        function calculateUSNavy(gender, heightCm, weightKg) {
+            // Get circumference measurements and convert to cm if needed
+            const neckUnit = document.getElementById('neck-unit').value;
+            const waistUnit = document.getElementById('waist-unit').value;
+            
+            let neckCm = parseFloat(document.getElementById('neck').value) || 0;
+            let waistCm = parseFloat(document.getElementById('waist').value) || 0;
+            let hipCm = 0;
+
+            if (neckUnit === 'in') {
+                neckCm *= 2.54;
+            }
+            if (waistUnit === 'in') {
+                waistCm *= 2.54;
+            }
+
+            if (gender === 'female') {
+                const hipUnit = document.getElementById('hip-unit').value;
+                const hipValue = document.getElementById('hip').value;
+                hipCm = hipValue ? parseFloat(hipValue) : 0;
+                if (hipUnit === 'in' && hipValue) {
+                    hipCm *= 2.54;
+                }
+            }
+
+            // US Navy formula
+            let bodyFatPercentage;
+            if (gender === 'male') {
+                const logValue = Math.log10(waistCm - neckCm);
+                bodyFatPercentage = 495 / (1.0324 - 0.19077 * logValue + 0.15456 * (heightCm / 100)) - 450;
+            } else {
+                const logValue = Math.log10(waistCm + hipCm - neckCm);
+                bodyFatPercentage = 495 / (1.29579 - 0.35004 * logValue + 0.22100 * (heightCm / 100)) - 450;
+            }
+
+            return bodyFatPercentage;
+        }
+
+        function calculateBMIBased(gender, weightKg, heightCm, age) {
+            const bmi = weightKg / Math.pow(heightCm / 100, 2);
+            
+            let bodyFatPercentage;
+            if (gender === 'male') {
+                bodyFatPercentage = (1.20 * bmi) + (0.23 * age) - 16.2;
+            } else {
+                bodyFatPercentage = (1.20 * bmi) + (0.23 * age) - 5.4;
+            }
+
+            return bodyFatPercentage;
+        }
+
+        function calculateSkinfold(gender, age) {
+            let sumSkinfolds;
+            
+            if (gender === 'male') {
+                const chest = parseFloat(document.getElementById('chest').value) || 0;
+                const abdominal = parseFloat(document.getElementById('abdominal').value) || 0;
+                const thigh = parseFloat(document.getElementById('thigh').value) || 0;
+                sumSkinfolds = chest + abdominal + thigh;
+                
+                // Jackson-Pollock 3-site formula for men
+                const bodyDensity = 1.10938 - (0.0008267 * sumSkinfolds) + (0.0000016 * sumSkinfolds * sumSkinfolds) - (0.0002574 * age);
+                return ((4.95 / bodyDensity) - 4.5) * 100;
+            } else {
+                const triceps = parseFloat(document.getElementById('triceps').value) || 0;
+                const suprailiac = parseFloat(document.getElementById('suprailiac').value) || 0;
+                const thigh = parseFloat(document.getElementById('thigh').value) || 0;
+                sumSkinfolds = triceps + suprailiac + thigh;
+                
+                // Jackson-Pollock 3-site formula for women
+                const bodyDensity = 1.0994921 - (0.0009929 * sumSkinfolds) + (0.0000023 * sumSkinfolds * sumSkinfolds) - (0.0001392 * age);
+                return ((4.95 / bodyDensity) - 4.5) * 100;
+            }
+        }
+
+        function getBodyFatCategory(gender, percentage) {
+            if (gender === 'male') {
+                if (percentage < 6) return 'Essential Fat';
+                if (percentage < 14) return 'Athletes';
+                if (percentage < 18) return 'Fitness';
+                if (percentage < 25) return 'Acceptable';
+                return 'Obese';
+            } else {
+                if (percentage < 14) return 'Essential Fat';
+                if (percentage < 21) return 'Athletes';
+                if (percentage < 25) return 'Fitness';
+                if (percentage < 32) return 'Acceptable';
+                return 'Obese';
+            }
+        }
+
+        function displayBodyFatCategories(gender, currentPercentage) {
+            const rangesContainer = document.getElementById('bf-ranges');
+            rangesContainer.innerHTML = '';
+
+            const ranges = gender === 'male' ? 
+                [
+                    { name: 'Essential Fat', min: 0, max: 6, color: '#3b82f6' },
+                    { name: 'Athletes', min: 6, max: 14, color: '#10b981' },
+                    { name: 'Fitness', min: 14, max: 18, color: '#f59e0b' },
+                    { name: 'Acceptable', min: 18, max: 25, color: '#f97316' },
+                    { name: 'Obese', min: 25, max: 50, color: '#ef4444' }
+                ] :
+                [
+                    { name: 'Essential Fat', min: 0, max: 14, color: '#3b82f6' },
+                    { name: 'Athletes', min: 14, max: 21, color: '#10b981' },
+                    { name: 'Fitness', min: 21, max: 25, color: '#f59e0b' },
+                    { name: 'Acceptable', min: 25, max: 32, color: '#f97316' },
+                    { name: 'Obese', min: 32, max: 50, color: '#ef4444' }
+                ];
+
+            ranges.forEach(range => {
+                const rangeItem = document.createElement('div');
+                rangeItem.className = 'range-item';
+                rangeItem.style.background = range.color;
+                rangeItem.style.color = 'white';
+                
+                if (currentPercentage >= range.min && currentPercentage < range.max) {
+                    rangeItem.style.border = '3px solid #333';
+                    rangeItem.style.fontWeight = 'bold';
+                }
+                
+                rangeItem.innerHTML = `
+                    <span class="range-label">${range.name}</span>
+                    <span class="range-value">${range.min}-${range.max}%</span>
+                `;
+                
+                rangesContainer.appendChild(rangeItem);
+            });
+        }
+
+        function generateRecommendations(gender, percentage, age) {
+            const category = getBodyFatCategory(gender, percentage);
+            let recommendations = '';
+
+            switch(category) {
+                case 'Essential Fat':
+                    recommendations = 'Your body fat percentage is at essential levels. This is typical for elite athletes but may be too low for general health. Ensure adequate nutrition and consider consulting a sports nutritionist.';
+                    break;
+                case 'Athletes':
+                    recommendations = 'Excellent! You have an athletic body fat percentage. Maintain your current training and nutrition regimen. Focus on performance and recovery.';
+                    break;
+                case 'Fitness':
+                    recommendations = 'Great job! You\'re in the fitness range. Continue with balanced nutrition and regular exercise. Consider strength training to maintain lean mass.';
+                    break;
+                case 'Acceptable':
+                    recommendations = 'You\'re in a healthy range. For optimal fitness, consider incorporating more strength training and cardiovascular exercise. Focus on nutrient-dense foods.';
+                    break;
+                case 'Obese':
+                    recommendations = 'Consider a structured approach to reduce body fat through a combination of caloric deficit, regular exercise (both cardio and strength training), and adequate protein. Consult healthcare professionals for personalized guidance.';
+                    break;
+            }
+
+            return recommendations;
+        }
+
+        function shareResults() {
+            const percentage = document.getElementById('bf-percentage').textContent;
+            const category = document.getElementById('bf-category').textContent;
+            const text = `My body fat percentage is ${percentage} (${category}). Calculate yours at Sports Tools Hub!`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Body Fat Calculator Results',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback - copy to clipboard
+                navigator.clipboard.writeText(text + ' ' + window.location.href);
+                alert('Results copied to clipboard!');
+            }
+        }
+    </script>
+</body>
+</html>

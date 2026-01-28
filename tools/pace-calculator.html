@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your running pace and race time predictions with our free pace calculator. Get splits, target paces, and performance predictions for various distances.">
+    <meta name="keywords" content="pace calculator, running pace, race time predictor, running splits, marathon pace, 5k pace, 10k pace">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Pace Calculator - Free Running Pace and Race Time Predictor">
+    <meta property="og:description" content="Calculate your running pace, race times, and training splits for optimal performance">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstools.com/tools/pace-calculator.html">
+    <title>Pace Calculator - Free Running Pace and Race Time Predictor | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstools.com/tools/pace-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../calculator-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <span class="brand-icon">⚡</span>
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
+                            <li role="none"><a href="#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#about" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">Pace Calculator</h1>
+                <p class="tool-subtitle">Calculate your running pace, race time predictions, and training splits for optimal performance</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="calculator-form">
+                        <div class="calculator-card">
+                            <h2>Calculate Your Running Pace</h2>
+                            <form id="pace-form" aria-labelledby="pace-form-title">
+                                <h3 id="pace-form-title" class="sr-only">Pace Calculation Form</h3>
+                                
+                                <div class="form-group">
+                                    <label for="calculation-type">Calculation Type</label>
+                                    <select id="calculation-type" name="calculation-type" required 
+                                            aria-describedby="calc-type-help">
+                                        <option value="">Select calculation type</option>
+                                        <option value="time-distance">Calculate Pace from Time & Distance</option>
+                                        <option value="pace-distance">Calculate Time from Pace & Distance</option>
+                                        <option value="race-prediction">Race Time Prediction</option>
+                                    </select>
+                                    <small id="calc-type-help">Choose what you want to calculate</small>
+                                </div>
+
+                                <!-- Time & Distance Fields -->
+                                <div id="time-distance-fields" class="calc-fields" style="display: none;">
+                                    <h4>Enter Your Race Details</h4>
+                                    
+                                    <div class="form-group">
+                                        <label for="distance">Distance</label>
+                                        <div class="input-group">
+                                            <input type="number" id="distance" name="distance" step="0.01" min="0.1" 
+                                                   aria-describedby="distance-help" placeholder="Enter distance">
+                                            <select id="distance-unit" name="distance-unit" aria-label="Distance unit">
+                                                <option value="km">kilometers</option>
+                                                <option value="miles">miles</option>
+                                                <option value="meters">meters</option>
+                                                <option value="yards">yards</option>
+                                            </select>
+                                        </div>
+                                        <small id="distance-help">Enter the distance you ran</small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="time-hours">Time</label>
+                                        <div class="time-input-group">
+                                            <input type="number" id="time-hours" name="time-hours" min="0" max="23" 
+                                                   placeholder="HH" aria-label="Hours">
+                                            <span>:</span>
+                                            <input type="number" id="time-minutes" name="time-minutes" min="0" max="59" 
+                                                   placeholder="MM" aria-label="Minutes">
+                                            <span>:</span>
+                                            <input type="number" id="time-seconds" name="time-seconds" min="0" max="59" 
+                                                   placeholder="SS" aria-label="Seconds">
+                                        </div>
+                                        <small>Enter your finishing time</small>
+                                    </div>
+                                </div>
+
+                                <!-- Pace & Distance Fields -->
+                                <div id="pace-distance-fields" class="calc-fields" style="display: none;">
+                                    <h4>Enter Your Target Pace</h4>
+                                    
+                                    <div class="form-group">
+                                        <label for="target-distance">Target Distance</label>
+                                        <div class="input-group">
+                                            <input type="number" id="target-distance" name="target-distance" step="0.01" min="0.1" 
+                                                   placeholder="Enter distance">
+                                            <select id="target-distance-unit" name="target-distance-unit" aria-label="Distance unit">
+                                                <option value="km">kilometers</option>
+                                                <option value="miles">miles</option>
+                                                <option value="meters">meters</option>
+                                                <option value="yards">yards</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="target-pace">Target Pace</label>
+                                        <div class="pace-input-group">
+                                            <input type="number" id="pace-minutes" name="pace-minutes" min="0" max="59" 
+                                                   placeholder="MM" aria-label="Minutes per mile/km">
+                                            <span>:</span>
+                                            <input type="number" id="pace-seconds" name="pace-seconds" min="0" max="59" 
+                                                   placeholder="SS" aria-label="Seconds per mile/km">
+                                            <select id="pace-unit" name="pace-unit" aria-label="Pace unit">
+                                                <option value="min-per-km">min/km</option>
+                                                <option value="min-per-mile">min/mile</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Race Prediction Fields -->
+                                <div id="race-prediction-fields" class="calc-fields" style="display: none;">
+                                    <h4>Enter Recent Race Time</h4>
+                                    
+                                    <div class="form-group">
+                                        <label for="recent-distance">Recent Race Distance</label>
+                                        <select id="recent-distance" name="recent-distance" required>
+                                            <option value="">Select race distance</option>
+                                            <option value="5k">5K</option>
+                                            <option value="10k">10K</option>
+                                            <option value="half-marathon">Half Marathon</option>
+                                            <option value="marathon">Marathon</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="recent-time">Recent Race Time</label>
+                                        <div class="time-input-group">
+                                            <input type="number" id="recent-hours" name="recent-hours" min="0" max="23" 
+                                                   placeholder="HH" aria-label="Hours">
+                                            <span>:</span>
+                                            <input type="number" id="recent-minutes" name="recent-minutes" min="0" max="59" 
+                                                   placeholder="MM" aria-label="Minutes">
+                                            <span>:</span>
+                                            <input type="number" id="recent-seconds" name="recent-seconds" min="0" max="59" 
+                                                   placeholder="SS" aria-label="Seconds">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary calculator-btn">Calculate</button>
+                                <button type="reset" class="btn btn-secondary calculator-btn">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="calculator-results">
+                        <div class="results-card" id="pace-results" style="display: none;">
+                            <h2>Your Pace Results</h2>
+                            
+                            <div id="pace-display">
+                                <!-- Results will be populated based on calculation type -->
+                            </div>
+
+                            <div class="pace-splits" id="pace-splits" style="display: none;">
+                                <h3>Race Splits</h3>
+                                <div class="splits-table" id="splits-table">
+                                    <!-- Splits will be populated here -->
+                                </div>
+                            </div>
+
+                            <div class="pace-predictions" id="pace-predictions" style="display: none;">
+                                <h3>Race Time Predictions</h3>
+                                <div class="predictions-grid" id="predictions-grid">
+                                    <!-- Predictions will be populated here -->
+                                </div>
+                            </div>
+
+                            <div class="pace-recommendations" id="pace-recommendations">
+                                <h3>Training Recommendations</h3>
+                                <div id="recommendation-text" class="recommendation-content">
+                                    <!-- Recommendations will be inserted here -->
+                                </div>
+                            </div>
+
+                            <div class="pace-actions">
+                                <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                                <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                            </div>
+                        </div>
+
+                        <!-- Pace Information -->
+                        <div class="info-card">
+                            <h2>About Running Pace</h2>
+                            <p>Running pace is a key metric for tracking performance and planning training strategies. Understanding your pace helps you set realistic goals and optimize your training.</p>
+                            
+                            <h3>Pace Types</h3>
+                            <ul>
+                                <li><strong>Easy Pace:</strong> Comfortable conversational pace for base building</li>
+                                <li><strong>Tempo Pace:</strong> "Comfortably hard" pace for threshold training</li>
+                                <li><strong>Interval Pace:</strong> Fast pace for high-intensity interval training</li>
+                                <li><strong>Race Pace:</strong> Goal pace for your target race distance</li>
+                            </ul>
+                            
+                            <h3>Training Zones</h3>
+                            <ul>
+                                <li><strong>Zone 1 (Recovery):</strong> Very easy, 65-75% of max heart rate</li>
+                                <li><strong>Zone 2 (Endurance):</strong> Easy, 75-80% of max heart rate</li>
+                                <li><strong>Zone 3 (Tempo):</strong> Moderate, 80-85% of max heart rate</li>
+                                <li><strong>Zone 4 (Threshold):</strong> Hard, 85-90% of max heart rate</li>
+                                <li><strong>Zone 5 (VO2 Max):</strong> Very hard, 90-100% of max heart rate</li>
+                            </ul>
+                            
+                            <h3>Race Prediction Formulas</h3>
+                            <ul>
+                                <li><strong>Riegel Formula:</strong> Predicts race times based on recent performance</li>
+                                <li><strong>Age Grading:</strong> Compares performance to age-group standards</li>
+                                <li><strong>VDOT Calculator:</strong> Estimates aerobic capacity from race times</li>
+                            </ul>
+                            
+                            <h3>Pace Improvement Tips</h3>
+                            <ul>
+                                <li>Consistent training with varied intensities</li>
+                                <li>Proper recovery and rest days</li>
+                                <li>Strength training for running economy</li>
+                                <li>Nutrition and hydration optimization</li>
+                                <li>Regular pace testing and adjustment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tools & Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="#fitness-calculators">BMI Calculator</a></li>
+                            <li><a href="#performance-trackers">Pace Calculator</a></li>
+                            <li><a href="#nutrition-tools">Macro Calculator</a></li>
+                            <li><a href="#training-equipment">Equipment Guides</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../blog.html">Blog</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Get the latest fitness tips and tool updates delivered to your inbox.</p>
+                    <form class="newsletter-form" action="#subscribe" method="post">
+                        <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Pace Calculator functionality
+        document.getElementById('calculation-type').addEventListener('change', function() {
+            // Hide all calculation fields
+            document.querySelectorAll('.calc-fields').forEach(field => {
+                field.style.display = 'none';
+            });
+            
+            // Show selected calculation fields
+            const selectedType = this.value;
+            if (selectedType === 'time-distance') {
+                document.getElementById('time-distance-fields').style.display = 'block';
+            } else if (selectedType === 'pace-distance') {
+                document.getElementById('pace-distance-fields').style.display = 'block';
+            } else if (selectedType === 'race-prediction') {
+                document.getElementById('race-prediction-fields').style.display = 'block';
+            }
+        });
+
+        document.getElementById('pace-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculatePace();
+        });
+
+        function calculatePace() {
+            const calculationType = document.getElementById('calculation-type').value;
+            let resultsHTML = '';
+
+            if (calculationType === 'time-distance') {
+                resultsHTML = calculatePaceFromTimeDistance();
+            } else if (calculationType === 'pace-distance') {
+                resultsHTML = calculateTimeFromPaceDistance();
+            } else if (calculationType === 'race-prediction') {
+                resultsHTML = calculateRacePredictions();
+            }
+
+            // Display results
+            document.getElementById('pace-display').innerHTML = resultsHTML;
+            const resultsElement = document.getElementById('pace-results');
+            resultsElement.style.display = 'block';
+            resultsElement.classList.add('show');
+
+            // Scroll to results
+            document.getElementById('pace-results').scrollIntoView({ behavior: 'smooth' });
+
+            // Track usage
+            if (window.calculatorUtils) {
+                window.calculatorUtils.trackToolUsage('Pace Calculator');
+            }
+        }
+
+        function calculatePaceFromTimeDistance() {
+            const distance = parseFloat(document.getElementById('distance').value);
+            const distanceUnit = document.getElementById('distance-unit').value;
+            const hours = parseInt(document.getElementById('time-hours').value) || 0;
+            const minutes = parseInt(document.getElementById('time-minutes').value) || 0;
+            const seconds = parseInt(document.getElementById('time-seconds').value) || 0;
+
+            // Convert distance to meters
+            let distanceMeters = distance;
+            if (distanceUnit === 'km') {
+                distanceMeters = distance * 1000;
+            } else if (distanceUnit === 'miles') {
+                distanceMeters = distance * 1609.34;
+            } else if (distanceUnit === 'yards') {
+                distanceMeters = distance * 0.9144;
+            }
+
+            // Convert time to seconds
+            const totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+
+            // Calculate pace (seconds per km)
+            const paceSecondsPerKm = totalSeconds / (distanceMeters / 1000);
+            const paceSecondsPerMile = totalSeconds / (distanceMeters / 1609.34);
+
+            // Convert to mm:ss format
+            const paceMinutesPerKm = Math.floor(paceSecondsPerKm / 60);
+            const paceSecondsPerKmRemainder = Math.round(paceSecondsPerKm % 60);
+            const paceMinutesPerMile = Math.floor(paceSecondsPerMile / 60);
+            const paceSecondsPerMileRemainder = Math.round(paceSecondsPerMile % 60);
+
+            // Calculate speed
+            const speedKmh = (distanceMeters / 1000) / (totalSeconds / 3600);
+            const speedMph = (distanceMeters / 1609.34) / (totalSeconds / 3600);
+
+            // Generate splits
+            generateSplits(paceSecondsPerKm, distanceMeters);
+
+            // Generate recommendations
+            const recommendations = generatePaceRecommendations(paceSecondsPerKm, distanceMeters);
+            document.getElementById('recommendation-text').textContent = recommendations;
+
+            return `
+                <div class="pace-results-display">
+                    <div class="pace-main-result">
+                        <h3>Your Running Pace</h3>
+                        <div class="pace-value">${paceMinutesPerKm}:${paceSecondsPerKmRemainder.toString().padStart(2, '0')} min/km</div>
+                        <div class="pace-value-alt">${paceMinutesPerMile}:${paceSecondsPerMileRemainder.toString().padStart(2, '0')} min/mile</div>
+                    </div>
+                    
+                    <div class="pace-speed-display">
+                        <h3>Speed</h3>
+                        <div class="speed-value">${speedKmh.toFixed(2)} km/h</div>
+                        <div class="speed-value-alt">${speedMph.toFixed(2)} mph</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function calculateTimeFromPaceDistance() {
+            const distance = parseFloat(document.getElementById('target-distance').value);
+            const distanceUnit = document.getElementById('target-distance-unit').value;
+            const paceMinutes = parseInt(document.getElementById('pace-minutes').value) || 0;
+            const paceSeconds = parseInt(document.getElementById('pace-seconds').value) || 0;
+            const paceUnit = document.getElementById('pace-unit').value;
+
+            // Convert distance to meters
+            let distanceMeters = distance;
+            if (distanceUnit === 'km') {
+                distanceMeters = distance * 1000;
+            } else if (distanceUnit === 'miles') {
+                distanceMeters = distance * 1609.34;
+            } else if (distanceUnit === 'yards') {
+                distanceMeters = distance * 0.9144;
+            }
+
+            // Calculate total time in seconds
+            let paceSecondsPerUnit = (paceMinutes * 60) + paceSeconds;
+            let totalSeconds;
+
+            if (paceUnit === 'min-per-km') {
+                totalSeconds = paceSecondsPerUnit * (distanceMeters / 1000);
+            } else {
+                totalSeconds = paceSecondsPerUnit * (distanceMeters / 1609.34);
+            }
+
+            // Convert to hh:mm:ss format
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = Math.round(totalSeconds % 60);
+
+            // Generate splits
+            const paceSecondsPerKm = paceUnit === 'min-per-km' ? paceSecondsPerUnit : paceSecondsPerUnit * 0.621371;
+            generateSplits(paceSecondsPerKm, distanceMeters);
+
+            // Generate recommendations
+            const recommendations = generatePaceRecommendations(paceSecondsPerKm, distanceMeters);
+            document.getElementById('recommendation-text').textContent = recommendations;
+
+            return `
+                <div class="time-results-display">
+                    <div class="time-main-result">
+                        <h3>Predicted Finish Time</h3>
+                        <div class="time-value">${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}</div>
+                    </div>
+                    
+                    <div class="target-pace-display">
+                        <h3>Target Pace</h3>
+                        <div class="pace-value">${paceMinutes}:${paceSeconds.toString().padStart(2, '0')} ${paceUnit}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function calculateRacePredictions() {
+            const recentDistance = document.getElementById('recent-distance').value;
+            const hours = parseInt(document.getElementById('recent-hours').value) || 0;
+            const minutes = parseInt(document.getElementById('recent-minutes').value) || 0;
+            const seconds = parseInt(document.getElementById('recent-seconds').value) || 0;
+
+            const totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+
+            // Distance in meters
+            const distances = {
+                '5k': 5000,
+                '10k': 10000,
+                'half-marathon': 21097.5,
+                'marathon': 42195
+            };
+
+            const recentDistanceMeters = distances[recentDistance];
+
+            // Generate predictions for other distances
+            const predictions = generateRacePredictions(totalSeconds, recentDistanceMeters);
+            displayRacePredictions(predictions);
+
+            // Generate recommendations
+            const recommendations = generateRaceRecommendations(predictions);
+            document.getElementById('recommendation-text').textContent = recommendations;
+
+            return `
+                <div class="prediction-results-display">
+                    <div class="recent-race-result">
+                        <h3>Recent Race Performance</h3>
+                        <div class="race-distance">${recentDistance.toUpperCase()}</div>
+                        <div class="race-time">${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateSplits(paceSecondsPerKm, totalDistanceMeters) {
+            const splitsContainer = document.getElementById('pace-splits');
+            const splitsTable = document.getElementById('splits-table');
+            
+            // Generate splits for each kilometer or mile
+            const splitDistance = totalDistanceMeters >= 5000 ? 1000 : 1000; // Use km for simplicity
+            const numberOfSplits = Math.floor(totalDistanceMeters / splitDistance);
+            
+            let splitsHTML = '<div class="splits-grid">';
+            
+            for (let i = 1; i <= numberOfSplits; i++) {
+                const splitTimeSeconds = paceSecondsPerKm * i;
+                const splitHours = Math.floor(splitTimeSeconds / 3600);
+                const splitMinutes = Math.floor((splitTimeSeconds % 3600) / 60);
+                const splitSeconds = Math.round(splitTimeSeconds % 60);
+                
+                const cumulativeTime = splitHours > 0 ? 
+                    `${splitHours.toString().padStart(2, '0')}:${splitMinutes.toString().padStart(2, '0')}:${splitSeconds.toString().padStart(2, '0')}` :
+                    `${splitMinutes.toString().padStart(2, '0')}:${splitSeconds.toString().padStart(2, '0')}`;
+                
+                splitsHTML += `
+                    <div class="split-item">
+                        <div class="split-distance">Km ${i}</div>
+                        <div class="split-time">${cumulativeTime}</div>
+                    </div>
+                `;
+            }
+            
+            splitsHTML += '</div>';
+            splitsTable.innerHTML = splitsHTML;
+            splitsContainer.style.display = 'block';
+        }
+
+        function generateRacePredictions(recentTimeSeconds, recentDistanceMeters) {
+            const predictions = [];
+            const distances = [
+                { name: '5K', meters: 5000 },
+                { name: '10K', meters: 10000 },
+                { name: 'Half Marathon', meters: 21097.5 },
+                { name: 'Marathon', meters: 42195 }
+            ];
+
+            // Riegel formula for race prediction
+            const exponent = 1.06;
+
+            distances.forEach(dist => {
+                if (dist.meters !== recentDistanceMeters) {
+                    const predictedTimeSeconds = recentTimeSeconds * Math.pow(dist.meters / recentDistanceMeters, exponent);
+                    
+                    const hours = Math.floor(predictedTimeSeconds / 3600);
+                    const minutes = Math.floor((predictedTimeSeconds % 3600) / 60);
+                    const seconds = Math.round(predictedTimeSeconds % 60);
+                    
+                    const timeString = hours > 0 ? 
+                        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}` :
+                        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    
+                    predictions.push({
+                        distance: dist.name,
+                        time: timeString,
+                        seconds: predictedTimeSeconds
+                    });
+                }
+            });
+
+            return predictions;
+        }
+
+        function displayRacePredictions(predictions) {
+            const predictionsContainer = document.getElementById('pace-predictions');
+            const predictionsGrid = document.getElementById('predictions-grid');
+            
+            let predictionsHTML = '<div class="predictions-list">';
+            
+            predictions.forEach(pred => {
+                predictionsHTML += `
+                    <div class="prediction-item">
+                        <div class="prediction-distance">${pred.distance}</div>
+                        <div class="prediction-time">${pred.time}</div>
+                    </div>
+                `;
+            });
+            
+            predictionsHTML += '</div>';
+            predictionsGrid.innerHTML = predictionsHTML;
+            predictionsContainer.style.display = 'block';
+        }
+
+        function generatePaceRecommendations(paceSecondsPerKm, distanceMeters) {
+            const paceMinutes = Math.floor(paceSecondsPerKm / 60);
+            const paceSeconds = Math.round(paceSecondsPerKm % 60);
+            const totalDistanceKm = distanceMeters / 1000;
+            
+            let recommendations = '';
+            
+            if (totalDistanceKm >= 42.195) {
+                recommendations = 'For marathon training, include long runs at 30-60 seconds slower than goal pace, tempo runs at goal pace, and interval training at faster paces. Focus on nutrition and hydration during long runs.';
+            } else if (totalDistanceKm >= 21.0975) {
+                recommendations = 'For half marathon training, build your long run distance gradually, include tempo runs at goal pace, and add speed work to improve your lactate threshold.';
+            } else if (totalDistanceKm >= 10) {
+                recommendations = 'For 10K training, focus on threshold runs and interval training. Include weekly long runs and maintain consistency in your training schedule.';
+            } else {
+                recommendations = 'For 5K training, incorporate interval training, tempo runs, and hill repeats. Focus on leg speed and running economy.';
+            }
+            
+            return recommendations;
+        }
+
+        function generateRaceRecommendations(predictions) {
+            return 'These predictions are based on the Riegel formula and assume consistent training and ideal race conditions. Use them as goal-setting tools, but remember that factors like weather, terrain, and race day performance can affect actual times.';
+        }
+
+        function shareResults() {
+            const text = `Check out my running pace calculations at Sports Tools Hub!`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Pace Calculator Results',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback - copy to clipboard
+                navigator.clipboard.writeText(text + ' ' + window.location.href);
+                alert('Results copied to clipboard!');
+            }
+        }
+    </script>
+</body>
+</html>

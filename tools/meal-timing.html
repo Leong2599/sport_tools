@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plan your optimal meal timing and nutrient schedule with our free meal timing planner. Get personalized recommendations for pre and post-workout nutrition.">
+    <meta name="keywords" content="meal timing planner, nutrient timing, pre workout meal, post workout nutrition, meal schedule, nutrition timing">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Meal Timing Planner - Free Nutrition Schedule Planner">
+    <meta property="og:description" content="Plan your optimal meal timing and nutrient schedule for workouts and daily performance">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstools.com/tools/meal-timing.html">
+    <title>Meal Timing Planner - Free Nutrition Schedule Planner | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstools.com/tools/meal-timing.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../calculator-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <span class="brand-icon">⚡</span>
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
+                            <li role="none"><a href="#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#about" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">Meal Timing Planner</h1>
+                <p class="tool-subtitle">Plan your optimal meal timing and nutrient schedule for workouts and daily performance</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="calculator-form">
+                        <div class="calculator-card">
+                            <h2>Plan Your Meal Timing Schedule</h2>
+                            <form id="meal-timing-form" aria-labelledby="meal-timing-form-title">
+                                <h3 id="meal-timing-form-title" class="sr-only">Meal Timing Planning Form</h3>
+                                
+                                <div class="form-group">
+                                    <label for="primary-goal">Primary Fitness Goal</label>
+                                    <select id="primary-goal" name="primary-goal" required>
+                                        <option value="">Select your primary goal</option>
+                                        <option value="muscle-gain">Muscle Gain (Hypertrophy)</option>
+                                        <option value="fat-loss">Fat Loss (Weight Loss)</option>
+                                        <option value="performance">Athletic Performance</option>
+                                        <option value="endurance">Endurance Training</option>
+                                        <option value="strength">Strength Training</option>
+                                        <option value="general-health">General Health</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="workout-schedule">Workout Schedule</label>
+                                    <select id="workout-schedule" name="workout-schedule" required>
+                                        <option value="">Select your workout schedule</option>
+                                        <option value="early-morning">Early Morning (5-8 AM)</option>
+                                        <option value="mid-morning">Mid-Morning (9-11 AM)</option>
+                                        <option value="lunch-time">Lunch Time (12-2 PM)</option>
+                                        <option value="afternoon">Afternoon (3-5 PM)</option>
+                                        <option value="evening">Evening (6-8 PM)</option>
+                                        <option value="night">Night (9-11 PM)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="workout-duration">Typical Workout Duration</label>
+                                    <select id="workout-duration" name="workout-duration" required>
+                                        <option value="">Select workout duration</option>
+                                        <option value="short">Short (30-45 minutes)</option>
+                                        <option value="medium">Medium (45-75 minutes)</option>
+                                        <option value="long">Long (75-120 minutes)</option>
+                                        <option value="very-long">Very Long (2+ hours)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="workout-intensity">Workout Intensity</label>
+                                    <select id="workout-intensity" name="workout-intensity" required>
+                                        <option value="">Select workout intensity</option>
+                                        <option value="low">Low (Light, recovery)</option>
+                                        <option value="moderate">Moderate (Steady pace)</option>
+                                        <option value="high">High (Intense, challenging)</option>
+                                        <option value="very-high">Very High (Maximum effort)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="meal-frequency">Daily Meal Frequency</label>
+                                    <select id="meal-frequency" name="meal-frequency" required>
+                                        <option value="">Select meal frequency</option>
+                                        <option value="3">3 meals per day</option>
+                                        <option value="4">4 meals per day</option>
+                                        <option value="5">5 meals per day</option>
+                                        <option value="6">6 meals per day</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="wake-time">Typical Wake-Up Time</label>
+                                    <input type="time" id="wake-time" name="wake-time" required 
+                                           placeholder="Enter your wake-up time">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="sleep-time">Typical Bedtime</label>
+                                    <input type="time" id="sleep-time" name="sleep-time" required 
+                                           placeholder="Enter your bedtime">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="dietary-preferences">Dietary Preferences</label>
+                                    <select id="dietary-preferences" name="dietary-preferences" multiple>
+                                        <option value="">None (select if applicable)</option>
+                                        <option value="vegetarian">Vegetarian</option>
+                                        <option value="vegan">Vegan</option>
+                                        <option value="gluten-free">Gluten-Free</option>
+                                        <option value="dairy-free">Dairy-Free</option>
+                                        <option value="low-carb">Low Carb</option>
+                                        <option value="keto">Ketogenic</option>
+                                    </select>
+                                    <small>Hold Ctrl/Cmd to select multiple preferences</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="special-considerations">Special Considerations</label>
+                                    <select id="special-considerations" name="special-considerations" multiple>
+                                        <option value="">None (select if applicable)</option>
+                                        <option value="sensitive-stomach">Sensitive Stomach</option>
+                                        <option value="fast-metabolism">Fast Metabolism</option>
+                                        <option value="slow-metabolism">Slow Metabolism</option>
+                                        <option value="diabetes">Diabetes</option>
+                                        <option value="food-allergies">Food Allergies</option>
+                                        <option value="intermittent-fasting">Intermittent Fasting</option>
+                                    </select>
+                                    <small>Hold Ctrl/Cmd to select multiple considerations</small>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary calculator-btn">Create Meal Plan</button>
+                                <button type="reset" class="btn btn-secondary calculator-btn">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="calculator-results">
+                        <div class="results-card" id="meal-timing-results" style="display: none;">
+                            <h2>Your Personalized Meal Timing Plan</h2>
+                            
+                            <div class="meal-timing-display">
+                                <div class="timing-summary">
+                                    <h3>Optimal Meal Schedule</h3>
+                                    <div class="schedule-overview" id="schedule-overview">
+                                        <!-- Schedule overview will be populated here -->
+                                    </div>
+                                </div>
+                                
+                                <div class="workout-nutrition">
+                                    <h3>Workout Nutrition Timing</h3>
+                                    <div class="nutrition-timeline" id="nutrition-timeline">
+                                        <!-- Nutrition timeline will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="daily-schedule" id="daily-schedule">
+                                <h3>Detailed Daily Schedule</h3>
+                                <div class="schedule-grid" id="schedule-grid">
+                                    <!-- Detailed schedule will be populated here -->
+                                </div>
+                            </div>
+
+                            <div class="meal-recommendations" id="meal-recommendations">
+                                <h3>Meal Composition Guidelines</h3>
+                                <div class="recommendations-grid" id="recommendations-grid">
+                                    <!-- Meal recommendations will be populated here -->
+                                </div>
+                            </div>
+
+                            <div class="timing-tips" id="timing-tips">
+                                <h3>Timing Tips & Best Practices</h3>
+                                <div class="tips-grid" id="tips-grid">
+                                    <!-- Tips will be populated here -->
+                                </div>
+                            </div>
+
+                            <div class="timing-actions">
+                                <button class="btn btn-secondary" onclick="window.print()">Print Plan</button>
+                                <button class="btn btn-primary" onclick="shareResults()">Share Plan</button>
+                            </div>
+                        </div>
+
+                        <!-- Meal Timing Information -->
+                        <div class="info-card">
+                            <h2>About Meal Timing</h2>
+                            <p>Meal timing plays a crucial role in optimizing performance, recovery, and body composition. When you eat can be just as important as what you eat, especially around workouts.</p>
+                            
+                            <h3>Key Principles of Meal Timing</h3>
+                            <ul>
+                                <li><strong>Pre-Workout Nutrition:</strong> Fuel 1-3 hours before exercise</li>
+                                <li><strong>Post-Workout Nutrition:</strong> Recover within 30-60 minutes after exercise</li>
+                                <li><strong>Protein Timing:</strong> Distribute protein evenly throughout the day</li>
+                                <li><strong>Carb Timing:</strong> Time carbs around workouts for optimal performance</li>
+                                <li><strong>Meal Frequency:</strong> Eat every 3-4 hours to maintain energy</li>
+                            </ul>
+                            
+                            <h3>Pre-Workout Guidelines</h3>
+                            <ul>
+                                <li>Eat 2-3 hours before intense exercise</li>
+                                <li>Focus on easily digestible carbs</li>
+                                <li>Include moderate protein (10-20g)</li>
+                                <li>Limit fat and fiber to prevent digestive issues</li>
+                                <li>Hydrate well before exercise</li>
+                            </ul>
+                            
+                            <h3>Post-Workout Guidelines</h3>
+                            <ul>
+                                <li>Consume protein and carbs within 30-60 minutes</li>
+                                <li>Aim for 20-40g protein for muscle synthesis</li>
+                                <li>Include carbs to replenish glycogen</li>
+                                <li>Ratio 3:1 or 4:1 carbs:protein for endurance</li>
+                                <li>Continue hydration and electrolyte replacement</li>
+                            </ul>
+                            
+                            <h3>Goal-Specific Timing</h3>
+                            <ul>
+                                <li><strong>Muscle Gain:</strong> Higher protein, carbs around workouts</li>
+                                <li><strong>Fat Loss:</strong> Time carbs around workouts, protein throughout</li>
+                                <li><strong>Endurance:</strong> Carb loading before, recovery after</li>
+                                <li><strong>Strength:</strong> Protein focus, strategic carb timing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tools & Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="#fitness-calculators">BMI Calculator</a></li>
+                            <li><a href="#performance-trackers">Pace Calculator</a></li>
+                            <li><a href="#nutrition-tools">Macro Calculator</a></li>
+                            <li><a href="#training-equipment">Equipment Guides</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../blog.html">Blog</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Get the latest fitness tips and tool updates delivered to your inbox.</p>
+                    <form class="newsletter-form" action="#subscribe" method="post">
+                        <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Meal Timing Planner functionality
+        document.getElementById('meal-timing-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            createMealTimingPlan();
+        });
+
+        function createMealTimingPlan() {
+            // Get input values
+            const primaryGoal = document.getElementById('primary-goal').value;
+            const workoutSchedule = document.getElementById('workout-schedule').value;
+            const workoutDuration = document.getElementById('workout-duration').value;
+            const workoutIntensity = document.getElementById('workout-intensity').value;
+            const mealFrequency = parseInt(document.getElementById('meal-frequency').value);
+            const wakeTime = document.getElementById('wake-time').value;
+            const sleepTime = document.getElementById('sleep-time').value;
+            const dietaryPreferences = Array.from(document.getElementById('dietary-preferences').selectedOptions)
+                .map(option => option.value);
+            const specialConsiderations = Array.from(document.getElementById('special-considerations').selectedOptions)
+                .map(option => option.value);
+
+            // Generate meal timing plan
+            const mealPlan = generateMealPlan(primaryGoal, workoutSchedule, workoutDuration, 
+                                              workoutIntensity, mealFrequency, wakeTime, sleepTime, 
+                                              dietaryPreferences, specialConsiderations);
+
+            // Display results
+            displayMealTimingPlan(mealPlan);
+
+            // Show results section
+            const resultsElement = document.getElementById('meal-timing-results');
+            resultsElement.style.display = 'block';
+            resultsElement.classList.add('show');
+
+            // Scroll to results
+            document.getElementById('meal-timing-results').scrollIntoView({ behavior: 'smooth' });
+
+            // Track usage
+            if (window.calculatorUtils) {
+                window.calculatorUtils.trackToolUsage('Meal Timing Planner');
+            }
+        }
+
+        function generateMealPlan(goal, workoutTime, duration, intensity, frequency, wakeTime, sleepTime, preferences, considerations) {
+            const plan = {
+                goal: goal,
+                workoutTime: workoutTime,
+                duration: duration,
+                intensity: intensity,
+                frequency: frequency,
+                wakeTime: wakeTime,
+                sleepTime: sleepTime,
+                preferences: preferences,
+                considerations: considerations,
+                meals: []
+            };
+
+            // Calculate meal times based on wake time and frequency
+            let wakeHour, sleepHour, awakeHours, mealInterval;
+            
+            if (wakeTime && wakeTime.includes(':')) {
+                wakeHour = parseInt(wakeTime.split(':')[0]);
+            } else {
+                wakeHour = 6; // Default to 6 AM
+            }
+            
+            if (sleepTime && sleepTime.includes(':')) {
+                sleepHour = parseInt(sleepTime.split(':')[0]);
+            } else {
+                sleepHour = 22; // Default to 10 PM
+            }
+            
+            if (sleepHour > wakeHour) {
+                awakeHours = sleepHour - wakeHour;
+            } else {
+                awakeHours = (24 - wakeHour) + sleepHour;
+            }
+            
+            if (frequency && frequency > 0) {
+                mealInterval = awakeHours / frequency;
+            } else {
+                mealInterval = 4; // Default to 4 hours between meals
+            }
+
+            // Generate meal schedule
+            for (let i = 0; i < frequency; i++) {
+                const mealHour = wakeHour + (i * mealInterval);
+                const adjustedHour = mealHour >= 24 ? mealHour - 24 : mealHour;
+                
+                let mealType = getMealType(i, frequency, workoutTime);
+                let mealFocus = getMealFocus(mealType, goal, workoutTime, intensity);
+                
+                plan.meals.push({
+                    time: `${Math.floor(adjustedHour).toString().padStart(2, '0')}:00`,
+                    type: mealType,
+                    focus: mealFocus,
+                    preWorkout: isPreWorkout(mealType, workoutTime, mealInterval),
+                    postWorkout: isPostWorkout(mealType, workoutTime, mealInterval)
+                });
+            }
+
+            return plan;
+        }
+
+        function getMealType(index, frequency, workoutTime) {
+            const mealTypes = ['Breakfast', 'Morning Snack', 'Lunch', 'Afternoon Snack', 'Dinner', 'Evening Snack'];
+            
+            if (frequency === 3) {
+                return ['Breakfast', 'Lunch', 'Dinner'][index];
+            } else if (frequency === 4) {
+                return ['Breakfast', 'Lunch', 'Dinner', 'Evening Snack'][index];
+            } else if (frequency === 5) {
+                return ['Breakfast', 'Morning Snack', 'Lunch', 'Afternoon Snack', 'Dinner'][index];
+            } else {
+                return mealTypes[index] || `Meal ${index + 1}`;
+            }
+        }
+
+        function getMealFocus(mealType, goal, workoutTime, intensity) {
+            const focusMap = {
+                'Breakfast': { 'muscle-gain': 'High Protein', 'fat-loss': 'High Protein', 'performance': 'Balanced', 'endurance': 'Carb Focus' },
+                'Lunch': { 'muscle-gain': 'High Protein', 'fat-loss': 'Balanced', 'performance': 'Balanced', 'endurance': 'Carb Focus' },
+                'Dinner': { 'muscle-gain': 'High Protein', 'fat-loss': 'Moderate', 'performance': 'Balanced', 'endurance': 'Balanced' },
+                'Morning Snack': { 'muscle-gain': 'Protein', 'fat-loss': 'Light', 'performance': 'Energy', 'endurance': 'Carbs' },
+                'Afternoon Snack': { 'muscle-gain': 'Protein', 'fat-loss': 'Light', 'performance': 'Recovery', 'endurance': 'Carbs' },
+                'Evening Snack': { 'muscle-gain': 'Casein', 'fat-loss': 'Light', 'performance': 'Recovery', 'endurance': 'Light' }
+            };
+
+            return focusMap[mealType]?.[goal] || 'Balanced';
+        }
+
+        function isPreWorkout(mealType, workoutTime, mealInterval) {
+            // Simplified logic - in real implementation, would calculate actual timing
+            const preWorkoutMeals = {
+                'early-morning': ['Breakfast'],
+                'mid-morning': ['Breakfast', 'Morning Snack'],
+                'lunch-time': ['Morning Snack', 'Lunch'],
+                'afternoon': ['Lunch', 'Afternoon Snack'],
+                'evening': ['Afternoon Snack', 'Dinner'],
+                'night': ['Dinner', 'Evening Snack']
+            };
+
+            return preWorkoutMeals[workoutTime]?.includes(mealType) || false;
+        }
+
+        function isPostWorkout(mealType, workoutTime, mealInterval) {
+            // Simplified logic - in real implementation, would calculate actual timing
+            const postWorkoutMeals = {
+                'early-morning': ['Morning Snack'],
+                'mid-morning': ['Morning Snack', 'Lunch'],
+                'lunch-time': ['Lunch', 'Afternoon Snack'],
+                'afternoon': ['Afternoon Snack', 'Dinner'],
+                'evening': ['Dinner', 'Evening Snack'],
+                'night': ['Evening Snack']
+            };
+
+            return postWorkoutMeals[workoutTime]?.includes(mealType) || false;
+        }
+
+        function displayMealTimingPlan(plan) {
+            if (!plan) {
+                document.getElementById('schedule-overview').innerHTML = '<p class="error">Please fill all required fields to generate meal plan.</p>';
+                return;
+            }
+            // Display schedule overview
+            displayScheduleOverview(plan);
+
+            // Display nutrition timeline
+            displayNutritionTimeline(plan);
+
+            // Display detailed daily schedule
+            displayDailySchedule(plan);
+
+            // Display meal recommendations
+            displayMealRecommendations(plan);
+
+            // Display timing tips
+            displayTimingTips(plan);
+        }
+
+        function displayScheduleOverview(plan) {
+            const overview = document.getElementById('schedule-overview');
+            
+            let overviewHTML = `
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <div class="overview-label">Goal</div>
+                        <div class="overview-value">${plan.goal.replace('-', ' ').toUpperCase()}</div>
+                    </div>
+                    <div class="overview-item">
+                        <div class="overview-label">Workout</div>
+                        <div class="overview-value">${plan.workoutTime.replace('-', ' ').toUpperCase()}</div>
+                    </div>
+                    <div class="overview-item">
+                        <div class="overview-label">Meals</div>
+                        <div class="overview-value">${plan.frequency} per day</div>
+                    </div>
+                    <div class="overview-item">
+                        <div class="overview-label">Schedule</div>
+                        <div class="overview-value">${plan.wakeTime} - ${plan.sleepTime}</div>
+                    </div>
+                </div>
+            `;
+            
+            overview.innerHTML = overviewHTML;
+        }
+
+        function displayNutritionTimeline(plan) {
+            const timeline = document.getElementById('nutrition-timeline');
+            
+            let timelineHTML = '<div class="timeline-list">';
+            
+            // Pre-workout nutrition
+            timelineHTML += `
+                <div class="timeline-item pre-workout">
+                    <div class="timeline-time">2-3 Hours Before Workout</div>
+                    <div class="timeline-content">
+                        <h4>Pre-Workout Meal</h4>
+                        <p>Balanced meal with complex carbs and moderate protein. Avoid heavy fats and fiber.</p>
+                    </div>
+                </div>
+            `;
+            
+            // During workout
+            timelineHTML += `
+                <div class="timeline-item during-workout">
+                    <div class="timeline-time">During Workout</div>
+                    <div class="timeline-content">
+                        <h4>Workout Fuel</h4>
+                        <p>Hydration with electrolytes. For sessions >60min, consider carbs (30-60g per hour).</p>
+                    </div>
+                </div>
+            `;
+            
+            // Post-workout nutrition
+            timelineHTML += `
+                <div class="timeline-item post-workout">
+                    <div class="timeline-time">30-60 Minutes After Workout</div>
+                    <div class="timeline-content">
+                        <h4>Recovery Meal</h4>
+                        <p>Protein (20-40g) + carbs for glycogen replenishment. 3:1 or 4:1 carb:protein ratio.</p>
+                    </div>
+                </div>
+            `;
+            
+            timelineHTML += '</div>';
+            timeline.innerHTML = timelineHTML;
+        }
+
+        function displayDailySchedule(plan) {
+            const scheduleGrid = document.getElementById('schedule-grid');
+            
+            let scheduleHTML = '<div class="schedule-list">';
+            
+            plan.meals.forEach(meal => {
+                let mealClass = '';
+                let mealIcon = '';
+                
+                if (meal.preWorkout) {
+                    mealClass = 'pre-workout-meal';
+                    mealIcon = '🏃‍♂️';
+                } else if (meal.postWorkout) {
+                    mealClass = 'post-workout-meal';
+                    mealIcon = '💪';
+                } else {
+                    mealIcon = '🍽️';
+                }
+                
+                scheduleHTML += `
+                    <div class="schedule-item ${mealClass}">
+                        <div class="schedule-time">${meal.time}</div>
+                        <div class="schedule-meal">
+                            <div class="schedule-type">${mealIcon} ${meal.type}</div>
+                            <div class="schedule-focus">Focus: ${meal.focus}</div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            scheduleHTML += '</div>';
+            scheduleGrid.innerHTML = scheduleHTML;
+        }
+
+        function displayMealRecommendations(plan) {
+            const recommendationsGrid = document.getElementById('recommendations-grid');
+            
+            let recommendationsHTML = '<div class="recommendations-list">';
+            
+            // Goal-specific recommendations
+            const goalRecommendations = {
+                'muscle-gain': {
+                    protein: '25-35g per meal',
+                    carbs: 'Time around workouts',
+                    fats: 'Moderate amounts',
+                    timing: 'Protein every 3-4 hours'
+                },
+                'fat-loss': {
+                    protein: '20-30g per meal',
+                    carbs: 'Around workouts only',
+                    fats: 'Higher for satiety',
+                    timing: 'Carb timing around exercise'
+                },
+                'performance': {
+                    protein: '20-30g per meal',
+                    carbs: 'Before/during exercise',
+                    fats: 'Moderate',
+                    timing: 'Strategic carb loading'
+                },
+                'endurance': {
+                    protein: '15-25g per meal',
+                    carbs: 'High throughout day',
+                    fats: 'Moderate',
+                    timing: 'Continuous carb intake'
+                }
+            };
+            
+            const recs = goalRecommendations[plan.goal] || goalRecommendations['general-health'];
+            
+            Object.entries(recs).forEach(([key, value]) => {
+                recommendationsHTML += `
+                    <div class="recommendation-item">
+                        <div class="recommendation-category">${key.charAt(0).toUpperCase() + key.slice(1)}</div>
+                        <div class="recommendation-guideline">${value}</div>
+                    </div>
+                `;
+            });
+            
+            recommendationsHTML += '</div>';
+            recommendationsGrid.innerHTML = recommendationsHTML;
+        }
+
+        function displayTimingTips(plan) {
+            const tipsGrid = document.getElementById('tips-grid');
+            
+            let tipsHTML = '<div class="tips-list">';
+            
+            // General timing tips
+            tipsHTML += `
+                <div class="tip-item">
+                    <div class="tip-icon">⏰</div>
+                    <div class="tip-content">
+                        <h4>Consistency is Key</h4>
+                        <p>Eat at the same times daily to regulate metabolism and hunger cues.</p>
+                    </div>
+                </div>
+            `;
+            
+            // Workout-specific tips
+            tipsHTML += `
+                <div class="tip-item">
+                    <div class="tip-icon">🏋️</div>
+                    <div class="tip-content">
+                        <h4>Workout Nutrition</h4>
+                        <p>Never train completely fasted. Have a small snack 30-60 minutes before exercise.</p>
+                    </div>
+                </div>
+            `;
+            
+            // Recovery tips
+            tipsHTML += `
+                <div class="tip-item">
+                    <div class="tip-icon">🔄</div>
+                    <div class="tip-content">
+                        <h4>Recovery Window</h4>
+                        <p>The 30-60 minute post-workout window is crucial for muscle repair and glycogen replenishment.</p>
+                    </div>
+                </div>
+            `;
+            
+            // Sleep tips
+            tipsHTML += `
+                <div class="tip-item">
+                    <div class="tip-icon">😴</div>
+                    <div class="tip-content">
+                        <h4>Nighttime Nutrition</h4>
+                        <p>Consider casein protein before bed for overnight muscle recovery.</p>
+                    </div>
+                </div>
+            `;
+            
+            // Hydration tips
+            tipsHTML += `
+                <div class="tip-item">
+                    <div class="tip-icon">💧</div>
+                    <div class="tip-content">
+                        <h4>Hydration Timing</h4>
+                        <p>Drink water throughout the day, not just with meals. Aim for 8-10 glasses daily.</p>
+                    </div>
+                </div>
+            `;
+            
+            tipsHTML += '</div>';
+            tipsGrid.innerHTML = tipsHTML;
+        }
+
+        function shareResults() {
+            const goal = document.getElementById('primary-goal').value;
+            const frequency = document.getElementById('meal-frequency').value;
+            const text = `My meal timing plan for ${goal} with ${frequency} meals per day. Create yours at Sports Tools Hub!`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Meal Timing Plan Results',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback - copy to clipboard
+                navigator.clipboard.writeText(text + ' ' + window.location.href);
+                alert('Plan copied to clipboard!');
+            }
+        }
+    </script>
+</body>
+</html>

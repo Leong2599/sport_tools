@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your cycling power output, watts, and performance metrics with our free cycling power calculator. Get training zones and power recommendations.">
+    <meta name="keywords" content="cycling power calculator, watts calculator, cycling performance, FTP calculator, power zones, cycling metrics">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Cycling Power Calculator - Free Watts and Performance Calculator">
+    <meta property="og:description" content="Calculate your cycling power output, watts, and training zones for optimal performance">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstools.com/tools/cycling-power.html">
+    <title>Cycling Power Calculator - Free Watts and Performance Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstools.com/tools/cycling-power.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../calculator-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <span class="brand-icon">⚡</span>
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
+                            <li role="none"><a href="#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#about" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">Cycling Power Calculator</h1>
+                <p class="tool-subtitle">Calculate your cycling power output, watts, and training zones for optimal performance</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="calculator-form">
+                        <div class="calculator-card">
+                            <h2>Calculate Your Cycling Power</h2>
+                            <form id="cycling-form" aria-labelledby="cycling-form-title">
+                                <h3 id="cycling-form-title" class="sr-only">Cycling Power Calculation Form</h3>
+                                
+                                <div class="form-group">
+                                    <label for="calculation-type">Calculation Type</label>
+                                    <select id="calculation-type" name="calculation-type" required>
+                                        <option value="">Select calculation type</option>
+                                        <option value="power-speed">Calculate Power from Speed</option>
+                                        <option value="ftp">Functional Threshold Power (FTP)</option>
+                                        <option value="power-weight">Power-to-Weight Ratio</option>
+                                    </select>
+                                </div>
+
+                                <!-- Power from Speed Fields -->
+                                <div id="power-speed-fields" class="calc-fields" style="display: none;">
+                                    <h4>Enter Your Ride Data</h4>
+                                    
+                                    <div class="form-group">
+                                        <label for="speed">Speed</label>
+                                        <div class="input-group">
+                                            <input type="number" id="speed" name="speed" step="0.1" min="1" 
+                                                   placeholder="Enter your speed">
+                                            <select id="speed-unit" name="speed-unit">
+                                                <option value="kmh">km/h</option>
+                                                <option value="mph">mph</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="weight">Total Weight (Rider + Bike)</label>
+                                        <div class="input-group">
+                                            <input type="number" id="weight" name="weight" step="0.1" min="30" 
+                                                   placeholder="Enter total weight">
+                                            <select id="weight-unit" name="weight-unit">
+                                                <option value="kg">kg</option>
+                                                <option value="lbs">lbs</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="slope">Slope (%)</label>
+                                        <input type="number" id="slope" name="slope" step="0.1" min="-20" max="20" 
+                                               placeholder="Enter slope percentage">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="wind">Wind Speed</label>
+                                        <div class="input-group">
+                                            <input type="number" id="wind" name="wind" step="0.1" min="-50" max="50" 
+                                                   placeholder="Enter wind speed">
+                                            <select id="wind-unit" name="wind-unit">
+                                                <option value="kmh">km/h</option>
+                                                <option value="mph">mph</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- FTP Fields -->
+                                <div id="ftp-fields" class="calc-fields" style="display: none;">
+                                    <h4>Enter Your Test Data</h4>
+                                    
+                                    <div class="form-group">
+                                        <label for="test-duration">Test Duration</label>
+                                        <select id="test-duration" name="test-duration">
+                                            <option value="20">20 minutes (Standard)</option>
+                                            <option value="60">60 minutes</option>
+                                            <option value="30">30 minutes</option>
+                                            <option value="8">8 minutes (Short)</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="avg-power">Average Power (Watts)</label>
+                                        <input type="number" id="avg-power" name="avg-power" step="1" min="50" max="500" 
+                                               placeholder="Enter average power">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="body-weight">Body Weight</label>
+                                        <div class="input-group">
+                                            <input type="number" id="body-weight" name="body-weight" step="0.1" min="30" 
+                                                   placeholder="Enter body weight">
+                                            <select id="body-weight-unit" name="body-weight-unit">
+                                                <option value="kg">kg</option>
+                                                <option value="lbs">lbs</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Power-to-Weight Fields -->
+                                <div id="power-weight-fields" class="calc-fields" style="display: none;">
+                                    <h4>Enter Your Power Data</h4>
+                                    
+                                    <div class="form-group">
+                                        <label for="power-output">Power Output (Watts)</label>
+                                        <input type="number" id="power-output" name="power-output" step="1" min="50" max="500" 
+                                               placeholder="Enter power output">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="rider-weight">Rider Weight</label>
+                                        <div class="input-group">
+                                            <input type="number" id="rider-weight" name="rider-weight" step="0.1" min="30" 
+                                                   placeholder="Enter rider weight">
+                                            <select id="rider-weight-unit" name="rider-weight-unit">
+                                                <option value="kg">kg</option>
+                                                <option value="lbs">lbs</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary calculator-btn">Calculate Power</button>
+                                <button type="reset" class="btn btn-secondary calculator-btn">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="calculator-results">
+                        <div class="results-card" id="cycling-results" style="display: none;">
+                            <h2>Your Cycling Power Results</h2>
+                            
+                            <div id="power-display">
+                                <!-- Results will be populated based on calculation type -->
+                            </div>
+
+                            <div class="power-zones" id="power-zones" style="display: none;">
+                                <h3>Power Training Zones</h3>
+                                <div class="zones-grid" id="power-zones-grid">
+                                    <!-- Power zones will be populated here -->
+                                </div>
+                            </div>
+
+                            <div class="power-recommendations" id="power-recommendations">
+                                <h3>Training Recommendations</h3>
+                                <div id="recommendation-text" class="recommendation-content">
+                                    <!-- Recommendations will be inserted here -->
+                                </div>
+                            </div>
+
+                            <div class="power-actions">
+                                <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                                <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                            </div>
+                        </div>
+
+                        <!-- Cycling Power Information -->
+                        <div class="info-card">
+                            <h2>About Cycling Power</h2>
+                            <p>Cycling power is the most accurate metric for measuring cycling performance and training intensity. Power meters provide real-time data on your effort level.</p>
+                            
+                            <h3>Power Metrics</h3>
+                            <ul>
+                                <li><strong>Watts:</strong> Instantaneous power output</li>
+                                <li><strong>FTP:</strong> Functional Threshold Power (max sustainable for 1 hour)</li>
+                                <li><strong>Power-to-Weight:</strong> Watts per kilogram of body weight</li>
+                                <li><strong>Normalized Power:</strong> Adjusted power for variable efforts</li>
+                            </ul>
+                            
+                            <h3>Power Training Zones</h3>
+                            <ul>
+                                <li><strong>Zone 1 (Active Recovery):</strong> <55% of FTP</li>
+                                <li><strong>Zone 2 (Endurance):</strong> 55-75% of FTP</li>
+                                <li><strong>Zone 3 (Tempo):</strong> 75-90% of FTP</li>
+                                <li><strong>Zone 4 (Threshold):</strong> 90-105% of FTP</li>
+                                <li><strong>Zone 5 (VO2 Max):</strong> 105-120% of FTP</li>
+                                <li><strong>Zone 6 (Anaerobic):</strong> 120-150% of FTP</li>
+                                <li><strong>Zone 7 (Neuromuscular):</strong> >150% of FTP</li>
+                            </ul>
+                            
+                            <h3>Power-to-Weight Standards</h3>
+                            <ul>
+                                <li><strong>Recreational:</strong> 2.0-3.0 W/kg</li>
+                                <li><strong>Good Amateur:</strong> 3.0-4.0 W/kg</li>
+                                <li><strong>Elite Amateur:</strong> 4.0-5.0 W/kg</li>
+                                <li><strong>Pro Continental:</strong> 5.0-6.0 W/kg</li>
+                                <li><strong>World Tour Pro:</strong> 6.0-7.0+ W/kg</li>
+                            </ul>
+                            
+                            <h3>Improving Your Power</h3>
+                            <ul>
+                                <li>Consistent training with structured workouts</li>
+                                <li>Proper nutrition and hydration</li>
+                                <li>Adequate recovery and sleep</li>
+                                <li>Strength training for cycling muscles</li>
+                                <li>Regular testing to track progress</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tools & Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="#fitness-calculators">BMI Calculator</a></li>
+                            <li><a href="#performance-trackers">Pace Calculator</a></li>
+                            <li><a href="#nutrition-tools">Macro Calculator</a></li>
+                            <li><a href="#training-equipment">Equipment Guides</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../blog.html">Blog</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Get the latest fitness tips and tool updates delivered to your inbox.</p>
+                    <form class="newsletter-form" action="#subscribe" method="post">
+                        <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cycling Power Calculator functionality
+        document.getElementById('calculation-type').addEventListener('change', function() {
+            // Hide all calculation fields
+            document.querySelectorAll('.calc-fields').forEach(field => {
+                field.style.display = 'none';
+            });
+            
+            // Show selected calculation fields
+            const selectedType = this.value;
+            if (selectedType === 'power-speed') {
+                document.getElementById('power-speed-fields').style.display = 'block';
+            } else if (selectedType === 'ftp') {
+                document.getElementById('ftp-fields').style.display = 'block';
+            } else if (selectedType === 'power-weight') {
+                document.getElementById('power-weight-fields').style.display = 'block';
+            }
+        });
+
+        document.getElementById('cycling-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateCyclingPower();
+        });
+
+        function calculateCyclingPower() {
+            const calculationType = document.getElementById('calculation-type').value;
+            let resultsHTML = '';
+
+            if (calculationType === 'power-speed') {
+                resultsHTML = calculatePowerFromSpeed();
+            } else if (calculationType === 'ftp') {
+                resultsHTML = calculateFTP();
+            } else if (calculationType === 'power-weight') {
+                resultsHTML = calculatePowerToWeight();
+            }
+
+            // Display results
+            document.getElementById('power-display').innerHTML = resultsHTML;
+            const resultsElement = document.getElementById('cycling-results');
+            resultsElement.style.display = 'block';
+            resultsElement.classList.add('show');
+
+            // Scroll to results
+            document.getElementById('cycling-results').scrollIntoView({ behavior: 'smooth' });
+
+            // Track usage
+            if (window.calculatorUtils) {
+                window.calculatorUtils.trackToolUsage('Cycling Power Calculator');
+            }
+        }
+
+        function calculatePowerFromSpeed() {
+            const speed = parseFloat(document.getElementById('speed').value);
+            const speedUnit = document.getElementById('speed-unit').value;
+            const weight = parseFloat(document.getElementById('weight').value);
+            const weightUnit = document.getElementById('weight-unit').value;
+            const slope = parseFloat(document.getElementById('slope').value) || 0;
+            const wind = parseFloat(document.getElementById('wind').value) || 0;
+            const windUnit = document.getElementById('wind-unit').value;
+
+            // Convert to metric units
+            let speedMs = speed;
+            if (speedUnit === 'mph') {
+                speedMs = speed * 0.44704;
+            } else {
+                speedMs = speed / 3.6;
+            }
+
+            let weightKg = weight;
+            if (weightUnit === 'lbs') {
+                weightKg = weight * 0.453592;
+            }
+
+            let windMs = wind;
+            if (windUnit === 'mph') {
+                windMs = wind * 0.44704;
+            } else {
+                windMs = wind / 3.6;
+            }
+
+            // Simplified power calculation (this is a basic approximation)
+            const g = 9.81; // gravity
+            const cda = 0.4; // coefficient of drag area (approximate)
+            const rr = 0.005; // rolling resistance
+            const airDensity = 1.225; // air density at sea level
+
+            // Calculate power components
+            const slopeRad = Math.atan(slope / 100);
+            const climbingPower = weightKg * g * speedMs * Math.sin(slopeRad);
+            const rollingResistancePower = weightKg * g * speedMs * rr * Math.cos(slopeRad);
+            const airResistancePower = 0.5 * airDensity * cda * Math.pow(speedMs + windMs, 2) * speedMs;
+
+            const totalPower = Math.round(climbingPower + rollingResistancePower + airResistancePower);
+
+            // Generate power zones
+            generatePowerZones(totalPower);
+
+            // Generate recommendations
+            const recommendations = generatePowerRecommendations(totalPower, weightKg);
+            document.getElementById('recommendation-text').textContent = recommendations;
+
+            return `
+                <div class="power-results-display">
+                    <div class="power-main-result">
+                        <h3>Estimated Power Output</h3>
+                        <div class="power-value">${totalPower} watts</div>
+                        <div class="power-details">
+                            <div class="power-detail">Speed: ${speed} ${speedUnit}</div>
+                            <div class="power-detail">Slope: ${slope}%</div>
+                            <div class="power-detail">Weight: ${weightKg.toFixed(1)} kg</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function calculateFTP() {
+            const testDuration = parseInt(document.getElementById('test-duration').value);
+            const avgPower = parseInt(document.getElementById('avg-power').value);
+            const bodyWeight = parseFloat(document.getElementById('body-weight').value);
+            const bodyWeightUnit = document.getElementById('body-weight-unit').value;
+
+            let bodyWeightKg = bodyWeight;
+            if (bodyWeightUnit === 'lbs') {
+                bodyWeightKg = bodyWeight * 0.453592;
+            }
+
+            // Calculate FTP based on test duration
+            let ftp;
+            if (testDuration === 20) {
+                ftp = Math.round(avgPower * 0.95); // Standard 20min test
+            } else if (testDuration === 60) {
+                ftp = avgPower; // 60min test is FTP
+            } else if (testDuration === 30) {
+                ftp = Math.round(avgPower * 0.93); // 30min test
+            } else if (testDuration === 8) {
+                ftp = Math.round(avgPower * 0.90); // 8min test
+            }
+
+            // Calculate power-to-weight ratio
+            const powerToWeight = (ftp / bodyWeightKg).toFixed(2);
+
+            // Generate power zones (only for FTP calculations)
+            if (calculationType === 'ftp') {
+                generatePowerZones(ftp);
+            }
+
+            // Generate recommendations
+            const recommendations = generateFTPRecommendations(ftp, powerToWeight);
+            document.getElementById('recommendation-text').textContent = recommendations;
+
+            return `
+                <div class="ftp-results-display">
+                    <div class="ftp-main-result">
+                        <h3>Functional Threshold Power (FTP)</h3>
+                        <div class="ftp-value">${ftp} watts</div>
+                        <div class="ftp-details">
+                            <div class="ftp-detail">Test Duration: ${testDuration} minutes</div>
+                            <div class="ftp-detail">Average Power: ${avgPower} watts</div>
+                        </div>
+                    </div>
+                    
+                    <div class="power-weight-result">
+                        <h3>Power-to-Weight Ratio</h3>
+                        <div class="power-weight-value">${powerToWeight} W/kg</div>
+                        <div class="power-weight-details">
+                            <div class="power-weight-detail">Body Weight: ${bodyWeightKg.toFixed(1)} kg</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function calculatePowerToWeight() {
+            const powerOutput = parseInt(document.getElementById('power-output').value);
+            const riderWeight = parseFloat(document.getElementById('rider-weight').value);
+            const riderWeightUnit = document.getElementById('rider-weight-unit').value;
+
+            let riderWeightKg = riderWeight;
+            if (riderWeightUnit === 'lbs') {
+                riderWeightKg = riderWeight * 0.453592;
+            }
+
+            const powerToWeight = (powerOutput / riderWeightKg).toFixed(2);
+
+            // Generate power zones
+            generatePowerZones(powerOutput);
+
+            // Generate recommendations
+            const recommendations = generatePowerWeightRecommendations(powerToWeight);
+            document.getElementById('recommendation-text').textContent = recommendations;
+
+            return `
+                <div class="power-weight-results-display">
+                    <div class="power-weight-main-result">
+                        <h3>Power-to-Weight Ratio</h3>
+                        <div class="power-weight-value">${powerToWeight} W/kg</div>
+                        <div class="power-weight-details">
+                            <div class="power-weight-detail">Power: ${powerOutput} watts</div>
+                            <div class="power-weight-detail">Weight: ${riderWeightKg.toFixed(1)} kg</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generatePowerZones(ftp) {
+            const zonesContainer = document.getElementById('power-zones');
+            const zonesGrid = document.getElementById('power-zones-grid');
+            
+            const zones = [
+                { name: 'Zone 1', desc: 'Active Recovery', min: 0, max: 0.55 },
+                { name: 'Zone 2', desc: 'Endurance', min: 0.55, max: 0.75 },
+                { name: 'Zone 3', desc: 'Tempo', min: 0.75, max: 0.90 },
+                { name: 'Zone 4', desc: 'Threshold', min: 0.90, max: 1.05 },
+                { name: 'Zone 5', desc: 'VO2 Max', min: 1.05, max: 1.20 },
+                { name: 'Zone 6', desc: 'Anaerobic', min: 1.20, max: 1.50 },
+                { name: 'Zone 7', desc: 'Neuromuscular', min: 1.50, max: 2.00 }
+            ];
+
+            let zonesHTML = '<div class="power-zones-list">';
+            
+            zones.forEach(zone => {
+                const minPower = Math.round(ftp * zone.min);
+                const maxPower = Math.round(ftp * zone.max);
+                
+                zonesHTML += `
+                    <div class="power-zone-item">
+                        <div class="zone-header">
+                            <span class="zone-name">${zone.name}</span>
+                            <span class="zone-desc">${zone.desc}</span>
+                        </div>
+                        <div class="zone-range">
+                            <span class="zone-power">${minPower}-${maxPower}W</span>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            zonesHTML += '</div>';
+            zonesGrid.innerHTML = zonesHTML;
+            zonesContainer.style.display = 'block';
+        }
+
+        function generatePowerRecommendations(power, weight) {
+            const powerToWeight = power / weight;
+            
+            if (powerToWeight < 2.0) {
+                return 'Focus on building your aerobic base with longer rides at moderate intensity. Include some hill repeats to build strength. Consider a structured training plan to improve your power output.';
+            } else if (powerToWeight < 3.5) {
+                return 'Good power output! Focus on threshold training (Zone 4) to improve your FTP. Include interval training and tempo rides. Maintain consistency in your training schedule.';
+            } else if (powerToWeight < 4.5) {
+                return 'Excellent power level! Incorporate sweet spot training (88-94% of FTP) and VO2 max intervals. Focus on race-specific efforts and maintain proper recovery.';
+            } else {
+                return 'Outstanding power output! You\'re at an elite level. Focus on periodization, race-specific training, and recovery. Consider working with a coach for optimal performance.';
+            }
+        }
+
+        function generateFTPRecommendations(ftp, powerToWeight) {
+            let recommendations = `Your FTP is ${ftp} watts with a power-to-weight ratio of ${powerToWeight} W/kg. `;
+            
+            if (powerToWeight < 2.5) {
+                recommendations += 'Focus on building your aerobic base with Zone 2 training. Include 2-3 FTP tests per year to track progress.';
+            } else if (powerToWeight < 3.5) {
+                recommendations += 'Good fitness level! Include threshold workouts (Zone 4) 1-2 times per week. Use your FTP zones for structured training.';
+            } else if (powerToWeight < 4.5) {
+                recommendations += 'Excellent level! Incorporate sweet spot training and VO2 max intervals. Use power-based training zones for optimal results.';
+            } else {
+                recommendations += 'Elite level! Focus on race-specific power outputs and periodization. Regular FTP testing will help maintain peak performance.';
+            }
+            
+            return recommendations;
+        }
+
+        function generatePowerWeightRecommendations(powerToWeight) {
+            if (powerToWeight < 2.0) {
+                return 'Your power-to-weight ratio is below average for cyclists. Focus on increasing power output through structured training while maintaining or slightly reducing body weight.';
+            } else if (powerToWeight < 3.0) {
+                return 'Good power-to-weight ratio for recreational cycling. Continue with balanced training and proper nutrition to maintain or improve this ratio.';
+            } else if (powerToWeight < 4.0) {
+                return 'Excellent power-to-weight ratio! You\'re at a strong amateur level. Focus on race-specific power outputs and maintaining this ratio through proper training and nutrition.';
+            } else if (powerToWeight < 5.0) {
+                return 'Outstanding power-to-weight ratio! You\'re at an elite level. Focus on race-specific demands and recovery to maintain peak performance.';
+            } else {
+                return 'Exceptional power-to-weight ratio! You\'re at a world-class level. Focus on periodization, race-specific training, and working with professional coaches.';
+            }
+        }
+
+        function shareResults() {
+            const text = `Check out my cycling power calculations at Sports Tools Hub!`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Cycling Power Calculator Results',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback - copy to clipboard
+                navigator.clipboard.writeText(text + ' ' + window.location.href);
+                alert('Results copied to clipboard!');
+            }
+        }
+    </script>
+</body>
+</html>

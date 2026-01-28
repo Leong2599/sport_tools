@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your target heart rate zones for optimal training with our free heart rate calculator. Get personalized zone recommendations based on age and fitness level.">
+    <meta name="keywords" content="heart rate calculator, target heart rate, training zones, cardio zones, fitness calculator, exercise heart rate">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Heart Rate Calculator - Free Target Heart Rate Zones">
+    <meta property="og:description" content="Calculate your target heart rate zones for optimal training and cardio performance">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstools.com/tools/heart-rate-calculator.html">
+    <title>Heart Rate Calculator - Free Target Heart Rate Zones | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstools.com/tools/heart-rate-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../calculator-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <span class="brand-icon">⚡</span>
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
+                            <li role="none"><a href="#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#about" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">Heart Rate Calculator</h1>
+                <p class="tool-subtitle">Calculate your target heart rate zones for optimal training and cardio performance</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="calculator-form">
+                        <div class="calculator-card">
+                            <h2>Calculate Your Heart Rate Zones</h2>
+                            <form id="heart-rate-form" aria-labelledby="heart-rate-form-title">
+                                <h3 id="heart-rate-form-title" class="sr-only">Heart Rate Calculation Form</h3>
+                                
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" name="age" min="15" max="100" required 
+                                           aria-describedby="age-help" placeholder="Enter your age">
+                                    <small id="age-help">Enter your age in years</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="resting-hr">Resting Heart Rate (Optional)</label>
+                                    <input type="number" id="resting-hr" name="resting-hr" min="40" max="100" 
+                                           aria-describedby="resting-hr-help" placeholder="Enter your resting heart rate">
+                                    <small id="resting-hr-help">Measure your heart rate upon waking for best accuracy</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="fitness-level">Fitness Level</label>
+                                    <select id="fitness-level" name="fitness-level" required 
+                                            aria-describedby="fitness-help">
+                                        <option value="">Select your fitness level</option>
+                                        <option value="beginner">Beginner (new to exercise)</option>
+                                        <option value="intermediate">Intermediate (regular exercise 2-3x/week)</option>
+                                        <option value="advanced">Advanced (intense exercise 4-5x/week)</option>
+                                        <option value="athlete">Athlete (elite training 6-7x/week)</option>
+                                    </select>
+                                    <small id="fitness-help">Select your current fitness level for more accurate zones</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <fieldset>
+                                        <legend>Calculation Method</legend>
+                                        <div class="radio-group">
+                                            <label>
+                                                <input type="radio" name="method" value="karvonen" checked required>
+                                                <span>Karvonen (Heart Rate Reserve)</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="method" value="age-predicted" required>
+                                                <span>Age-Predicted (220-age)</span>
+                                            </label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary calculator-btn">Calculate Zones</button>
+                                <button type="reset" class="btn btn-secondary calculator-btn">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="calculator-results">
+                        <div class="results-card" id="heart-rate-results" style="display: none;">
+                            <h2>Your Heart Rate Zones</h2>
+                            
+                            <div class="max-hr-display">
+                                <h3>Maximum Heart Rate</h3>
+                                <div class="hr-value" id="max-hr-value">--</div>
+                                <small>beats per minute (BPM)</small>
+                            </div>
+
+                            <div class="hr-zones">
+                                <h3>Training Zones</h3>
+                                <div class="zones-grid">
+                                    <div class="zone-item zone-1">
+                                        <div class="zone-header">
+                                            <span class="zone-name">Zone 1</span>
+                                            <span class="zone-intensity">Warm-up/Recovery</span>
+                                        </div>
+                                        <div class="zone-range">
+                                            <span class="zone-bpm" id="zone-1-bpm">--</span>
+                                            <span class="zone-percentage">50-60% Max HR</span>
+                                        </div>
+                                        <div class="zone-description">
+                                            <p>Very light intensity. Good for warm-ups, cool-downs, and active recovery.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="zone-item zone-2">
+                                        <div class="zone-header">
+                                            <span class="zone-name">Zone 2</span>
+                                            <span class="zone-intensity">Fat Burn</span>
+                                        </div>
+                                        <div class="zone-range">
+                                            <span class="zone-bpm" id="zone-2-bpm">--</span>
+                                            <span class="zone-percentage">60-70% Max HR</span>
+                                        </div>
+                                        <div class="zone-description">
+                                            <p>Light intensity. Improves endurance and promotes fat burning.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="zone-item zone-3">
+                                        <div class="zone-header">
+                                            <span class="zone-name">Zone 3</span>
+                                            <span class="zone-intensity">Cardio</span>
+                                        </div>
+                                        <div class="zone-range">
+                                            <span class="zone-bpm" id="zone-3-bpm">--</span>
+                                            <span class="zone-percentage">70-80% Max HR</span>
+                                        </div>
+                                        <div class="zone-description">
+                                            <p>Moderate intensity. Improves cardiovascular fitness and aerobic capacity.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="zone-item zone-4">
+                                        <div class="zone-header">
+                                            <span class="zone-name">Zone 4</span>
+                                            <span class="zone-intensity">Threshold</span>
+                                        </div>
+                                        <div class="zone-range">
+                                            <span class="zone-bpm" id="zone-4-bpm">--</span>
+                                            <span class="zone-percentage">80-90% Max HR</span>
+                                        </div>
+                                        <div class="zone-description">
+                                            <p>Hard intensity. Improves lactate threshold and race performance.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="zone-item zone-5">
+                                        <div class="zone-header">
+                                            <span class="zone-name">Zone 5</span>
+                                            <span class="zone-intensity">Maximum</span>
+                                        </div>
+                                        <div class="zone-range">
+                                            <span class="zone-bpm" id="zone-5-bpm">--</span>
+                                            <span class="zone-percentage">90-100% Max HR</span>
+                                        </div>
+                                        <div class="zone-description">
+                                            <p>Maximum intensity. For short bursts and high-intensity interval training.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hr-recommendations" id="hr-recommendations">
+                                <h3>Training Recommendations</h3>
+                                <div id="recommendation-text" class="recommendation-content">
+                                    <!-- Recommendations will be inserted here -->
+                                </div>
+                            </div>
+
+                            <div class="hr-actions">
+                                <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                                <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                            </div>
+                        </div>
+
+                        <!-- Heart Rate Information -->
+                        <div class="info-card">
+                            <h2>About Heart Rate Training</h2>
+                            <p>Heart rate training zones help you optimize your workouts by training at the right intensity for your goals.</p>
+                            
+                            <h3>Calculation Methods</h3>
+                            <ul>
+                                <li><strong>Karvonen Method:</strong> Uses heart rate reserve (Max HR - Resting HR) for more accurate zones</li>
+                                <li><strong>Age-Predicted Method:</strong> Simple formula (220 - age) but less accurate</li>
+                            </ul>
+                            
+                            <h3>Zone Benefits</h3>
+                            <ul>
+                                <li><strong>Zone 1 (50-60%):</strong> Active recovery, warm-up, cool-down</li>
+                                <li><strong>Zone 2 (60-70%):</strong> Base building, fat burning, endurance</li>
+                                <li><strong>Zone 3 (70-80%):</strong> Aerobic fitness, cardiovascular improvement</li>
+                                <li><strong>Zone 4 (80-90%):</strong> Lactate threshold, race pace training</li>
+                                <li><strong>Zone 5 (90-100%):</strong> Maximum effort, HIIT, sprint training</li>
+                            </ul>
+                            
+                            <h3>Measuring Your Heart Rate</h3>
+                            <ul>
+                                <li><strong>Manual:</strong> Count beats for 30 seconds and multiply by 2</li>
+                                <li><strong>Chest Strap:</strong> Most accurate for training</li>
+                                <li><strong>Wrist Monitor:</strong> Convenient but less accurate during intense exercise</li>
+                                <li><strong>Fitness Trackers:</strong> Good for general monitoring</li>
+                            </ul>
+                            
+                            <h3>Safety Considerations</h3>
+                            <ul>
+                                <li>Consult a doctor before starting intense training</li>
+                                <li>Listen to your body and don't exceed comfortable limits</li>
+                                <li>Stop exercising if you feel dizzy, chest pain, or unusual discomfort</li>
+                                <li>Stay hydrated and properly fueled during workouts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tools & Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="#fitness-calculators">BMI Calculator</a></li>
+                            <li><a href="#performance-trackers">Pace Calculator</a></li>
+                            <li><a href="#nutrition-tools">Macro Calculator</a></li>
+                            <li><a href="#training-equipment">Equipment Guides</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../blog.html">Blog</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Get the latest fitness tips and tool updates delivered to your inbox.</p>
+                    <form class="newsletter-form" action="#subscribe" method="post">
+                        <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Heart Rate Calculator functionality
+        document.getElementById('heart-rate-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateHeartRateZones();
+        });
+
+        function calculateHeartRateZones() {
+            // Get input values
+            const age = parseInt(document.getElementById('age').value);
+            const restingHR = parseInt(document.getElementById('resting-hr').value) || 0;
+            const fitnessLevel = document.getElementById('fitness-level').value;
+            const method = document.querySelector('input[name="method"]:checked').value;
+
+            // Calculate Maximum Heart Rate
+            let maxHR;
+            if (method === 'karvonen') {
+                maxHR = 220 - age;
+            } else {
+                maxHR = 220 - age;
+            }
+
+            // Calculate Heart Rate Reserve (for Karvonen method)
+            const heartRateReserve = maxHR - restingHR;
+
+            // Calculate zones
+            const zones = {};
+            
+            if (method === 'karvonen' && restingHR > 0) {
+                // Karvonen method using heart rate reserve
+                zones[1] = {
+                    min: Math.round(restingHR + (heartRateReserve * 0.50)),
+                    max: Math.round(restingHR + (heartRateReserve * 0.60))
+                };
+                zones[2] = {
+                    min: Math.round(restingHR + (heartRateReserve * 0.60)),
+                    max: Math.round(restingHR + (heartRateReserve * 0.70))
+                };
+                zones[3] = {
+                    min: Math.round(restingHR + (heartRateReserve * 0.70)),
+                    max: Math.round(restingHR + (heartRateReserve * 0.80))
+                };
+                zones[4] = {
+                    min: Math.round(restingHR + (heartRateReserve * 0.80)),
+                    max: Math.round(restingHR + (heartRateReserve * 0.90))
+                };
+                zones[5] = {
+                    min: Math.round(restingHR + (heartRateReserve * 0.90)),
+                    max: Math.round(restingHR + (heartRateReserve * 1.00))
+                };
+            } else {
+                // Age-predicted method
+                zones[1] = {
+                    min: Math.round(maxHR * 0.50),
+                    max: Math.round(maxHR * 0.60)
+                };
+                zones[2] = {
+                    min: Math.round(maxHR * 0.60),
+                    max: Math.round(maxHR * 0.70)
+                };
+                zones[3] = {
+                    min: Math.round(maxHR * 0.70),
+                    max: Math.round(maxHR * 0.80)
+                };
+                zones[4] = {
+                    min: Math.round(maxHR * 0.80),
+                    max: Math.round(maxHR * 0.90)
+                };
+                zones[5] = {
+                    min: Math.round(maxHR * 0.90),
+                    max: Math.round(maxHR * 1.00)
+                };
+            }
+
+            // Display results
+            document.getElementById('max-hr-value').textContent = maxHR;
+
+            // Display zones
+            for (let i = 1; i <= 5; i++) {
+                const zoneElement = document.getElementById(`zone-${i}-bpm`);
+                zoneElement.textContent = `${zones[i].min}-${zones[i].max} BPM`;
+            }
+
+            // Generate recommendations based on fitness level
+            let recommendations = '';
+            
+            switch(fitnessLevel) {
+                case 'beginner':
+                    recommendations = 'As a beginner, focus on Zone 2 (60-70% Max HR) for most of your training to build aerobic base. Include some Zone 1 work for warm-up and recovery. Limit high-intensity work to 1-2 sessions per week.';
+                    break;
+                case 'intermediate':
+                    recommendations = 'With regular exercise experience, aim for 60% Zone 2, 20% Zone 3, and 10% each in Zones 1 and 4. Include one Zone 5 session per week for intensity. This balanced approach improves both endurance and speed.';
+                    break;
+                case 'advanced':
+                    recommendations = 'As an advanced athlete, use a polarized approach: 80% low intensity (Zones 1-2) and 20% high intensity (Zones 4-5). Include threshold work (Zone 3) 1-2 times per week for race-specific fitness.';
+                    break;
+                case 'athlete':
+                    recommendations = 'Elite training requires periodization. Focus on base building in Zones 1-2 during off-season, add threshold work (Zone 3) in pre-season, and incorporate high-intensity (Zones 4-5) during competition phase. Always prioritize recovery.';
+                    break;
+            }
+
+            // Add method-specific advice
+            if (method === 'karvonen' && restingHR > 0) {
+                recommendations += ' The Karvonen method provides more accurate zones since it accounts for your fitness level through resting heart rate.';
+            } else {
+                recommendations += ' Consider measuring your resting heart rate for more accurate zone calculations using the Karvonen method.';
+            }
+
+            // Display recommendations
+            document.getElementById('recommendation-text').textContent = recommendations;
+
+            // Show results section
+            const resultsElement = document.getElementById('heart-rate-results');
+            resultsElement.style.display = 'block';
+            resultsElement.classList.add('show');
+
+            // Scroll to results
+            document.getElementById('heart-rate-results').scrollIntoView({ behavior: 'smooth' });
+
+            // Track usage
+            if (window.calculatorUtils) {
+                window.calculatorUtils.trackToolUsage('Heart Rate Calculator');
+            }
+        }
+
+        function shareResults() {
+            const maxHR = document.getElementById('max-hr-value').textContent;
+            const text = `My maximum heart rate is ${maxHR} BPM. Calculate your heart rate zones at Sports Tools Hub!`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Heart Rate Calculator Results',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback - copy to clipboard
+                navigator.clipboard.writeText(text + ' ' + window.location.href);
+                alert('Results copied to clipboard!');
+            }
+        }
+
+        // Form validation
+        document.getElementById('age').addEventListener('input', function() {
+            if (this.value < 15 || this.value > 100) {
+                this.setCustomValidity('Please enter a valid age between 15 and 100');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+
+        document.getElementById('resting-hr').addEventListener('input', function() {
+            if (this.value && (this.value < 40 || this.value > 100)) {
+                this.setCustomValidity('Please enter a valid resting heart rate between 40 and 100');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+</body>
+</html>

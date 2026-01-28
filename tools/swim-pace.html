@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your swimming pace, interval times, and race predictions with our free swim pace calculator. Perfect for triathletes and competitive swimmers.">
+    <meta name="keywords" content="swim pace calculator, swimming pace, swim intervals, triathlon swimming, swim training, 100m pace, swim splits">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Swim Pace Calculator - Free Swimming Pace and Interval Calculator">
+    <meta property="og:description" content="Calculate your swimming pace, intervals, and race times for optimal training performance">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstools.com/tools/swim-pace.html">
+    <title>Swim Pace Calculator - Free Swimming Pace and Interval Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstools.com/tools/swim-pace.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../calculator-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <span class="brand-icon">⚡</span>
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
+                            <li role="none"><a href="#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#about" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">Swim Pace Calculator</h1>
+                <p class="tool-subtitle">Calculate your swimming pace, interval times, and race predictions for optimal training performance</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="calculator-form">
+                        <div class="calculator-card">
+                            <h2>Calculate Your Swimming Pace</h2>
+                            <form id="swim-form" aria-labelledby="swim-form-title">
+                                <h3 id="swim-form-title" class="sr-only">Swim Pace Calculation Form</h3>
+                                
+                                <div class="form-group">
+                                    <label for="calculation-type">Calculation Type</label>
+                                    <select id="calculation-type" name="calculation-type" required>
+                                        <option value="">Select calculation type</option>
+                                        <option value="time-distance">Calculate Pace from Time & Distance</option>
+                                        <option value="pace-distance">Calculate Time from Pace & Distance</option>
+                                        <option value="intervals">Interval Training Calculator</option>
+                                    </select>
+                                </div>
+
+                                <!-- Time & Distance Fields -->
+                                <div id="time-distance-fields" class="calc-fields" style="display: none;">
+                                    <h4>Enter Your Swim Details</h4>
+                                    
+                                    <div class="form-group">
+                                        <label for="distance">Distance</label>
+                                        <div class="input-group">
+                                            <input type="number" id="distance" name="distance" step="50" min="50" 
+                                                   placeholder="Enter distance">
+                                            <select id="distance-unit" name="distance-unit">
+                                                <option value="meters">meters</option>
+                                                <option value="yards">yards</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="time-minutes">Time</label>
+                                        <div class="time-input-group">
+                                            <input type="number" id="time-minutes" name="time-minutes" min="0" max="59" 
+                                                   placeholder="MM" aria-label="Minutes">
+                                            <span>:</span>
+                                            <input type="number" id="time-seconds" name="time-seconds" min="0" max="59" 
+                                                   placeholder="SS" aria-label="Seconds">
+                                            <span>:</span>
+                                            <input type="number" id="time-hundredths" name="time-hundredths" min="0" max="99" 
+                                                   placeholder="HH" aria-label="Hundredths">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pool-size">Pool Size</label>
+                                        <select id="pool-size" name="pool-size">
+                                            <option value="25">25 meters</option>
+                                            <option value="50">50 meters</option>
+                                            <option value="25y">25 yards</option>
+                                            <option value="33.3">33.3 meters (short course yards)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Pace & Distance Fields -->
+                                <div id="pace-distance-fields" class="calc-fields" style="display: none;">
+                                    <h4>Enter Your Target Pace</h4>
+                                    
+                                    <div class="form-group">
+                                        <label for="target-distance">Target Distance</label>
+                                        <div class="input-group">
+                                            <input type="number" id="target-distance" name="target-distance" step="50" min="50" 
+                                                   placeholder="Enter distance">
+                                            <select id="target-distance-unit" name="target-distance-unit">
+                                                <option value="meters">meters</option>
+                                                <option value="yards">yards</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="target-pace">Target Pace (per 100m)</label>
+                                        <div class="pace-input-group">
+                                            <input type="number" id="pace-minutes" name="pace-minutes" min="0" max="2" 
+                                                   placeholder="MM" aria-label="Minutes per 100m">
+                                            <span>:</span>
+                                            <input type="number" id="pace-seconds" name="pace-seconds" min="0" max="59" 
+                                                   placeholder="SS" aria-label="Seconds per 100m">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Interval Fields -->
+                                <div id="intervals-fields" class="calc-fields" style="display: none;">
+                                    <h4>Interval Training Setup</h4>
+                                    
+                                    <div class="form-group">
+                                        <label for="interval-distance">Interval Distance</label>
+                                        <select id="interval-distance" name="interval-distance">
+                                            <option value="50">50m</option>
+                                            <option value="100">100m</option>
+                                            <option value="200">200m</option>
+                                            <option value="400">400m</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="target-pace-interval">Target Pace (per 100m)</label>
+                                        <div class="pace-input-group">
+                                            <input type="number" id="pace-minutes-interval" name="pace-minutes-interval" min="0" max="2" 
+                                                   placeholder="MM" aria-label="Minutes per 100m">
+                                            <span>:</span>
+                                            <input type="number" id="pace-seconds-interval" name="pace-seconds-interval" min="0" max="59" 
+                                                   placeholder="SS" aria-label="Seconds per 100m">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="rest-time">Rest Time (seconds)</label>
+                                        <input type="number" id="rest-time" name="rest-time" min="10" max="120" 
+                                               placeholder="Enter rest time between intervals">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="num-intervals">Number of Intervals</label>
+                                        <input type="number" id="num-intervals" name="num-intervals" min="1" max="20" 
+                                               placeholder="Enter number of intervals">
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary calculator-btn">Calculate</button>
+                                <button type="reset" class="btn btn-secondary calculator-btn">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="calculator-results">
+                        <div class="results-card" id="swim-results" style="display: none;">
+                            <h2>Your Swim Pace Results</h2>
+                            
+                            <div id="swim-display">
+                                <!-- Results will be populated based on calculation type -->
+                            </div>
+
+                            <div class="swim-splits" id="swim-splits" style="display: none;">
+                                <h3>Swim Splits</h3>
+                                <div class="splits-table" id="swim-splits-table">
+                                    <!-- Splits will be populated here -->
+                                </div>
+                            </div>
+
+                            <div class="swim-intervals" id="swim-intervals" style="display: none;">
+                                <h3>Interval Training Plan</h3>
+                                <div class="intervals-table" id="intervals-table">
+                                    <!-- Intervals will be populated here -->
+                                </div>
+                            </div>
+
+                            <div class="swim-recommendations" id="swim-recommendations">
+                                <h3>Training Recommendations</h3>
+                                <div id="recommendation-text" class="recommendation-content">
+                                    <!-- Recommendations will be inserted here -->
+                                </div>
+                            </div>
+
+                            <div class="swim-actions">
+                                <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                                <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                            </div>
+                        </div>
+
+                        <!-- Swim Information -->
+                        <div class="info-card">
+                            <h2>About Swimming Pace</h2>
+                            <p>Swimming pace is crucial for triathletes and competitive swimmers. Understanding your pace helps you plan race strategies and optimize training sessions.</p>
+                            
+                            <h3>Swim Pace Standards</h3>
+                            <ul>
+                                <li><strong>Beginner:</strong> 2:30-3:00 per 100m</li>
+                                <li><strong>Intermediate:</strong> 2:00-2:30 per 100m</li>
+                                <li><strong>Advanced:</strong> 1:30-2:00 per 100m</li>
+                                <li><strong>Elite:</strong> 1:00-1:30 per 100m</li>
+                                <li><strong>Olympic:</strong> Under 1:00 per 100m</li>
+                            </ul>
+                            
+                            <h3>Triathlon Swim Standards</h3>
+                            <ul>
+                                <li><strong>Sprint (750m):</strong> 15-20 minutes</li>
+                                <li><strong>Olympic (1500m):</strong> 25-35 minutes</li>
+                                <li><strong>Half Ironman (1.9km):</strong> 35-50 minutes</li>
+                                <li><strong>Full Ironman (3.8km):</strong> 70-100 minutes</li>
+                            </ul>
+                            
+                            <h3>Training Zones</h3>
+                            <ul>
+                                <li><strong>Zone 1 (Recovery):</strong> Easy swimming, focus on technique</li>
+                                <li><strong>Zone 2 (Endurance):</strong> Comfortable pace for long distances</li>
+                                <li><strong>Zone 3 (Tempo):</strong> "Comfortably hard" pace</li>
+                                <li><strong>Zone 4 (Threshold):</strong> Race pace effort</li>
+                                <li><strong>Zone 5 (Sprint):</strong> Maximum effort for short distances</li>
+                            </ul>
+                            
+                            <h3>Improving Your Swim Pace</h3>
+                            <ul>
+                                <li>Consistent training with proper technique</li>
+                                <li>Drills for stroke efficiency</li>
+                                <li>Interval training for speed development</li>
+                                <li>Strength training for swimming muscles</li>
+                                <li>Video analysis for technique improvement</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tools & Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="#fitness-calculators">BMI Calculator</a></li>
+                            <li><a href="#performance-trackers">Pace Calculator</a></li>
+                            <li><a href="#nutrition-tools">Macro Calculator</a></li>
+                            <li><a href="#training-equipment">Equipment Guides</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../blog.html">Blog</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Get the latest fitness tips and tool updates delivered to your inbox.</p>
+                    <form class="newsletter-form" action="#subscribe" method="post">
+                        <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Swim Pace Calculator functionality
+        document.getElementById('calculation-type').addEventListener('change', function() {
+            // Hide all calculation fields
+            document.querySelectorAll('.calc-fields').forEach(field => {
+                field.style.display = 'none';
+            });
+            
+            // Show selected calculation fields
+            const selectedType = this.value;
+            if (selectedType === 'time-distance') {
+                document.getElementById('time-distance-fields').style.display = 'block';
+            } else if (selectedType === 'pace-distance') {
+                document.getElementById('pace-distance-fields').style.display = 'block';
+            } else if (selectedType === 'intervals') {
+                document.getElementById('intervals-fields').style.display = 'block';
+            }
+        });
+
+        document.getElementById('swim-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateSwimPace();
+        });
+
+        function calculateSwimPace() {
+            const calculationType = document.getElementById('calculation-type').value;
+            let resultsHTML = '';
+
+            if (calculationType === 'time-distance') {
+                resultsHTML = calculatePaceFromTimeDistance();
+            } else if (calculationType === 'pace-distance') {
+                resultsHTML = calculateTimeFromPaceDistance();
+            } else if (calculationType === 'intervals') {
+                resultsHTML = calculateIntervals();
+            }
+
+            // Display results
+            document.getElementById('swim-display').innerHTML = resultsHTML;
+            const resultsElement = document.getElementById('swim-results');
+            resultsElement.style.display = 'block';
+            resultsElement.classList.add('show');
+
+            // Scroll to results
+            document.getElementById('swim-results').scrollIntoView({ behavior: 'smooth' });
+
+            // Track usage
+            if (window.calculatorUtils) {
+                window.calculatorUtils.trackToolUsage('Swim Pace Calculator');
+            }
+        }
+
+        function calculatePaceFromTimeDistance() {
+            const distance = parseFloat(document.getElementById('distance').value);
+            const distanceUnit = document.getElementById('distance-unit').value;
+            const minutes = parseInt(document.getElementById('time-minutes').value) || 0;
+            const seconds = parseInt(document.getElementById('time-seconds').value) || 0;
+            const hundredths = parseInt(document.getElementById('time-hundredths').value) || 0;
+            const poolSize = parseFloat(document.getElementById('pool-size').value);
+
+            // Convert distance to meters
+            let distanceMeters = distance;
+            if (distanceUnit === 'yards') {
+                distanceMeters = distance * 0.9144;
+            }
+
+            // Convert time to total seconds
+            const totalSeconds = (minutes * 60) + seconds + (hundredths / 100);
+
+            // Calculate pace per 100m
+            const pacePer100m = (totalSeconds / distanceMeters) * 100;
+            const paceMinutes = Math.floor(pacePer100m / 60);
+            const paceSeconds = Math.floor(pacePer100m % 60);
+            const paceHundredths = Math.round((pacePer100m % 1) * 100);
+
+            // Calculate pace per 50m
+            const pacePer50m = pacePer100m / 2;
+            const pace50Minutes = Math.floor(pacePer50m / 60);
+            const pace50Seconds = Math.floor(pacePer50m % 60);
+            const pace50Hundredths = Math.round((pacePer50m % 1) * 100);
+
+            // Generate splits
+            generateSwimSplits(pacePer100m, distanceMeters, poolSize);
+
+            // Generate recommendations
+            const recommendations = generateSwimRecommendations(pacePer100m, distanceMeters);
+            document.getElementById('recommendation-text').textContent = recommendations;
+
+            return `
+                <div class="swim-results-display">
+                    <div class="swim-main-result">
+                        <h3>Your Swimming Pace</h3>
+                        <div class="swim-pace-value">${paceMinutes}:${paceSeconds.toString().padStart(2, '0')}.${paceHundredths.toString().padStart(2, '0')} /100m</div>
+                        <div class="swim-pace-alt">${pace50Minutes}:${pace50Seconds.toString().padStart(2, '0')}.${pace50Hundredths.toString().padStart(2, '0')} /50m</div>
+                    </div>
+                    
+                    <div class="swim-speed-display">
+                        <h3>Speed</h3>
+                        <div class="swim-speed-value">${(distanceMeters / totalSeconds * 3.6).toFixed(2)} km/h</div>
+                        <div class="swim-speed-alt">${(distanceMeters / totalSeconds * 2.237).toFixed(2)} mph</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function calculateTimeFromPaceDistance() {
+            const distance = parseFloat(document.getElementById('target-distance').value);
+            const distanceUnit = document.getElementById('target-distance-unit').value;
+            const paceMinutes = parseInt(document.getElementById('pace-minutes').value);
+            const paceSeconds = parseInt(document.getElementById('pace-seconds').value);
+
+            // Convert distance to meters
+            let distanceMeters = distance;
+            if (distanceUnit === 'yards') {
+                distanceMeters = distance * 0.9144;
+            }
+
+            // Calculate total time in seconds
+            const pacePer100m = (paceMinutes * 60) + paceSeconds;
+            const totalSeconds = (pacePer100m / 100) * distanceMeters;
+
+            // Convert to mm:ss.hh format
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = Math.floor(totalSeconds % 60);
+            const hundredths = Math.round((totalSeconds % 1) * 100);
+
+            // Generate splits
+            generateSwimSplits(pacePer100m, distanceMeters, 25);
+
+            // Generate recommendations
+            const recommendations = generateSwimRecommendations(pacePer100m, distanceMeters);
+            document.getElementById('recommendation-text').textContent = recommendations;
+
+            return `
+                <div class="swim-time-results-display">
+                    <div class="swim-time-main-result">
+                        <h3>Predicted Finish Time</h3>
+                        <div class="swim-time-value">${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${hundredths.toString().padStart(2, '0')}</div>
+                    </div>
+                    
+                    <div class="target-swim-pace-display">
+                        <h3>Target Pace</h3>
+                        <div class="swim-pace-value">${paceMinutes}:${paceSeconds.toString().padStart(2, '0')} /100m</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function calculateIntervals() {
+            const intervalDistance = parseInt(document.getElementById('interval-distance').value);
+            const paceMinutes = parseInt(document.getElementById('pace-minutes-interval').value);
+            const paceSeconds = parseInt(document.getElementById('pace-seconds-interval').value);
+            const restTime = parseInt(document.getElementById('rest-time').value);
+            const numIntervals = parseInt(document.getElementById('num-intervals').value);
+
+            // Calculate interval time
+            const pacePer100m = (paceMinutes * 60) + paceSeconds;
+            const intervalTimeSeconds = (pacePer100m / 100) * intervalDistance;
+
+            // Generate interval plan
+            generateIntervalPlan(intervalDistance, intervalTimeSeconds, restTime, numIntervals);
+
+            // Calculate total workout time
+            const totalSwimTime = intervalTimeSeconds * numIntervals;
+            const totalRestTime = restTime * (numIntervals - 1);
+            const totalWorkoutTime = totalSwimTime + totalRestTime;
+
+            // Generate recommendations
+            const recommendations = generateIntervalRecommendations(pacePer100m, intervalDistance, numIntervals);
+            document.getElementById('recommendation-text').textContent = recommendations;
+
+            return `
+                <div class="swim-interval-results-display">
+                    <div class="interval-main-result">
+                        <h3>Interval Training Plan</h3>
+                        <div class="interval-summary">
+                            <div class="interval-detail">Distance: ${intervalDistance}m</div>
+                            <div class="interval-detail">Pace: ${paceMinutes}:${paceSeconds.toString().padStart(2, '0')} /100m</div>
+                            <div class="interval-detail">Rest: ${restTime}s</div>
+                            <div class="interval-detail">Repeats: ${numIntervals}x</div>
+                        </div>
+                    </div>
+                    
+                    <div class="interval-workout-time">
+                        <h3>Total Workout Time</h3>
+                        <div class="workout-time-value">${Math.floor(totalWorkoutTime / 60)}:${(totalWorkoutTime % 60).toString().padStart(2, '0')}</div>
+                        <div class="workout-time-details">
+                            <div class="workout-time-detail">Swim: ${Math.floor(totalSwimTime / 60)}:${(totalSwimTime % 60).toString().padStart(2, '0')}</div>
+                            <div class="workout-time-detail">Rest: ${Math.floor(totalRestTime / 60)}:${(totalRestTime % 60).toString().padStart(2, '0')}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateSwimSplits(pacePer100m, totalDistance, poolSize) {
+            const splitsContainer = document.getElementById('swim-splits');
+            const splitsTable = document.getElementById('swim-splits-table');
+            
+            const numberOfLaps = poolSize > 0 ? Math.floor(totalDistance / poolSize) : 0;
+            
+            let splitsHTML = '<div class="swim-splits-grid">';
+            
+            for (let i = 1; i <= numberOfLaps; i++) {
+                const lapDistance = i * poolSize;
+                const lapTimeSeconds = (pacePer100m / 100) * lapDistance;
+                
+                const minutes = Math.floor(lapTimeSeconds / 60);
+                const seconds = Math.floor(lapTimeSeconds % 60);
+                const hundredths = Math.round((lapTimeSeconds % 1) * 100);
+                
+                const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${hundredths.toString().padStart(2, '0')}`;
+                
+                splitsHTML += `
+                    <div class="swim-split-item">
+                        <div class="split-distance">Lap ${i} (${poolSize}m)</div>
+                        <div class="split-time">${timeString}</div>
+                    </div>
+                `;
+            }
+            
+            splitsHTML += '</div>';
+            splitsTable.innerHTML = splitsHTML;
+            splitsContainer.style.display = 'block';
+        }
+
+        function generateIntervalPlan(intervalDistance, intervalTimeSeconds, restTime, numIntervals) {
+            const intervalsContainer = document.getElementById('swim-intervals');
+            const intervalsTable = document.getElementById('intervals-table');
+            
+            let intervalsHTML = '<div class="intervals-plan-grid">';
+            
+            for (let i = 1; i <= numIntervals; i++) {
+                const intervalMinutes = Math.floor(intervalTimeSeconds / 60);
+                const intervalSeconds = Math.floor(intervalTimeSeconds % 60);
+                const intervalHundredths = Math.round((intervalTimeSeconds % 1) * 100);
+                
+                const intervalTimeString = `${intervalMinutes}:${intervalSeconds.toString().padStart(2, '0')}.${intervalHundredths.toString().padStart(2, '0')}`;
+                
+                intervalsHTML += `
+                    <div class="interval-item">
+                        <div class="interval-number">#${i}</div>
+                        <div class="interval-distance">${intervalDistance}m</div>
+                        <div class="interval-time">${intervalTimeString}</div>
+                        <div class="interval-rest">${i < numIntervals ? restTime + 's rest' : 'Finish'}</div>
+                    </div>
+                `;
+            }
+            
+            intervalsHTML += '</div>';
+            intervalsTable.innerHTML = intervalsHTML;
+            intervalsContainer.style.display = 'block';
+        }
+
+        function generateSwimRecommendations(pacePer100m, distance) {
+            const paceMinutes = Math.floor(pacePer100m / 60);
+            const paceSeconds = Math.floor(pacePer100m % 60);
+            const totalPaceSeconds = paceMinutes * 60 + paceSeconds;
+            
+            let recommendations = '';
+            
+            if (totalPaceSeconds > 150) {
+                recommendations = 'Focus on technique drills and building endurance. Include interval training to improve speed. Consider working with a coach for stroke improvement.';
+            } else if (totalPaceSeconds > 120) {
+                recommendations = 'Good progress! Focus on maintaining form over longer distances. Include tempo swims and interval training. Add strength training for swimming-specific muscles.';
+            } else if (totalPaceSeconds > 90) {
+                recommendations = 'Excellent pace! Focus on race-specific training and open water skills. Include threshold sets and sprint work. Maintain consistency in your training.';
+            } else {
+                recommendations = 'Outstanding swimming ability! Focus on fine-tuning technique and race strategy. Include high-intensity interval training and proper recovery.';
+            }
+            
+            return recommendations;
+        }
+
+        function generateIntervalRecommendations(pacePer100m, intervalDistance, numIntervals) {
+            const totalDistance = intervalDistance * numIntervals;
+            const totalPaceSeconds = pacePer100m;
+            
+            return `This interval set covers ${totalDistance}m total. Focus on maintaining consistent pace across all intervals. Use the rest time to recover and prepare for the next interval. Adjust the rest time based on your fitness level - shorter rest for advanced swimmers, longer rest for beginners.`;
+        }
+
+        function shareResults() {
+            const text = `Check out my swimming pace calculations at Sports Tools Hub!`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Swim Pace Calculator Results',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback - copy to clipboard
+                navigator.clipboard.writeText(text + ' ' + window.location.href);
+                alert('Results copied to clipboard!');
+            }
+        }
+    </script>
+</body>
+</html>

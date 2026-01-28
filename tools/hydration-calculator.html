@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your daily water intake and hydration needs with our free hydration calculator. Get personalized recommendations based on weight, activity, and climate.">
+    <meta name="keywords" content="hydration calculator, water intake, daily water needs, fluid requirements, hydration calculator, water calculator">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Hydration Calculator - Free Daily Water Intake Calculator">
+    <meta property="og:description" content="Calculate your daily water intake and hydration needs for optimal performance and health">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstools.com/tools/hydration-calculator.html">
+    <title>Hydration Calculator - Free Daily Water Intake Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstools.com/tools/hydration-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../calculator-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <span class="brand-icon">⚡</span>
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
+                            <li role="none"><a href="#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#about" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">Hydration Calculator</h1>
+                <p class="tool-subtitle">Calculate your daily water intake and hydration needs for optimal performance and health</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="calculator-form">
+                        <div class="calculator-card">
+                            <h2>Calculate Your Daily Hydration Needs</h2>
+                            <form id="hydration-form" aria-labelledby="hydration-form-title">
+                                <h3 id="hydration-form-title" class="sr-only">Hydration Calculation Form</h3>
+                                
+                                <div class="form-group">
+                                    <label for="weight">Body Weight</label>
+                                    <div class="input-group">
+                                        <input type="number" id="weight" name="weight" step="0.1" min="30" required 
+                                               aria-describedby="weight-help" placeholder="Enter your weight">
+                                        <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
+                                            <option value="kg">kg</option>
+                                            <option value="lbs">lbs</option>
+                                        </select>
+                                    </div>
+                                    <small id="weight-help">Enter your current body weight</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" name="age" min="15" max="100" required 
+                                           aria-describedby="age-help" placeholder="Enter your age">
+                                    <small id="age-help">Enter your age in years</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <fieldset>
+                                        <legend>Gender</legend>
+                                        <div class="radio-group">
+                                            <label>
+                                                <input type="radio" name="gender" value="male" required>
+                                                <span>Male</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="gender" value="female" required>
+                                                <span>Female</span>
+                                            </label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="activity-level">Activity Level</label>
+                                    <select id="activity-level" name="activity-level" required 
+                                            aria-describedby="activity-help">
+                                        <option value="">Select your activity level</option>
+                                        <option value="sedentary">Sedentary (little or no exercise)</option>
+                                        <option value="light">Light (exercise 1-3 days/week)</option>
+                                        <option value="moderate">Moderate (exercise 3-5 days/week)</option>
+                                        <option value="active">Active (exercise 6-7 days/week)</option>
+                                        <option value="very-active">Very Active (hard exercise 6-7 days/week)</option>
+                                        <option value="athlete">Athlete (elite training 2x/day)</option>
+                                    </select>
+                                    <small id="activity-help">Select your typical weekly activity level</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="climate">Climate/Environment</label>
+                                    <select id="climate" name="climate" required 
+                                            aria-describedby="climate-help">
+                                        <option value="">Select your climate</option>
+                                        <option value="temperate">Temperate (moderate temperature)</option>
+                                        <option value="hot">Hot (warm/hot climate)</option>
+                                        <option value="very-hot">Very Hot (extreme heat)</option>
+                                        <option value="cold">Cold (cold climate)</option>
+                                        <option value="dry">Dry (arid climate)</option>
+                                        <option value="humid">Humid (high humidity)</option>
+                                    </select>
+                                    <small id="climate-help">Climate affects hydration needs</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exercise-duration">Daily Exercise Duration</label>
+                                    <div class="input-group">
+                                        <input type="number" id="exercise-duration" name="exercise-duration" min="0" max="300" 
+                                               placeholder="Minutes" aria-describedby="exercise-help">
+                                        <select id="exercise-intensity" name="exercise-intensity" aria-label="Exercise intensity">
+                                            <option value="light">Light</option>
+                                            <option value="moderate">Moderate</option>
+                                            <option value="vigorous">Vigorous</option>
+                                        </select>
+                                    </div>
+                                    <small id="exercise-help">Average daily exercise duration and intensity</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="health-conditions">Special Health Conditions</label>
+                                    <select id="health-conditions" name="health-conditions" multiple 
+                                            aria-describedby="health-help">
+                                        <option value="">None (select if applicable)</option>
+                                        <option value="pregnancy">Pregnancy</option>
+                                        <option value="breastfeeding">Breastfeeding</option>
+                                        <option value="fever">Fever/Illness</option>
+                                        <option value="diabetes">Diabetes</option>
+                                        <option value="kidney">Kidney Conditions</option>
+                                    </select>
+                                    <small id="health-help">Hold Ctrl/Cmd to select multiple conditions</small>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary calculator-btn">Calculate Hydration</button>
+                                <button type="reset" class="btn btn-secondary calculator-btn">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="calculator-results">
+                        <div class="results-card" id="hydration-results" style="display: none;">
+                            <h2>Your Hydration Results</h2>
+                            
+                            <div class="hydration-display">
+                                <div class="hydration-main-result">
+                                    <h3>Daily Water Intake</h3>
+                                    <div class="water-value" id="water-ounces">--</div>
+                                    <small>ounces (oz)</small>
+                                    <div class="water-value-alt" id="water-liters">--</div>
+                                    <small>liters (L)</small>
+                                    <div class="water-value-alt" id="water-glasses">--</div>
+                                    <small>glasses (8oz each)</small>
+                                </div>
+                                
+                                <div class="hydration-breakdown">
+                                    <h3>Hydration Breakdown</h3>
+                                    <div class="hydration-grid">
+                                        <div class="hydration-item">
+                                            <div class="hydration-label">Base Needs</div>
+                                            <div class="hydration-amount" id="base-water">--</div>
+                                        </div>
+                                        <div class="hydration-item">
+                                            <div class="hydration-label">Activity</div>
+                                            <div class="hydration-amount" id="activity-water">--</div>
+                                        </div>
+                                        <div class="hydration-item">
+                                            <div class="hydration-label">Climate</div>
+                                            <div class="hydration-amount" id="climate-water">--</div>
+                                        </div>
+                                        <div class="hydration-item">
+                                            <div class="hydration-label">Health Factors</div>
+                                            <div class="hydration-amount" id="health-water">--</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hydration-schedule" id="hydration-schedule">
+                                <h3>Recommended Hydration Schedule</h3>
+                                <div class="schedule-grid" id="schedule-grid">
+                                    <!-- Schedule will be populated here -->
+                                </div>
+                            </div>
+
+                            <div class="hydration-tips" id="hydration-tips">
+                                <h3>Hydration Tips & Sources</h3>
+                                <div class="tips-grid" id="tips-grid">
+                                    <!-- Tips will be populated here -->
+                                </div>
+                            </div>
+
+                            <div class="hydration-recommendations" id="hydration-recommendations">
+                                <h3>Personalized Recommendations</h3>
+                                <div id="recommendation-text" class="recommendation-content">
+                                    <!-- Recommendations will be inserted here -->
+                                </div>
+                            </div>
+
+                            <div class="hydration-actions">
+                                <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                                <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                            </div>
+                        </div>
+
+                        <!-- Hydration Information -->
+                        <div class="info-card">
+                            <h2>About Hydration</h2>
+                            <p>Proper hydration is essential for athletic performance, overall health, and bodily functions. Your water needs depend on various factors including activity level, climate, and individual health conditions.</p>
+                            
+                            <h3>Why Hydration Matters</h3>
+                            <ul>
+                                <li>Regulates body temperature and prevents overheating</li>
+                                <li>Lubricates joints and protects tissues</li>
+                                <li>Helps transport nutrients and oxygen to cells</li>
+                                <li>Supports kidney function and waste removal</li>
+                                <li>Maintains blood pressure and heart health</li>
+                                <li>Improves cognitive function and mood</li>
+                            </ul>
+                            
+                            <h3>Signs of Dehydration</h3>
+                            <ul>
+                                <li>Thirst and dry mouth</li>
+                                <li>Dark yellow urine</li>
+                                <li>Fatigue and weakness</li>
+                                <li>Dizziness and headache</li>
+                                <li>Decreased performance</li>
+                                <li>Muscle cramps</li>
+                            </ul>
+                            
+                            <h3>Hydration Guidelines</h3>
+                            <ul>
+                                <li><strong>General:</strong> 8-10 glasses (64-80 oz) per day</li>
+                                <li><strong>Exercise:</strong> Additional 16-24 oz per hour of activity</li>
+                                <li><strong>Hot Climate:</strong> Increase intake by 25-50%</li>
+                                <li><strong>Pregnancy:</strong> 80-100 oz per day</li>
+                                <li><strong>Breastfeeding:</strong> 100-130 oz per day</li>
+                            </ul>
+                            
+                            <h3>Best Hydration Sources</h3>
+                            <ul>
+                                <li>Water (plain, sparkling, mineral)</li>
+                                <li>Herbal teas and infusions</li>
+                                <li>Fruits and vegetables with high water content</li>
+                                <li>Electrolyte drinks for intense exercise</li>
+                                <li>Coconut water for natural electrolytes</li>
+                                <li>Milk and plant-based alternatives</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tools & Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="#fitness-calculators">BMI Calculator</a></li>
+                            <li><a href="#performance-trackers">Pace Calculator</a></li>
+                            <li><a href="#nutrition-tools">Macro Calculator</a></li>
+                            <li><a href="#training-equipment">Equipment Guides</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../blog.html">Blog</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Get the latest fitness tips and tool updates delivered to your inbox.</p>
+                    <form class="newsletter-form" action="#subscribe" method="post">
+                        <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hydration Calculator functionality
+        document.getElementById('hydration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateHydration();
+        });
+
+        function calculateHydration() {
+            // Get input values
+            const weight = parseFloat(document.getElementById('weight').value);
+            const weightUnit = document.getElementById('weight-unit').value;
+            const age = parseInt(document.getElementById('age').value);
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const activityLevel = document.getElementById('activity-level').value;
+            const climate = document.getElementById('climate').value;
+            const exerciseDuration = parseInt(document.getElementById('exercise-duration').value) || 0;
+            const exerciseIntensity = document.getElementById('exercise-intensity').value;
+            const healthConditionsSelect = document.getElementById('health-conditions');
+            const healthConditions = healthConditionsSelect ? 
+                Array.from(healthConditionsSelect.selectedOptions).map(option => option.value) : [];
+
+            // Convert to lbs if needed
+            let weightLbs = weight;
+            if (weightUnit === 'kg') {
+                weightLbs = weight * 2.20462;
+            }
+
+            // Calculate base water needs (0.5 oz per lb body weight)
+            let baseWater = weightLbs * 0.5;
+
+            // Activity level adjustments
+            const activityMultipliers = {
+                'sedentary': 1.0,
+                'light': 1.1,
+                'moderate': 1.2,
+                'active': 1.3,
+                'very-active': 1.4,
+                'athlete': 1.5
+            };
+
+            // Climate adjustments
+            const climateMultipliers = {
+                'temperate': 1.0,
+                'hot': 1.2,
+                'very-hot': 1.4,
+                'cold': 0.9,
+                'dry': 1.1,
+                'humid': 1.3
+            };
+
+            // Exercise intensity adjustments (per hour)
+            const exerciseMultipliers = {
+                'light': 12,  // oz per hour
+                'moderate': 20, // oz per hour
+                'vigorous': 30  // oz per hour
+            };
+
+            // Health condition adjustments
+            let healthMultiplier = 1.0;
+            healthConditions.forEach(condition => {
+                switch(condition) {
+                    case 'pregnancy':
+                        healthMultiplier += 0.3;
+                        break;
+                    case 'breastfeeding':
+                        healthMultiplier += 0.5;
+                        break;
+                    case 'fever':
+                        healthMultiplier += 0.4;
+                        break;
+                    case 'diabetes':
+                        healthMultiplier += 0.1;
+                        break;
+                    case 'kidney':
+                        healthMultiplier -= 0.2; // May need less, consult doctor
+                        break;
+                }
+            });
+
+            // Age adjustments
+            if (age > 65) {
+                healthMultiplier += 0.1; // Elderly may need more
+            }
+
+            // Calculate total water needs
+            const activityWater = (baseWater * (activityMultipliers[activityLevel] - 1)) + 
+                                 (exerciseDuration / 60) * exerciseMultipliers[exerciseIntensity];
+            const climateWater = baseWater * (climateMultipliers[climate] - 1);
+            const healthWater = baseWater * (healthMultiplier - 1);
+
+            const totalWater = baseWater + activityWater + climateWater + healthWater;
+
+            // Convert to different units
+            const waterLiters = (totalWater * 0.0295735).toFixed(1);
+            const waterGlasses = Math.round(totalWater / 8);
+
+            // Display results
+            document.getElementById('water-ounces').textContent = Math.round(totalWater) + ' oz';
+            document.getElementById('water-liters').textContent = waterLiters + ' L';
+            document.getElementById('water-glasses').textContent = waterGlasses + ' glasses';
+
+            // Display breakdown
+            document.getElementById('base-water').textContent = Math.round(baseWater) + ' oz';
+            document.getElementById('activity-water').textContent = Math.round(activityWater) + ' oz';
+            document.getElementById('climate-water').textContent = Math.round(climateWater) + ' oz';
+            document.getElementById('health-water').textContent = Math.round(healthWater) + ' oz';
+
+            // Generate hydration schedule
+            generateHydrationSchedule(totalWater);
+
+            // Generate tips
+            generateHydrationTips(climate, exerciseDuration, healthConditions);
+
+            // Generate recommendations
+            const recommendations = generateHydrationRecommendations(totalWater, activityLevel, climate, healthConditions);
+            document.getElementById('recommendation-text').textContent = recommendations;
+
+            // Show results section
+            const resultsElement = document.getElementById('hydration-results');
+            resultsElement.style.display = 'block';
+            resultsElement.classList.add('show');
+
+            // Scroll to results
+            document.getElementById('hydration-results').scrollIntoView({ behavior: 'smooth' });
+
+            // Track usage
+            if (window.calculatorUtils) {
+                window.calculatorUtils.trackToolUsage('Hydration Calculator');
+            }
+        }
+
+        function generateHydrationSchedule(totalWater) {
+            const scheduleGrid = document.getElementById('schedule-grid');
+            
+            // Create a daily schedule
+            const schedule = [
+                { time: 'Upon Waking', amount: Math.round(totalWater * 0.1), note: 'Start hydrated' },
+                { time: 'Breakfast', amount: Math.round(totalWater * 0.15), note: 'With meal' },
+                { time: 'Mid-Morning', amount: Math.round(totalWater * 0.1), note: 'Between meals' },
+                { time: 'Lunch', amount: Math.round(totalWater * 0.15), note: 'With meal' },
+                { time: 'Afternoon', amount: Math.round(totalWater * 0.15), note: 'Stay energized' },
+                { time: 'Pre-Exercise', amount: Math.round(totalWater * 0.1), note: '30 min before' },
+                { time: 'During Exercise', amount: Math.round(totalWater * 0.1), note: 'Every 20 min' },
+                { time: 'Dinner', amount: Math.round(totalWater * 0.15), note: 'With meal' },
+                { time: 'Evening', amount: Math.round(totalWater * 0.05), note: 'Before bed' }
+            ];
+
+            let scheduleHTML = '<div class="schedule-list">';
+            
+            schedule.forEach(item => {
+                scheduleHTML += `
+                    <div class="schedule-item">
+                        <div class="schedule-time">${item.time}</div>
+                        <div class="schedule-amount">${item.amount} oz</div>
+                        <div class="schedule-note">${item.note}</div>
+                    </div>
+                `;
+            });
+            
+            scheduleHTML += '</div>';
+            scheduleGrid.innerHTML = scheduleHTML;
+        }
+
+        function generateHydrationTips(climate, exerciseDuration, healthConditions) {
+            const tipsGrid = document.getElementById('tips-grid');
+            
+            let tipsHTML = '<div class="tips-list">';
+            
+            // Climate-specific tips
+            if (climate === 'hot' || climate === 'very-hot') {
+                tipsHTML += `
+                    <div class="tip-item">
+                        <div class="tip-icon">🌡️</div>
+                        <div class="tip-content">
+                            <h4>Hot Weather Tips</h4>
+                            <p>Drink before you feel thirsty. Monitor urine color - aim for pale yellow.</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Exercise tips
+            if (exerciseDuration > 30) {
+                tipsHTML += `
+                    <div class="tip-item">
+                        <div class="tip-icon">🏃</div>
+                        <div class="tip-content">
+                            <h4>Exercise Hydration</h4>
+                            <p>Drink 16-24 oz per hour of exercise. Add electrolytes for sessions over 60 minutes.</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // General tips
+            tipsHTML += `
+                <div class="tip-item">
+                    <div class="tip-icon">💧</div>
+                    <div class="tip-content">
+                        <h4>Best Practices</h4>
+                        <p>Keep a water bottle nearby. Set reminders to drink regularly.</p>
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">🍊</div>
+                    <div class="tip-content">
+                        <h4>Food Sources</h4>
+                        <p>Eat water-rich foods: watermelon, cucumber, oranges, strawberries.</p>
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">⚠️</div>
+                    <div class="tip-content">
+                        <h4>Avoid Dehydration</h4>
+                        <p>Limit caffeine and alcohol. Monitor for dark urine or thirst.</p>
+                    </div>
+                </div>
+            `;
+            
+            tipsHTML += '</div>';
+            tipsGrid.innerHTML = tipsHTML;
+        }
+
+        function generateHydrationRecommendations(totalWater, activityLevel, climate, healthConditions) {
+            let recommendations = `Your daily hydration need is ${Math.round(totalWater)} ounces (${(totalWater * 0.0295735).toFixed(1)} liters). `;
+            
+            // Activity-specific recommendations
+            if (activityLevel === 'athlete' || activityLevel === 'very-active') {
+                recommendations += 'As an active individual, prioritize hydration before, during, and after exercise. Consider electrolyte drinks for sessions over 60 minutes. ';
+            }
+            
+            // Climate-specific recommendations
+            if (climate === 'hot' || climate === 'very-hot') {
+                recommendations += 'In hot climates, increase fluid intake and monitor for signs of heat exhaustion. ';
+            }
+            
+            // Health condition recommendations
+            if (healthConditions.includes('pregnancy')) {
+                recommendations += 'During pregnancy, stay well-hydrated to support amniotic fluid and blood volume. ';
+            }
+            
+            if (healthConditions.includes('breastfeeding')) {
+                recommendations += 'While breastfeeding, drink extra fluids to support milk production. ';
+            }
+            
+            recommendations += 'Spread your fluid intake throughout the day rather than consuming large amounts at once. Listen to your body\'s thirst signals and adjust intake based on urine color and activity level.';
+            
+            return recommendations;
+        }
+
+        function shareResults() {
+            const water = document.getElementById('water-ounces').textContent;
+            const text = `My daily water intake recommendation is ${water}. Calculate yours at Sports Tools Hub!`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Hydration Calculator Results',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback - copy to clipboard
+                navigator.clipboard.writeText(text + ' ' + window.location.href);
+                alert('Results copied to clipboard!');
+            }
+        }
+    </script>
+</body>
+</html>
