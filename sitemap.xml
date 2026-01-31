@@ -10,7 +10,7 @@
         <priority>1.0</priority>
         <image:image>
             <image:loc>https://sportstoolshub.com/images/og-image.jpg</image:loc>
-            <image:title>Sports Tools Hub - Complete Sports & Fitness Resource</image:title>
+            <image:title>Sports Tools Hub - Complete Sports and Fitness Resources</image:title>
             <image:caption>Comprehensive sports tools directory featuring fitness calculators, performance trackers, training resources</image:caption>
         </image:image>
     </url>
@@ -79,6 +79,7 @@
         <priority>0.7</priority>
     </url>
     
+    <!-- Performance Trackers -->
     <url>
         <loc>https://sportstoolshub.com/tools/pace-calculator.html</loc>
         <lastmod>2026-01-31</lastmod>
@@ -100,10 +101,6 @@
         <priority>0.7</priority>
     </url>
     
-       
-    
-   
-    <!-- Nutrition Tools -->
     <url>
         <loc>https://sportstoolshub.com/tools/protein-calculator.html</loc>
         <lastmod>2026-01-31</lastmod>
@@ -130,6 +127,5 @@
         <lastmod>2026-01-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    
+    </url>  
 </urlset>
