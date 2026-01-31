@@ -5,34 +5,27 @@ A comprehensive sports tools directory featuring fitness calculators, performanc
 ## Features
 
 ### 🏋️ Fitness Calculators
-- BMI Calculator
-- Calorie Calculator  
-- Heart Rate Calculator
-- Body Fat Calculator
+- **BMI Calculator** - Calculate Body Mass Index and assess weight status
+- **Calorie Calculator** - Daily caloric needs and TDEE calculation
+- **BMR Calculator** - Basal Metabolic Rate calculation
+- **Heart Rate Calculator** - Target heart rate zones for training
+- **Body Fat Calculator** - Body fat percentage using US Navy and BMI methods
+- **One Rep Max Calculator** - Estimate maximum lifting potential
+- **Lean Body Mass Calculator** - Calculate lean body mass and body fat percentage
+- **Body Type Quiz** - Determine your body type (ectomorph/mesomorph/endomorph)
 
 ### 📊 Performance Trackers
-- Pace Calculator
-- Cycling Power Calculator
-- Swim Pace Calculator
-- Progress Tracker
-
-### 🏋️ Training Equipment Guides
-- Home Gym Setup
-- Running Gear
-- Cycling Equipment
-- Boxing & MMA Gear
+- **Pace Calculator** - Running pace and race time predictions
+- **Cycling Power Calculator** - Power output, speed, and FTP calculations
+- **Swim Pace Calculator** - Swimming pace and interval training
 
 ### 🥗 Nutrition Tools
-- Protein Calculator
-- Hydration Calculator
-- Macro Calculator
-- Meal Timing Planner
+- **Protein Calculator** - Daily protein intake recommendations
+- **Hydration Calculator** - Daily water intake and exercise hydration
+- **Macro Calculator** - Macronutrient ratios and meal planning
+- **Meal Timing Planner** - Optimal meal timing and nutrient scheduling
 
-### 📝 Blog
-- Expert training articles
-- Nutrition advice
-- Performance optimization
-- Injury prevention tips
+
 
 ## SEO Features
 
@@ -50,31 +43,91 @@ A comprehensive sports tools directory featuring fitness calculators, performanc
 
 ```
 sport_tools/
-├── index.html                 # Main homepage
-├── blog.html                  # Blog listing page
-├── styles.css                 # Main stylesheet
-├── blog-styles.css           # Blog-specific styles
-├── calculator-styles.css    # Calculator tool styles
-├── script.js                 # Main JavaScript
-├── sitemap.xml              # XML sitemap
-├── robots.txt               # Robots.txt file
-├── tools/                   # Calculator tools
-│   └── bmi-calculator.html
-├── blog/                    # Blog posts
-│   ├── marathon-training-guide.html
-│   ├── strength-training-benefits.html
-│   └── nutrition-myths.html
-└── images/                  # Image assets
-    ├── blog/
-    └── authors/
-```
+├── index.html                    # Main homepage with tools directory
+├── styles.css                    # Main stylesheet (layout, header, footer)
+├── tools.css                    # Calculator tool styles (forms, results)
+├── script.js                    # Main JavaScript (navigation, utilities)
+├── sitemap.xml                 # XML sitemap for SEO
+├── robots.txt                  # Search engine crawling instructions
+├── README.md                   # Project documentation
+│
+├── tools/                      # Calculator tool pages
+│   ├── bmi-calculator.html      # Body Mass Index calculator
+│   ├── bmr-calculator.html      # Basal Metabolic Rate calculator
+│   ├── calorie-calculator.html   # Daily calorie/TDEE calculator
+│   ├── body-fat-calculator.html # Body fat percentage calculator
+│   ├── one-rep-max-calculator.html # One-rep max strength calculator
+│   ├── lean-body-mass-calculator.html # Lean body mass calculator
+│   ├── body-type-quiz.html     # Body type assessment quiz
+│   ├── heart-rate-calculator.html # Heart rate zone calculator
+│   ├── pace-calculator.html     # Running pace calculator
+│   ├── cycling-power.html       # Cycling power calculator
+│   ├── swim-pace.html         # Swimming pace calculator
+│   ├── protein-calculator.html  # Daily protein calculator
+│   ├── hydration-calculator.html # Water intake calculator
+│   ├── macro-calculator.html    # Macronutrient calculator
+│   └── meal-timing.html       # Meal timing planner
+│
+└── images/                     # Image assets
+    ├── logo.png               # Sports Tools Hub logo
+    └── icons/                # Calculator icons and graphics
+
+## Features
+
+### 🏋️ **Fitness Calculators**
+- **BMI Calculator** - Calculate Body Mass Index and assess weight status with instant results
+- **Calorie Calculator** - Daily caloric needs and TDEE calculation with personalized recommendations  
+- **BMR Calculator** - Basal Metabolic Rate calculation for weight management
+- **Heart Rate Calculator** - Target heart rate zones for optimal training intensity
+- **Body Fat Calculator** - Body fat percentage using US Navy and BMI methods
+- **One Rep Max Calculator** - Estimate maximum lifting potential with multiple formulas
+- **Lean Body Mass Calculator** - Calculate lean body mass and body fat percentage
+- **Body Type Quiz** - Determine your body type (ectomorph/mesomorph/endomorph) with personalized recommendations
+
+### 📊 **Performance Trackers**
+- **Pace Calculator** - Running pace and race time predictions with split calculations
+- **Cycling Power Calculator** - Power output, speed, and FTP calculations for cyclists
+- **Swim Pace Calculator** - Swimming pace and interval training calculations for swimmers
+
+### 🥗 **Nutrition Tools**
+- **Protein Calculator** - Daily protein intake recommendations based on goals and activity
+- **Hydration Calculator** - Daily water intake and exercise hydration requirements
+- **Macro Calculator** - Macronutrient ratios and meal planning with diet-specific adjustments
+- **Meal Timing Planner** - Optimal meal timing and nutrient scheduling for workout performance
+
+## Recent Updates
+
+### ✨ **Features Added**
+- **Complete tool suite**: 15+ fitness and nutrition calculators with detailed results
+- **Responsive navigation**: Consistent navbar across all pages with mobile menu
+- **Form accessibility**: ARIA labels, keyboard navigation, screen reader support
+- **Mobile optimization**: Touch-friendly interface and responsive design
+- **Form validation**: Real-time validation and user-friendly error messages
+- **Interactive results**: Dynamic result display with detailed breakdowns and recommendations
+- **Print functionality**: Tool results can be printed for reference
+- **Social sharing**: Share calculator results on social media platforms
+
+### 🐛 **Bug Fixes**
+- Fixed select element text visibility issues on selection across browsers
+- Resolved radio button styling problems with white text on dark backgrounds
+- Corrected JavaScript context issues in utility functions (`this` references)
+- Fixed form validation and error handling inconsistencies
+- Improved mobile navigation toggle functionality and dropdown behavior
+
+### 🛠️ **Technical Improvements**
+- Added cache-busting for CSS updates (`?v=2.0`) to force browser refresh
+- Separated stylesheets: `styles.css` (layout/navigation) + `tools.css` (forms/results)
+- Enhanced JavaScript error handling and debugging with console logging
+- Improved SEO meta tags for all tool pages with structured data
+- Added comprehensive footer styling and consistent navigation across pages
 
 ## Getting Started
 
-1. Open `index.html` in your web browser to view the main site
-2. Navigate to different sections using the responsive navbar
-3. Try out the BMI calculator in the tools section
-4. Browse blog articles for expert insights
+1. **Open `index.html`** in your web browser to view the main site
+2. **Navigate** using the responsive navbar (desktop/mobile)
+3. **Try calculators** from the Tools dropdown menu
+4. **Explore tools** like BMI, BMR, Calories, Macros, and more
+5. **Bookmark favorite tools** for quick access to your most-used calculators
 
 ## Browser Support
 
@@ -82,24 +135,55 @@ sport_tools/
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
-- Mobile browsers
+- Mobile browsers (iOS Safari, Chrome Mobile)
 
 ## Accessibility Features
 
-- Semantic HTML5 elements
-- ARIA labels and roles
-- Keyboard navigation support
-- Skip links for screen readers
-- Focus management
-- Color contrast compliance
+- ✅ Semantic HTML5 structure
+- ✅ ARIA labels and roles for screen readers
+- ✅ Keyboard navigation support (Tab, Enter, Escape)
+- ✅ Skip links for screen readers
+- ✅ Focus management and visual indicators
+- ✅ Color contrast compliance (WCAG AA)
+- ✅ Form validation with clear error messages
+- ✅ Responsive design for all devices
 
 ## Performance
 
-- Optimized CSS with media queries
-- Lazy loading for images
-- Minified JavaScript
-- Efficient DOM manipulation
-- Smooth scrolling animations
+- ⚡ Optimized CSS with media queries
+- ⚡ Lazy loading for images
+- ⚡ Efficient DOM manipulation
+- ⚡ Smooth scrolling animations
+- ⚡ Form debouncing for better UX
+- ⚡ Minimal JavaScript bundle size
+
+## SEO Features
+
+- 🎯 Semantic HTML5 structure
+- 🎯 Comprehensive meta tags (title, description, keywords)
+- 🎯 Open Graph and Twitter Card support
+- 🎯 Structured data (JSON-LD) for search engines
+- 🎯 XML sitemap for better crawling
+- 🎯 robots.txt configuration
+- 🎯 Canonical URLs for duplicate content prevention
+- 🎯 Image alt text for accessibility and SEO
+- 🎯 Responsive design for mobile-first indexing
+
+## Development Notes
+
+### CSS Architecture
+- **styles.css**: Layout, header, footer, navigation
+- **tools.css**: Calculator forms, cards, results display
+
+### JavaScript Structure
+- **script.js**: Navigation, form utilities, calculator initialization
+- **In-page scripts**: Tool-specific calculation logic
+- **Modular design**: Reusable utility functions
+
+### Browser Compatibility
+- Tested across Chrome, Firefox, Safari, Edge
+- Mobile-responsive design tested on iOS and Android
+- Graceful degradation for older browsers
 
 ## License
 
