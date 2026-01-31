@@ -204,7 +204,7 @@ const calculatorUtils = {
         const bmi = weight / (height * height);
         return {
             bmi: bmi.toFixed(1),
-            category: this.getBMICategory(bmi)
+            category: calculatorUtils.getBMICategory(bmi)
         };
     },
     
@@ -816,7 +816,7 @@ function initMacroCalculator() {
         heightUnitSelect.addEventListener('change', () => toggleHeightInputs(heightUnitSelect, heightCmInput, heightFeetInput, heightInchesInput));
 
         // Initial setup
-        toggleCalculationMethodFields(); // This calls the function but does not initialize anything. It is a typo, and should be toggleCalculationMethodFields
+        toggleCalculationMethodFields();
         toggleCustomRatiosFields();
         setupRadioStyling('gender');
 
