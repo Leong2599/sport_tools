@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDEE Calculator - Sports Tools Hub</title>
+    <meta name="description" content="Calculate your Total Daily Energy Expenditure (TDEE) to understand your caloric needs for weight management.">
+    <meta name="keywords" content="tdee calculator, total daily energy expenditure, calorie needs, weight loss, weight gain, maintenance, metabolism">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <span class="brand-icon">⚡</span>
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="tool-hero">
+            <div class="container">
+                <h1>Total Daily Energy Expenditure (TDEE) Calculator</h1>
+                <p class="tool-subtitle">Estimate the total calories you burn each day based on your activity level and body metrics.</p>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <div class="container calculator-layout">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Calculate Your TDEE</h2>
+                    </div>
+                    <form id="tdeeForm" class="calculator-form">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" min="15" max="80" required>
+                        </div>
+
+                        <fieldset class="form-group">
+                            <legend>Gender</legend>
+                            <div class="radio-group">
+                                <label><input type="radio" name="gender" value="male" required checked><span>Male</span></label>
+                                <label><input type="radio" name="gender" value="female"><span>Female</span></label>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-group">
+                            <label for="height">Height</label>
+                            <div class="input-group height-input-group">
+                                <input type="number" id="heightCm" placeholder="cm" min="50" class="flex-grow-1">
+                                <div class="height-feet-inches">
+                                    <input type="number" id="heightFeet" placeholder="ft" min="1">
+                                    <input type="number" id="heightInches" placeholder="in" min="0" max="11">
+                                </div>
+                                <select id="heightUnit">
+                                    <option value="cm">cm</option>
+                                    <option value="feet">ft/in</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="weight">Weight</label>
+                            <div class="input-group">
+                                <input type="number" id="weight" min="1" step="0.1" required>
+                                <select id="weightUnit">
+                                    <option value="kg">kg</option>
+                                    <option value="lbs">lbs</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="activity">Activity Level</label>
+                            <select id="activity" required>
+                                <option value="1.2">Sedentary (little or no exercise)</option>
+                                <option value="1.375">Lightly Active (light exercise/sports 1-3 days/week)</option>
+                                <option value="1.55">Moderately Active (moderate exercise/sports 3-5 days/week)</option>
+                                <option value="1.725">Very Active (hard exercise/sports 6-7 days/week)</option>
+                                <option value="1.9">Extremely Active (very hard exercise/physical job)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-primary">Calculate TDEE</button>
+                            <button type="reset" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card results-card" id="resultsCard">
+                    <div class="card-header">
+                        <h2 class="card-title">Your Estimated TDEE</h2>
+                    </div>
+                    <div class="results-display">
+                        <p class="results-value" id="tdeeResult">0</p>
+                        <p class="results-category">Calories/Day</p>
+                    </div>
+
+                    <div class="results-breakdown">
+                        <h3>Weight Goals</h3>
+                        <div class="chart-ranges">
+                            <div class="range-item"><span>Maintain Weight:</span> <span id="maintainCalories">0 Calories</span></div>
+                            <div class="range-item"><span>Mild Weight Loss (0.25kg/0.5lb per week):</span> <span id="mildLossCalories">0 Calories</span></div>
+                            <div class="range-item"><span>Weight Loss (0.5kg/1lb per week):</span> <span id="lossCalories">0 Calories</span></div>
+                            <div class="range-item"><span>Extreme Weight Loss (1kg/2lb per week):</span> <span id="extremeLossCalories">0 Calories</span></div>
+                            <div class="range-item"><span>Mild Weight Gain (0.25kg/0.5lb per week):</span> <span id="mildGainCalories">0 Calories</span></div>
+                            <div class="range-item"><span>Weight Gain (0.5kg/1lb per week):</span> <span id="gainCalories">0 Calories</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card container">
+            <h3>Understanding TDEE</h3>
+            <p>Your Total Daily Energy Expenditure (TDEE) is an estimate of how many calories you burn per day when exercise is taken into account. It's the sum of your Basal Metabolic Rate (BMR) and the calories expended during daily activities and exercise.</p>
+            
+            <h3>How to Use This Calculator</h3>
+            <ul>
+                <li><strong>Age & Gender:</strong> Essential for accurate BMR calculation.</li>
+                <li><strong>Height & Weight:</strong> Crucial inputs for the BMR formula.</li>
+                <li><strong>Activity Level:</strong> Choose the option that best describes your weekly exercise routine. Be honest for best results.</li>
+            </ul>
+
+            <h3>Why Calculate Your TDEE?</h3>
+            <p>Knowing your TDEE helps you:</p>
+            <ul>
+                <li><strong>Achieve Weight Goals:</strong> Understand how many calories you need to consume to maintain, lose, or gain weight.</li>
+                <li><strong>Plan Nutrition:</strong> Design a meal plan that aligns with your energy needs and fitness objectives.</li>
+                <li><strong>Monitor Progress:</strong> Adjust your caloric intake as your body weight or activity level changes.</li>
+            </ul>
+
+            <h3>TDEE Formulas</h3>
+            <p>This calculator primarily uses the Mifflin-St Jeor equation for BMR, which is widely recognized for its accuracy:</p>
+            <ul>
+                <li><strong>Men:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5</li>
+                <li><strong>Women:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161</li>
+            </ul>
+            <p>Your BMR is then multiplied by an activity factor to estimate your TDEE.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tools & Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../index.html#fitness-calculators">BMI Calculator</a></li>
+                            <li><a href="../index.html#performance-trackers">Pace Calculator</a></li>
+                            <li><a href="../index.html#nutrition-tools">Macro Calculator</a></li>
+                            <li><a href="../index.html#training-equipment">Equipment Guides</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../blog.html">Blog</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heightUnitSelect = document.getElementById('heightUnit');
+            const heightCmInput = document.getElementById('heightCm');
+            const heightFeetInput = document.getElementById('heightFeet');
+            const heightInchesInput = document.getElementById('heightInches');
+
+            function toggleHeightInputs() {
+                if (heightUnitSelect.value === 'cm') {
+                    heightCmInput.style.display = 'block';
+                    heightCmInput.setAttribute('required', 'required');
+                    heightFeetInput.style.display = 'none';
+                    heightFeetInput.removeAttribute('required');
+                    heightInchesInput.style.display = 'none';
+                    heightInchesInput.removeAttribute('required');
+                } else {
+                    heightCmInput.style.display = 'none';
+                    heightCmInput.removeAttribute('required');
+                    heightFeetInput.style.display = 'block';
+                    heightFeetInput.setAttribute('required', 'required');
+                    heightInchesInput.style.display = 'block';
+                    heightInchesInput.setAttribute('required', 'required');
+                }
+            }
+
+            heightUnitSelect.addEventListener('change', toggleHeightInputs);
+            toggleHeightInputs(); // Initial call to set visibility
+
+            // Add event listeners to radio buttons for styling
+            document.querySelectorAll('.radio-group input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', () => {
+                    // Remove 'radio-selected' from all labels in the same group
+                    document.querySelectorAll(`.radio-group input[name="${radio.name}"]`).forEach(siblingRadio => {
+                        siblingRadio.closest('label').classList.remove('radio-selected');
+                    });
+                    // Add 'radio-selected' to the label of the checked radio
+                    if (radio.checked) {
+                        radio.closest('label').classList.add('radio-selected');
+                    }
+                });
+            });
+
+            // Set initial 'radio-selected' class on DOMContentLoaded for pre-checked radios
+            document.querySelectorAll('.radio-group input[type="radio"]:checked').forEach(radio => {
+                radio.closest('label').classList.add('radio-selected');
+            });
+
+            document.getElementById('tdeeForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const age = parseInt(document.getElementById('age').value);
+                const gender = document.querySelector('input[name="gender"]:checked').value;
+                let weight = parseFloat(document.getElementById('weight').value);
+                const weightUnit = document.getElementById('weightUnit').value;
+                const activityFactor = parseFloat(document.getElementById('activity').value);
+
+                let heightCm;
+                if (heightUnitSelect.value === 'cm') {
+                    heightCm = parseFloat(document.getElementById('heightCm').value);
+                } else {
+                    const heightFeet = parseFloat(document.getElementById('heightFeet').value);
+                    const heightInches = parseFloat(document.getElementById('heightInches').value);
+                    if (isNaN(heightFeet) || isNaN(heightInches)) {
+                        alert('Please enter a valid height.');
+                        return;
+                    }
+                    heightCm = (heightFeet * 30.48) + (heightInches * 2.54);
+                }
+
+                if (isNaN(age) || isNaN(weight) || isNaN(heightCm) || age < 15 || weight <= 0 || heightCm <= 0) {
+                    alert('Please enter valid inputs for age, height, and weight.');
+                    return;
+                }
+
+                // Convert weight to kg if in lbs
+                if (weightUnit === 'lbs') {
+                    weight = weight * 0.453592;
+                }
+
+                // Mifflin-St Jeor Equation for BMR
+                let bmr;
+                if (gender === 'male') {
+                    bmr = (10 * weight) + (6.25 * heightCm) - (5 * age) + 5;
+                } else {
+                    bmr = (10 * weight) + (6.25 * heightCm) - (5 * age) - 161;
+                }
+
+                const tdee = bmr * activityFactor;
+
+                document.getElementById('tdeeResult').textContent = Math.round(tdee);
+                document.getElementById('maintainCalories').textContent = `${Math.round(tdee)} Calories`;
+                document.getElementById('mildLossCalories').textContent = `${Math.round(tdee - 250)} Calories`;
+                document.getElementById('lossCalories').textContent = `${Math.round(tdee - 500)} Calories`;
+                document.getElementById('extremeLossCalories').textContent = `${Math.round(tdee - 1000)} Calories`;
+                document.getElementById('mildGainCalories').textContent = `${Math.round(tdee + 250)} Calories`;
+                document.getElementById('gainCalories').textContent = `${Math.round(tdee + 500)} Calories`;
+
+                document.getElementById('resultsCard').classList.add('show');
+            });
+
+            document.getElementById('tdeeForm').addEventListener('reset', function() {
+                document.getElementById('tdeeResult').textContent = '0';
+                document.getElementById('maintainCalories').textContent = '0 Calories';
+                document.getElementById('mildLossCalories').textContent = '0 Calories';
+                document.getElementById('lossCalories').textContent = '0 Calories';
+                document.getElementById('extremeLossCalories').textContent = '0 Calories';
+                document.getElementById('mildGainCalories').textContent = '0 Calories';
+                document.getElementById('gainCalories').textContent = '0 Calories';
+                document.getElementById('resultsCard').classList.remove('show');
+                toggleHeightInputs(); // Reset height input visibility
+            });
+
+            // Accessibility: Set focus on result when shown
+            const observer = new MutationObserver((mutationsList, observer) => {
+                for(let mutation of mutationsList) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        if (document.getElementById('resultsCard').classList.contains('show')) {
+                            document.getElementById('tdeeResult').focus();
+                        }
+                    }
+                }
+            });
+            observer.observe(document.getElementById('resultsCard'), { attributes: true });
+
+            // Mobile navigation toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+            });
+
+            // Close mobile nav when a link is clicked
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Dropdown functionality
+            const dropdownToggle = document.querySelector('.dropdown-toggle');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            if (dropdownToggle && dropdownMenu) {
+                dropdownToggle.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    dropdownMenu.classList.toggle('show'); // Use a 'show' class for dropdown
+                });
+
+                // Close dropdown if clicked outside
+                document.addEventListener('click', function(event) {
+                    if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                        dropdownToggle.setAttribute('aria-expanded', 'false');
+                        dropdownMenu.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

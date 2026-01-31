@@ -14,8 +14,10 @@
     
     <link rel="canonical" href="https://sportstools.com/tools/macro-calculator.html">
     <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../calculator-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../tools.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
@@ -27,7 +29,7 @@
             <div class="nav-container">
                 <div class="nav-brand">
                     <a href="../index.html" class="brand-link">
-                        <span class="brand-icon">⚡</span>
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
                         <span class="brand-text">Sports Tools Hub</span>
                     </a>
                 </div>
@@ -45,20 +47,13 @@
                     <li class="nav-item dropdown" role="none">
                         <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
                         <ul class="dropdown-menu" role="menu">
-                            <li role="none"><a href="#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
-                            <li role="none"><a href="#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
-                            <li role="none"><a href="#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
-                            <li role="none"><a href="#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
                         </ul>
                     </li>
                     <li class="nav-item" role="none">
                         <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="#about" class="nav-link" role="menuitem">About</a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -80,650 +75,274 @@
             <div class="container">
                 <div class="calculator-layout">
                     <!-- Calculator Form -->
-                    <div class="calculator-form">
-                        <div class="calculator-card">
-                            <h2>Calculate Your Daily Macronutrients</h2>
-                            <form id="macro-form" aria-labelledby="macro-form-title">
-                                <h3 id="macro-form-title" class="sr-only">Macro Calculation Form</h3>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Calculate Your Daily Macronutrients</h2>
+                        </div>
+                        <form id="macro-form" class="calculator-form" aria-labelledby="macro-form-title">
+                            <h3 id="macro-form-title" class="sr-only">Macro Calculation Form</h3>
+                            
+                            <div class="form-group">
+                                <label for="calculation-method">Calculation Method</label>
+                                <select id="calculation-method" name="calculation-method" required>
+                                    <option value="">Select calculation method</option>
+                                    <option value="tdee">Based on TDEE (Total Daily Energy Expenditure)</option>
+                                    <option value="manual">Manual Calorie Input</option>
+                                </select>
+                            </div>
+
+                            <!-- TDEE Method Fields -->
+                            <div id="tdee-fields" class="calc-fields" style="display: none;">
+                                <h4>Enter Your Details</h4>
                                 
                                 <div class="form-group">
-                                    <label for="calculation-method">Calculation Method</label>
-                                    <select id="calculation-method" name="calculation-method" required>
-                                        <option value="">Select calculation method</option>
-                                        <option value="tdee">Based on TDEE (Total Daily Energy Expenditure)</option>
-                                        <option value="manual">Manual Calorie Input</option>
-                                    </select>
-                                </div>
-
-                                <!-- TDEE Method Fields -->
-                                <div id="tdee-fields" class="calc-fields" style="display: none;">
-                                    <h4>Enter Your Details</h4>
-                                    
-                                    <div class="form-group">
-                                        <label for="weight">Body Weight</label>
-                                        <div class="input-group">
-                                            <input type="number" id="weight" name="weight" step="0.1" min="30" required 
-                                                   placeholder="Enter your weight">
-                                            <select id="weight-unit" name="weight-unit">
-                                                <option value="kg">kg</option>
-                                                <option value="lbs">lbs</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="height">Height</label>
-                                        <div class="input-group">
-                                            <input type="number" id="height" name="height" step="0.1" min="100" required 
-                                                   placeholder="Enter your height">
-                                            <select id="height-unit" name="height-unit">
-                                                <option value="cm">cm</option>
-                                                <option value="ft">ft/in</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="age">Age</label>
-                                        <input type="number" id="age" name="age" min="15" max="100" required 
-                                               placeholder="Enter your age">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <fieldset>
-                                            <legend>Gender</legend>
-                                            <div class="radio-group">
-                                                <label>
-                                                    <input type="radio" name="gender" value="male" required>
-                                                    <span>Male</span>
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="gender" value="female" required>
-                                                    <span>Female</span>
-                                                </label>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="activity-level">Activity Level</label>
-                                        <select id="activity-level" name="activity-level" required>
-                                            <option value="">Select activity level</option>
-                                            <option value="sedentary">Sedentary (little or no exercise)</option>
-                                            <option value="light">Light (exercise 1-3 days/week)</option>
-                                            <option value="moderate">Moderate (exercise 3-5 days/week)</option>
-                                            <option value="active">Active (exercise 6-7 days/week)</option>
-                                            <option value="very-active">Very Active (hard exercise 6-7 days/week)</option>
+                                    <label for="weight">Body Weight</label>
+                                    <div class="input-group">
+                                        <input type="number" id="weight" name="weight" step="0.1" min="30" required 
+                                               placeholder="Enter your weight">
+                                        <select id="weight-unit" name="weight-unit">
+                                            <option value="kg">kg</option>
+                                            <option value="lbs">lbs</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                <!-- Manual Calorie Input Fields -->
-                                <div id="manual-fields" class="calc-fields" style="display: none;">
-                                    <h4>Enter Your Calorie Target</h4>
-                                    
-                                    <div class="form-group">
-                                        <label for="daily-calories">Daily Calorie Target</label>
-                                        <input type="number" id="daily-calories" name="daily-calories" min="800" max="5000" required 
-                                               placeholder="Enter your daily calorie target">
-                                    </div>
-                                </div>
-
-                                <!-- Common Fields -->
                                 <div class="form-group">
-                                    <label for="fitness-goal">Fitness Goal</label>
-                                    <select id="fitness-goal" name="fitness-goal" required>
-                                        <option value="">Select your fitness goal</option>
-                                        <option value="lose-weight">Lose Weight (Cutting)</option>
-                                        <option value="maintain">Maintain Weight</option>
-                                        <option value="gain-muscle">Gain Muscle (Bulking)</option>
-                                        <option value="gain-strength">Gain Strength</option>
-                                        <option value="endurance">Improve Endurance</option>
-                                        <option value="ketogenic">Ketogenic Diet</option>
-                                        <option value="custom">Custom Ratios</option>
-                                    </select>
-                                </div>
-
-                                <!-- Custom Ratios (shown when custom is selected) -->
-                                <div id="custom-ratios" class="calc-fields" style="display: none;">
-                                    <h4>Custom Macro Ratios</h4>
-                                    
-                                    <div class="form-group">
-                                        <label for="custom-protein">Protein Percentage (%)</label>
-                                        <input type="number" id="custom-protein" name="custom-protein" min="5" max="50" step="1" 
-                                               placeholder="Enter protein percentage">
+                                    <label for="height">Height</label>
+                                    <div class="input-group height-input-group">
+                                        <input type="number" id="heightCm" name="heightCm" step="0.1" min="50" placeholder="cm">
+                                        <div class="height-feet-inches">
+                                            <input type="number" id="heightFeet" name="heightFeet" min="1" placeholder="ft">
+                                            <input type="number" id="heightInches" name="heightInches" min="0" max="11" placeholder="in">
+                                        </div>
+                                        <select id="height-unit" name="height-unit" aria-label="Height unit">
+                                            <option value="cm">cm</option>
+                                            <option value="ft">ft/in</option>
+                                        </select>
                                     </div>
-
-                                    <div class="form-group">
-                                        <label for="custom-carbs">Carbohydrates Percentage (%)</label>
-                                        <input type="number" id="custom-carbs" name="custom-carbs" min="5" max="70" step="1" 
-                                               placeholder="Enter carbs percentage">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="custom-fats">Fat Percentage (%)</label>
-                                        <input type="number" id="custom-fats" name="custom-fats" min="5" max="60" step="1" 
-                                               placeholder="Enter fat percentage">
-                                    </div>
+                                    <small id="height-help">Enter your height</small>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="diet-preference">Diet Preference</label>
-                                    <select id="diet-preference" name="diet-preference">
-                                        <option value="standard">Standard (Balanced)</option>
-                                        <option value="low-carb">Low Carb</option>
-                                        <option value="high-carb">High Carb</option>
-                                        <option value="low-fat">Low Fat</option>
-                                        <option value="high-fat">High Fat</option>
-                                        <option value="vegetarian">Vegetarian</option>
-                                        <option value="vegan">Vegan</option>
-                                        <option value="paleo">Paleo</option>
-                                    </select>
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" name="age" min="15" max="100" required 
+                                           placeholder="Enter your age">
                                 </div>
 
-                                <button type="submit" class="btn btn-primary calculator-btn">Calculate Macros</button>
-                                <button type="reset" class="btn btn-secondary calculator-btn">Reset</button>
-                            </form>
-                        </div>
+                                <div class="form-group">
+                                    <fieldset>
+                                        <legend>Gender</legend>
+                                        <div class="radio-group">
+                                            <label>
+                                                <input type="radio" name="gender" value="male" required>
+                                                <span>Male</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="gender" value="female" required>
+                                                <span>Female</span>
+                                            </label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="activity-level">Activity Level</label>
+                                    <select id="activity-level" name="activity-level" required>
+                                        <option value="">Select activity level</option>
+                                        <option value="sedentary">Sedentary (little or no exercise)</option>
+                                        <option value="light">Light (exercise 1-3 days/week)</option>
+                                        <option value="moderate">Moderate (exercise 3-5 days/week)</option>
+                                        <option value="active">Active (exercise 6-7 days/week)</option>
+                                        <option value="very-active">Very Active (hard exercise 6-7 days/week)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Manual Calorie Input Fields -->
+                            <div id="manual-fields" class="calc-fields" style="display: none;">
+                                <h4>Enter Your Calorie Target</h4>
+                                
+                                <div class="form-group">
+                                    <label for="daily-calories">Daily Calorie Target</label>
+                                    <input type="number" id="daily-calories" name="daily-calories" min="800" max="5000" required 
+                                           placeholder="Enter your daily calorie target">
+                                </div>
+                            </div>
+
+                            <!-- Common Fields -->
+                            <div class="form-group">
+                                <label for="fitness-goal">Fitness Goal</label>
+                                <select id="fitness-goal" name="fitness-goal" required>
+                                    <option value="">Select your fitness goal</option>
+                                    <option value="lose-weight">Lose Weight (Cutting)</option>
+                                    <option value="maintain">Maintain Weight</option>
+                                    <option value="gain-muscle">Gain Muscle (Bulking)</option>
+                                    <option value="gain-strength">Gain Strength</option>
+                                    <option value="endurance">Improve Endurance</option>
+                                    <option value="ketogenic">Ketogenic Diet</option>
+                                    <option value="custom">Custom Ratios</option>
+                                </select>
+                            </div>
+
+                            <!-- Custom Ratios (shown when custom is selected) -->
+                            <div id="custom-ratios" class="calc-fields" style="display: none;">
+                                <h4>Custom Macro Ratios</h4>
+                                
+                                <div class="form-group">
+                                    <label for="custom-protein">Protein Percentage (%)</label>
+                                    <input type="number" id="custom-protein" name="custom-protein" min="5" max="50" step="1" 
+                                           placeholder="Enter protein percentage">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="custom-carbs">Carbohydrates Percentage (%)</label>
+                                    <input type="number" id="custom-carbs" name="custom-carbs" min="5" max="70" step="1" 
+                                           placeholder="Enter carbs percentage">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="custom-fats">Fat Percentage (%)</label>
+                                    <input type="number" id="custom-fats" name="custom-fats" min="5" max="60" step="1" 
+                                           placeholder="Enter fat percentage">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="diet-preference">Diet Preference</label>
+                                <select id="diet-preference" name="diet-preference">
+                                    <option value="standard">Standard (Balanced)</option>
+                                    <option value="low-carb">Low Carb</option>
+                                    <option value="high-carb">High Carb</option>
+                                    <option value="low-fat">Low Fat</option>
+                                    <option value="high-fat">High Fat</option>
+                                    <option value="vegetarian">Vegetarian</option>
+                                    <option value="vegan">Vegan</option>
+                                    <option value="paleo">Paleo</option>
+                                </select>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary">Calculate Macros</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
                     </div>
 
                     <!-- Results Section -->
-                    <div class="calculator-results">
-                        <div class="results-card" id="macro-results" style="display: none;">
-                            <h2>Your Macronutrient Results</h2>
+                    <div class="card results-card" id="macro-results">
+                        <div class="card-header">
+                            <h2 class="card-title">Your Macronutrient Results</h2>
+                        </div>
+                        
+                        <div class="results-display">
+                            <div class="macro-summary">
+                                <h3>Daily Calories</h3>
+                                <div class="results-value" id="daily-calories-result">--</div>
+                                <div class="results-category">calories per day</div>
+                            </div>
                             
-                            <div class="macro-display">
-                                <div class="macro-summary">
-                                    <h3>Daily Calories</h3>
-                                    <div class="calorie-value" id="daily-calories-result">--</div>
-                                    <small>calories per day</small>
-                                </div>
-                                
-                                <div class="macro-breakdown">
-                                    <h3>Macronutrient Breakdown</h3>
-                                    <div class="macro-grid">
-                                        <div class="macro-item protein-item">
-                                            <div class="macro-icon">🥩</div>
-                                            <div class="macro-label">Protein</div>
-                                            <div class="macro-grams" id="protein-grams">--g</div>
-                                            <div class="macro-calories" id="protein-calories">-- cal</div>
-                                            <div class="macro-percentage" id="protein-percentage">--%</div>
-                                        </div>
-                                        <div class="macro-item carbs-item">
-                                            <div class="macro-icon">🍞</div>
-                                            <div class="macro-label">Carbs</div>
-                                            <div class="macro-grams" id="carbs-grams">--g</div>
-                                            <div class="macro-calories" id="carbs-calories">-- cal</div>
-                                            <div class="macro-percentage" id="carbs-percentage">--%</div>
-                                        </div>
-                                        <div class="macro-item fats-item">
-                                            <div class="macro-icon">🥑</div>
-                                            <div class="macro-label">Fats</div>
-                                            <div class="macro-grams" id="fats-grams">--g</div>
-                                            <div class="macro-calories" id="fats-calories">-- cal</div>
-                                            <div class="macro-percentage" id="fats-percentage">--%</div>
-                                        </div>
+                            <div class="macro-breakdown">
+                                <h3>Macronutrient Breakdown</h3>
+                                <div class="macro-grid">
+                                    <div class="macro-item protein-item">
+                                        <div class="macro-icon">🥩</div>
+                                        <div class="macro-label">Protein</div>
+                                        <div class="macro-grams" id="protein-grams">--g</div>
+                                        <div class="macro-calories" id="protein-calories">-- cal</div>
+                                        <div class="macro-percentage" id="protein-percentage">--%</div>
+                                    </div>
+                                    <div class="macro-item carbs-item">
+                                        <div class="macro-icon">🍞</div>
+                                        <div class="macro-label">Carbs</div>
+                                        <div class="macro-grams" id="carbs-grams">--g</div>
+                                        <div class="macro-calories" id="carbs-calories">-- cal</div>
+                                        <div class="macro-percentage" id="carbs-percentage">--%</div>
+                                    </div>
+                                    <div class="macro-item fats-item">
+                                        <div class="macro-icon">🥑</div>
+                                        <div class="macro-label">Fats</div>
+                                        <div class="macro-grams" id="fats-grams">--g</div>
+                                        <div class="macro-calories" id="fats-calories">-- cal</div>
+                                        <div class="macro-percentage" id="fats-percentage">--%</div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="macro-meal-plan" id="macro-meal-plan">
-                                <h3>Suggested Meal Distribution</h3>
-                                <div class="meal-plan-grid" id="meal-plan-grid">
-                                    <!-- Meal plan will be populated here -->
-                                </div>
-                            </div>
-
-                            <div class="macro-food-sources" id="macro-food-sources">
-                                <h3>Food Sources Recommendations</h3>
-                                <div class="food-sources-grid" id="food-sources-grid">
-                                    <!-- Food sources will be populated here -->
-                                </div>
-                            </div>
-
-                            <div class="macro-recommendations" id="macro-recommendations">
-                                <h3>Nutrition Recommendations</h3>
-                                <div id="recommendation-text" class="recommendation-content">
-                                    <!-- Recommendations will be inserted here -->
-                                </div>
-                            </div>
-
-                            <div class="macro-actions">
-                                <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
-                                <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                        <div class="results-chart" id="macro-meal-plan">
+                            <h3>Suggested Meal Distribution</h3>
+                            <div class="meal-plan-grid" id="meal-plan-grid">
+                                <!-- Meal plan will be populated here -->
                             </div>
                         </div>
 
-                        <!-- Macro Information -->
-                        <div class="info-card">
-                            <h2>About Macronutrients</h2>
-                            <p>Macronutrients are the nutrients your body needs in large amounts: carbohydrates, proteins, and fats. Each plays a crucial role in health, performance, and body composition.</p>
-                            
-                            <h3>Macronutrient Roles</h3>
-                            <ul>
-                                <li><strong>Carbohydrates (4 cal/g):</strong> Primary energy source, fuels brain and muscles</li>
-                                <li><strong>Proteins (4 cal/g):</strong> Builds and repairs tissues, supports immune function</li>
-                                <li><strong>Fats (9 cal/g):</strong> Hormone production, vitamin absorption, energy storage</li>
-                            </ul>
-                            
-                            <h3>Common Macro Ratios</h3>
-                            <ul>
-                                <li><strong>Balanced (40/30/30):</strong> 40% carbs, 30% protein, 30% fats</li>
-                                <li><strong>Low Carb (20/40/40):</strong> 20% carbs, 40% protein, 40% fats</li>
-                                <li><strong>High Carb (60/20/20):</strong> 60% carbs, 20% protein, 20% fats</li>
-                                <li><strong>Keto (5/25/70):</strong> 5% carbs, 25% protein, 70% fats</li>
-                                <li><strong>Bulking (45/30/25):</strong> 45% carbs, 30% protein, 25% fats</li>
-                                <li><strong>Cutting (40/40/20):</strong> 40% carbs, 40% protein, 20% fats</li>
-                            </ul>
-                            
-                            <h3>Protein Needs</h3>
-                            <ul>
-                                <li><strong>Sedentary:</strong> 0.8-1.0g per kg body weight</li>
-                                <li><strong>Active:</strong> 1.2-1.6g per kg body weight</li>
-                                <li><strong>Strength Athletes:</strong> 1.6-2.2g per kg body weight</li>
-                                <li><strong>Endurance Athletes:</strong> 1.4-1.8g per kg body weight</li>
-                            </ul>
-                            
-                            <h3>Diet-Specific Considerations</h3>
-                            <ul>
-                                <li><strong>Vegetarian/Vegan:</strong> May need 10-20% more protein due to lower digestibility</li>
-                                <li><strong>Keto:</strong> Very low carbs, high healthy fats, moderate protein</li>
-                                <li><strong>Paleo:</strong> No grains/legumes, focus on whole foods</li>
-                                <li><strong>Mediterranean:</strong> Emphasis on healthy fats and complex carbs</li>
-                            </ul>
+                        <div class="results-breakdown" id="macro-food-sources">
+                            <h3>Food Sources Recommendations</h3>
+                            <div class="food-sources-grid" id="food-sources-grid">
+                                <!-- Food sources will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="results-recommendations" id="macro-recommendations">
+                            <h3>Nutrition Recommendations</h3>
+                            <div id="recommendation-text" class="recommendation-content">
+                                <!-- Recommendations will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="results-actions">
+                            <button type="button" class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                            <button type="button" class="btn btn-primary" onclick="shareResults()">Share Results</button>
                         </div>
                     </div>
+                </div>
+
+                <!-- Macro Information -->
+                <div class="card info-card">
+                    <div class="card-header">
+                        <h2 class="card-title">About Macronutrients</h2>
+                    </div>
+                    <p>Macronutrients are the nutrients your body needs in large amounts: carbohydrates, proteins, and fats. Each plays a crucial role in health, performance, and body composition.</p>
+                    
+                    <h3>Macronutrient Roles</h3>
+                    <ul>
+                        <li><strong>Carbohydrates (4 cal/g):</strong> Primary energy source, fuels brain and muscles</li>
+                        <li><strong>Proteins (4 cal/g):</strong> Builds and repairs tissues, supports immune function</li>
+                        <li><strong>Fats (9 cal/g):</strong> Hormone production, vitamin absorption, energy storage</li>
+                    </ul>
+                    
+                    <h3>Common Macro Ratios</h3>
+                    <ul>
+                        <li><strong>Balanced (40/30/30):</strong> 40% carbs, 30% protein, 30% fats</li>
+                        <li><strong>Low Carb (20/40/40):</strong> 20% carbs, 40% protein, 40% fats</li>
+                        <li><strong>High Carb (60/20/20):</strong> 60% carbs, 20% protein, 20% fats</li>
+                        <li><strong>Keto (5/25/70):</strong> 5% carbs, 25% protein, 70% fats</li>
+                        <li><strong>Bulking (45/30/25):</strong> 45% carbs, 30% protein, 25% fats</li>
+                        <li><strong>Cutting (40/40/20):</strong> 40% carbs, 40% protein, 20% fats</li>
+                    </ul>
+                    
+                    <h3>Protein Needs</h3>
+                    <ul>
+                        <li><strong>Sedentary:</strong> 0.8-1.0g per kg body weight</li>
+                        <li><strong>Active:</strong> 1.2-1.6g per kg body weight</li>
+                        <li><strong>Strength Athletes:</strong> 1.6-2.2g per kg body weight</li>
+                        <li><strong>Endurance Athletes:</strong> 1.4-1.8g per kg body weight</li>
+                    </ul>
+                    
+                    <h3>Diet-Specific Considerations</h3>
+                    <ul>
+                        <li><strong>Vegetarian/Vegan:</strong> May need 10-20% more protein due to lower digestibility</li>
+                        <li><strong>Keto:</strong> Very low carbs, high healthy fats, moderate protein</li>
+                        <li><strong>Paleo:</strong> No grains/legumes, focus on whole foods</li>
+                        <li><strong>Mediterranean:</strong> Emphasis on healthy fats and complex carbs</li>
+                    </ul>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Sports Tools Hub</h4>
-                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="YouTube">📺</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Tools & Calculators</h4>
-                    <nav>
-                        <ul class="footer-links">
-                            <li><a href="#fitness-calculators">BMI Calculator</a></li>
-                            <li><a href="#performance-trackers">Pace Calculator</a></li>
-                            <li><a href="#nutrition-tools">Macro Calculator</a></li>
-                            <li><a href="#training-equipment">Equipment Guides</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <nav>
-                        <ul class="footer-links">
-                            <li><a href="../blog.html">Blog</a></li>
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                            <li><a href="../privacy.html">Privacy Policy</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Newsletter</h4>
-                    <p>Get the latest fitness tips and tool updates delivered to your inbox.</p>
-                    <form class="newsletter-form" action="#subscribe" method="post">
-                        <input type="email" placeholder="Enter your email" required aria-label="Email address">
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
-            </div>
-        </div>
-    </footer>
 
-    <script>
-        // Macro Calculator functionality
-        document.getElementById('calculation-method').addEventListener('change', function() {
-            // Hide all calculation fields
-            document.querySelectorAll('.calc-fields').forEach(field => {
-                field.style.display = 'none';
-            });
-            
-            // Show selected calculation fields
-            const selectedMethod = this.value;
-            if (selectedMethod === 'tdee') {
-                document.getElementById('tdee-fields').style.display = 'block';
-            } else if (selectedMethod === 'manual') {
-                document.getElementById('manual-fields').style.display = 'block';
-            }
-        });
 
-        document.getElementById('fitness-goal').addEventListener('change', function() {
-        // Show/hide custom ratios
-        const customRatios = document.getElementById('custom-ratios');
-        if (this.value === 'custom') {
-            customRatios.style.display = 'block';
-            // Add validation for custom ratios
-            setTimeout(() => {
-                validateCustomRatios();
-            }, 100);
-        } else {
-            customRatios.style.display = 'none';
-        }
-        });
-
-        document.getElementById('macro-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            calculateMacros();
-        });
-
-        function calculateMacros() {
-            const calculationMethod = document.getElementById('calculation-method').value;
-            let dailyCalories;
-
-            // Calculate or get daily calories
-            if (calculationMethod === 'tdee') {
-                dailyCalories = calculateTDEE();
-            } else {
-                dailyCalories = parseInt(document.getElementById('daily-calories').value);
-            }
-
-            // Get macro ratios based on goal
-            const fitnessGoal = document.getElementById('fitness-goal').value;
-            let macroRatios = getMacroRatios(fitnessGoal);
-
-            // Apply diet preference adjustments
-            const dietPreference = document.getElementById('diet-preference').value;
-            macroRatios = adjustRatiosForDiet(macroRatios, dietPreference);
-
-            // Calculate macro amounts
-            const proteinCalories = dailyCalories * (macroRatios.protein / 100);
-            const carbsCalories = dailyCalories * (macroRatios.carbs / 100);
-            const fatsCalories = dailyCalories * (macroRatios.fats / 100);
-
-            const proteinGrams = Math.round(proteinCalories / 4);
-            const carbsGrams = Math.round(carbsCalories / 4);
-            const fatsGrams = Math.round(fatsCalories / 9);
-
-            // Display results
-            document.getElementById('daily-calories-result').textContent = dailyCalories + ' cal';
-            document.getElementById('protein-grams').textContent = proteinGrams + 'g';
-            document.getElementById('protein-calories').textContent = Math.round(proteinCalories) + ' cal';
-            document.getElementById('protein-percentage').textContent = macroRatios.protein + '%';
-            
-            document.getElementById('carbs-grams').textContent = carbsGrams + 'g';
-            document.getElementById('carbs-calories').textContent = Math.round(carbsCalories) + ' cal';
-            document.getElementById('carbs-percentage').textContent = macroRatios.carbs + '%';
-            
-            document.getElementById('fats-grams').textContent = fatsGrams + 'g';
-            document.getElementById('fats-calories').textContent = Math.round(fatsCalories) + ' cal';
-            document.getElementById('fats-percentage').textContent = macroRatios.fats + '%';
-
-            // Generate meal plan
-            generateMealPlan(proteinGrams, carbsGrams, fatsGrams);
-
-            // Generate food sources
-            generateFoodSources(fitnessGoal, dietPreference);
-
-            // Generate recommendations
-            const recommendations = generateMacroRecommendations(dailyCalories, macroRatios, fitnessGoal);
-            document.getElementById('recommendation-text').textContent = recommendations;
-
-            // Show results section
-            const resultsElement = document.getElementById('macro-results');
-            resultsElement.style.display = 'block';
-            resultsElement.classList.add('show');
-
-            // Scroll to results
-            document.getElementById('macro-results').scrollIntoView({ behavior: 'smooth' });
-
-            // Track usage
-            if (window.calculatorUtils) {
-                window.calculatorUtils.trackToolUsage('Macro Calculator');
-            }
-        }
-
-        function calculateTDEE() {
-            const weight = parseFloat(document.getElementById('weight').value);
-            const weightUnit = document.getElementById('weight-unit').value;
-            const height = parseFloat(document.getElementById('height').value);
-            const heightUnit = document.getElementById('height-unit').value;
-            const age = parseInt(document.getElementById('age').value);
-            const gender = document.querySelector('input[name="gender"]:checked').value;
-            const activityLevel = document.getElementById('activity-level').value;
-
-            // Convert to metric units if needed
-            let weightKg = weight;
-            let heightCm = height;
-
-            if (weightUnit === 'lbs') {
-                weightKg = weight * 0.453592;
-            }
-
-            if (heightUnit === 'ft') {
-                const feet = Math.floor(height);
-                const inches = Math.round((height - feet) * 10);
-                heightCm = (feet * 12 + inches) * 2.54;
-            }
-
-            // Calculate BMR using Mifflin-St Jeor equation
-            let bmr;
-            if (gender === 'male') {
-                bmr = 10 * weightKg + 6.25 * heightCm - 5 * age + 5;
-            } else {
-                bmr = 10 * weightKg + 6.25 * heightCm - 5 * age - 161;
-            }
-
-            // Activity multipliers
-            const activityMultipliers = {
-                'sedentary': 1.2,
-                'light': 1.375,
-                'moderate': 1.55,
-                'active': 1.725,
-                'very-active': 1.9
-            };
-
-            return Math.round(bmr * activityMultipliers[activityLevel]);
-        }
-
-        function getMacroRatios(goal) {
-            const ratios = {
-                'lose-weight': { protein: 40, carbs: 30, fats: 30 },
-                'maintain': { protein: 30, carbs: 40, fats: 30 },
-                'gain-muscle': { protein: 30, carbs: 45, fats: 25 },
-                'gain-strength': { protein: 35, carbs: 40, fats: 25 },
-                'endurance': { protein: 25, carbs: 55, fats: 20 },
-                'ketogenic': { protein: 25, carbs: 5, fats: 70 }
-            };
-
-            return ratios[goal] || ratios['maintain'];
-        }
-
-        function adjustRatiosForDiet(ratios, diet) {
-            const adjusted = { ...ratios };
-
-            switch(diet) {
-                case 'low-carb':
-                    adjusted.carbs = Math.min(adjusted.carbs, 20);
-                    adjusted.protein = Math.max(adjusted.protein, 40);
-                    adjusted.fats = 100 - adjusted.carbs - adjusted.protein;
-                    break;
-                case 'high-carb':
-                    adjusted.carbs = Math.max(adjusted.carbs, 60);
-                    adjusted.fats = Math.min(adjusted.fats, 15);
-                    adjusted.protein = 100 - adjusted.carbs - adjusted.fats;
-                    break;
-                case 'low-fat':
-                    adjusted.fats = Math.min(adjusted.fats, 15);
-                    adjusted.protein = Math.max(adjusted.protein, 35);
-                    adjusted.carbs = 100 - adjusted.fats - adjusted.protein;
-                    break;
-                case 'high-fat':
-                    adjusted.fats = Math.max(adjusted.fats, 50);
-                    adjusted.carbs = Math.min(adjusted.carbs, 20);
-                    adjusted.protein = 100 - adjusted.fats - adjusted.carbs;
-                    break;
-                case 'vegetarian':
-                case 'vegan':
-                    adjusted.protein = Math.max(adjusted.protein, adjusted.protein + 5);
-                    adjusted.carbs = adjusted.carbs - 5;
-                    break;
-            }
-
-            return adjusted;
-        }
-
-        function generateMealPlan(proteinGrams, carbsGrams, fatsGrams) {
-            const mealPlanGrid = document.getElementById('meal-plan-grid');
-            
-            // Distribute macros across meals (30% breakfast, 30% lunch, 30% dinner, 10% snacks)
-            const meals = [
-                { name: 'Breakfast', protein: Math.round(proteinGrams * 0.3), carbs: Math.round(carbsGrams * 0.3), fats: Math.round(fatsGrams * 0.3) },
-                { name: 'Lunch', protein: Math.round(proteinGrams * 0.3), carbs: Math.round(carbsGrams * 0.3), fats: Math.round(fatsGrams * 0.3) },
-                { name: 'Dinner', protein: Math.round(proteinGrams * 0.3), carbs: Math.round(carbsGrams * 0.3), fats: Math.round(fatsGrams * 0.3) },
-                { name: 'Snacks', protein: proteinGrams - (Math.round(proteinGrams * 0.3) * 3), 
-                  carbs: carbsGrams - (Math.round(carbsGrams * 0.3) * 3), 
-                  fats: fatsGrams - (Math.round(fatsGrams * 0.3) * 3) }
-            ];
-
-            let mealPlanHTML = '<div class="meal-plan-list">';
-            
-            meals.forEach(meal => {
-                mealPlanHTML += `
-                    <div class="meal-item">
-                        <div class="meal-name">${meal.name}</div>
-                        <div class="meal-macros">
-                            <span class="meal-protein">P: ${meal.protein}g</span>
-                            <span class="meal-carbs">C: ${meal.carbs}g</span>
-                            <span class="meal-fats">F: ${meal.fats}g</span>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            mealPlanHTML += '</div>';
-            mealPlanGrid.innerHTML = mealPlanHTML;
-        }
-
-        function generateFoodSources(goal, diet) {
-            const foodSourcesGrid = document.getElementById('food-sources-grid');
-            
-            let sourcesHTML = '<div class="food-sources-list">';
-            
-            // Protein sources
-            sourcesHTML += `
-                <div class="food-source-category">
-                    <h4>🥩 Protein Sources</h4>
-                    <ul>
-                        <li>Lean meats (chicken, turkey)</li>
-                        <li>Fish (salmon, tuna, cod)</li>
-                        <li>Eggs and dairy</li>
-                        <li>Legumes and beans</li>
-                        <li>Tofu and tempeh</li>
-                    </ul>
-                </div>
-            `;
-            
-            // Carb sources
-            sourcesHTML += `
-                <div class="food-source-category">
-                    <h4>🍞 Carbohydrate Sources</h4>
-                    <ul>
-                        <li>Whole grains (oats, quinoa, brown rice)</li>
-                        <li>Vegetables and fruits</li>
-                        <li>Sweet potatoes</li>
-                        <li>Whole grain bread</li>
-                        <li>Pasta and legumes</li>
-                    </ul>
-                </div>
-            `;
-            
-            // Fat sources
-            sourcesHTML += `
-                <div class="food-source-category">
-                    <h4>🥑 Healthy Fat Sources</h4>
-                    <ul>
-                        <li>Avocados and nuts</li>
-                        <li>Olive oil and coconut oil</li>
-                        <li>Fatty fish (salmon, mackerel)</li>
-                        <li>Seeds (chia, flax, hemp)</li>
-                        <li>Nut butters</li>
-                    </ul>
-                </div>
-            `;
-            
-            sourcesHTML += '</div>';
-            foodSourcesGrid.innerHTML = sourcesHTML;
-        }
-
-        function validateCustomRatios() {
-            const proteinPercent = parseInt(document.getElementById('custom-protein').value) || 0;
-            const carbsPercent = parseInt(document.getElementById('custom-carbs').value) || 0;
-            const fatsPercent = parseInt(document.getElementById('custom-fats').value) || 0;
-            const total = proteinPercent + carbsPercent + fatsPercent;
-            
-            if (total !== 100) {
-                document.getElementById('custom-fats').setCustomValidity(`Percentages must total 100% (currently ${total}%)`);
-            } else {
-                document.getElementById('custom-fats').setCustomValidity('');
-            }
-        }
-
-        function generateMacroRecommendations(calories, ratios, goal) {
-            let recommendations = `Your daily target is ${calories} calories with macro ratios of ${ratios.protein}% protein, ${ratios.carbs}% carbs, and ${ratios.fats}% fats. `;
-            
-            // Goal-specific recommendations
-            switch(goal) {
-                case 'lose-weight':
-                    recommendations += 'For weight loss, focus on high-protein foods to maintain muscle mass and increase satiety. Choose complex carbs for sustained energy and healthy fats for hormone function.';
-                    break;
-                case 'gain-muscle':
-                    recommendations += 'For muscle building, prioritize protein intake around workouts. Include complex carbs for energy and healthy fats for hormone production.';
-                    break;
-                case 'endurance':
-                    recommendations += 'For endurance performance, emphasize complex carbs for fuel and adequate protein for recovery. Include healthy fats for long-duration energy.';
-                    break;
-                case 'ketogenic':
-                    recommendations += 'For keto, focus on healthy fats and moderate protein. Include non-starchy vegetables for fiber and micronutrients.';
-                    break;
-                default:
-                    recommendations += 'Maintain a balanced approach with whole foods, proper timing around workouts, and adequate hydration.';
-            }
-            
-            recommendations += ' Track your intake regularly and adjust based on your progress and how you feel.';
-            
-            return recommendations;
-        }
-
-        function shareResults() {
-            const calories = document.getElementById('daily-calories-result').textContent;
-            const protein = document.getElementById('protein-grams').textContent;
-            const text = `My daily macros are ${calories} with ${protein}. Calculate yours at Sports Tools Hub!`;
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Macro Calculator Results',
-                    text: text,
-                    url: window.location.href
-                });
-            } else {
-                // Fallback - copy to clipboard
-                navigator.clipboard.writeText(text + ' ' + window.location.href);
-                alert('Results copied to clipboard!');
-            }
-        }
-    </script>
+    <script src="../script.js"></script>
 </body>
 </html>

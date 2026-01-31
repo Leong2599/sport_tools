@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Type Quiz - Sports Tools Hub</title>
+    <meta name="description" content="Discover your somatotype (body type) - Ectomorph, Mesomorph, or Endomorph - and learn about its implications for fitness and nutrition.">
+    <meta name="keywords" content="body type, somatotype, ectomorph, mesomorph, endomorph, fitness, nutrition, quiz">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="tool-hero">
+            <div class="container">
+                <h1>Body Type (Somatotype) Quiz</h1>
+                <p class="tool-subtitle">Identify your dominant body type: Ectomorph, Mesomorph, or Endomorph.</p>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <div class="container calculator-layout">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Answer the Questions</h2>
+                    </div>
+                    <form id="bodyTypeQuizForm" class="calculator-form">
+                        <div class="form-group">
+                            <label>1. How would you describe your bone structure?</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="q1" value="ectomorph" required><span>Small, delicate</span></label>
+                                <label><input type="radio" name="q1" value="mesomorph"><span>Medium, athletic</span></label>
+                                <label><input type="radio" name="q1" value="endomorph"><span>Large, broad</span></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>2. How easily do you gain muscle mass?</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="q2" value="ectomorph" required><span>Very difficult</span></label>
+                                <label><input type="radio" name="q2" value="mesomorph"><span>Quite easily</span></label>
+                                <label><input type="radio" name="q2" value="endomorph"><span>Moderately easy, but also gain fat</span></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>3. How easily do you gain body fat?</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="q3" value="ectomorph" required><span>Very difficult</span></label>
+                                <label><input type="radio" name="q3" value="mesomorph"><span>Moderately, with overeating</span></label>
+                                <label><input type="radio" name="q3" value="endomorph"><span>Very easily, tend to hold fat</span></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>4. What is your natural body shape?</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="q4" value="ectomorph" required><span>Long, lean, narrow shoulders</span></label>
+                                <label><input type="radio" name="q4" value="mesomorph"><span>Rectangular, athletic, broad shoulders</span></label>
+                                <label><input type="radio" name="q4" value="endomorph"><span>Round, soft, wide hips/shoulders</span></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>5. How is your appetite generally?</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="q5" value="ectomorph" required><span>Small, can forget to eat</span></label>
+                                <label><input type="radio" name="q5" value="mesomorph"><span>Good, consistent</span></label>
+                                <label><input type="radio" name="q5" value="endomorph"><span>Large, enjoy eating</span></label>
+                            </div>
+                        </div>
+                        
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-primary">Discover My Body Type</button>
+                            <button type="reset" class="btn btn-secondary">Reset Quiz</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card results-card" id="resultsCard">
+                    <div class="card-header">
+                        <h2 class="card-title">Your Body Type Result</h2>
+                    </div>
+                    <div class="results-display">
+                        <p class="results-value" id="bodyTypeResult">?</p>
+                        <p class="results-category" id="bodyTypeDescription"></p>
+                    </div>
+
+                    <div class="results-recommendations">
+                        <h3>Recommendations for Your Body Type</h3>
+                        <div id="bodyTypeRecommendations" class="recommendation-content">
+                            <!-- Recommendations will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card container">
+            <h3>Understanding Somatotypes</h3>
+            <p>Somatotypes are a classification system for human body types, developed by Dr. William Sheldon in the 1940s. While not a definitive science, understanding your dominant somatotype can offer general insights into your metabolic tendencies and help tailor your fitness and nutrition strategies.</p>
+            
+            <h3>The Three Main Body Types</h3>
+            <ul>
+                <li><strong>Ectomorph:</strong> Characterized by a lean, delicate build with small bone structure and fast metabolism. Ectomorphs often struggle to gain weight and muscle.</li>
+                <li><strong>Mesomorph:</strong> Naturally athletic, strong, and muscular with a medium bone structure. Mesomorphs typically gain muscle and lose fat relatively easily.</li>
+                <li><strong>Endomorph:</strong> Tends to have a larger bone structure, higher body fat percentage, and a slower metabolism. Endomorphs find it easier to gain both muscle and fat.</li>
+            </ul>
+
+            <h3>Important Considerations</h3>
+            <p>Most people are a blend of these three somatotypes, with one usually being more dominant. This quiz is a general guide and should not be taken as medical advice. Individual results can vary based on genetics, lifestyle, and other factors. A balanced approach to diet and exercise is crucial for all body types.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tools & Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../index.html#fitness-calculators">BMI Calculator</a></li>
+                            <li><a href="../index.html#performance-trackers">Pace Calculator</a></li>
+                            <li><a href="../index.html#nutrition-tools">Macro Calculator</a></li>
+                            <li><a href="../index.html#training-equipment">Equipment Guides</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../blog.html">Blog</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
+            </div>
+        </div>
+    </footer>
+
+        <script src="../script.js"></script>
+
+    </body>
+
+    </html>

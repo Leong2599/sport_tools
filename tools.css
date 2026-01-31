@@ -1,0 +1,587 @@
+/*
+    TOOL PAGES STYLESHEET
+    ---
+    Description: Centralized styles for all calculator and tool pages in the Sports Tools Hub.
+    Version: 1.0
+    Author: Gemini
+*/
+
+/* ==> Table of Contents
+    ---
+    1.  Global & Reset
+    2.  Layout & Container
+    3.  Tool Header
+    4.  Calculator Form
+    5.  Results Area
+    6.  Information Section
+    7.  Responsive Design
+*/
+
+/* -------------------
+    1. Global & Reset
+   ------------------- */
+
+:root {
+    --primary-blue: #3b82f6; /* A slightly softer primary blue */
+    --primary-blue-dark: #2563eb;
+    --accent-green: #10b981;
+    --text-dark: #1f2937;
+    --text-medium: #4b5563;
+    --text-light: #6b7280;
+    --bg-light: #f4f7f6; /* Very light gray for body background */
+    --bg-white: #ffffff;
+    --border-light: #e5e7eb;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --border-radius-sm: 0.5rem;
+    --border-radius-md: 0.75rem;
+    --border-radius-lg: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: var(--text-medium);
+    background-color: var(--bg-light);
+}
+
+/* -------------------
+    2. Layout & Container
+   ------------------- */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.calculator-section {
+    padding: 4rem 1rem;
+}
+
+.calculator-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+@media (min-width: 992px) {
+    .calculator-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.card {
+    background: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--border-light);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.card-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary-blue);
+}
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* -------------------
+    3. Tool Header
+   ------------------- */
+
+.tool-hero {
+    background: url('file:///C:/Users/user/Documents/Projects/sport_tools/images/hero-1.jpg') no-repeat center center/cover; /* Use full file system path */
+    background-color: var(--primary-blue-dark); /* Fallback background color */
+    color: var(--bg-white);
+    padding: 4rem 1rem;
+    text-align: center;
+    border-bottom-left-radius: var(--border-radius-lg);
+    border-bottom-right-radius: var(--border-radius-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+    z-index: 1;
+    opacity: 1; /* Ensure overlay is fully opaque */
+    background-image: none; /* Remove subtle pattern, if any was there */
+}
+
+.tool-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: var(--shadow-sm);
+    position: relative;
+    z-index: 2;
+}
+
+.tool-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* -------------------
+    4. Calculator Form
+   ------------------- */
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.input-group input,
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s ease-in-out;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+}
+
+.input-group input:focus,
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.input-group select {
+    flex-shrink: 0;
+    width: auto;
+    min-width: 80px;
+}
+
+/* Specific styling for height input group in TDEE calculator */
+.input-group.height-input-group {
+    display: flex;
+    align-items: stretch; /* Ensure all items stretch to fill height */
+}
+
+.input-group.height-input-group #heightCm {
+    flex-grow: 1;
+    margin-right: 0.5rem; /* Space between cm input and ft/in group */
+}
+
+.height-feet-inches {
+    display: flex;
+    flex-grow: 1; /* Allow feet and inches to grow */
+    gap: 0.5rem; /* Space between ft and in inputs */
+}
+
+.height-feet-inches input {
+    flex: 1; /* Distribute space equally between ft and in */
+}
+
+.form-group small {
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+fieldset legend {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: var(--text-medium);
+    background-color: var(--bg-white);
+}
+
+.radio-group label:hover {
+    background-color: var(--bg-light);
+}
+
+.radio-group label.radio-selected {
+    border-color: var(--primary-blue-dark);
+    background-color: var(--primary-blue-dark);
+    color: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.radio-group label.radio-selected span {
+    color: var(--bg-white); /* Ensure text is white when label is selected */
+}
+
+/* Add a checkmark for visual confirmation inside the selected label */
+.radio-group label.radio-selected span::after {
+    content: '✓'; /* Unicode checkmark or actual SVG icon */
+    font-size: 1.2em;
+    color: var(--bg-white);
+    margin-left: 10px;
+}
+
+.radio-group input[type="radio"] {
+    accent-color: var(--primary-blue);
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.radio-group input[type="radio"]:checked + span {
+    color: var(--primary-blue-dark);
+}
+
+.radio-group label.active {
+    border-color: var(--primary-blue);
+    background-color: #e0f2fe; /* Light blue background */
+}
+
+
+
+.button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.875rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue-dark);
+    color: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    border: 1px solid var(--border-light);
+}
+
+.btn-secondary:hover {
+    background-color: #e0e7eb; /* Slightly darker light gray */
+}
+
+/* -------------------
+    5. Results Area
+   ------------------- */
+
+.results-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    display: block; /* Temporarily changed for debugging */
+}
+
+.results-card.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+}
+
+.results-display {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.results-value {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    line-height: 1.1;
+}
+
+.results-category {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-green);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 0.5rem;
+}
+
+.results-chart,
+.results-breakdown,
+.results-recommendations {
+    margin-bottom: 2rem;
+}
+
+.results-chart h3,
+.results-breakdown h3,
+.results-recommendations h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.chart-ranges {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.range-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.875rem 1.25rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+}
+
+/* New styles for Rep Max Progression list */
+.rep-max-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Reduced gap for a tighter list */
+}
+
+.rep-max-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem; /* Slightly less padding */
+    background-color: var(--bg-light); /* Light background for items */
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    color: var(--text-dark);
+    border: 1px solid var(--border-light);
+}
+
+.rep-max-item:nth-child(even) {
+    background-color: var(--bg-white); /* Alternate background for readability */
+}
+
+.rep-max-item span:first-child {
+    font-weight: 600;
+    color: var(--primary-blue-dark);
+}
+
+.rep-max-item span:last-child {
+    color: var(--text-medium);
+}
+
+/* Specific Tool Styles for Charts - No changes to these specific colors */
+.range-item.underweight { background-color: #dbeafe; color: #1e40af; }
+.range-item.normal { background-color: #d1fae5; color: #065f46; }
+.range-item.overweight { background-color: #fef3c7; color: #92400e; }
+.range-item.obese { background-color: #fecaca; color: #991b1b; }
+
+.recommendation-content {
+    background-color: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    border-left: 4px solid var(--primary-blue);
+    line-height: 1.7;
+    color: var(--text-medium);
+}
+
+.results-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+/* -------------------
+    6. Information Section
+   ------------------- */
+
+.info-card {
+    margin-top: 2.5rem;
+}
+
+.info-card h3 {
+    font-size: 1.3rem; /* Slightly larger heading */
+    margin: 1.5rem 0 1rem;
+    color: var(--primary-blue-dark);
+}
+
+.info-card p {
+    color: var(--text-medium);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card li {
+    padding: 0.5rem 0 0.5rem 1.75rem;
+    position: relative;
+    color: var(--text-medium);
+}
+
+.info-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: var(--accent-green);
+    font-size: 1.25rem;
+}
+
+/* -------------------
+    7. Responsive Design
+   ------------------- */
+
+@media (max-width: 768px) {
+    .calculator-section {
+        padding: 3rem 1rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .tool-hero {
+        padding: 3rem 1rem;
+    }
+
+    .tool-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .tool-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .results-value {
+        font-size: 3.5rem;
+    }
+
+    .results-category {
+        font-size: 1.25rem;
+    }
+
+    .button-group {
+        grid-template-columns: 1fr;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator-section {
+        padding: 2rem 1rem;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-group select {
+        width: 100%;
+    }
+
+    .tool-hero h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

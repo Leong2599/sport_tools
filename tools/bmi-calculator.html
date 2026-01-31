@@ -13,57 +13,13 @@
     <title>BMI Calculator - Free Body Mass Index Calculator | Sports Tools Hub</title>
     
     <link rel="canonical" href="https://sportstools.com/tools/bmi-calculator.html">
-    <link rel="stylesheet" href="../styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <!-- Header with Navigation -->
-    <header class="header">
-        <nav class="navbar" role="navigation" aria-label="Main navigation">
-            <div class="nav-container">
-                <div class="nav-brand">
-                    <a href="../index.html" class="brand-link">
-                        <span class="brand-icon">⚡</span>
-                        <span class="brand-text">Sports Tools Hub</span>
-                    </a>
-                </div>
-                
-                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                </button>
-                
-                <ul class="nav-menu" role="menubar">
-                    <li class="nav-item" role="none">
-                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
-                    </li>
-                    <li class="nav-item dropdown" role="none">
-                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li role="none"><a href="#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
-                            <li role="none"><a href="#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
-                            <li role="none"><a href="#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
-                            <li role="none"><a href="#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="#about" class="nav-link" role="menuitem">About</a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
     <!-- Main Content -->
     <main id="main-content">
         <!-- Tool Hero Section -->
@@ -79,133 +35,141 @@
             <div class="container">
                 <div class="calculator-layout">
                     <!-- Calculator Form -->
-                    <div class="calculator-form">
-                        <div class="calculator-card">
-                            <h2>Calculate Your BMI</h2>
-                            <form id="bmi-form" aria-labelledby="bmi-form-title">
-                                <h3 id="bmi-form-title" class="sr-only">BMI Calculation Form</h3>
-                                
-                                <div class="form-group">
-                                    <label for="weight">Weight</label>
-                                    <div class="input-group">
-                                        <input type="number" id="weight" name="weight" step="0.1" min="1" required 
-                                               aria-describedby="weight-help" placeholder="Enter your weight">
-                                        <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
-                                            <option value="kg">kg</option>
-                                            <option value="lbs">lbs</option>
-                                        </select>
-                                    </div>
-                                    <small id="weight-help">Enter your body weight</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="height">Height</label>
-                                    <div class="input-group">
-                                        <input type="number" id="height" name="height" step="0.1" min="50" required 
-                                               aria-describedby="height-help" placeholder="Enter your height">
-                                        <select id="height-unit" name="height-unit" aria-label="Height unit">
-                                            <option value="cm">cm</option>
-                                            <option value="ft">ft/in</option>
-                                        </select>
-                                    </div>
-                                    <small id="height-help">Enter your height</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="age">Age</label>
-                                    <input type="number" id="age" name="age" min="1" max="120" required 
-                                           aria-describedby="age-help" placeholder="Enter your age">
-                                    <small id="age-help">Enter your age (optional but recommended)</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <fieldset>
-                                        <legend>Gender</legend>
-                                        <div class="radio-group">
-                                            <label>
-                                                <input type="radio" name="gender" value="male" required>
-                                                <span>Male</span>
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="gender" value="female" required>
-                                                <span>Female</span>
-                                            </label>
-                                        </div>
-                                    </fieldset>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary calculator-btn">Calculate BMI</button>
-                                <button type="reset" class="btn btn-secondary calculator-btn">Reset</button>
-                            </form>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Calculate Your BMI</h2>
                         </div>
+                        <form id="bmi-form" class="calculator-form" aria-labelledby="bmi-form-title">
+                            <h3 id="bmi-form-title" class="sr-only">BMI Calculation Form</h3>
+                            
+                            <div class="form-group">
+                                <label for="weight">Weight</label>
+                                <div class="input-group">
+                                    <input type="number" id="weight" name="weight" step="0.1" min="1" required 
+                                           aria-describedby="weight-help" placeholder="Enter your weight">
+                                    <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
+                                        <option value="kg">kg</option>
+                                        <option value="lbs">lbs</option>
+                                    </select>
+                                </div>
+                                <small id="weight-help">Enter your body weight</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="height">Height</label>
+                                <div class="input-group height-input-group">
+                                    <input type="number" id="heightCm" name="heightCm" step="0.1" min="50" placeholder="cm">
+                                    <div class="height-feet-inches">
+                                        <input type="number" id="heightFeet" name="heightFeet" min="1" placeholder="ft">
+                                        <input type="number" id="heightInches" name="heightInches" min="0" max="11" placeholder="in">
+                                    </div>
+                                    <select id="height-unit" name="height-unit" aria-label="Height unit">
+                                        <option value="cm">cm</option>
+                                        <option value="ft">ft/in</option>
+                                    </select>
+                                </div>
+                                <small id="height-help">Enter your height</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="1" max="120" required 
+                                       aria-describedby="age-help" placeholder="Enter your age">
+                                <small id="age-help">Enter your age (optional but recommended)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <fieldset>
+                                    <legend>Gender</legend>
+                                    <div class="radio-group">
+                                        <label>
+                                            <input type="radio" name="gender" value="male" required>
+                                            <span>Male</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="gender" value="female" required>
+                                            <span>Female</span>
+                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary">Calculate BMI</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
                     </div>
 
                     <!-- Results Section -->
-                    <div class="calculator-results">
-                        <div class="results-card" id="bmi-results" style="display: none;">
-                            <h2>Your BMI Results</h2>
-                            
-                            <div class="bmi-display">
-                                <div class="bmi-value" id="bmi-value">--</div>
-                                <div class="bmi-category" id="bmi-category">--</div>
-                            </div>
+                    <div class="card results-card" id="bmi-results">
+                        <div class="card-header">
+                            <h2 class="card-title">Your BMI Results</h2>
+                        </div>
+                        
+                        <div class="results-display">
+                            <div class="results-value" id="bmi-value">--</div>
+                            <div class="results-category" id="bmi-category">--</div>
+                        </div>
 
-                            <div class="bmi-chart">
-                                <h3>BMI Categories</h3>
-                                <div class="bmi-ranges">
-                                    <div class="range-item underweight">
-                                        <span class="range-label">Underweight</span>
-                                        <span class="range-value">&lt; 18.5</span>
-                                    </div>
-                                    <div class="range-item normal">
-                                        <span class="range-label">Normal weight</span>
-                                        <span class="range-value">18.5 - 24.9</span>
-                                    </div>
-                                    <div class="range-item overweight">
-                                        <span class="range-label">Overweight</span>
-                                        <span class="range-value">25.0 - 29.9</span>
-                                    </div>
-                                    <div class="range-item obese">
-                                        <span class="range-label">Obese</span>
-                                        <span class="range-value">≥ 30.0</span>
-                                    </div>
+                        <div class="results-chart">
+                            <h3>BMI Categories</h3>
+                            <div class="chart-ranges">
+                                <div class="range-item underweight">
+                                    <span class="range-label">Underweight</span>
+                                    <span class="range-value">&lt; 18.5</span>
                                 </div>
-                            </div>
-
-                            <div class="bmi-recommendations" id="bmi-recommendations">
-                                <h3>Recommendations</h3>
-                                <div id="recommendation-text" class="recommendation-content">
-                                    <!-- Recommendations will be inserted here -->
+                                <div class="range-item normal">
+                                    <span class="range-label">Normal weight</span>
+                                    <span class="range-value">18.5 - 24.9</span>
                                 </div>
-                            </div>
-
-                            <div class="bmi-actions">
-                                <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
-                                <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                                <div class="range-item overweight">
+                                    <span class="range-label">Overweight</span>
+                                    <span class="range-value">25.0 - 29.9</span>
+                                </div>
+                                <div class="range-item obese">
+                                    <span class="range-label">Obese</span>
+                                    <span class="range-value">≥ 30.0</span>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- BMI Information -->
-                        <div class="info-card">
-                            <h2>About BMI</h2>
-                            <p>Body Mass Index (BMI) is a widely used measure to assess body weight relative to height. It's calculated by dividing your weight in kilograms by the square of your height in meters.</p>
-                            
-                            <h3>Important Considerations</h3>
-                            <ul>
-                                <li>BMI is a screening tool, not a diagnostic tool</li>
-                                <li>It doesn't account for muscle mass or body composition</li>
-                                <li>Athletes with high muscle mass may have elevated BMI</li>
-                                <li>Consult healthcare professionals for comprehensive health assessment</li>
-                            </ul>
-                            
-                            <h3>Limitations of BMI</h3>
-                            <p>While BMI is useful for population studies, it has limitations for individuals. Factors like age, ethnicity, muscle mass, and body composition aren't reflected in BMI calculations.</p>
+                        <div class="results-recommendations">
+                            <h3>Recommendations</h3>
+                            <div id="recommendation-text" class="recommendation-content">
+                                <!-- Recommendations will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="results-actions">
+                            <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                            <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
                         </div>
                     </div>
+                </div>
+
+                <!-- BMI Information -->
+                <div class="card info-card">
+                    <div class="card-header">
+                        <h2 class="card-title">About BMI</h2>
+                    </div>
+                    <p>Body Mass Index (BMI) is a widely used measure to assess body weight relative to height. It's calculated by dividing your weight in kilograms by the square of your height in meters.</p>
+                    
+                    <h3>Important Considerations</h3>
+                    <ul>
+                        <li>BMI is a screening tool, not a diagnostic tool</li>
+                        <li>It doesn't account for muscle mass or body composition</li>
+                        <li>Athletes with high muscle mass may have elevated BMI</li>
+                        <li>Consult healthcare professionals for comprehensive health assessment</li>
+                    </ul>
+                    
+                    <h3>Limitations of BMI</h3>
+                    <p>While BMI is useful for population studies, it has limitations for individuals. Factors like age, ethnicity, muscle mass, and body composition aren't reflected in BMI calculations.</p>
                 </div>
             </div>
         </section>
     </main>
+
 
     <!-- Footer -->
     <footer class="footer" role="contentinfo">
@@ -263,128 +227,208 @@
     </footer>
 
     <script>
-        // BMI Calculator functionality
-        document.getElementById('bmi-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            calculateBMI();
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const heightCmInput = document.getElementById('heightCm');
+            const heightFeetInput = document.getElementById('heightFeet');
+            const heightInchesInput = document.getElementById('heightInches');
+            const heightUnitSelect = document.getElementById('height-unit');
+            const weightInput = document.getElementById('weight');
 
-        function calculateBMI() {
-            // Get input values
-            const weight = parseFloat(document.getElementById('weight').value);
-            const height = parseFloat(document.getElementById('height').value);
-            const weightUnit = document.getElementById('weight-unit').value;
-            const heightUnit = document.getElementById('height-unit').value;
-            const age = parseInt(document.getElementById('age').value);
-            const gender = document.querySelector('input[name="gender"]:checked')?.value;
-
-            // Convert to metric units if needed
-            let weightKg = weight;
-            let heightM = height;
-
-            if (weightUnit === 'lbs') {
-                weightKg = weight * 0.453592;
+            function toggleHeightInputs() {
+                if (heightUnitSelect.value === 'cm') {
+                    heightCmInput.style.display = 'block';
+                    heightCmInput.setAttribute('required', 'required');
+                    heightFeetInput.style.display = 'none';
+                    heightFeetInput.removeAttribute('required');
+                    heightInchesInput.style.display = 'none';
+                    heightInchesInput.removeAttribute('required');
+                } else {
+                    heightCmInput.style.display = 'none';
+                    heightCmInput.removeAttribute('required');
+                    heightFeetInput.style.display = 'block';
+                    heightFeetInput.setAttribute('required', 'required');
+                    heightInchesInput.style.display = 'block';
+                    heightInchesInput.setAttribute('required', 'required');
+                }
             }
 
-            if (heightUnit === 'ft') {
-                // Assuming height is in feet format (e.g., 5.8 for 5'8")
-                const feet = Math.floor(height);
-                const inches = Math.round((height - feet) * 10);
-                heightM = (feet * 12 + inches) * 0.0254;
-            } else {
-                heightM = height / 100; // Convert cm to meters
+            heightUnitSelect.addEventListener('change', toggleHeightInputs);
+            toggleHeightInputs(); // Initial call to set visibility
+
+            // BMI Calculator functionality
+            document.getElementById('bmi-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateBMI();
+            });
+
+            function calculateBMI() {
+                // Get input values
+                const weight = parseFloat(weightInput.value);
+                const weightUnit = document.getElementById('weight-unit').value;
+                const heightUnit = heightUnitSelect.value;
+                const age = parseInt(document.getElementById('age').value);
+                const gender = document.querySelector('input[name="gender"]:checked')?.value;
+
+                // Input validation
+                if (isNaN(weight) || weight <= 0) {
+                    alert('Please enter a valid weight.');
+                    return;
+                }
+                if (heightUnit === 'cm' && (isNaN(parseFloat(heightCmInput.value)) || parseFloat(heightCmInput.value) <= 0)) {
+                    alert('Please enter a valid height in cm.');
+                    return;
+                }
+                if (heightUnit === 'ft' && (isNaN(parseFloat(heightFeetInput.value)) || isNaN(parseFloat(heightInchesInput.value)) || parseFloat(heightFeetInput.value) <= 0)) {
+                    alert('Please enter a valid height in feet and inches.');
+                    return;
+                }
+
+                // Convert to metric units if needed
+                let weightKg = weight;
+                let heightM;
+
+                if (weightUnit === 'lbs') {
+                    weightKg = weight * 0.453592;
+                }
+
+                if (heightUnit === 'ft') {
+                    const feet = parseFloat(heightFeetInput.value);
+                    const inches = parseFloat(heightInchesInput.value);
+                    heightM = (feet * 12 + inches) * 0.0254; // Convert feet and inches to meters
+                } else {
+                    heightM = parseFloat(heightCmInput.value) / 100; // Convert cm to meters
+                }
+
+                // Calculate BMI
+                const bmi = weightKg / (heightM * heightM);
+                const roundedBMI = bmi.toFixed(1);
+
+                // Determine category
+                let category, color, recommendations;
+                
+                if (bmi < 18.5) {
+                    category = 'Underweight';
+                    color = '#3b82f6';
+                    recommendations = 'Consider consulting with a healthcare provider about healthy weight gain strategies. Focus on nutrient-dense foods and strength training to build lean muscle mass.';
+                } else if (bmi < 25) {
+                    category = 'Normal weight';
+                    color = '#10b981';
+                    recommendations = 'Great job! You\'re within the healthy weight range. Continue maintaining a balanced diet and regular physical activity to support your overall health.';
+                } else if (bmi < 30) {
+                    category = 'Overweight';
+                    color = '#f59e0b';
+                    recommendations = 'Consider incorporating more physical activity into your routine and focusing on a balanced diet. Small, sustainable changes can lead to significant health improvements.';
+                } else {
+                    category = 'Obese';
+                    color = '#ef4444';
+                    recommendations = 'It\'s recommended to consult with a healthcare provider for personalized advice. A combination of dietary changes, increased physical activity, and professional guidance can help achieve better health outcomes.';
+                }
+
+                // Display results
+                document.getElementById('bmi-value').textContent = roundedBMI;
+                document.getElementById('bmi-value').style.color = color;
+                document.getElementById('bmi-category').textContent = category;
+                document.getElementById('bmi-category').style.color = color;
+                document.getElementById('recommendation-text').textContent = recommendations;
+
+                // Show results section
+                const resultsElement = document.getElementById('bmi-results');
+                resultsElement.style.display = 'block';
+                resultsElement.classList.add('show');
+
+                // Scroll to results
+                resultsElement.scrollIntoView({ behavior: 'smooth' });
+
+                // Track usage
+                if (window.calculatorUtils) {
+                    window.calculatorUtils.trackToolUsage('BMI Calculator');
+                }
             }
 
-            // Calculate BMI
-            const bmi = weightKg / (heightM * heightM);
-            const roundedBMI = bmi.toFixed(1);
+            document.getElementById('bmi-form').addEventListener('reset', function() {
+                document.getElementById('bmi-value').textContent = '--';
+                document.getElementById('bmi-category').textContent = '--';
+                document.getElementById('recommendation-text').textContent = '';
+                document.getElementById('bmi-results').classList.remove('show');
+                document.getElementById('bmi-results').style.display = 'none';
+                toggleHeightInputs(); // Reset height input visibility
+            });
 
-            // Determine category
-            let category, color, recommendations;
-            
-            if (bmi < 18.5) {
-                category = 'Underweight';
-                color = '#3b82f6';
-                recommendations = 'Consider consulting with a healthcare provider about healthy weight gain strategies. Focus on nutrient-dense foods and strength training to build lean muscle mass.';
-            } else if (bmi < 25) {
-                category = 'Normal weight';
-                color = '#10b981';
-                recommendations = 'Great job! You\'re within the healthy weight range. Continue maintaining a balanced diet and regular physical activity to support your overall health.';
-            } else if (bmi < 30) {
-                category = 'Overweight';
-                color = '#f59e0b';
-                recommendations = 'Consider incorporating more physical activity into your routine and focusing on a balanced diet. Small, sustainable changes can lead to significant health improvements.';
-            } else {
-                category = 'Obese';
-                color = '#ef4444';
-                recommendations = 'It\'s recommended to consult with a healthcare provider for personalized advice. A combination of dietary changes, increased physical activity, and professional guidance can help achieve better health outcomes.';
+            function shareResults() {
+                const bmi = document.getElementById('bmi-value').textContent;
+                const category = document.getElementById('bmi-category').textContent;
+                const text = `My BMI is ${bmi} (${category}). Calculate yours at Sports Tools Hub!`;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'BMI Calculator Results',
+                        text: text,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback - copy to clipboard
+                    navigator.clipboard.writeText(text + ' ' + window.location.href);
+                    alert('Results copied to clipboard!');
+                }
             }
 
-            // Display results
-            document.getElementById('bmi-value').textContent = roundedBMI;
-            document.getElementById('bmi-value').style.color = color;
-            document.getElementById('bmi-category').textContent = category;
-            document.getElementById('bmi-category').style.color = color;
-            document.getElementById('recommendation-text').textContent = recommendations;
-
-            // Show results section
-            const resultsElement = document.getElementById('bmi-results');
-            resultsElement.style.display = 'block';
-            resultsElement.classList.add('show');
-
-            // Scroll to results
-            document.getElementById('bmi-results').scrollIntoView({ behavior: 'smooth' });
-
-            // Track usage
-            if (window.calculatorUtils) {
-                window.calculatorUtils.trackToolUsage('BMI Calculator');
-            }
-        }
-
-        function shareResults() {
-            const bmi = document.getElementById('bmi-value').textContent;
-            const category = document.getElementById('bmi-category').textContent;
-            const text = `My BMI is ${bmi} (${category}). Calculate yours at Sports Tools Hub!`;
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: 'BMI Calculator Results',
-                    text: text,
-                    url: window.location.href
+            // Add event listeners to radio buttons for styling
+            document.querySelectorAll('.radio-group input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', () => {
+                    // Remove 'radio-selected' from all labels in the same group
+                    document.querySelectorAll(`.radio-group input[name="${radio.name}"]`).forEach(siblingRadio => {
+                        siblingRadio.closest('label').classList.remove('radio-selected');
+                    });
+                    // Add 'radio-selected' to the label of the checked radio
+                    if (radio.checked) {
+                        radio.closest('label').classList.add('radio-selected');
+                    }
                 });
-            } else {
-                // Fallback - copy to clipboard
-                navigator.clipboard.writeText(text + ' ' + window.location.href);
-                alert('Results copied to clipboard!');
-            }
-        }
+            });
 
-        // Form validation
-        document.getElementById('weight').addEventListener('input', function() {
-            if (this.value < 1 || this.value > 1000) {
-                this.setCustomValidity('Please enter a valid weight between 1 and 1000');
-            } else {
-                this.setCustomValidity('');
-            }
-        });
+            // Set initial 'radio-selected' class on DOMContentLoaded for pre-checked radios
+            document.querySelectorAll('.radio-group input[type="radio"]:checked').forEach(radio => {
+                radio.closest('label').classList.add('radio-selected');
+            });
 
-        document.getElementById('height').addEventListener('input', function() {
-            const unit = document.getElementById('height-unit').value;
-            let min, max;
-            
-            if (unit === 'cm') {
-                min = 50;
-                max = 300;
-            } else {
-                min = 2;
-                max = 8;
-            }
-            
-            if (this.value < min || this.value > max) {
-                this.setCustomValidity(`Please enter a valid height between ${min} and ${max} ${unit}`);
-            } else {
-                this.setCustomValidity('');
-            }
+            // Form validation - moved and adapted
+            weightInput.addEventListener('input', function() {
+                if (this.value < 1 || this.value > 1000) {
+                    this.setCustomValidity('Please enter a valid weight between 1 and 1000');
+                } else {
+                    this.setCustomValidity('');
+                }
+            });
+
+            heightCmInput.addEventListener('input', function() {
+                if (heightUnitSelect.value === 'cm') {
+                    if (this.value < 50 || this.value > 300) {
+                        this.setCustomValidity('Please enter a valid height between 50 and 300 cm');
+                    } else {
+                        this.setCustomValidity('');
+                    }
+                }
+            });
+
+            heightFeetInput.addEventListener('input', function() {
+                if (heightUnitSelect.value === 'ft') {
+                    if (this.value < 2 || this.value > 8) {
+                        this.setCustomValidity('Please enter a valid height between 2 and 8 feet');
+                    } else {
+                        this.setCustomValidity('');
+                    }
+                }
+            });
+
+            heightInchesInput.addEventListener('input', function() {
+                if (heightUnitSelect.value === 'ft') {
+                    if (this.value < 0 || this.value > 11) {
+                        this.setCustomValidity('Please enter valid inches between 0 and 11');
+                    } else {
+                        this.setCustomValidity('');
+                    }
+                }
+            });
         });
     </script>
 </body>

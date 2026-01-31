@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Rep Max Calculator - Sports Tools Hub</title>
+    <meta name="description" content="Calculate your one-rep max (1RM) for strength training using various formulas.">
+    <meta name="keywords" content="one rep max, 1RM, strength calculator, weightlifting, powerlifting">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="tool-hero">
+            <div class="container">
+                <h1>One Rep Max (1RM) Calculator</h1>
+                <p class="tool-subtitle">Estimate your maximum lifting potential for a single repetition across various exercises.</p>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <div class="container calculator-layout">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Calculate Your 1RM</h2>
+                    </div>
+                    <form id="oneRepMaxForm" class="calculator-form">
+                        <div class="form-group">
+                            <label for="weight">Weight Lifted (kg/lbs)</label>
+                            <div class="input-group">
+                                <input type="number" id="weight" min="1" step="0.1" required>
+                                <select id="weightUnit">
+                                    <option value="kg">kg</option>
+                                    <option value="lbs">lbs</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="reps">Repetitions (Reps)</label>
+                            <input type="number" id="reps" min="1" max="15" required>
+                            <small>Enter 1 to 15 repetitions.</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="formula">Formula</label>
+                            <select id="formula">
+                                <option value="epley">Epley (Most Popular)</option>
+                                <option value="brzycki">Brzycki</option>
+                                <option value="lander">Lander</option>
+                                <option value="lombardi">Lombardi</option>
+                                <option value="mcglothin">McGlothin</option>
+                                <option value="okane">O'Conner/O'Kane</option>
+                                <option value="wathan">Wathan</option>
+                            </select>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-primary">Calculate 1RM</button>
+                            <button type="reset" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card results-card" id="resultsCard">
+                    <div class="card-header">
+                        <h2 class="card-title">Your Estimated One Rep Max</h2>
+                    </div>
+                    <div class="results-display">
+                        <p class="results-value" id="oneRepMaxResult">0</p>
+                        <p class="results-category" id="resultUnit"></p>
+                    </div>
+
+                    <div class="results-breakdown">
+                        <h3>Rep Max Progression</h3>
+                        <div id="repMaxTable" class="chart-ranges">
+                            <!-- Rep Max table will be generated here by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card container">
+            <h3>Understanding Your One Rep Max (1RM)</h3>
+            <p>Your One Rep Max (1RM) is the maximum amount of weight you can lift for a single repetition of a given exercise. It's a key metric for gauging strength and designing effective training programs, whether you're focusing on strength, hypertrophy, or endurance.</p>
+            
+            <h3>How to Use This Calculator</h3>
+            <ul>
+                <li><strong>Enter Weight Lifted:</strong> Input the weight you successfully lifted for your chosen exercise.</li>
+                <li><strong>Enter Repetitions:</strong> Input the number of clean repetitions you completed with that weight. For accuracy, it's best to use a weight you can lift for 2-10 reps.</li>
+                <li><strong>Choose Formula:</strong> Select one of the various formulas available. The Epley formula is widely popular and generally considered reliable.</li>
+            </ul>
+
+            <h3>Why Calculate Your 1RM?</h3>
+            <p>Knowing your 1RM allows you to:</p>
+            <ul>
+                <li><strong>Gauge Strength:</strong> Track your progress and measure improvements in strength over time.</li>
+                <li><strong>Program Training:</strong> Design precise training percentages for strength (80-95% 1RM), hypertrophy (60-80% 1RM), and endurance (40-60% 1RM).</li>
+                <li><strong>Assess Safety:</strong> Avoid attempting true 1RM lifts in training, which carry a higher risk of injury, by estimating it safely.</li>
+            </ul>
+
+            <h3>Limitations of 1RM Calculation</h3>
+            <p>While useful, 1RM calculators provide estimations. Factors like fatigue, specific exercise mechanics, and individual physiology can influence actual 1RM. Always prioritize proper form and listen to your body when training.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tools & Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../index.html#fitness-calculators">BMI Calculator</a></li>
+                            <li><a href="../index.html#performance-trackers">Pace Calculator</a></li>
+                            <li><a href="../index.html#nutrition-tools">Macro Calculator</a></li>
+                            <li><a href="../index.html#training-equipment">Equipment Guides</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="../blog.html">Blog</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

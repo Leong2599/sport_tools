@@ -13,57 +13,14 @@
     <title>Protein Calculator - Free Daily Protein Intake Calculator | Sports Tools Hub</title>
     
     <link rel="canonical" href="https://sportstools.com/tools/protein-calculator.html">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../calculator-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <!-- Header with Navigation -->
-    <header class="header">
-        <nav class="navbar" role="navigation" aria-label="Main navigation">
-            <div class="nav-container">
-                <div class="nav-brand">
-                    <a href="../index.html" class="brand-link">
-                        <span class="brand-icon">⚡</span>
-                        <span class="brand-text">Sports Tools Hub</span>
-                    </a>
-                </div>
-                
-                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                </button>
-                
-                <ul class="nav-menu" role="menubar">
-                    <li class="nav-item" role="none">
-                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
-                    </li>
-                    <li class="nav-item dropdown" role="none">
-                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li role="none"><a href="#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
-                            <li role="none"><a href="#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
-                            <li role="none"><a href="#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
-                            <li role="none"><a href="#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="#about" class="nav-link" role="menuitem">About</a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+
 
     <!-- Main Content -->
     <main id="main-content">
@@ -80,269 +37,220 @@
             <div class="container">
                 <div class="calculator-layout">
                     <!-- Calculator Form -->
-                    <div class="calculator-form">
-                        <div class="calculator-card">
-                            <h2>Calculate Your Daily Protein Needs</h2>
-                            <form id="protein-form" aria-labelledby="protein-form-title">
-                                <h3 id="protein-form-title" class="sr-only">Protein Calculation Form</h3>
-                                
-                                <div class="form-group">
-                                    <label for="weight">Body Weight</label>
-                                    <div class="input-group">
-                                        <input type="number" id="weight" name="weight" step="0.1" min="30" required 
-                                               aria-describedby="weight-help" placeholder="Enter your weight">
-                                        <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
-                                            <option value="kg">kg</option>
-                                            <option value="lbs">lbs</option>
-                                        </select>
-                                    </div>
-                                    <small id="weight-help">Enter your current body weight</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <fieldset>
-                                        <legend>Gender</legend>
-                                        <div class="radio-group">
-                                            <label>
-                                                <input type="radio" name="gender" value="male" required>
-                                                <span>Male</span>
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="gender" value="female" required>
-                                                <span>Female</span>
-                                            </label>
-                                        </div>
-                                    </fieldset>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="age">Age</label>
-                                    <input type="number" id="age" name="age" min="15" max="100" required 
-                                           aria-describedby="age-help" placeholder="Enter your age">
-                                    <small id="age-help">Enter your age in years</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="activity-level">Activity Level</label>
-                                    <select id="activity-level" name="activity-level" required 
-                                            aria-describedby="activity-help">
-                                        <option value="">Select your activity level</option>
-                                        <option value="sedentary">Sedentary (little or no exercise)</option>
-                                        <option value="light">Light (exercise 1-3 days/week)</option>
-                                        <option value="moderate">Moderate (exercise 3-5 days/week)</option>
-                                        <option value="active">Active (exercise 6-7 days/week)</option>
-                                        <option value="very-active">Very Active (hard exercise 6-7 days/week)</option>
-                                        <option value="athlete">Athlete (elite training 2x/day)</option>
-                                    </select>
-                                    <small id="activity-help">Select your typical weekly activity level</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="fitness-goal">Primary Fitness Goal</label>
-                                    <select id="fitness-goal" name="fitness-goal" required 
-                                            aria-describedby="goal-help">
-                                        <option value="">Select your primary goal</option>
-                                        <option value="maintain">Maintain Current Weight</option>
-                                        <option value="lose-fat">Lose Fat (Weight Loss)</option>
-                                        <option value="build-muscle">Build Muscle (Hypertrophy)</option>
-                                        <option value="gain-strength">Gain Strength</option>
-                                        <option value="endurance">Improve Endurance</option>
-                                        <option value="general-health">General Health</option>
-                                    </select>
-                                    <small id="goal-help">Choose your primary fitness goal</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="protein-sources">Diet Type</label>
-                                    <select id="protein-sources" name="protein-sources" required 
-                                            aria-describedby="sources-help">
-                                        <option value="">Select your diet type</option>
-                                        <option value="omnivore">Omnivore (mixed diet)</option>
-                                        <option value="vegetarian">Vegetarian</option>
-                                        <option value="vegan">Vegan</option>
-                                        <option value="pescatarian">Pescatarian</option>
-                                    </select>
-                                    <small id="sources-help">This helps determine protein quality recommendations</small>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary calculator-btn">Calculate Protein</button>
-                                <button type="reset" class="btn btn-secondary calculator-btn">Reset</button>
-                            </form>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Calculate Your Daily Protein Needs</h2>
                         </div>
+                        <form id="protein-form" class="calculator-form" aria-labelledby="protein-form-title">
+                            <h3 id="protein-form-title" class="sr-only">Protein Calculation Form</h3>
+                            
+                            <div class="form-group">
+                                <label for="weight">Body Weight</label>
+                                <div class="input-group">
+                                    <input type="number" id="weight" name="weight" step="0.1" min="30" required 
+                                           aria-describedby="weight-help" placeholder="Enter your weight">
+                                    <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
+                                        <option value="kg">kg</option>
+                                        <option value="lbs">lbs</option>
+                                    </select>
+                                </div>
+                                <small id="weight-help">Enter your current body weight</small>
+                            </div>
+
+                            <div class="form-group">
+                                <fieldset>
+                                    <legend>Gender</legend>
+                                    <div class="radio-group">
+                                        <label>
+                                            <input type="radio" name="gender" value="male" required>
+                                            <span>Male</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="gender" value="female" required>
+                                            <span>Female</span>
+                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="15" max="100" required 
+                                       aria-describedby="age-help" placeholder="Enter your age">
+                                <small id="age-help">Enter your age in years</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="activity-level">Activity Level</label>
+                                <select id="activity-level" name="activity-level" required 
+                                        aria-describedby="activity-help">
+                                    <option value="">Select your activity level</option>
+                                    <option value="sedentary">Sedentary (little or no exercise)</option>
+                                    <option value="light">Light (exercise 1-3 days/week)</option>
+                                    <option value="moderate">Moderate (exercise 3-5 days/week)</option>
+                                    <option value="active">Active (exercise 6-7 days/week)</option>
+                                    <option value="very-active">Very Active (hard exercise 6-7 days/week)</option>
+                                    <option value="athlete">Athlete (elite training 2x/day)</option>
+                                </select>
+                                <small id="activity-help">Select your typical weekly activity level</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fitness-goal">Primary Fitness Goal</label>
+                                <select id="fitness-goal" name="fitness-goal" required 
+                                        aria-describedby="goal-help">
+                                    <option value="">Select your primary goal</option>
+                                    <option value="maintain">Maintain Current Weight</option>
+                                    <option value="lose-fat">Lose Fat (Weight Loss)</option>
+                                    <option value="build-muscle">Build Muscle (Hypertrophy)</option>
+                                    <option value="gain-strength">Gain Strength</option>
+                                    <option value="endurance">Improve Endurance</option>
+                                    <option value="general-health">General Health</option>
+                                </select>
+                                <small id="goal-help">Choose your primary fitness goal</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="protein-sources">Diet Type</label>
+                                <select id="protein-sources" name="protein-sources" required 
+                                        aria-describedby="sources-help">
+                                    <option value="">Select your diet type</option>
+                                    <option value="omnivore">Omnivore (mixed diet)</option>
+                                    <option value="vegetarian">Vegetarian</option>
+                                    <option value="vegan">Vegan</option>
+                                    <option value="pescatarian">Pescatarian</option>
+                                </select>
+                                <small id="sources-help">This helps determine protein quality recommendations</small>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary">Calculate Protein</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
                     </div>
 
                     <!-- Results Section -->
-                    <div class="calculator-results">
-                        <div class="results-card" id="protein-results" style="display: none;">
-                            <h2>Your Protein Requirements</h2>
-                            
-                            <div class="protein-display">
-                                <div class="protein-main-result">
-                                    <h3>Daily Protein Intake</h3>
-                                    <div class="protein-value" id="protein-grams">--</div>
-                                    <small>grams per day</small>
-                                </div>
-                                
-                                <div class="protein-per-kg">
-                                    <h3>Protein per Body Weight</h3>
-                                    <div class="protein-per-kg-value" id="protein-per-kg">--</div>
-                                    <small>grams per kg body weight</small>
-                                </div>
-                            </div>
+                    <div class="card results-card" id="protein-results">
+                        <div class="card-header">
+                            <h2 class="card-title">Your Protein Requirements</h2>
+                        </div>
+                        
+                        <div class="results-display">
+                            <h3>Daily Protein Intake</h3>
+                            <div class="results-value" id="protein-grams">--</div>
+                            <div class="results-category">grams per day</div>
+                        </div>
 
-                            <div class="protein-breakdown">
-                                <h3>Meal Distribution</h3>
-                                <div class="meal-grid">
-                                    <div class="meal-item">
-                                        <div class="meal-label">Breakfast</div>
-                                        <div class="meal-protein" id="breakfast-protein">--g</div>
-                                    </div>
-                                    <div class="meal-item">
-                                        <div class="meal-label">Lunch</div>
-                                        <div class="meal-protein" id="lunch-protein">--g</div>
-                                    </div>
-                                    <div class="meal-item">
-                                        <div class="meal-label">Dinner</div>
-                                        <div class="meal-protein" id="dinner-protein">--g</div>
-                                    </div>
-                                    <div class="meal-item">
-                                        <div class="meal-label">Snacks</div>
-                                        <div class="meal-protein" id="snacks-protein">--g</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="protein-sources" id="protein-sources-section">
-                                <h3>Protein Sources Recommendations</h3>
-                                <div class="sources-grid" id="sources-grid">
-                                    <!-- Sources will be populated here -->
-                                </div>
-                            </div>
-
-                            <div class="protein-recommendations" id="protein-recommendations">
-                                <h3>Nutrition Recommendations</h3>
-                                <div id="recommendation-text" class="recommendation-content">
-                                    <!-- Recommendations will be inserted here -->
-                                </div>
-                            </div>
-
-                            <div class="protein-actions">
-                                <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
-                                <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                        <div class="results-breakdown">
+                            <h3>Protein per Body Weight</h3>
+                            <div class="protein-per-kg">
+                                <div class="protein-per-kg-value" id="protein-per-kg">--</div>
+                                <small>grams per kg body weight</small>
                             </div>
                         </div>
 
-                        <!-- Protein Information -->
-                        <div class="info-card">
-                            <h2>About Protein Requirements</h2>
-                            <p>Protein is essential for muscle repair, growth, and overall health. Your protein needs depend on various factors including activity level, age, and fitness goals.</p>
-                            
-                            <h3>Protein Guidelines</h3>
-                            <ul>
-                                <li><strong>Sedentary:</strong> 0.8-1.0g per kg body weight</li>
-                                <li><strong>Active Adults:</strong> 1.2-1.6g per kg body weight</li>
-                                <li><strong>Strength Athletes:</strong> 1.6-2.2g per kg body weight</li>
-                                <li><strong>Endurance Athletes:</strong> 1.4-1.8g per kg body weight</li>
-                                <li><strong>Elderly:</strong> 1.2-1.5g per kg body weight</li>
-                            </ul>
-                            
-                            <h3>High-Quality Protein Sources</h3>
-                            <div class="protein-sources-list">
-                                <h4>Animal-Based:</h4>
-                                <ul>
-                                    <li>Chicken breast (31g per 100g)</li>
-                                    <li>Salmon (25g per 100g)</li>
-                                    <li>Eggs (13g per 100g)</li>
-                                    <li>Greek yogurt (10g per 100g)</li>
-                                    <li>Lean beef (26g per 100g)</li>
-                                </ul>
-                                
-                                <h4>Plant-Based:</h4>
-                                <ul>
-                                    <li>Lentils (9g per 100g cooked)</li>
-                                    <li>Quinoa (4g per 100g cooked)</li>
-                                    <li>Tofu (8g per 100g)</li>
-                                    <li>Chickpeas (8g per 100g cooked)</li>
-                                    <li>Hemp seeds (25g per 100g)</li>
-                                </ul>
+                        <div class="results-chart">
+                            <h3>Meal Distribution</h3>
+                            <div class="meal-grid">
+                                <div class="meal-item">
+                                    <div class="meal-label">Breakfast</div>
+                                    <div class="meal-protein" id="breakfast-protein">--g</div>
+                                </div>
+                                <div class="meal-item">
+                                    <div class="meal-label">Lunch</div>
+                                    <div class="meal-protein" id="lunch-protein">--g</div>
+                                </div>
+                                <div class="meal-item">
+                                    <div class="meal-label">Dinner</div>
+                                    <div class="meal-protein" id="dinner-protein">--g</div>
+                                </div>
+                                <div class="meal-item">
+                                    <div class="meal-label">Snacks</div>
+                                    <div class="meal-protein" id="snacks-protein">--g</div>
+                                </div>
                             </div>
-                            
-                            <h3>Timing and Distribution</h3>
-                            <ul>
-                                <li>Distribute protein evenly across meals (20-30g per meal)</li>
-                                <li>Consume protein within 2 hours post-workout</li>
-                                <li>Include protein in breakfast to support muscle protein synthesis</li>
-                                <li>Consider casein protein before bed for overnight recovery</li>
-                            </ul>
-                            
-                            <h3>Special Considerations</h3>
-                            <ul>
-                                <li>Vegans may need 10-20% more protein due to lower digestibility</li>
-                                <li>Elderly individuals need more protein to prevent muscle loss</li>
-                                <li>Injury recovery may require increased protein intake</li>
-                                <li>Pregnant women need additional protein for fetal development</li>
-                            </ul>
+                        </div>
+
+                        <div class="results-breakdown" id="protein-sources-section">
+                            <h3>Protein Sources Recommendations</h3>
+                            <div class="sources-grid" id="sources-grid">
+                                <!-- Sources will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="results-recommendations" id="protein-recommendations">
+                            <h3>Nutrition Recommendations</h3>
+                            <div id="recommendation-text" class="recommendation-content">
+                                <!-- Recommendations will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="results-actions">
+                            <button type="button" class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                            <button type="button" class="btn btn-primary" onclick="shareResults()">Share Results</button>
                         </div>
                     </div>
+                </div>
+
+                <!-- Protein Information -->
+                <div class="card info-card">
+                    <div class="card-header">
+                        <h2 class="card-title">About Protein Requirements</h2>
+                    </div>
+                    <p>Protein is essential for muscle repair, growth, and overall health. Your protein needs depend on various factors including activity level, age, and fitness goals.</p>
+                    
+                    <h3>Protein Guidelines</h3>
+                    <ul>
+                        <li><strong>Sedentary:</strong> 0.8-1.0g per kg body weight</li>
+                        <li><strong>Active Adults:</strong> 1.2-1.6g per kg body weight</li>
+                        <li><strong>Strength Athletes:</strong> 1.6-2.2g per kg body weight</li>
+                        <li><strong>Endurance Athletes:</strong> 1.4-1.8g per kg body weight</li>
+                        <li><strong>Elderly:</strong> 1.2-1.5g per kg body weight</li>
+                    </ul>
+                    
+                    <h3>High-Quality Protein Sources</h3>
+                    <div class="protein-sources-list">
+                        <h4>Animal-Based:</h4>
+                        <ul>
+                            <li>Chicken breast (31g per 100g)</li>
+                            <li>Salmon (25g per 100g)</li>
+                            <li>Eggs (13g per 100g)</li>
+                            <li>Greek yogurt (10g per 100g)</li>
+                            <li>Lean beef (26g per 100g)</li>
+                        </ul>
+                        
+                        <h4>Plant-Based:</h4>
+                        <ul>
+                            <li>Lentils (9g per 100g cooked)</li>
+                            <li>Quinoa (4g per 100g cooked)</li>
+                            <li>Tofu (8g per 100g)</li>
+                            <li>Chickpeas (8g per 100g cooked)</li>
+                            <li>Hemp seeds (25g per 100g)</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Timing and Distribution</h3>
+                    <ul>
+                        <li>Distribute protein evenly across meals (20-30g per meal)</li>
+                        <li>Consume protein within 2 hours post-workout</li>
+                        <li>Include protein in breakfast to support muscle protein synthesis</li>
+                        <li>Consider casein protein before bed for overnight recovery</li>
+                    </ul>
+                    
+                    <h3>Special Considerations</h3>
+                    <ul>
+                        <li>Vegans may need 10-20% more protein due to lower digestibility</li>
+                        <li>Elderly individuals need more protein to prevent muscle loss</li>
+                        <li>Injury recovery may require increased protein intake</li>
+                        <li>Pregnant women need additional protein for fetal development</li>
+                    </ul>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Sports Tools Hub</h4>
-                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="YouTube">📺</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Tools & Calculators</h4>
-                    <nav>
-                        <ul class="footer-links">
-                            <li><a href="#fitness-calculators">BMI Calculator</a></li>
-                            <li><a href="#performance-trackers">Pace Calculator</a></li>
-                            <li><a href="#nutrition-tools">Macro Calculator</a></li>
-                            <li><a href="#training-equipment">Equipment Guides</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <nav>
-                        <ul class="footer-links">
-                            <li><a href="../blog.html">Blog</a></li>
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                            <li><a href="../privacy.html">Privacy Policy</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Newsletter</h4>
-                    <p>Get the latest fitness tips and tool updates delivered to your inbox.</p>
-                    <form class="newsletter-form" action="#subscribe" method="post">
-                        <input type="email" placeholder="Enter your email" required aria-label="Email address">
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
-            </div>
-        </div>
-    </footer>
+
 
     <script>
         // Protein Calculator functionality

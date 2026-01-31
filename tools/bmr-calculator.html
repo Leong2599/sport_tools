@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMR Calculator - Sports Tools Hub</title>
+    <meta name="description" content="Calculate your Basal Metabolic Rate (BMR) to determine your body's baseline calorie needs at rest.">
+    <meta name="keywords" content="bmr calculator, basal metabolic rate, metabolism, calorie calculator, fitness">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none"><a href="../index.html" class="nav-link" role="menuitem">Home</a></li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="../index.html#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" role="none"><a href="../blog.html" class="nav-link" role="menuitem">Blog</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="tool-hero">
+            <div class="container">
+                <h1>Basal Metabolic Rate (BMR) Calculator</h1>
+                <p class="tool-subtitle">Estimate the number of calories your body needs to function at rest.</p>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <div class="container calculator-layout">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Calculate Your BMR</h2>
+                    </div>
+                    <form id="bmrForm" class="calculator-form">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" min="15" max="80" required>
+                        </div>
+                        <fieldset class="form-group">
+                            <legend>Gender</legend>
+                            <div class="radio-group">
+                                <label><input type="radio" name="gender" value="male" required checked><span>Male</span></label>
+                                <label><input type="radio" name="gender" value="female"><span>Female</span></label>
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            <label for="height">Height</label>
+                            <div class="input-group height-input-group">
+                                <input type="number" id="heightCm" placeholder="cm" min="50">
+                                <div class="height-feet-inches" style="display: none;">
+                                    <input type="number" id="heightFeet" placeholder="ft" min="1">
+                                    <input type="number" id="heightInches" placeholder="in" min="0" max="11">
+                                </div>
+                                <select id="heightUnit">
+                                    <option value="cm">cm</option>
+                                    <option value="ft">ft/in</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Weight</label>
+                            <div class="input-group">
+                                <input type="number" id="weight" min="1" step="0.1" required>
+                                <select id="weightUnit">
+                                    <option value="kg">kg</option>
+                                    <option value="lbs">lbs</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-primary">Calculate BMR</button>
+                            <button type="reset" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card results-card" id="resultsCard">
+                    <div class="card-header">
+                        <h2 class="card-title">Your Estimated BMR</h2>
+                    </div>
+                    <div class="results-display">
+                        <p class="results-value" id="bmrResult">0</p>
+                        <p class="results-category">Calories/Day</p>
+                    </div>
+                    <div class="results-recommendations">
+                        <h3>Understanding Your BMR</h3>
+                        <div class="recommendation-content">
+                            <p>Your BMR is the number of calories required to keep your body functioning at rest. To calculate your total daily calorie needs (TDEE), this number is multiplied by an activity factor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card container">
+            <h3>About BMR</h3>
+            <p>Your Basal Metabolic Rate (BMR) is the number of calories your body needs to accomplish its most basic (basal) life-sustaining functions. This calculator uses the Mifflin-St Jeor equation, which is considered one of the most accurate BMR formulas.</p>
+            <ul>
+                <li><strong>Men:</strong> BMR = 10 * weight (kg) + 6.25 * height (cm) - 5 * age + 5</li>
+                <li><strong>Women:</strong> BMR = 10 * weight (kg) + 6.25 * height (cm) - 5 * age - 161</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Footer content from other pages -->
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

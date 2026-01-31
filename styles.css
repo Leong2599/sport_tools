@@ -1,4 +1,22 @@
 /* Reset and Base Styles */
+:root {
+    --primary-blue: #3b82f6; /* A slightly softer primary blue */
+    --primary-blue-dark: #2563eb;
+    --accent-green: #10b981;
+    --text-dark: #1f2937;
+    --text-medium: #4b5563;
+    --text-light: #6b7280;
+    --bg-light: #f4f7f6; /* Very light gray for body background */
+    --bg-white: #ffffff;
+    --border-light: #e5e7eb;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --border-radius-sm: 0.5rem;
+    --border-radius-md: 0.75rem;
+    --border-radius-lg: 1rem;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -13,8 +31,8 @@ html {
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #fff;
+    color: var(--text-medium);
+    background-color: var(--bg-light);
 }
 
 /* Accessibility */
@@ -35,11 +53,12 @@ body {
 
 /* Header & Navigation */
 .header {
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: var(--bg-white);
+    box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .nav-container {
@@ -47,9 +66,10 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    height: 70px;
+    height: 80px; /* Slightly increased height */
+    gap: 40px; /* Add space between brand and nav menu */
 }
 
 .nav-brand {
@@ -61,31 +81,52 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #2563eb;
+    color: var(--primary-blue-dark);
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.6rem; /* Slightly larger brand text */
+    letter-spacing: -0.5px;
 }
 
-.brand-icon {
-    font-size: 1.8rem;
+.brand-logo {
+    height: 40px; /* Adjust as needed */
+    width: auto; /* Maintain aspect ratio */
     margin-right: 10px;
 }
 
 .nav-toggle {
     display: none;
     flex-direction: column;
-    background: none;
+    justify-content: space-around; /* Distribute space evenly */
+    width: 30px; /* Slightly larger toggle */
+    height: 25px;
+    background: transparent;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 0;
+    z-index: 1001; /* Ensure it's above the menu when open */
 }
 
 .hamburger {
-    width: 25px;
-    height: 3px;
-    background: #333;
-    margin: 3px 0;
-    transition: 0.3s;
+    width: 100%;
+    height: 3px; /* Thicker lines */
+    background: var(--text-dark);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    transform-origin: 1px; /* Pivot point for rotation */
+}
+
+/* Hamburger animation */
+.nav-toggle.active .hamburger:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.nav-toggle.active .hamburger:nth-child(2) {
+    opacity: 0; /* Hide middle line */
+    transform: translateX(-20px);
+}
+
+.nav-toggle.active .hamburger:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
 }
 
 .nav-menu {
@@ -93,18 +134,41 @@ body {
     list-style: none;
     gap: 30px;
     align-items: center;
+    justify-content: flex-start; /* Align nav items to start (left) */
+}
+
+.nav-item {
+    position: relative; /* For proper dropdown positioning */
 }
 
 .nav-link {
     text-decoration: none;
-    color: #333;
+    color: var(--text-medium);
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s ease, transform 0.2s ease;
     padding: 10px 0;
+    position: relative; /* For underline effect */
 }
 
 .nav-link:hover {
-    color: #2563eb;
+    color: var(--primary-blue);
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* Underline effect on hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-blue);
+    transition: width 0.3s ease-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }
 
 /* Dropdown Menu */
@@ -115,30 +179,49 @@ body {
 .dropdown-toggle {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px; /* More space for the arrow */
+    color: var(--text-medium);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 10px 0;
+}
+
+.dropdown-toggle:hover {
+    color: var(--primary-blue);
 }
 
 .dropdown-toggle::after {
     content: '▼';
-    font-size: 0.7rem;
+    font-size: 0.6rem; /* Smaller, subtler arrow */
+    transition: transform 0.2s ease; /* Add transition for rotation */
+}
+
+/* Rotate arrow on hover or when dropdown is active */
+.dropdown:hover .dropdown-toggle::after,
+.dropdown.active .dropdown-toggle::after { /* Add .active for JS control */
+    transform: rotate(180deg); /* Rotate arrow when dropdown is open */
 }
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 15px); /* Slightly more space from toggle */
     left: 0;
-    background: white;
-    min-width: 200px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    background: var(--bg-white);
+    min-width: 220px; /* Slightly wider */
+    box-shadow: var(--shadow-lg); /* More pronounced shadow */
+    border-radius: var(--border-radius-md);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s;
+    transform: translateY(10px); /* Animate from slightly below */
+    transition: all 0.3s ease-out;
     list-style: none;
     padding: 10px 0;
+    border: 1px solid var(--border-light);
+    z-index: 1000; /* Ensure dropdown is above other content */
 }
 
+/* Use .show class for JavaScript toggle AND hover state for CSS-only */
+.dropdown-menu.show,
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
@@ -147,40 +230,62 @@ body {
 
 .dropdown-item {
     display: block;
-    padding: 10px 20px;
-    color: #333;
+    padding: 12px 20px; /* More padding for items */
+    color: var(--text-medium);
     text-decoration: none;
-    transition: background 0.3s;
+    transition: background 0.2s ease, color 0.2s ease;
+    font-size: 0.95rem;
 }
 
 .dropdown-item:hover {
-    background: #f8f9fa;
+    background: var(--bg-light);
+    color: var(--primary-blue);
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 100px 20px;
+    background: url('file:///C:/Users/user/Documents/Projects/sport_tools/images/hero-1.jpg') no-repeat center center/cover; /* Use full file system path */
+    background-color: var(--primary-blue-dark); /* Fallback background color */
+    color: var(--bg-white);
+    padding: 120px 20px; /* Increased padding for more vertical space */
     text-align: center;
+    position: relative;
+    overflow: hidden; /* To contain any potential background effects */
+}
+
+/* Overlay for hero image to improve text readability */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+    z-index: 1;
+    opacity: 1; /* Remove original pattern opacity */
+    background-image: none; /* Remove subtle pattern, if any was there */
 }
 
 .hero-container {
-    max-width: 800px;
+    max-width: 900px; /* Slightly wider container for hero text */
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3.8rem; /* Slightly larger for impact */
     font-weight: 700;
     margin-bottom: 20px;
     line-height: 1.2;
+    text-shadow: var(--shadow-sm); /* Subtle text shadow */
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.4rem; /* Slightly larger */
     margin-bottom: 40px;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 .hero-cta {
@@ -193,55 +298,59 @@ body {
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 14px 35px; /* Slightly more padding */
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: var(--border-radius-md); /* Use variable for border-radius */
     font-weight: 600;
-    transition: all 0.3s;
+    transition: all 0.3s ease; /* Smoother transition */
     cursor: pointer;
     border: none;
-    font-size: 1rem;
+    font-size: 1.05rem; /* Slightly larger font */
 }
 
 .btn-primary {
-    background: #2563eb;
-    color: white;
+    background: var(--primary-blue-dark);
+    color: var(--bg-white);
+    box-shadow: var(--shadow-md); /* Add shadow to primary button */
 }
 
 .btn-primary:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
+    background: var(--primary-blue);
+    transform: translateY(-3px); /* More pronounced lift effect */
+    box-shadow: var(--shadow-lg); /* Larger shadow on hover */
 }
 
 .btn-secondary {
     background: transparent;
-    color: white;
-    border: 2px solid white;
+    color: var(--bg-white);
+    border: 2px solid var(--bg-white);
 }
 
 .btn-secondary:hover {
-    background: white;
-    color: #2563eb;
+    background: var(--bg-white);
+    color: var(--primary-blue-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
 }
 
 /* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 20px; /* Consistent horizontal padding */
 }
 
 /* Tools Section */
 .tools-section {
     padding: 80px 20px;
-    background: #f8f9fa;
+    background: var(--bg-light); /* Use the light background variable */
 }
 
 .tools-section h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.8rem; /* Slightly larger heading */
     margin-bottom: 60px;
-    color: #333;
+    color: var(--text-dark); /* Use dark text variable */
 }
 
 .category-section {
@@ -249,12 +358,12 @@ body {
 }
 
 .category-section h3 {
-    font-size: 1.8rem;
+    font-size: 2rem; /* Slightly larger sub-heading */
     margin-bottom: 30px;
-    color: #2563eb;
+    color: var(--primary-blue-dark); /* Use primary blue dark for category headings */
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px; /* Slightly increased gap */
 }
 
 .tools-grid {
@@ -264,126 +373,133 @@ body {
 }
 
 .tool-card {
-    background: white;
+    background: var(--bg-white);
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius-md); /* Use variable for border-radius */
+    box-shadow: var(--shadow-md); /* Use variable for shadow */
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smoother transitions */
+    border: 1px solid var(--border-light); /* Add subtle border */
 }
 
 .tool-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transform: translateY(-8px); /* More pronounced lift effect */
+    box-shadow: var(--shadow-lg); /* Larger shadow on hover */
 }
 
 .tool-icon {
-    font-size: 3rem;
+    font-size: 3.5rem; /* Slightly larger icon */
     margin-bottom: 20px;
+    color: var(--primary-blue); /* Color icons with primary blue */
 }
 
 .tool-card h4 {
-    font-size: 1.3rem;
+    font-size: 1.4rem; /* Slightly larger heading */
     margin-bottom: 15px;
-    color: #333;
+    color: var(--text-dark); /* Use dark text variable */
 }
 
 .tool-card p {
-    color: #666;
+    color: var(--text-light); /* Use light text variable */
     margin-bottom: 20px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .tool-link {
-    color: #2563eb;
+    color: var(--primary-blue-dark);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .tool-link:hover {
-    color: #1d4ed8;
+    color: var(--primary-blue);
+    text-decoration: underline;
 }
 
 /* Blog Preview Section */
 .blog-preview {
     padding: 80px 20px;
+    background: var(--bg-white); /* Blog section on white background */
 }
 
 .blog-preview h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 60px;
-    color: #333;
+    color: var(--text-dark);
 }
 
 .blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adjusted minmax for better flow */
     gap: 40px;
     margin-bottom: 40px;
 }
 
 .blog-card {
-    background: white;
-    border-radius: 12px;
+    background: var(--bg-white);
+    border-radius: var(--border-radius-md);
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-light); /* Add subtle border */
 }
 
 .blog-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
 }
 
 .blog-image {
     width: 100%;
-    height: 200px;
+    height: 220px; /* Slightly increased image height */
     object-fit: cover;
 }
 
 .blog-content {
-    padding: 30px;
+    padding: 25px; /* Slightly reduced padding */
 }
 
 .blog-category {
     display: inline-block;
-    background: #2563eb;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    background: var(--primary-blue);
+    color: var(--bg-white);
+    padding: 6px 16px; /* Adjusted padding */
+    border-radius: var(--border-radius-sm);
+    font-size: 0.85rem; /* Slightly smaller font */
     font-weight: 600;
     margin-bottom: 15px;
+    text-transform: uppercase; /* Uppercase for category */
+    letter-spacing: 0.5px;
 }
 
 .blog-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem; /* Slightly larger heading */
     margin-bottom: 15px;
 }
 
 .blog-card h3 a {
-    color: #333;
+    color: var(--text-dark);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .blog-card h3 a:hover {
-    color: #2563eb;
+    color: var(--primary-blue-dark);
 }
 
 .blog-card p {
-    color: #666;
+    color: var(--text-light);
     margin-bottom: 20px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .blog-meta {
     display: flex;
     justify-content: space-between;
-    font-size: 0.9rem;
-    color: #999;
+    font-size: 0.85rem;
+    color: var(--text-light);
 }
 
 .blog-cta {
@@ -392,8 +508,8 @@ body {
 
 /* Footer */
 .footer {
-    background: #1a1a1a;
-    color: white;
+    background: var(--text-dark); /* Dark background for footer */
+    color: var(--bg-white);
     padding: 60px 20px 20px;
 }
 
@@ -410,14 +526,14 @@ body {
 }
 
 .footer-section h4 {
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* Slightly larger heading */
     margin-bottom: 20px;
-    color: #2563eb;
+    color: var(--primary-blue); /* Use primary blue for headings */
 }
 
 .footer-section p {
-    color: #ccc;
-    line-height: 1.5;
+    color: var(--border-light); /* Lighter text for paragraphs */
+    line-height: 1.6;
     margin-bottom: 20px;
 }
 
@@ -430,13 +546,13 @@ body {
 }
 
 .footer-links a {
-    color: #ccc;
+    color: var(--border-light);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #2563eb;
+    color: var(--primary-blue);
 }
 
 .social-links {
@@ -450,15 +566,16 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: #333;
-    color: white;
+    background: var(--text-medium); /* Darker background for social icons */
+    color: var(--bg-white);
     text-decoration: none;
     border-radius: 50%;
-    transition: background 0.3s;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .social-links a:hover {
-    background: #2563eb;
+    background: var(--primary-blue);
+    transform: translateY(-3px); /* Lift effect on hover */
 }
 
 .newsletter-form {
@@ -470,77 +587,139 @@ body {
 .newsletter-form input {
     flex: 1;
     padding: 10px;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid var(--border-light); /* Border from variable */
+    border-radius: var(--border-radius-sm);
     font-size: 1rem;
+    background-color: var(--bg-white);
+    color: var(--text-dark);
 }
 
 .newsletter-form button {
     padding: 10px 20px;
-    background: #2563eb;
-    color: white;
+    background: var(--primary-blue-dark);
+    color: var(--bg-white);
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius-sm);
     cursor: pointer;
     font-weight: 600;
-    transition: background 0.3s;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .newsletter-form button:hover {
-    background: #1d4ed8;
+    background: var(--primary-blue);
+    transform: translateY(-2px);
 }
 
 .footer-bottom {
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--text-medium); /* Darker border for contrast */
     padding-top: 20px;
     text-align: center;
-    color: #999;
+    color: var(--text-light); /* Lighter gray for bottom text */
 }
 
 .footer-bottom a {
-    color: #2563eb;
+    color: var(--primary-blue);
     text-decoration: none;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-toggle {
-        display: flex;
+        display: flex; /* Show hamburger on mobile */
     }
     
     .nav-menu {
+        flex-grow: 1; /* Allow nav-menu to take available space */
+        justify-content: flex-start; /* Align items to start (left) */
+        display: flex; /* Ensure it's a flex container */
+    
+    
         position: fixed;
-        left: -100%;
-        top: 70px;
+        left: -100%; /* Start off-screen */
+        top: 80px; /* Below the header */
         flex-direction: column;
-        background-color: white;
+        background-color: var(--bg-white);
         width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        max-width: 300px; /* Constrain width for slide-in effect */
+        height: calc(100vh - 80px); /* Fill remaining viewport height */
+        text-align: left; /* Align text left in mobile menu */
+        transition: all 0.4s ease-in-out; /* Smooth slide-in/out */
+        box-shadow: var(--shadow-lg); /* Deeper shadow for mobile menu */
         padding: 20px 0;
+        border-top: 1px solid var(--border-light);
+        overflow-y: auto; /* Enable scrolling for long menus */
     }
-    
+
     .nav-menu.active {
-        left: 0;
+        left: 0; /* Slide in */
+        visibility: visible;
+        z-index: 1000;
     }
     
+    .nav-item {
+        width: 100%; /* Full width for mobile items */
+        margin-bottom: 5px; /* Space between items */
+    }
+
+    .nav-link {
+        padding: 15px 20px; /* More padding for tap targets */
+        border-bottom: 1px solid var(--border-light); /* Separator */
+        color: var(--text-dark); /* Stronger color for mobile links */
+    }
+
+    .nav-link:hover {
+        background-color: var(--bg-light); /* Highlight on hover/tap */
+        color: var(--primary-blue-dark);
+        transform: none; /* Remove lift effect on mobile */
+    }
+
+    .nav-link::after { /* Remove underline effect on mobile */
+        display: none;
+    }
+
+    .dropdown-toggle {
+        padding: 15px 20px;
+        justify-content: space-between; /* Arrow to the right */
+        width: 100%;
+        border-bottom: 1px solid var(--border-light);
+    }
+    
+    .dropdown-toggle::after {
+        font-size: 0.9rem; /* Larger arrow for mobile */
+    }
+
     .dropdown-menu {
-        position: static;
+        position: static; /* Stack dropdown items vertically */
         opacity: 1;
         visibility: visible;
         transform: none;
         box-shadow: none;
-        background: #f8f9fa;
-        margin-top: 10px;
+        background: var(--bg-light); /* Lighter background for sub-menu */
+        border: none;
+        border-radius: 0;
+        padding: 0; /* Remove padding */
+        margin-top: 0;
+        padding-left: 20px; /* Indent sub-items */
+    }
+
+    .dropdown-item {
+        padding: 10px 20px; /* Adjust padding for sub-items */
+        font-size: 0.9rem;
+        border-bottom: 1px solid var(--border-light);
     }
     
+    /* Ensure dropdown items match nav-link hover style on mobile */
+    .dropdown-item:hover {
+        background: var(--bg-light);
+        color: var(--primary-blue-dark);
+    }
+
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 3rem; /* Adjusted for smaller screens */
     }
     
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
     
     .hero-cta {
@@ -572,11 +751,11 @@ body {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 60px 20px;
+        padding: 80px 20px; /* Slightly less padding on very small screens */
     }
     
     .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     
     .tools-section,
@@ -594,7 +773,7 @@ body {
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s, transform 0.6s;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fade-in.visible {

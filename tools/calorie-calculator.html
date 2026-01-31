@@ -13,57 +13,12 @@
     <title>Calorie Calculator - Free Daily Caloric Needs Calculator | Sports Tools Hub</title>
     
     <link rel="canonical" href="https://sportstools.com/tools/calorie-calculator.html">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../calculator-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Header with Navigation -->
-    <header class="header">
-        <nav class="navbar" role="navigation" aria-label="Main navigation">
-            <div class="nav-container">
-                <div class="nav-brand">
-                    <a href="../index.html" class="brand-link">
-                        <span class="brand-icon">⚡</span>
-                        <span class="brand-text">Sports Tools Hub</span>
-                    </a>
-                </div>
-                
-                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                </button>
-                
-                <ul class="nav-menu" role="menubar">
-                    <li class="nav-item" role="none">
-                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
-                    </li>
-                    <li class="nav-item dropdown" role="none">
-                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li role="none"><a href="#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
-                            <li role="none"><a href="#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
-                            <li role="none"><a href="#training-equipment" class="dropdown-item" role="menuitem">Training Equipment</a></li>
-                            <li role="none"><a href="#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="../blog.html" class="nav-link" role="menuitem">Blog</a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="#about" class="nav-link" role="menuitem">About</a>
-                    </li>
-                    <li class="nav-item" role="none">
-                        <a href="#contact" class="nav-link" role="menuitem">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
 
     <!-- Main Content -->
     <main id="main-content">
@@ -80,441 +35,457 @@
             <div class="container">
                 <div class="calculator-layout">
                     <!-- Calculator Form -->
-                    <div class="calculator-form">
-                        <div class="calculator-card">
-                            <h2>Calculate Your Daily Calories</h2>
-                            <form id="calorie-form" aria-labelledby="calorie-form-title">
-                                <h3 id="calorie-form-title" class="sr-only">Calorie Calculation Form</h3>
-                                
-                                <div class="form-group">
-                                    <label for="age">Age</label>
-                                    <input type="number" id="age" name="age" min="15" max="100" required 
-                                           aria-describedby="age-help" placeholder="Enter your age">
-                                    <small id="age-help">Enter your age in years</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <fieldset>
-                                        <legend>Gender</legend>
-                                        <div class="radio-group">
-                                            <label>
-                                                <input type="radio" name="gender" value="male" required>
-                                                <span>Male</span>
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="gender" value="female" required>
-                                                <span>Female</span>
-                                            </label>
-                                        </div>
-                                    </fieldset>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="weight">Weight</label>
-                                    <div class="input-group">
-                                        <input type="number" id="weight" name="weight" step="0.1" min="30" required 
-                                               aria-describedby="weight-help" placeholder="Enter your weight">
-                                        <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
-                                            <option value="kg">kg</option>
-                                            <option value="lbs">lbs</option>
-                                        </select>
-                                    </div>
-                                    <small id="weight-help">Enter your body weight</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="height">Height</label>
-                                    <div class="input-group">
-                                        <input type="number" id="height" name="height" step="0.1" min="100" required 
-                                               aria-describedby="height-help" placeholder="Enter your height">
-                                        <select id="height-unit" name="height-unit" aria-label="Height unit">
-                                            <option value="cm">cm</option>
-                                            <option value="ft">ft/in</option>
-                                        </select>
-                                    </div>
-                                    <small id="height-help">Enter your height</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="activity-level">Activity Level</label>
-                                    <select id="activity-level" name="activity-level" required 
-                                            aria-describedby="activity-help">
-                                        <option value="">Select your activity level</option>
-                                        <option value="sedentary">Sedentary (little or no exercise)</option>
-                                        <option value="light">Light (exercise 1-3 days/week)</option>
-                                        <option value="moderate">Moderate (exercise 3-5 days/week)</option>
-                                        <option value="active">Active (exercise 6-7 days/week)</option>
-                                        <option value="very-active">Very Active (hard exercise 6-7 days/week)</option>
-                                        <option value="extra-active">Extra Active (very hard exercise, physical job)</option>
-                                    </select>
-                                    <small id="activity-help">Select your typical weekly activity level</small>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="goal">Fitness Goal</label>
-                                    <select id="goal" name="goal" required aria-describedby="goal-help">
-                                        <option value="">Select your goal</option>
-                                        <option value="lose-weight-fast">Lose Weight Fast (-1kg/week)</option>
-                                        <option value="lose-weight">Lose Weight (-0.5kg/week)</option>
-                                        <option value="maintain">Maintain Weight</option>
-                                        <option value="gain-weight-slow">Gain Weight Slow (+0.25kg/week)</option>
-                                        <option value="gain-weight">Gain Weight (+0.5kg/week)</option>
-                                        <option value="gain-weight-fast">Gain Weight Fast (+1kg/week)</option>
-                                    </select>
-                                    <small id="goal-help">Select your primary fitness goal</small>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary calculator-btn">Calculate Calories</button>
-                                <button type="reset" class="btn btn-secondary calculator-btn">Reset</button>
-                            </form>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Calculate Your Daily Calories</h2>
                         </div>
+                        <form id="calorie-form" class="calculator-form" aria-labelledby="calorie-form-title">
+                            <h3 id="calorie-form-title" class="sr-only">Calorie Calculation Form</h3>
+                            
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="15" max="100" required 
+                                       aria-describedby="age-help" placeholder="Enter your age">
+                                <small id="age-help">Enter your age in years</small>
+                            </div>
+
+                            <div class="form-group">
+                                <fieldset>
+                                    <legend>Gender</legend>
+                                    <div class="radio-group">
+                                        <label>
+                                            <input type="radio" name="gender" value="male" required>
+                                            <span>Male</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="gender" value="female" required>
+                                            <span>Female</span>
+                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="weight">Weight</label>
+                                <div class="input-group">
+                                    <input type="number" id="weight" name="weight" step="0.1" min="30" required 
+                                           aria-describedby="weight-help" placeholder="Enter your weight">
+                                    <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
+                                        <option value="kg">kg</option>
+                                        <option value="lbs">lbs</option>
+                                    </select>
+                                </div>
+                                <small id="weight-help">Enter your body weight</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="height">Height</label>
+                                <div class="input-group height-input-group">
+                                    <input type="number" id="heightCm" name="heightCm" step="0.1" min="50" placeholder="cm">
+                                    <div class="height-feet-inches">
+                                        <input type="number" id="heightFeet" name="heightFeet" min="1" placeholder="ft">
+                                        <input type="number" id="heightInches" name="heightInches" min="0" max="11" placeholder="in">
+                                    </div>
+                                    <select id="height-unit" name="height-unit" aria-label="Height unit">
+                                        <option value="cm">cm</option>
+                                        <option value="ft">ft/in</option>
+                                    </select>
+                                </div>
+                                <small id="height-help">Enter your height</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="activity-level">Activity Level</label>
+                                <select id="activity-level" name="activity-level" required 
+                                        aria-describedby="activity-help">
+                                    <option value="">Select your activity level</option>
+                                    <option value="sedentary">Sedentary (little or no exercise)</option>
+                                    <option value="light">Light (exercise 1-3 days/week)</option>
+                                    <option value="moderate">Moderate (exercise 3-5 days/week)</option>
+                                    <option value="active">Active (exercise 6-7 days/week)</option>
+                                    <option value="very-active">Very Active (hard exercise 6-7 days/week)</option>
+                                    <option value="extra-active">Extra Active (very hard exercise, physical job)</option>
+                                </select>
+                                <small id="activity-help">Select your typical weekly activity level</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="goal">Fitness Goal</label>
+                                <select id="goal" name="goal" required aria-describedby="goal-help">
+                                    <option value="">Select your goal</option>
+                                    <option value="lose-weight-fast">Lose Weight Fast (-1kg/week)</option>
+                                    <option value="lose-weight">Lose Weight (-0.5kg/week)</option>
+                                    <option value="maintain">Maintain Weight</option>
+                                    <option value="gain-weight-slow">Gain Weight Slow (+0.25kg/week)</option>
+                                    <option value="gain-weight">Gain Weight (+0.5kg/week)</option>
+                                    <option value="gain-weight-fast">Gain Weight Fast (+1kg/week)</option>
+                                </select>
+                                <small id="goal-help">Select your primary fitness goal</small>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary">Calculate Calories</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
                     </div>
 
                     <!-- Results Section -->
-                    <div class="calculator-results">
-                        <div class="results-card" id="calorie-results" style="display: none;">
-                            <h2>Your Calorie Results</h2>
+                    <div class="card results-card" id="calorie-results">
+                        <div class="card-header">
+                            <h2 class="card-title">Your Calorie Results</h2>
+                        </div>
+                        
+                        <div class="calorie-display">
+                            <div class="bmr-display">
+                                <h3>Basal Metabolic Rate (BMR)</h3>
+                                <div class="calorie-value" id="bmr-value">--</div>
+                                <small>Calories burned at rest</small>
+                            </div>
                             
-                            <div class="calorie-display">
-                                <div class="bmr-display">
-                                    <h3>Basal Metabolic Rate (BMR)</h3>
-                                    <div class="calorie-value" id="bmr-value">--</div>
-                                    <small>Calories burned at rest</small>
-                                </div>
-                                
-                                <div class="tdee-display">
-                                    <h3>Total Daily Energy Expenditure (TDEE)</h3>
-                                    <div class="calorie-value" id="tdee-value">--</div>
-                                    <small>Calories burned with activity</small>
-                                </div>
-                                
-                                <div class="goal-calories-display">
-                                    <h3>Recommended Daily Calories</h3>
-                                    <div class="calorie-value goal-value" id="goal-calories">--</div>
-                                    <small id="goal-description">Calories for your goal</small>
-                                </div>
+                            <div class="tdee-display">
+                                <h3>Total Daily Energy Expenditure (TDEE)</h3>
+                                <div class="calorie-value" id="tdee-value">--</div>
+                                <small>Calories burned with activity</small>
                             </div>
-
-                            <div class="calorie-breakdown">
-                                <h3>Macronutrient Breakdown</h3>
-                                <div class="macro-grid">
-                                    <div class="macro-item">
-                                        <div class="macro-label">Protein</div>
-                                        <div class="macro-grams" id="protein-grams">--g</div>
-                                        <div class="macro-calories" id="protein-calories">-- cal</div>
-                                    </div>
-                                    <div class="macro-item">
-                                        <div class="macro-label">Carbs</div>
-                                        <div class="macro-grams" id="carbs-grams">--g</div>
-                                        <div class="macro-calories" id="carbs-calories">-- cal</div>
-                                    </div>
-                                    <div class="macro-item">
-                                        <div class="macro-label">Fats</div>
-                                        <div class="macro-grams" id="fats-grams">--g</div>
-                                        <div class="macro-calories" id="fats-calories">-- cal</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="calorie-recommendations" id="calorie-recommendations">
-                                <h3>Recommendations</h3>
-                                <div id="recommendation-text" class="recommendation-content">
-                                    <!-- Recommendations will be inserted here -->
-                                </div>
-                            </div>
-
-                            <div class="calorie-actions">
-                                <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
-                                <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                            
+                            <div class="goal-calories-display">
+                                <h3>Recommended Daily Calories</h3>
+                                <div class="calorie-value goal-value" id="goal-calories">--</div>
+                                <small id="goal-description">Calories for your goal</small>
                             </div>
                         </div>
 
-                        <!-- Calorie Information -->
-                        <div class="info-card">
-                            <h2>About Calorie Calculation</h2>
-                            <p>This calculator uses the Mifflin-St Jeor equation, which is considered the most accurate formula for calculating Basal Metabolic Rate (BMR).</p>
-                            
-                            <h3>Understanding BMR and TDEE</h3>
-                            <ul>
-                                <li><strong>BMR (Basal Metabolic Rate):</strong> Calories your body burns at complete rest</li>
-                                <li><strong>TDEE (Total Daily Energy Expenditure):</strong> BMR plus calories burned through activity</li>
-                                <li><strong>Goal Calories:</strong> Adjusted TDEE based on your weight gain/loss goals</li>
-                            </ul>
-                            
-                            <h3>Activity Level Descriptions</h3>
-                            <ul>
-                                <li><strong>Sedentary:</strong> Little to no exercise, desk job</li>
-                                <li><strong>Light:</strong> Exercise 1-3 days per week</li>
-                                <li><strong>Moderate:</strong> Exercise 3-5 days per week</li>
-                                <li><strong>Active:</strong> Exercise 6-7 days per week</li>
-                                <li><strong>Very Active:</strong> Hard exercise 6-7 days per week</li>
-                                <li><strong>Extra Active:</strong> Very hard exercise plus physical job</li>
-                            </ul>
-                            
-                            <h3>Weight Change Guidelines</h3>
-                            <ul>
-                                <li>To lose 1kg per week: Reduce 500-1000 calories daily</li>
-                                <li>To gain 1kg per week: Add 500-1000 calories daily</li>
-                                <li>Safe weight loss: 0.5-1kg per week maximum</li>
-                                <li>Consult professionals for extreme goals</li>
-                            </ul>
+                        <div class="results-breakdown">
+                            <h3>Macronutrient Breakdown</h3>
+                            <div class="macro-grid">
+                                <div class="macro-item">
+                                    <div class="macro-label">Protein</div>
+                                    <div class="macro-grams" id="protein-grams">--g</div>
+                                    <div class="macro-calories" id="protein-calories">-- cal</div>
+                                </div>
+                                <div class="macro-item">
+                                    <div class="macro-label">Carbs</div>
+                                    <div class="macro-grams" id="carbs-grams">--g</div>
+                                    <div class="macro-calories" id="carbs-calories">-- cal</div>
+                                </div>
+                                <div class="macro-item">
+                                    <div class="macro-label">Fats</div>
+                                    <div class="macro-grams" id="fats-grams">--g</div>
+                                    <div class="macro-calories" id="fats-calories">-- cal</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="results-recommendations">
+                            <h3>Recommendations</h3>
+                            <div id="recommendation-text" class="recommendation-content">
+                                <!-- Recommendations will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="results-actions">
+                            <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                            <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
                         </div>
                     </div>
+                </div>
+
+                <!-- Calorie Information -->
+                <div class="card info-card">
+                    <div class="card-header">
+                        <h2 class="card-title">About Calorie Calculation</h2>
+                    </div>
+                    <p>This calculator uses the Mifflin-St Jeor equation, which is considered the most accurate formula for calculating Basal Metabolic Rate (BMR).</p>
+                    
+                    <h3>Understanding BMR and TDEE</h3>
+                    <ul>
+                        <li><strong>BMR (Basal Metabolic Rate):</strong> Calories your body burns at complete rest</li>
+                        <li><strong>TDEE (Total Daily Energy Expenditure):</strong> BMR plus calories burned through activity</li>
+                        <li><strong>Goal Calories:</strong> Adjusted TDEE based on your weight gain/loss goals</li>
+                    </ul>
+                    
+                    <h3>Activity Level Descriptions</h3>
+                    <ul>
+                        <li><strong>Sedentary:</strong> Little to no exercise, desk job</li>
+                        <li><strong>Light:</strong> Exercise 1-3 days per week</li>
+                        <li><strong>Moderate:</strong> Exercise 3-5 days per week</li>
+                        <li><strong>Active:</strong> Exercise 6-7 days per week</li>
+                        <li><strong>Very Active:</strong> Hard exercise 6-7 days per week</li>
+                        <li><strong>Extra Active:</strong> Very hard exercise plus physical job</li>
+                    </ul>
+                    
+                    <h3>Weight Change Guidelines</h3>
+                    <ul>
+                        <li>To lose 1kg per week: Reduce 500-1000 calories daily</li>
+                        <li>To gain 1kg per week: Add 500-1000 calories daily</li>
+                        <li>Safe weight loss: 0.5-1kg per week maximum</li>
+                        <li>Consult professionals for extreme goals</li>
+                    </ul>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Sports Tools Hub</h4>
-                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="YouTube">📺</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Tools & Calculators</h4>
-                    <nav>
-                        <ul class="footer-links">
-                            <li><a href="#fitness-calculators">BMI Calculator</a></li>
-                            <li><a href="#performance-trackers">Pace Calculator</a></li>
-                            <li><a href="#nutrition-tools">Macro Calculator</a></li>
-                            <li><a href="#training-equipment">Equipment Guides</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <nav>
-                        <ul class="footer-links">
-                            <li><a href="../blog.html">Blog</a></li>
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                            <li><a href="../privacy.html">Privacy Policy</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Newsletter</h4>
-                    <p>Get the latest fitness tips and tool updates delivered to your inbox.</p>
-                    <form class="newsletter-form" action="#subscribe" method="post">
-                        <input type="email" placeholder="Enter your email" required aria-label="Email address">
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="../sitemap.xml">Sitemap</a> | <a href="../robots.txt">Robots.txt</a></p>
-            </div>
-        </div>
-    </footer>
 
     <script>
-        // Calorie Calculator functionality
-        document.getElementById('calorie-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            calculateCalories();
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- DOM Elements ---
+            const ageInput = document.getElementById('age');
+            const genderRadios = document.querySelectorAll('input[name="gender"]');
+            const weightInput = document.getElementById('weight');
+            const weightUnitSelect = document.getElementById('weight-unit');
+            const heightCmInput = document.getElementById('heightCm');
+            const heightFeetInput = document.getElementById('heightFeet');
+            const heightInchesInput = document.getElementById('heightInches');
+            const heightUnitSelect = document.getElementById('height-unit');
+            const activityLevelSelect = document.getElementById('activity-level');
+            const goalSelect = document.getElementById('goal');
 
-        function calculateCalories() {
-            // Get input values
-            const age = parseInt(document.getElementById('age').value);
-            const gender = document.querySelector('input[name="gender"]:checked').value;
-            const weight = parseFloat(document.getElementById('weight').value);
-            const height = parseFloat(document.getElementById('height').value);
-            const weightUnit = document.getElementById('weight-unit').value;
-            const heightUnit = document.getElementById('height-unit').value;
-            const activityLevel = document.getElementById('activity-level').value;
-            const goal = document.getElementById('goal').value;
+            const calorieResultsCard = document.getElementById('calorie-results');
 
-            // Convert to metric units if needed
-            let weightKg = weight;
-            let heightCm = height;
-
-            if (weightUnit === 'lbs') {
-                weightKg = weight * 0.453592;
+            // --- Utility Functions ---
+            function getInputValue(element) {
+                return element ? parseFloat(element.value) : NaN;
             }
 
-            if (heightUnit === 'ft') {
-                // Assuming height is in feet format (e.g., 5.8 for 5'8")
-                const feet = Math.floor(height);
-                const inches = Math.round((height - feet) * 10);
-                heightCm = (feet * 12 + inches) * 2.54;
+            function getSelectedUnit(element) {
+                return element ? element.value : '';
             }
 
-            // Calculate BMR using Mifflin-St Jeor equation
-            let bmr;
-            if (gender === 'male') {
-                bmr = 10 * weightKg + 6.25 * heightCm - 5 * age + 5;
-            } else {
-                bmr = 10 * weightKg + 6.25 * heightCm - 5 * age - 161;
+            // --- Toggle Field Visibility ---
+            function toggleHeightInputs() {
+                if (heightUnitSelect.value === 'cm') {
+                    heightCmInput.style.display = 'block';
+                    heightCmInput.setAttribute('required', 'required');
+                    heightFeetInput.style.display = 'none';
+                    heightFeetInput.removeAttribute('required');
+                    heightInchesInput.style.display = 'none';
+                    heightInchesInput.removeAttribute('required');
+                } else { // ft/in
+                    heightCmInput.style.display = 'none';
+                    heightCmInput.removeAttribute('required');
+                    heightFeetInput.style.display = 'block';
+                    heightFeetInput.setAttribute('required', 'required');
+                    heightInchesInput.style.display = 'block';
+                    heightInchesInput.setAttribute('required', 'required');
+                }
             }
 
-            // Activity multipliers
-            const activityMultipliers = {
-                'sedentary': 1.2,
-                'light': 1.375,
-                'moderate': 1.55,
-                'active': 1.725,
-                'very-active': 1.9,
-                'extra-active': 2.0
-            };
+            // --- Event Listeners ---
+            heightUnitSelect.addEventListener('change', toggleHeightInputs);
 
-            // Calculate TDEE
-            const tdee = bmr * activityMultipliers[activityLevel];
-
-            // Calculate goal calories
-            let goalCalories = tdee;
-            let goalDescription = 'Maintain current weight';
-            let recommendations = '';
-
-            switch(goal) {
-                case 'lose-weight-fast':
-                    goalCalories = tdee - 1000;
-                    goalDescription = 'Lose 1kg per week';
-                    recommendations = 'A 1000 calorie deficit is aggressive. Ensure you\'re getting adequate protein and nutrients. Consider consulting with a healthcare professional.';
-                    break;
-                case 'lose-weight':
-                    goalCalories = tdee - 500;
-                    goalDescription = 'Lose 0.5kg per week';
-                    recommendations = 'A moderate calorie deficit is sustainable for most people. Focus on nutrient-dense foods and regular exercise.';
-                    break;
-                case 'maintain':
-                    goalDescription = 'Maintain current weight';
-                    recommendations = 'Great! Focus on maintaining a balanced diet and regular physical activity to support your health goals.';
-                    break;
-                case 'gain-weight-slow':
-                    goalCalories = tdee + 250;
-                    goalDescription = 'Gain 0.25kg per week';
-                    recommendations = 'A slight calorie surplus with adequate protein will support lean muscle gain. Combine with resistance training.';
-                    break;
-                case 'gain-weight':
-                    goalCalories = tdee + 500;
-                    goalDescription = 'Gain 0.5kg per week';
-                    recommendations = 'A moderate calorie surplus supports muscle growth. Ensure adequate protein intake (1.6-2.2g per kg body weight).';
-                    break;
-                case 'gain-weight-fast':
-                    goalCalories = tdee + 1000;
-                    goalDescription = 'Gain 1kg per week';
-                    recommendations = 'A 1000 calorie surplus is aggressive. Monitor for excessive fat gain and adjust as needed.';
-                    break;
-            }
-
-            // Calculate macronutrients (balanced approach: 30% protein, 40% carbs, 30% fats)
-            const proteinCalories = goalCalories * 0.30;
-            const carbsCalories = goalCalories * 0.40;
-            const fatsCalories = goalCalories * 0.30;
-
-            const proteinGrams = Math.round(proteinCalories / 4);
-            const carbsGrams = Math.round(carbsCalories / 4);
-            const fatsGrams = Math.round(fatsCalories / 9);
-
-            // Display results
-            document.getElementById('bmr-value').textContent = Math.round(bmr);
-            document.getElementById('tdee-value').textContent = Math.round(tdee);
-            document.getElementById('goal-calories').textContent = Math.round(goalCalories);
-            document.getElementById('goal-description').textContent = goalDescription;
-
-            // Display macronutrients
-            document.getElementById('protein-grams').textContent = proteinGrams + 'g';
-            document.getElementById('protein-calories').textContent = Math.round(proteinCalories) + ' cal';
-            document.getElementById('carbs-grams').textContent = carbsGrams + 'g';
-            document.getElementById('carbs-calories').textContent = Math.round(carbsCalories) + ' cal';
-            document.getElementById('fats-grams').textContent = fatsGrams + 'g';
-            document.getElementById('fats-calories').textContent = Math.round(fatsCalories) + ' cal';
-
-            // Display recommendations
-            document.getElementById('recommendation-text').textContent = recommendations;
-
-            // Show results section
-            const resultsElement = document.getElementById('calorie-results');
-            resultsElement.style.display = 'block';
-            resultsElement.classList.add('show');
-
-            // Scroll to results
-            document.getElementById('calorie-results').scrollIntoView({ behavior: 'smooth' });
-
-            // Track usage
-            if (window.calculatorUtils) {
-                window.calculatorUtils.trackToolUsage('Calorie Calculator');
-            }
-        }
-
-        function shareResults() {
-            const calories = document.getElementById('goal-calories').textContent;
-            const goal = document.getElementById('goal-description').textContent;
-            const text = `My recommended daily calories are ${calories} (${goal}). Calculate yours at Sports Tools Hub!`;
+            // Initial setup
+            toggleHeightInputs();
             
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Calorie Calculator Results',
-                    text: text,
-                    url: window.location.href
+            // Set initial 'radio-selected' class for gender radio buttons
+            document.querySelectorAll('.radio-group input[name="gender"]:checked').forEach(radio => {
+                radio.closest('label').classList.add('radio-selected');
+            });
+            // Add event listeners to radio buttons for styling
+            document.querySelectorAll('.radio-group input[name="gender"]').forEach(radio => {
+                radio.addEventListener('change', () => {
+                    document.querySelectorAll('.radio-group input[name="gender"]').forEach(siblingRadio => {
+                        siblingRadio.closest('label').classList.remove('radio-selected');
+                    });
+                    if (radio.checked) {
+                        radio.closest('label').classList.add('radio-selected');
+                    }
                 });
-            } else {
-                // Fallback - copy to clipboard
-                navigator.clipboard.writeText(text + ' ' + window.location.href);
-                alert('Results copied to clipboard!');
-            }
-        }
+            });
 
-        // Form validation
-        document.getElementById('age').addEventListener('input', function() {
-            if (this.value < 15 || this.value > 100) {
-                this.setCustomValidity('Please enter a valid age between 15 and 100');
-            } else {
-                this.setCustomValidity('');
-            }
-        });
+            document.getElementById('calorie-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateCalories();
+            });
 
-        document.getElementById('weight').addEventListener('input', function() {
-            const unit = document.getElementById('weight-unit').value;
-            let min, max;
-            
-            if (unit === 'kg') {
-                min = 30;
-                max = 300;
-            } else {
-                min = 66;
-                max = 660;
-            }
-            
-            if (this.value < min || this.value > max) {
-                this.setCustomValidity(`Please enter a valid weight between ${min} and ${max} ${unit}`);
-            } else {
-                this.setCustomValidity('');
-            }
-        });
+            document.getElementById('calorie-form').addEventListener('reset', function() {
+                // Reset fields
+                document.getElementById('bmr-value').textContent = '--';
+                document.getElementById('tdee-value').textContent = '--';
+                document.getElementById('goal-calories').textContent = '--';
+                document.getElementById('goal-description').textContent = 'Calories for your goal';
+                document.getElementById('protein-grams').textContent = '--g';
+                document.getElementById('protein-calories').textContent = '-- cal';
+                document.getElementById('carbs-grams').textContent = '--g';
+                document.getElementById('carbs-calories').textContent = '-- cal';
+                document.getElementById('fats-grams').textContent = '--g';
+                document.getElementById('fats-calories').textContent = '-- cal';
+                document.getElementById('recommendation-text').textContent = '';
+                
+                calorieResultsCard.classList.remove('show');
+                calorieResultsCard.style.display = 'none';
 
-        document.getElementById('height').addEventListener('input', function() {
-            const unit = document.getElementById('height-unit').value;
-            let min, max;
-            
-            if (unit === 'cm') {
-                min = 100;
-                max = 250;
-            } else {
-                min = 3.3;
-                max = 8.2;
+                toggleHeightInputs(); // Reset height input visibility
+                // Clear radio-selected class
+                document.querySelectorAll('.radio-group input[name="gender"]').forEach(radio => {
+                    radio.closest('label').classList.remove('radio-selected');
+                });
+            });
+
+
+            function calculateCalories() {
+                // Get input values
+                const age = getInputValue(ageInput);
+                const gender = document.querySelector('input[name="gender"]:checked')?.value;
+                const weight = getInputValue(weightInput);
+                const weightUnit = getSelectedUnit(weightUnitSelect);
+                const heightUnit = getSelectedUnit(heightUnitSelect);
+                const activityLevel = activityLevelSelect.value;
+                const goal = goalSelect.value;
+
+                // --- Input Validation ---
+                if (isNaN(age) || age < 15 || age > 100) { alert('Please enter a valid age (15-100).'); return; }
+                if (!gender) { alert('Please select your gender.'); return; }
+                if (isNaN(weight) || weight < 30) { alert('Please enter a valid weight (min 30).'); return; }
+                if (!activityLevel) { alert('Please select your activity level.'); return; }
+                if (!goal) { alert('Please select your fitness goal.'); return; }
+
+                let heightCm;
+                if (heightUnit === 'cm') {
+                    heightCm = getInputValue(heightCmInput);
+                    if (isNaN(heightCm) || heightCm < 50 || heightCm > 300) { alert('Please enter a valid height in cm (50-300).'); return; }
+                } else { // ft/in
+                    const feet = getInputValue(heightFeetInput);
+                    const inches = getInputValue(heightInchesInput);
+                    if (isNaN(feet) || feet < 1 || feet > 9 || isNaN(inches) || inches < 0 || inches > 11) { alert('Please enter a valid height in feet (1-9) and inches (0-11).'); return; }
+                    heightCm = (feet * 30.48) + (inches * 2.54);
+                }
+
+                // Convert weight to kg if in lbs
+                let weightKg = weight;
+                if (weightUnit === 'lbs') {
+                    weightKg = weight * 0.453592;
+                }
+
+                // Calculate BMR using Mifflin-St Jeor equation
+                let bmr;
+                if (gender === 'male') {
+                    bmr = 10 * weightKg + 6.25 * heightCm - 5 * age + 5;
+                } else {
+                    bmr = 10 * weightKg + 6.25 * heightCm - 5 * age - 161;
+                }
+
+                // Activity multipliers
+                const activityMultipliers = {
+                    'sedentary': 1.2,
+                    'light': 1.375,
+                    'moderate': 1.55,
+                    'active': 1.725,
+                    'very-active': 1.9,
+                    'extra-active': 2.0
+                };
+
+                // Calculate TDEE
+                const tdee = bmr * activityMultipliers[activityLevel];
+
+                // Calculate goal calories
+                let goalCalories = tdee;
+                let goalDescription = 'Maintain current weight';
+                let recommendations = '';
+
+                switch(goal) {
+                    case 'lose-weight-fast':
+                        goalCalories = tdee - 1000;
+                        goalDescription = 'Lose 1kg per week';
+                        recommendations = 'A 1000 calorie deficit is aggressive. Ensure you\'re getting adequate protein and nutrients. Consider consulting with a healthcare professional.';
+                        break;
+                    case 'lose-weight':
+                        goalCalories = tdee - 500;
+                        goalDescription = 'Lose 0.5kg per week';
+                        recommendations = 'A moderate calorie deficit is sustainable for most people. Focus on nutrient-dense foods and regular exercise.';
+                        break;
+                    case 'maintain':
+                        goalDescription = 'Maintain current weight';
+                        recommendations = 'Great! Focus on maintaining a balanced diet and regular physical activity to support your health goals.';
+                        break;
+                    case 'gain-weight-slow':
+                        goalCalories = tdee + 250;
+                        goalDescription = 'Gain 0.25kg per week';
+                        recommendations = 'A slight calorie surplus with adequate protein will support lean muscle gain. Combine with resistance training.';
+                        break;
+                    case 'gain-weight':
+                        goalCalories = tdee + 500;
+                        goalDescription = 'Gain 0.5kg per week';
+                        recommendations = 'A moderate calorie surplus supports muscle growth. Ensure adequate protein intake (1.6-2.2g per kg body weight).';
+                        break;
+                    case 'gain-weight-fast':
+                        goalCalories = tdee + 1000;
+                        goalDescription = 'Gain 1kg per week';
+                        recommendations = 'A 1000 calorie surplus is aggressive. Monitor for excessive fat gain and adjust as needed.';
+                        break;
+                }
+
+                // Calculate macronutrients (balanced approach: 30% protein, 40% carbs, 30% fats)
+                const proteinCalories = goalCalories * 0.30;
+                const carbsCalories = goalCalories * 0.40;
+                const fatsCalories = goalCalories * 0.30;
+
+                const proteinGrams = Math.round(proteinCalories / 4);
+                const carbsGrams = Math.round(carbsCalories / 4);
+                const fatsGrams = Math.round(fatsCalories / 9);
+
+                // Display results
+                document.getElementById('bmr-value').textContent = Math.round(bmr);
+                document.getElementById('tdee-value').textContent = Math.round(tdee);
+                document.getElementById('goal-calories').textContent = Math.round(goalCalories);
+                document.getElementById('goal-description').textContent = goalDescription;
+
+                // Display macronutrients
+                document.getElementById('protein-grams').textContent = proteinGrams + 'g';
+                document.getElementById('protein-calories').textContent = Math.round(proteinCalories) + ' cal';
+                document.getElementById('carbs-grams').textContent = carbsGrams + 'g';
+                document.getElementById('carbs-calories').textContent = Math.round(carbsCalories) + ' cal';
+                document.getElementById('fats-grams').textContent = fatsGrams + 'g';
+                document.getElementById('fats-calories').textContent = Math.round(fatsCalories) + ' cal';
+
+                // Display recommendations
+                document.getElementById('recommendation-text').textContent = recommendations;
+
+                // Show results section
+                calorieResultsCard.style.display = 'block';
+                calorieResultsCard.classList.add('show');
+
+                // Scroll to results
+                calorieResultsCard.scrollIntoView({ behavior: 'smooth' });
+
+                // Track usage
+                if (window.calculatorUtils) {
+                    window.calculatorUtils.trackToolUsage('Calorie Calculator');
+                }
             }
-            
-            if (this.value < min || this.value > max) {
-                this.setCustomValidity(`Please enter a valid height between ${min} and ${max} ${unit}`);
-            } else {
-                this.setCustomValidity('');
+
+            function shareResults() {
+                const calories = document.getElementById('goal-calories').textContent;
+                const goal = document.getElementById('goal-description').textContent;
+                const text = `My recommended daily calories are ${calories} (${goal}). Calculate yours at Sports Tools Hub!`;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Calorie Calculator Results',
+                        text: text,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback - copy to clipboard
+                    navigator.clipboard.writeText(text + ' ' + window.location.href);
+                    alert('Results copied to clipboard!');
+                }
             }
-        });
+
+            // Accessibility: Set focus on result when shown
+            const observer = new MutationObserver((mutationsList, observer) => {
+                for(let mutation of mutationsList) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        if (calorieResultsCard.classList.contains('show')) {
+                            document.getElementById('goal-calories').focus();
+                        }
+                    }
+                }
+            });
+            observer.observe(calorieResultsCard, { attributes: true });
+
+        }); // End DOMContentLoaded
     </script>
 </body>
 </html>
