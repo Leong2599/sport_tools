@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Assess your sports injury risk factors with our free injury risk calculator. Get personalized recommendations to prevent injuries and optimize performance.">
+    <meta name="keywords" content="injury risk calculator, sports injury prevention, injury assessment, sports safety, athletic injury risk">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Sports Injury Risk Calculator - Free Injury Assessment Tool">
+    <meta property="og:description" content="Assess your sports injury risk factors and get personalized prevention recommendations">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/injury-risk-calculator.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sports Tools Hub">
+    <meta name="twitter:description" content="Your complete sports and fitness resource destination">
+    <title>Sports Injury Risk Calculator - Free Injury Assessment Tool | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/injury-risk-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+
+</head>
+    <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">Sports Injury Risk Calculator</h1>
+                <p class="tool-subtitle">Assess your injury risk factors and get personalized prevention strategies for safer athletic performance</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Injury Risk Assessment</h2>
+                        </div>
+                        <form id="injury-risk-form" class="calculator-form" aria-labelledby="injury-form-title">
+                            <h3 id="injury-form-title" class="sr-only">Injury Risk Assessment Form</h3>
+                            
+                            <!-- Personal Information -->
+                            <div class="personal-info-section">
+                                <h4>Personal Information</h4>
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" name="age" min="13" max="100" required 
+                                           aria-describedby="age-help" placeholder="Enter your age">
+                                    <small id="age-help">Age affects injury risk factors</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <fieldset>
+                                        <legend>Gender</legend>
+                                        <div class="radio-group">
+                                            <label>
+                                                <input type="radio" name="gender" value="male" required>
+                                                <span>Male</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="gender" value="female" required>
+                                                <span>Female</span>
+                                            </label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="sport">Primary Sport</label>
+                                    <select id="sport" name="sport" required>
+                                        <option value="">Select your primary sport</option>
+                                        <option value="running">Running/Jogging</option>
+                                        <option value="cycling">Cycling</option>
+                                        <option value="swimming">Swimming</option>
+                                        <option value="weightlifting">Weightlifting/Strength Training</option>
+                                        <option value="soccer">Soccer</option>
+                                        <option value="basketball">Basketball</option>
+                                        <option value="football">Football</option>
+                                        <option value="tennis">Tennis</option>
+                                        <option value="golf">Golf</option>
+                                        <option value="yoga">Yoga</option>
+                                        <option value="crossfit">CrossFit</option>
+                                        <option value="martial-arts">Martial Arts</option>
+                                        <option value="skiing">Skiing/Snowboarding</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="experience">Experience Level</label>
+                                    <select id="experience" name="experience">
+                                        <option value="beginner">Beginner (0-1 year)</option>
+                                        <option value="intermediate">Intermediate (1-3 years)</option>
+                                        <option value="advanced">Advanced (3-5 years)</option>
+                                        <option value="expert">Expert (5+ years)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Training Habits -->
+                            <div class="training-section">
+                                <h4>Training Habits</h4>
+                                <div class="form-group">
+                                    <label for="weekly-sessions">Training Sessions per Week</label>
+                                    <input type="number" id="weekly-sessions" name="weekly-sessions" min="1" max="20" 
+                                           placeholder="Number of sessions">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="session-duration">Average Session Duration</label>
+                                    <div class="input-group">
+                                        <input type="number" id="session-duration" name="session-duration" min="15" max="300" 
+                                               placeholder="Duration">
+                                        <span class="input-suffix">minutes</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="intensity">Typical Training Intensity</label>
+                                    <select id="intensity" name="intensity">
+                                        <option value="low">Low (Recovery/Beginner)</option>
+                                        <option value="moderate">Moderate (Steady State)</option>
+                                        <option value="high">High (Vigorous/Competitive)</option>
+                                        <option value="very-high">Very High (Elite/Professional)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="warm-up">Warm-up Routine</label>
+                                    <select id="warm-up" name="warm-up">
+                                        <option value="none">No warm-up</option>
+                                        <option value="minimal">Minimal (1-3 minutes)</option>
+                                        <option value="moderate">Moderate (5-10 minutes)</option>
+                                        <option value="comprehensive">Comprehensive (10+ minutes with dynamic stretching)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cool-down">Cool-down Routine</label>
+                                    <select id="cool-down" name="cool-down">
+                                        <option value="none">No cool-down</option>
+                                        <option value="minimal">Minimal (1-3 minutes)</option>
+                                        <option value="moderate">Moderate (5-10 minutes)</option>
+                                        <option value="comprehensive">Comprehensive (10+ minutes with stretching)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Physical Condition -->
+                            <div class="physical-section">
+                                <h4>Physical Condition</h4>
+                                <div class="form-group">
+                                    <label for="flexibility">Flexibility Level</label>
+                                    <select id="flexibility" name="flexibility">
+                                        <option value="poor">Poor (Limited range of motion)</option>
+                                        <option value="below-average">Below Average</option>
+                                        <option value="average">Average</option>
+                                        <option value="good">Good</option>
+                                        <option value="excellent">Excellent (Full range of motion)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="strength">Strength Level</label>
+                                    <select id="strength" name="strength">
+                                        <option value="poor">Poor (Difficulty with basic movements)</option>
+                                        <option value="below-average">Below Average</option>
+                                        <option value="average">Average</option>
+                                        <option value="good">Good</option>
+                                        <option value="excellent">Excellent (Advanced strength levels)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="balance">Balance and Stability</label>
+                                    <select id="balance" name="balance">
+                                        <option value="poor">Poor (Frequent loss of balance)</option>
+                                        <option value="below-average">Below Average</option>
+                                        <option value="average">Average</option>
+                                        <option value="good">Good</option>
+                                        <option value="excellent">Excellent (Very stable)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="body-weight">Body Weight Status</label>
+                                    <select id="body-weight" name="body-weight">
+                                        <option value="underweight">Underweight</option>
+                                        <option value="normal">Normal</option>
+                                        <option value="overweight">Overweight</option>
+                                        <option value="obese">Obese</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Injury History -->
+                            <div class="injury-history-section">
+                                <h4>Injury History</h4>
+                                <div class="form-group">
+                                    <label for="previous-injuries">Previous Injuries (Last 2 Years)</label>
+                                    <select id="previous-injuries" name="previous-injuries">
+                                        <option value="none">None</option>
+                                        <option value="1">1 injury</option>
+                                        <option value="2">2 injuries</option>
+                                        <option value="3">3 injuries</option>
+                                        <option value="4+">4 or more injuries</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="injury-type">Most Recent Injury Type</label>
+                                    <select id="injury-type" name="injury-type">
+                                        <option value="none">No previous injuries</option>
+                                        <option value="sprain">Sprain (Ligament)</option>
+                                        <option value="strain">Strain (Muscle/Tendon)</option>
+                                        <option value="fracture">Fracture</option>
+                                        <option value="dislocation">Dislocation</option>
+                                        <option value="concussion">Concussion</option>
+                                        <option value="overuse">Overuse Injury</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="recovery-time">Most Recent Recovery Time</label>
+                                    <select id="recovery-time" name="recovery-time">
+                                        <option value="none">N/A</option>
+                                        <option value="1-week">Less than 1 week</option>
+                                        <option value="1-2-weeks">1-2 weeks</option>
+                                        <option value="2-4-weeks">2-4 weeks</option>
+                                        <option value="1-3-months">1-3 months</option>
+                                        <option value="3+months">3+ months</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="current-pain">Current Pain or Discomfort</label>
+                                    <select id="current-pain" name="current-pain">
+                                        <option value="none">None</option>
+                                        <option value="mild">Mild (occasional, doesn't limit activity)</option>
+                                        <option value="moderate">Moderate (frequent, somewhat limits activity)</option>
+                                        <option value="severe">Severe (constant, significantly limits activity)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Lifestyle Factors -->
+                            <div class="lifestyle-section">
+                                <h4>Lifestyle Factors</h4>
+                                <div class="form-group">
+                                    <label for="sleep">Average Sleep per Night</label>
+                                    <div class="input-group">
+                                        <input type="number" id="sleep" name="sleep" min="3" max="12" step="0.5" 
+                                               placeholder="Hours of sleep">
+                                        <span class="input-suffix">hours</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="stress">Stress Level</label>
+                                    <select id="stress" name="stress">
+                                        <option value="low">Low (well-managed)</option>
+                                        <option value="moderate">Moderate (manageable)</option>
+                                        <option value="high">High (frequent stress)</option>
+                                        <option value="very-high">Very High (chronic stress)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nutrition">Nutrition Quality</label>
+                                    <select id="nutrition" name="nutrition">
+                                        <option value="poor">Poor (frequent processed foods, inadequate nutrients)</option>
+                                        <option value="fair">Fair (mixed diet, some gaps)</option>
+                                        <option value="good">Good (balanced, mostly whole foods)</option>
+                                        <option value="excellent">Excellent (optimal nutrition, well-planned)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="hydration">Hydration Habits</label>
+                                    <select id="hydration" name="hydration">
+                                        <option value="poor">Poor (rarely drink water)</option>
+                                        <option value="fair">Fair (occasional water intake)</option>
+                                        <option value="good">Good (regular water intake)</option>
+                                        <option value="excellent">Excellent (consistent, adequate hydration)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary">Calculate Injury Risk</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card results-card" id="injury-results">
+                        <div class="card-header">
+                            <h2 class="card-title">Your Injury Risk Assessment</h2>
+                        </div>
+                        
+                        <div class="results-display" id="risk-display">
+                            <!-- Results will be populated here -->
+                        </div>
+
+                        <div class="results-chart" id="risk-breakdown" style="display: none;">
+                            <h3>Risk Factor Breakdown</h3>
+                            <div class="risk-breakdown-content" id="breakdown-content">
+                                <!-- Breakdown will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="results-recommendations" id="injury-recommendations">
+                            <h3>Prevention Strategies</h3>
+                            <div id="recommendation-text" class="recommendation-content">
+                                <!-- Recommendations will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="results-actions">
+                            <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                            <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Injury Risk Information -->
+                <div class="card info-card">
+                    <div class="card-header">
+                        <h2 class="card-title">About Injury Risk Assessment</h2>
+                    </div>
+                    <p>Sports injury risk assessment helps identify factors that may increase your likelihood of injury. By understanding these risk factors, you can implement targeted prevention strategies and reduce your injury risk.</p>
+                    
+                    <h3>Key Risk Factor Categories</h3>
+                    <ul>
+                        <li><strong>Personal Factors:</strong> Age, gender, experience level, physical condition</li>
+                        <li><strong>Training Factors:</strong> Volume, intensity, frequency, progression</li>
+                        <li><strong>Biomechanical Factors:</strong> Flexibility, strength, balance, movement patterns</li>
+                        <li><strong>Environmental Factors:</strong> Equipment, surface conditions, weather</li>
+                        <li><strong>Lifestyle Factors:</strong> Sleep, nutrition, stress, recovery</li>
+                    </ul>
+                    
+                    <h3>Common Sports Injuries</h3>
+                    <ul>
+                        <li><strong>Overuse Injuries:</strong> Tendinitis, stress fractures, muscle strains</li>
+                        <li><strong>Acute Injuries:</strong> Sprains, fractures, dislocations, contusions</li>
+                        <li><strong>Chronic Injuries:</strong> Arthritis, degenerative conditions</li>
+                        <li><strong>Head Injuries:</strong> Concussions, traumatic brain injuries</li>
+                    </ul>
+                    
+                    <h3>Injury Prevention Strategies</h3>
+                    <ul>
+                        <li>Proper warm-up and cool-down routines</li>
+                        <li>Gradual progression of training intensity and volume</li>
+                        <li>Strength and conditioning specific to your sport</li>
+                        <li>Flexibility and mobility training</li>
+                        <li>Adequate rest and recovery</li>
+                        <li>Proper equipment and technique</li>
+                        <li>Regular physical assessments and screenings</li>
+                    </ul>
+                    
+                    <h3>When to Seek Professional Help</h3>
+                    <ul>
+                        <li>Pain that persists or worsens over time</li>
+                        <li>Inability to bear weight or use a limb</li>
+                        <li>Visible deformity or severe swelling</li>
+                        <li>Loss of consciousness or head trauma</li>
+                        <li>Symptoms that affect daily activities</li>
+                    </ul>
+                    
+                    <h3>Recovery and Return to Sport</h3>
+                    <p>Proper recovery is essential for preventing re-injury. Follow professional medical advice, gradually return to activity, and address any underlying risk factors before returning to full competition.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macronutrient-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Injury Risk Calculator functionality
+            document.getElementById('injury-risk-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateInjuryRisk();
+            });
+
+            function calculateInjuryRisk() {
+                const formData = {
+                    age: parseInt(document.getElementById('age').value),
+                    gender: document.querySelector('input[name="gender"]:checked')?.value,
+                    sport: document.getElementById('sport').value,
+                    experience: document.getElementById('experience').value,
+                    weeklySessions: parseInt(document.getElementById('weekly-sessions').value) || 0,
+                    sessionDuration: parseInt(document.getElementById('session-duration').value) || 0,
+                    intensity: document.getElementById('intensity').value,
+                    warmUp: document.getElementById('warm-up').value,
+                    coolDown: document.getElementById('cool-down').value,
+                    flexibility: document.getElementById('flexibility').value,
+                    strength: document.getElementById('strength').value,
+                    balance: document.getElementById('balance').value,
+                    bodyWeight: document.getElementById('body-weight').value,
+                    previousInjuries: document.getElementById('previous-injuries').value,
+                    injuryType: document.getElementById('injury-type').value,
+                    recoveryTime: document.getElementById('recovery-time').value,
+                    currentPain: document.getElementById('current-pain').value,
+                    sleep: parseFloat(document.getElementById('sleep').value) || 7,
+                    stress: document.getElementById('stress').value,
+                    nutrition: document.getElementById('nutrition').value,
+                    hydration: document.getElementById('hydration').value
+                };
+
+                // Input validation
+                if (!formData.age || !formData.gender || !formData.sport) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+
+                // Calculate risk scores for each category
+                const riskScores = {
+                    personal: calculatePersonalRisk(formData),
+                    training: calculateTrainingRisk(formData),
+                    physical: calculatePhysicalRisk(formData),
+                    history: calculateHistoryRisk(formData),
+                    lifestyle: calculateLifestyleRisk(formData)
+                };
+
+                // Calculate overall risk
+                const overallRisk = calculateOverallRisk(riskScores);
+                
+                displayInjuryRiskResults(overallRisk, riskScores, formData);
+            }
+
+            function calculatePersonalRisk(formData) {
+                let risk = 0;
+                
+                // Age-related risk
+                if (formData.age < 16) risk += 15; // Young athletes - developing bodies
+                else if (formData.age >= 40) risk += 10; // Older athletes - decreased recovery
+                
+                // Gender-specific considerations
+                if (formData.gender === 'female') risk += 5; // Higher risk for certain injuries
+                
+                // Experience level
+                const experienceRisk = {
+                    'beginner': 20,
+                    'intermediate': 10,
+                    'advanced': 5,
+                    'expert': 10
+                };
+                risk += experienceRisk[formData.experience] || 10;
+                
+                return Math.min(100, risk);
+            }
+
+            function calculateTrainingRisk(formData) {
+                let risk = 0;
+                
+                // Training volume
+                const weeklyHours = (formData.weeklySessions * formData.sessionDuration) / 60;
+                if (weeklyHours > 15) risk += 20; // Overtraining risk
+                else if (weeklyHours > 10) risk += 10;
+                else if (weeklyHours < 3) risk += 15; // Undertraining risk
+                
+                // Training intensity
+                const intensityRisk = {
+                    'low': 5,
+                    'moderate': 10,
+                    'high': 20,
+                    'very-high': 30
+                };
+                risk += intensityRisk[formData.intensity] || 10;
+                
+                // Warm-up routine
+                const warmUpRisk = {
+                    'none': 25,
+                    'minimal': 15,
+                    'moderate': 5,
+                    'comprehensive': 0
+                };
+                risk += warmUpRisk[formData.warmUp] || 10;
+                
+                // Cool-down routine
+                const coolDownRisk = {
+                    'none': 20,
+                    'minimal': 10,
+                    'moderate': 5,
+                    'comprehensive': 0
+                };
+                risk += coolDownRisk[formData.coolDown] || 5;
+                
+                return Math.min(100, risk);
+            }
+
+            function calculatePhysicalRisk(formData) {
+                let risk = 0;
+                
+                // Flexibility
+                const flexibilityRisk = {
+                    'poor': 25,
+                    'below-average': 15,
+                    'average': 10,
+                    'good': 5,
+                    'excellent': 0
+                };
+                risk += flexibilityRisk[formData.flexibility] || 10;
+                
+                // Strength
+                const strengthRisk = {
+                    'poor': 20,
+                    'below-average': 15,
+                    'average': 5,
+                    'good': 0,
+                    'excellent': 0
+                };
+                risk += strengthRisk[formData.strength] || 5;
+                
+                // Balance
+                const balanceRisk = {
+                    'poor': 20,
+                    'below-average': 15,
+                    'average': 5,
+                    'good': 0,
+                    'excellent': 0
+                };
+                risk += balanceRisk[formData.balance] || 5;
+                
+                // Body weight
+                const bodyWeightRisk = {
+                    'underweight': 15,
+                    'normal': 0,
+                    'overweight': 10,
+                    'obese': 25
+                };
+                risk += bodyWeightRisk[formData.bodyWeight] || 5;
+                
+                return Math.min(100, risk);
+            }
+
+            function calculateHistoryRisk(formData) {
+                let risk = 0;
+                
+                // Previous injuries
+                const injuryRisk = {
+                    'none': 0,
+                    '1': 15,
+                    '2': 25,
+                    '3': 35,
+                    '4+': 45
+                };
+                risk += injuryRisk[formData.previousInjuries] || 0;
+                
+                // Recovery time
+                const recoveryRisk = {
+                    'none': 0,
+                    '1-week': 5,
+                    '1-2-weeks': 10,
+                    '2-4-weeks': 15,
+                    '1-3-months': 25,
+                    '3+months': 35
+                };
+                risk += recoveryRisk[formData.recoveryTime] || 0;
+                
+                // Current pain
+                const painRisk = {
+                    'none': 0,
+                    'mild': 10,
+                    'moderate': 25,
+                    'severe': 40
+                };
+                risk += painRisk[formData.currentPain] || 0;
+                
+                return Math.min(100, risk);
+            }
+
+            function calculateLifestyleRisk(formData) {
+                let risk = 0;
+                
+                // Sleep
+                if (formData.sleep < 6) risk += 20;
+                else if (formData.sleep < 7) risk += 10;
+                else if (formData.sleep > 9) risk += 5; // Too much sleep can also be a risk factor
+                
+                // Stress
+                const stressRisk = {
+                    'low': 0,
+                    'moderate': 10,
+                    'high': 20,
+                    'very-high': 30
+                };
+                risk += stressRisk[formData.stress] || 10;
+                
+                // Nutrition
+                const nutritionRisk = {
+                    'poor': 25,
+                    'fair': 15,
+                    'good': 5,
+                    'excellent': 0
+                };
+                risk += nutritionRisk[formData.nutrition] || 10;
+                
+                // Hydration
+                const hydrationRisk = {
+                    'poor': 20,
+                    'fair': 10,
+                    'good': 0,
+                    'excellent': 0
+                };
+                risk += hydrationRisk[formData.hydration] || 5;
+                
+                return Math.min(100, risk);
+            }
+
+            function calculateOverallRisk(riskScores) {
+                const weights = {
+                    personal: 0.15,
+                    training: 0.25,
+                    physical: 0.20,
+                    history: 0.25,
+                    lifestyle: 0.15
+                };
+                
+                let totalRisk = 0;
+                for (const [category, score] of Object.entries(riskScores)) {
+                    totalRisk += score * weights[category];
+                }
+                
+                return Math.round(totalRisk);
+            }
+
+            function displayInjuryRiskResults(overallRisk, riskScores, formData) {
+                const riskCategory = getRiskCategory(overallRisk);
+                const riskColor = getRiskColor(overallRisk);
+                
+                // Generate breakdown
+                generateRiskBreakdown(riskScores, riskColor);
+                
+                // Generate recommendations
+                const recommendations = generateInjuryRecommendations(riskScores, overallRisk, formData);
+                document.getElementById('recommendation-text').textContent = recommendations;
+
+                const resultsHTML = `
+                    <div class="risk-results-display">
+                        <div class="risk-main-result">
+                            <h3>Your Injury Risk Level</h3>
+                            <div class="risk-value" style="color: ${riskColor}">${overallRisk}%</div>
+                            <div class="risk-category" style="color: ${riskColor}">${riskCategory}</div>
+                        </div>
+                        
+                        <div class="risk-assessment">
+                            <div class="assessment-item">
+                                <div class="assessment-label">Overall Risk</div>
+                                <div class="assessment-bar">
+                                    <div class="assessment-progress" style="width: ${overallRisk}%; background-color: ${riskColor}"></div>
+                                </div>
+                                <div class="assessment-value">${overallRisk}%</div>
+                            </div>
+                        </div>
+                        
+                        <div class="risk-categories">
+                            <div class="category-item">
+                                <div class="category-label">Personal Factors</div>
+                                <div class="category-bar">
+                                    <div class="category-progress" style="width: ${riskScores.personal}%"></div>
+                                </div>
+                                <div class="category-value">${riskScores.personal}%</div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-label">Training Factors</div>
+                                <div class="category-bar">
+                                    <div class="category-progress" style="width: ${riskScores.training}%"></div>
+                                </div>
+                                <div class="category-value">${riskScores.training}%</div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-label">Physical Condition</div>
+                                <div class="category-bar">
+                                    <div class="category-progress" style="width: ${riskScores.physical}%"></div>
+                                </div>
+                                <div class="category-value">${riskScores.physical}%</div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-label">Injury History</div>
+                                <div class="category-bar">
+                                    <div class="category-progress" style="width: ${riskScores.history}%"></div>
+                                </div>
+                                <div class="category-value">${riskScores.history}%</div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-label">Lifestyle Factors</div>
+                                <div class="category-bar">
+                                    <div class="category-progress" style="width: ${riskScores.lifestyle}%"></div>
+                                </div>
+                                <div class="category-value">${riskScores.lifestyle}%</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('risk-display').innerHTML = resultsHTML;
+                const resultsElement = document.getElementById('injury-results');
+                resultsElement.style.display = 'block';
+                resultsElement.classList.add('show');
+                
+                // Scroll to results
+                document.getElementById('injury-results').scrollIntoView({ behavior: 'smooth' });
+                
+                // Track usage
+                if (window.calculatorUtils) {
+                    window.calculatorUtils.trackToolUsage('Sports Injury Risk Calculator');
+                }
+            }
+
+            function getRiskCategory(risk) {
+                if (risk < 20) return 'Very Low Risk';
+                if (risk < 35) return 'Low Risk';
+                if (risk < 50) return 'Moderate Risk';
+                if (risk < 70) return 'High Risk';
+                return 'Very High Risk';
+            }
+
+            function getRiskColor(risk) {
+                if (risk < 20) return '#10b981';
+                if (risk < 35) return '#3b82f6';
+                if (risk < 50) return '#f59e0b';
+                if (risk < 70) return '#ef4444';
+                return '#991b1b';
+            }
+
+            function generateRiskBreakdown(riskScores, riskColor) {
+                const breakdownElement = document.getElementById('risk-breakdown');
+                const breakdownContent = document.getElementById('breakdown-content');
+                
+                const breakdownHTML = `
+                    <div class="risk-breakdown-grid">
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Personal Factors</div>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-progress" style="width: ${riskScores.personal}%"></div>
+                            </div>
+                            <div class="breakdown-value">${riskScores.personal}%</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Training Factors</div>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-progress" style="width: ${riskScores.training}%"></div>
+                            </div>
+                            <div class="breakdown-value">${riskScores.training}%</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Physical Condition</div>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-progress" style="width: ${riskScores.physical}%"></div>
+                            </div>
+                            <div class="breakdown-value">${riskScores.physical}%</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Injury History</div>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-progress" style="width: ${riskScores.history}%"></div>
+                            </div>
+                            <div class="breakdown-value">${riskScores.history}%</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Lifestyle Factors</div>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-progress" style="width: ${riskScores.lifestyle}%"></div>
+                            </div>
+                            <div class="breakdown-value">${riskScores.lifestyle}%</div>
+                        </div>
+                    </div>
+                `;
+                
+                breakdownContent.innerHTML = breakdownHTML;
+                breakdownElement.style.display = 'block';
+            }
+
+            function generateInjuryRecommendations(riskScores, overallRisk, formData) {
+                let recommendations = `Based on your assessment, your overall injury risk is ${overallRisk}%. `;
+                
+                // High-risk area recommendations
+                const highRiskAreas = [];
+                for (const [area, score] of Object.entries(riskScores)) {
+                    if (score > 60) highRiskAreas.push(area);
+                }
+                
+                if (highRiskAreas.length > 0) {
+                    recommendations += `Your highest risk areas are: ${highRiskAreas.join(', ')}. `;
+                }
+                
+                // Specific recommendations based on scores
+                if (riskScores.training > 50) {
+                    recommendations += 'Focus on proper warm-up and cool-down routines. Consider reducing training intensity or volume if experiencing fatigue. ';
+                }
+                
+                if (riskScores.physical > 50) {
+                    recommendations += 'Incorporate regular flexibility, strength, and balance training into your routine. Consider working with a physical therapist or trainer. ';
+                }
+                
+                if (riskScores.history > 50) {
+                    recommendations += 'Ensure complete recovery before returning to sport. Consider gradual return-to-play protocols and address any underlying biomechanical issues. ';
+                }
+                
+                if (riskScores.lifestyle > 50) {
+                    recommendations += 'Prioritize sleep (7-9 hours), manage stress through relaxation techniques, maintain proper nutrition, and stay well-hydrated. ';
+                }
+                
+                if (overallRisk < 35) {
+                    recommendations += 'Continue with good injury prevention practices and maintain your current training routine.';
+                } else if (overallRisk < 50) {
+                    recommendations += 'Implement targeted prevention strategies and monitor for warning signs.';
+                } else if (overallRisk < 70) {
+                    recommendations += 'Consider consulting with a sports medicine professional for a comprehensive evaluation and personalized prevention plan.';
+                } else {
+                    recommendations += 'Strongly recommend immediate consultation with a sports medicine professional. Modify or pause training until risk factors are addressed.';
+                }
+                
+                return recommendations;
+            }
+
+            function shareResults() {
+                const riskValue = document.querySelector('.risk-value').textContent;
+                const riskCategory = document.querySelector('.risk-category').textContent;
+                const text = `My injury risk is ${riskValue} (${riskCategory}). Assess your sports injury risk at Sports Tools Hub!`;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Sports Injury Risk Calculator Results',
+                        text: text,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback - copy to clipboard
+                    navigator.clipboard.writeText(text + ' ' + window.location.href);
+                    alert('Results copied to clipboard!');
+                }
+            }
+
+            // Add event listeners to radio buttons for styling
+            document.querySelectorAll('.radio-group input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', () => {
+                    // Remove 'radio-selected' from all labels in the same group
+                    document.querySelectorAll(`.radio-group input[name="${radio.name}"]`).forEach(siblingRadio => {
+                        siblingRadio.closest('label').classList.remove('radio-selected');
+                    });
+                    // Add 'radio-selected' to the label of the checked radio
+                    if (radio.checked) {
+                        radio.closest('label').classList.add('radio-selected');
+                    }
+                });
+            });
+
+            // Set initial 'radio-selected' class on DOMContentLoaded for pre-checked radios
+            document.querySelectorAll('.radio-group input[type="radio"]:checked').forEach(radio => {
+                radio.closest('label').classList.add('radio-selected');
+            });
+
+            // Reset form handler
+            document.getElementById('injury-risk-form').addEventListener('reset', function() {
+                document.getElementById('risk-display').innerHTML = '';
+                document.getElementById('recommendation-text').textContent = '';
+                document.getElementById('injury-results').classList.remove('show');
+                document.getElementById('injury-results').style.display = 'none';
+                document.getElementById('risk-breakdown').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

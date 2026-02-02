@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your golf handicap index with our free handicap calculator. Get accurate USGA handicap calculations and course handicap predictions.">
+    <meta name="keywords" content="golf handicap calculator, handicap index, golf handicap, USGA handicap, course handicap, golf score calculator">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Golf Handicap Calculator - Free Golf Handicap Index Calculator">
+    <meta property="og:description" content="Calculate your golf handicap index and course handicap with accurate USGA calculations">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/golf-handicap-calculator.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sports Tools Hub">
+    <meta name="twitter:description" content="Your complete sports and fitness resource destination">
+    <title>Golf Handicap Calculator - Free Golf Handicap Index Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+
+</head>
+    <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">Golf Handicap Calculator</h1>
+                <p class="tool-subtitle">Calculate your golf handicap index and course handicap using official USGA methodology</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Calculate Your Golf Handicap</h2>
+                        </div>
+                        <form id="handicap-form" class="calculator-form" aria-labelledby="handicap-form-title">
+                            <h3 id="handicap-form-title" class="sr-only">Golf Handicap Calculation Form</h3>
+                            
+                            <div class="form-group">
+                                <label for="calculation-type">Calculation Type</label>
+                                <select id="calculation-type" name="calculation-type" required 
+                                        aria-describedby="calc-type-help">
+                                    <option value="">Select calculation type</option>
+                                    <option value="handicap-index">Calculate Handicap Index</option>
+                                    <option value="course-handicap">Calculate Course Handicap</option>
+                                    <option value="net-score">Calculate Net Score</option>
+                                </select>
+                                <small id="calc-type-help">Choose what you want to calculate</small>
+                            </div>
+
+                            <!-- Handicap Index Fields -->
+                            <div id="handicap-index-fields" class="calc-fields" style="display: none;">
+                                <h4>Enter Your Recent Scores</h4>
+                                <div class="form-group">
+                                    <label for="num-scores">Number of Scores</label>
+                                    <select id="num-scores" name="num-scores">
+                                        <option value="3">3 Scores (Minimum)</option>
+                                        <option value="5">5 Scores</option>
+                                        <option value="8">8 Scores</option>
+                                        <option value="10">10 Scores</option>
+                                        <option value="15">15 Scores</option>
+                                        <option value="20">20 Scores (Full)</option>
+                                    </select>
+                                </div>
+                                
+                                <div id="score-inputs" class="score-inputs-container">
+                                    <!-- Score inputs will be dynamically generated -->
+                                </div>
+                            </div>
+
+                            <!-- Course Handicap Fields -->
+                            <div id="course-handicap-fields" class="calc-fields" style="display: none;">
+                                <h4>Calculate Course Handicap</h4>
+                                <div class="form-group">
+                                    <label for="existing-handicap">Your Handicap Index</label>
+                                    <input type="number" id="existing-handicap" name="existing-handicap" 
+                                           step="0.1" min="-10" max="54" placeholder="Enter handicap index">
+                                    <small>Your current handicap index (e.g., 12.4)</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="course-rating">Course Rating</label>
+                                    <input type="number" id="course-rating" name="course-rating" 
+                                           step="0.1" min="60" max="80" placeholder="Enter course rating">
+                                    <small>Course rating from the scorecard (e.g., 72.5)</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="slope-rating">Slope Rating</label>
+                                    <input type="number" id="slope-rating" name="slope-rating" 
+                                           min="55" max="155" placeholder="Enter slope rating">
+                                    <small>Slope rating from the scorecard (e.g., 125)</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="par-score">Par for Course</label>
+                                    <input type="number" id="par-score" name="par-score" 
+                                           min="60" max="80" placeholder="Enter par">
+                                    <small>Par score for the course (e.g., 72)</small>
+                                </div>
+                            </div>
+
+                            <!-- Net Score Fields -->
+                            <div id="net-score-fields" class="calc-fields" style="display: none;">
+                                <h4>Calculate Net Score</h4>
+                                <div class="form-group">
+                                    <label for="gross-score">Gross Score</label>
+                                    <input type="number" id="gross-score" name="gross-score" 
+                                           min="60" max="150" placeholder="Enter gross score">
+                                    <small>Your actual score for the round</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="course-handicap-input">Course Handicap</label>
+                                    <input type="number" id="course-handicap-input" name="course-handicap-input" 
+                                           min="-10" max="54" placeholder="Enter course handicap">
+                                    <small>Your course handicap for this round</small>
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary">Calculate</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card results-card" id="handicap-results">
+                        <div class="card-header">
+                            <h2 class="card-title">Your Handicap Results</h2>
+                        </div>
+                        
+                        <div class="results-display" id="handicap-display">
+                            <!-- Results will be populated based on calculation type -->
+                        </div>
+
+                        <div class="results-breakdown" id="handicap-breakdown" style="display: none;">
+                            <h3>Detailed Breakdown</h3>
+                            <div id="breakdown-content" class="breakdown-content">
+                                <!-- Breakdown will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="results-recommendations" id="handicap-recommendations">
+                            <h3>What Your Handicap Means</h3>
+                            <div id="recommendation-text" class="recommendation-content">
+                                <!-- Recommendations will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="results-actions">
+                            <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                            <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Golf Handicap Information -->
+                <div class="card info-card">
+                    <div class="card-header">
+                        <h2 class="card-title">About Golf Handicaps</h2>
+                    </div>
+                    <p>A golf handicap allows players of different skill levels to compete fairly by adjusting scores based on course difficulty and player ability.</p>
+                    
+                    <h3>Handicap Index vs Course Handicap</h3>
+                    <ul>
+                        <li><strong>Handicap Index:</strong> A measure of a player's potential ability, portable across all courses</li>
+                        <li><strong>Course Handicap:</strong> The number of strokes a player receives on a specific course</li>
+                        <li><strong>Net Score:</strong> Gross score minus course handicap</li>
+                    </ul>
+                    
+                    <h3>How Handicap is Calculated</h3>
+                    <ul>
+                        <li><strong>Score Differentials:</strong> (Adjusted Gross Score - Course Rating) × 113 ÷ Slope Rating</li>
+                        <li><strong>Best Scores:</strong> Uses the best 8 of 20 most recent scores</li>
+                        <li><strong>Exceptional Scores:</strong> Bonuses for scores 7+ strokes better than handicap</li>
+                        <li><strong>Maximum Handicap:</strong> 54.0 for men and women (no separate maximums)</li>
+                    </ul>
+                    
+                    <h3>Course Rating and Slope</h3>
+                    <ul>
+                        <li><strong>Course Rating:</strong> Expected score for a scratch golfer (par average)</li>
+                        <li><strong>Slope Rating:</strong> Relative difficulty for bogey golfers (55-155 scale)</li>
+                        <li><strong>113 Slope:</strong> Standard slope rating for reference</li>
+                    </ul>
+                    
+                    <h3>Playing Handicap</h3>
+                    <p>For competitions, playing handicap may include additional adjustments like:
+                    percentage reductions, stroke allocations for specific formats, and maximum limits.</p>
+                    
+                    <h3>Improving Your Handicap</h3>
+                    <ul>
+                        <li>Consistent practice and lessons</li>
+                        <li>Track all scores accurately</li>
+                        <li>Play different types of courses</li>
+                        <li>Focus on course management</li>
+                        <li>Improve short game and putting</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macronutrient-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculationTypeSelect = document.getElementById('calculation-type');
+            const numScoresSelect = document.getElementById('num-scores');
+            
+            // Show/hide calculation type fields
+            calculationTypeSelect.addEventListener('change', function() {
+                // Hide all calculation fields
+                document.querySelectorAll('.calc-fields').forEach(field => {
+                    field.style.display = 'none';
+                });
+                
+                // Show selected calculation fields
+                const selectedType = this.value;
+                if (selectedType) {
+                    const fieldsElement = document.getElementById(selectedType + '-fields');
+                    if (fieldsElement) {
+                        fieldsElement.style.display = 'block';
+                    }
+                }
+            });
+
+            // Generate score input fields based on number of scores
+            numScoresSelect.addEventListener('change', function() {
+                generateScoreInputs(this.value);
+            });
+
+            function generateScoreInputs(numScores) {
+                const container = document.getElementById('score-inputs');
+                container.innerHTML = '';
+                
+                for (let i = 1; i <= parseInt(numScores); i++) {
+                    const scoreGroup = document.createElement('div');
+                    scoreGroup.className = 'form-group';
+                    scoreGroup.innerHTML = `
+                        <label for="score-${i}">Score ${i}</label>
+                        <div class="score-input-row">
+                            <input type="number" id="score-${i}" name="score-${i}" min="60" max="150" 
+                                   placeholder="Score" aria-label="Score ${i}">
+                            <input type="number" id="rating-${i}" name="rating-${i}" step="0.1" min="60" max="80" 
+                                   placeholder="Rating" aria-label="Course rating ${i}">
+                            <input type="number" id="slope-${i}" name="slope-${i}" min="55" max="155" 
+                                   placeholder="Slope" aria-label="Slope rating ${i}">
+                        </div>
+                        <small>Score, Course Rating, and Slope Rating</small>
+                    `;
+                    container.appendChild(scoreGroup);
+                }
+            }
+
+            // Handicap Calculator functionality
+            document.getElementById('handicap-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateHandicap();
+            });
+
+            function calculateHandicap() {
+                const calculationType = document.getElementById('calculation-type').value;
+                let resultsHTML = '';
+
+                switch (calculationType) {
+                    case 'handicap-index':
+                        resultsHTML = calculateHandicapIndex();
+                        break;
+                    case 'course-handicap':
+                        resultsHTML = calculateCourseHandicap();
+                        break;
+                    case 'net-score':
+                        resultsHTML = calculateNetScore();
+                        break;
+                    default:
+                        alert('Please select a calculation type.');
+                        return;
+                }
+
+                // Display results
+                document.getElementById('handicap-display').innerHTML = resultsHTML;
+                const resultsElement = document.getElementById('handicap-results');
+                resultsElement.style.display = 'block';
+                resultsElement.classList.add('show');
+
+                // Scroll to results
+                document.getElementById('handicap-results').scrollIntoView({ behavior: 'smooth' });
+
+                // Track usage
+                if (window.calculatorUtils) {
+                    window.calculatorUtils.trackToolUsage('Golf Handicap Calculator');
+                }
+            }
+
+            function calculateHandicapIndex() {
+                const numScores = parseInt(document.getElementById('num-scores').value);
+                const scores = [];
+                
+                // Collect score data
+                for (let i = 1; i <= numScores; i++) {
+                    const score = parseInt(document.getElementById(`score-${i}`).value);
+                    const rating = parseFloat(document.getElementById(`rating-${i}`).value);
+                    const slope = parseInt(document.getElementById(`slope-${i}`).value);
+                    
+                    if (!isNaN(score) && !isNaN(rating) && !isNaN(slope)) {
+                        scores.push({ score, rating, slope });
+                    }
+                }
+
+                if (scores.length < 3) {
+                    return '<div class="error-message">Please enter at least 3 complete scores.</div>';
+                }
+
+                // Calculate score differentials
+                const differentials = scores.map(round => {
+                    const differential = (round.score - round.rating) * 113 / round.slope;
+                    return Math.round(differential * 10) / 10;
+                });
+
+                // Sort and select best scores
+                differentials.sort((a, b) => a - b);
+                const numToUse = getNumberOfScoresToUse(scores.length);
+                const bestDifferentials = differentials.slice(0, numToUse);
+
+                // Calculate average of best differentials
+                const average = bestDifferentials.reduce((sum, diff) => sum + diff, 0) / bestDifferentials.length;
+                
+                // Calculate handicap index (96% adjustment factor)
+                let handicapIndex = Math.round(average * 0.96 * 10) / 10;
+
+                // Apply maximum handicap limit
+                handicapIndex = Math.min(54.0, Math.max(-10.0, handicapIndex));
+
+                // Generate breakdown
+                generateHandicapIndexBreakdown(scores, differentials, bestDifferentials, handicapIndex);
+
+                // Generate recommendations
+                const recommendations = generateHandicapRecommendations(handicapIndex);
+                document.getElementById('recommendation-text').textContent = recommendations;
+
+                return `
+                    <div class="handicap-results-display">
+                        <div class="handicap-main-result">
+                            <h3>Your Handicap Index</h3>
+                            <div class="handicap-value">${handicapIndex.toFixed(1)}</div>
+                        </div>
+                        
+                        <div class="handicap-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">Scores Used</div>
+                                <div class="stat-value">${numToUse} of ${scores.length}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Average Differential</div>
+                                <div class="stat-value">${average.toFixed(1)}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Best Differential</div>
+                                <div class="stat-value">${differentials[0].toFixed(1)}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function calculateCourseHandicap() {
+                const handicapIndex = parseFloat(document.getElementById('existing-handicap').value);
+                const courseRating = parseFloat(document.getElementById('course-rating').value);
+                const slopeRating = parseInt(document.getElementById('slope-rating').value);
+                const parScore = parseInt(document.getElementById('par-score').value);
+
+                if (isNaN(handicapIndex) || isNaN(courseRating) || isNaN(slopeRating)) {
+                    return '<div class="error-message">Please fill in all required fields.</div>';
+                }
+
+                // Calculate course handicap
+                const courseHandicap = Math.round(handicapIndex * slopeRating / 113 + (courseRating - parScore));
+                
+                // Generate breakdown
+                generateCourseHandicapBreakdown(handicapIndex, courseRating, slopeRating, parScore, courseHandicap);
+
+                // Generate recommendations
+                const recommendations = generateCourseHandicapRecommendations(courseHandicap, parScore);
+                document.getElementById('recommendation-text').textContent = recommendations;
+
+                return `
+                    <div class="course-handicap-results-display">
+                        <div class="course-handicap-main-result">
+                            <h3>Your Course Handicap</h3>
+                            <div class="handicap-value">${courseHandicap}</div>
+                        </div>
+                        
+                        <div class="course-info">
+                            <div class="info-item">
+                                <div class="info-label">Course Rating</div>
+                                <div class="info-value">${courseRating}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Slope Rating</div>
+                                <div class="info-value">${slopeRating}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Par</div>
+                                <div class="info-value">${parScore}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="target-score">
+                            <div class="target-label">Target Score (Par + Course Handicap)</div>
+                            <div class="target-value">${parScore + courseHandicap}</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function calculateNetScore() {
+                const grossScore = parseInt(document.getElementById('gross-score').value);
+                const courseHandicap = parseInt(document.getElementById('course-handicap-input').value);
+
+                if (isNaN(grossScore) || isNaN(courseHandicap)) {
+                    return '<div class="error-message">Please fill in both gross score and course handicap.</div>';
+                }
+
+                // Calculate net score
+                const netScore = grossScore - courseHandicap;
+
+                // Generate breakdown
+                generateNetScoreBreakdown(grossScore, courseHandicap, netScore);
+
+                // Generate recommendations
+                const recommendations = generateNetScoreRecommendations(netScore);
+                document.getElementById('recommendation-text').textContent = recommendations;
+
+                return `
+                    <div class="net-score-results-display">
+                        <div class="net-score-main-result">
+                            <h3>Your Net Score</h3>
+                            <div class="net-score-value">${netScore}</div>
+                        </div>
+                        
+                        <div class="score-breakdown">
+                            <div class="score-item">
+                                <div class="score-label">Gross Score</div>
+                                <div class="score-value">${grossScore}</div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">Course Handicap</div>
+                                <div class="score-value">-${courseHandicap}</div>
+                            </div>
+                            <div class="score-item total">
+                                <div class="score-label">Net Score</div>
+                                <div class="score-value">${netScore}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="performance-assessment">
+                            <div class="assessment-label">Performance</div>
+                            <div class="assessment-value">${getPerformanceAssessment(netScore)}</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function getNumberOfScoresToUse(totalScores) {
+                const lookup = {
+                    3: 1, 4: 1, 5: 1, 6: 1, 7: 2, 8: 2, 9: 3, 10: 3, 11: 4, 12: 4,
+                    13: 5, 14: 5, 15: 6, 16: 6, 17: 7, 18: 7, 19: 8, 20: 8
+                };
+                return lookup[totalScores] || 8;
+            }
+
+            function generateHandicapIndexBreakdown(scores, differentials, bestDifferentials, handicapIndex) {
+                const breakdownElement = document.getElementById('handicap-breakdown');
+                const breakdownContent = document.getElementById('breakdown-content');
+                
+                let breakdownHTML = '<div class="handicap-breakdown-table">';
+                breakdownHTML += '<table><thead><tr><th>Score</th><th>Rating</th><th>Slope</th><th>Differential</th><th>Used?</th></tr></thead><tbody>';
+                
+                scores.forEach((round, index) => {
+                    const isUsed = bestDifferentials.includes(differentials[index]);
+                    breakdownHTML += `<tr class="${isUsed ? 'used-score' : 'unused-score'}">
+                        <td>${round.score}</td>
+                        <td>${round.rating}</td>
+                        <td>${round.slope}</td>
+                        <td>${differentials[index].toFixed(1)}</td>
+                        <td>${isUsed ? '✓' : '-'}</td>
+                    </tr>`;
+                });
+                
+                breakdownHTML += '</tbody></table></div>';
+                breakdownContent.innerHTML = breakdownHTML;
+                breakdownElement.style.display = 'block';
+            }
+
+            function generateCourseHandicapBreakdown(handicapIndex, courseRating, slopeRating, parScore, courseHandicap) {
+                const breakdownElement = document.getElementById('handicap-breakdown');
+                const breakdownContent = document.getElementById('breakdown-content');
+                
+                const formula1 = `(Handicap Index × Slope Rating) ÷ 113`;
+                const formula2 = `${handicapIndex} × ${slopeRating} ÷ 113 = ${(handicapIndex * slopeRating / 113).toFixed(1)}`;
+                const formula3 = `+ (Course Rating - Par Score)`;
+                const formula4 = `+ (${courseRating} - ${parScore}) = +${(courseRating - parScore).toFixed(1)}`;
+                
+                const breakdownHTML = `
+                    <div class="course-handicap-breakdown">
+                        <div class="formula-step">
+                            <div class="formula">Step 1: ${formula1}</div>
+                            <div class="calculation">${formula2}</div>
+                        </div>
+                        <div class="formula-step">
+                            <div class="formula">Step 2: ${formula3}</div>
+                            <div class="calculation">${formula4}</div>
+                        </div>
+                        <div class="formula-step final">
+                            <div class="formula">Final: Round to nearest whole number</div>
+                            <div class="calculation">Course Handicap = ${courseHandicap}</div>
+                        </div>
+                    </div>
+                `;
+                
+                breakdownContent.innerHTML = breakdownHTML;
+                breakdownElement.style.display = 'block';
+            }
+
+            function generateNetScoreBreakdown(grossScore, courseHandicap, netScore) {
+                const breakdownElement = document.getElementById('handicap-breakdown');
+                const breakdownContent = document.getElementById('breakdown-content');
+                
+                const breakdownHTML = `
+                    <div class="net-score-breakdown">
+                        <div class="formula-step">
+                            <div class="formula">Net Score = Gross Score - Course Handicap</div>
+                            <div class="calculation">${netScore} = ${grossScore} - ${courseHandicap}</div>
+                        </div>
+                        <div class="formula-step">
+                            <div class="formula">Performance Assessment</div>
+                            <div class="calculation">${getPerformanceAssessment(netScore)}</div>
+                        </div>
+                    </div>
+                `;
+                
+                breakdownContent.innerHTML = breakdownHTML;
+                breakdownElement.style.display = 'block';
+            }
+
+            function getPerformanceAssessment(netScore) {
+                if (netScore < 70) return 'Exceptional round!';
+                if (netScore < 75) return 'Excellent performance';
+                if (netScore < 80) return 'Very good round';
+                if (netScore < 85) return 'Good scoring';
+                if (netScore < 90) return 'Solid round';
+                return 'Room for improvement';
+            }
+
+            function generateHandicapRecommendations(handicapIndex) {
+                let recommendations = '';
+                
+                if (handicapIndex <= 5) {
+                    recommendations = 'Excellent golfer! You have a scratch or near-scratch handicap. Consider competing in tournaments and working on advanced shot-making skills.';
+                } else if (handicapIndex <= 10) {
+                    recommendations = 'Very strong player. Focus on consistency, course management, and mental game to reach scratch level.';
+                } else if (handicapIndex <= 20) {
+                    recommendations = 'Good solid golf game. Work on your short game and putting to see the biggest improvements in your handicap.';
+                } else if (handicapIndex <= 30) {
+                    recommendations = 'Developing player. Focus on fundamentals, take lessons, and practice your short game regularly for steady improvement.';
+                } else {
+                    recommendations = 'Beginner or high-handicap player. Take lessons from a PGA professional, focus on basic fundamentals, and enjoy the learning process.';
+                }
+                
+                return recommendations;
+            }
+
+            function generateCourseHandicapRecommendations(courseHandicap, parScore) {
+                const targetScore = parScore + courseHandicap;
+                return `With a course handicap of ${courseHandicap}, your target score for this course is ${targetScore} (${parScore} par + ${courseHandicap} strokes). Use this as your goal for a "net par" round.`;
+            }
+
+            function generateNetScoreRecommendations(netScore) {
+                return `Your net score of ${netScore} ${getPerformanceAssessment(netScore).toLowerCase()}. Track your net scores over time to monitor improvement, as they account for course difficulty and handicap differences.`;
+            }
+
+            function shareResults() {
+                const text = `Check out my golf handicap calculations at Sports Tools Hub!`;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Golf Handicap Calculator Results',
+                        text: text,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback - copy to clipboard
+                    navigator.clipboard.writeText(text + ' ' + window.location.href);
+                    alert('Results copied to clipboard!');
+                }
+            }
+
+            // Reset form handler
+            document.getElementById('handicap-form').addEventListener('reset', function() {
+                document.getElementById('handicap-display').innerHTML = '';
+                document.getElementById('recommendation-text').textContent = '';
+                document.getElementById('handicap-results').classList.remove('show');
+                document.getElementById('handicap-results').style.display = 'none';
+                document.getElementById('handicap-breakdown').style.display = 'none';
+                document.getElementById('score-inputs').innerHTML = '';
+                
+                // Hide all calculation fields
+                document.querySelectorAll('.calc-fields').forEach(field => {
+                    field.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

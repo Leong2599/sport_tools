@@ -127,5 +127,36 @@
         <lastmod>2026-01-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>  
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/golf-handicap-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/injury-risk-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url> 
+        <url>
+        <loc>https://sportstoolshub.com/tools/running-calorie-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/vo2max-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/yoga-calorie-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>      
+
 </urlset>

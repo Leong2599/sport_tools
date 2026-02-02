@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your VO2 Max (maximum oxygen uptake) to assess cardiovascular fitness and aerobic capacity. Get instant results and fitness level rankings.">
+    <meta name="keywords" content="VO2 max calculator, cardiovascular fitness, aerobic capacity, fitness assessment, oxygen uptake">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="VO2 Max Calculator - Free Cardiovascular Fitness Assessment">
+    <meta property="og:description" content="Calculate your VO2 Max and assess your cardiovascular fitness level with instant results">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/vo2max-calculator.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sports Tools Hub">
+    <meta name="twitter:description" content="Your complete sports and fitness resource destination">
+    <title>VO2 Max Calculator - Free Cardiovascular Fitness Assessment | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/vo2max-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+
+</head>
+    <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">VO2 Max Calculator</h1>
+                <p class="tool-subtitle">Calculate your maximum oxygen uptake (VO2 Max) to assess cardiovascular fitness and aerobic capacity</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Calculate Your VO2 Max</h2>
+                        </div>
+                        <form id="vo2max-form" class="calculator-form" aria-labelledby="vo2max-form-title">
+                            <h3 id="vo2max-form-title" class="sr-only">VO2 Max Calculation Form</h3>
+                            
+                            <div class="form-group">
+                                <label for="calculation-method">Calculation Method</label>
+                                <select id="calculation-method" name="calculation-method" required 
+                                        aria-describedby="method-help">
+                                    <option value="">Select calculation method</option>
+                                    <option value="resting-heart-rate">Resting Heart Rate Method</option>
+                                    <option value="1.5-mile-run">1.5 Mile Run Test</option>
+                                    <option value="12-minute-run">12 Minute Run Test</option>
+                                    <option value="step-test">Step Test</option>
+                                </select>
+                                <small id="method-help">Choose the test method you want to use</small>
+                            </div>
+
+                            <!-- Common Fields -->
+                            <div class="common-fields">
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" name="age" min="13" max="100" required 
+                                           aria-describedby="age-help" placeholder="Enter your age">
+                                    <small id="age-help">Enter your age in years</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <fieldset>
+                                        <legend>Gender</legend>
+                                        <div class="radio-group">
+                                            <label>
+                                                <input type="radio" name="gender" value="male" required>
+                                                <span>Male</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="gender" value="female" required>
+                                                <span>Female</span>
+                                            </label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="weight">Weight</label>
+                                    <div class="input-group">
+                                        <input type="number" id="weight" name="weight" step="0.1" min="30" required 
+                                               aria-describedby="weight-help" placeholder="Enter your weight">
+                                        <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
+                                            <option value="kg">kg</option>
+                                            <option value="lbs">lbs</option>
+                                        </select>
+                                    </div>
+                                    <small id="weight-help">Enter your body weight</small>
+                                </div>
+                            </div>
+
+                            <!-- Resting Heart Rate Method Fields -->
+                            <div id="resting-heart-rate-fields" class="method-fields" style="display: none;">
+                                <h4>Resting Heart Rate Test</h4>
+                                <div class="form-group">
+                                    <label for="resting-hr">Resting Heart Rate</label>
+                                    <div class="input-group">
+                                        <input type="number" id="resting-hr" name="resting-hr" min="40" max="120" 
+                                               placeholder="Enter RHR" aria-label="Resting heart rate">
+                                        <span class="input-suffix">bpm</span>
+                                    </div>
+                                    <small>Measure your heart rate immediately upon waking, before any activity</small>
+                                </div>
+                            </div>
+
+                            <!-- 1.5 Mile Run Test Fields -->
+                            <div id="1.5-mile-run-fields" class="method-fields" style="display: none;">
+                                <h4>1.5 Mile Run Test</h4>
+                                <div class="form-group">
+                                    <label for="run-time">Run Time</label>
+                                    <div class="time-input-group">
+                                        <input type="number" id="run-minutes" name="run-minutes" min="0" max="59" 
+                                               placeholder="MM" aria-label="Minutes">
+                                        <span>:</span>
+                                        <input type="number" id="run-seconds" name="run-seconds" min="0" max="59" 
+                                               placeholder="SS" aria-label="Seconds">
+                                    </div>
+                                    <small>Time to complete 1.5 miles (2.41 km) on a track or measured course</small>
+                                </div>
+                            </div>
+
+                            <!-- 12 Minute Run Test Fields -->
+                            <div id="12-minute-run-fields" class="method-fields" style="display: none;">
+                                <h4>12 Minute Run Test</h4>
+                                <div class="form-group">
+                                    <label for="distance-covered">Distance Covered</label>
+                                    <div class="input-group">
+                                        <input type="number" id="distance-covered" name="distance-covered" step="0.01" min="0.5" 
+                                               placeholder="Enter distance" aria-describedby="distance-help">
+                                        <select id="distance-unit" name="distance-unit" aria-label="Distance unit">
+                                            <option value="km">kilometers</option>
+                                            <option value="miles">miles</option>
+                                            <option value="meters">meters</option>
+                                        </select>
+                                    </div>
+                                    <small id="distance-help">Maximum distance covered in 12 minutes</small>
+                                </div>
+                            </div>
+
+                            <!-- Step Test Fields -->
+                            <div id="step-test-fields" class="method-fields" style="display: none;">
+                                <h4>Step Test</h4>
+                                <div class="form-group">
+                                    <label for="step-duration">Step Test Duration</label>
+                                    <select id="step-duration" name="step-duration">
+                                        <option value="3">3 minutes</option>
+                                        <option value="5">5 minutes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="post-exercise-hr">Post-Exercise Heart Rate</label>
+                                    <div class="input-group">
+                                        <input type="number" id="post-exercise-hr" name="post-exercise-hr" min="80" max="200" 
+                                               placeholder="Enter HR" aria-label="Post-exercise heart rate">
+                                        <span class="input-suffix">bpm</span>
+                                    </div>
+                                    <small>Heart rate measured immediately after stepping</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="recovery-hr">Recovery Heart Rate</label>
+                                    <div class="input-group">
+                                        <input type="number" id="recovery-hr" name="recovery-hr" min="80" max="200" 
+                                               placeholder="Enter HR" aria-label="Recovery heart rate">
+                                        <span class="input-suffix">bpm</span>
+                                    </div>
+                                    <small>Heart rate after 1 minute of rest</small>
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary">Calculate VO2 Max</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card results-card" id="vo2max-results">
+                        <div class="card-header">
+                            <h2 class="card-title">Your VO2 Max Results</h2>
+                        </div>
+                        
+                        <div class="results-display">
+                            <div class="results-value" id="vo2max-value">--</div>
+                            <div class="results-category" id="vo2max-category">--</div>
+                        </div>
+
+                        <div class="results-chart">
+                            <h3>VO2 Max Fitness Levels</h3>
+                            <div class="chart-ranges" id="vo2max-ranges">
+                                <!-- Ranges will be populated based on gender and age -->
+                            </div>
+                        </div>
+
+                        <div class="results-breakdown">
+                            <h3>Training Recommendations</h3>
+                            <div id="recommendation-text" class="recommendation-content">
+                                <!-- Recommendations will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="results-actions">
+                            <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                            <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VO2 Max Information -->
+                <div class="card info-card">
+                    <div class="card-header">
+                        <h2 class="card-title">About VO2 Max</h2>
+                    </div>
+                    <p>VO2 Max (maximum oxygen uptake) is the maximum amount of oxygen your body can utilize during intense exercise. It's considered the gold standard for measuring cardiovascular fitness and aerobic capacity.</p>
+                    
+                    <h3>What VO2 Max Measures</h3>
+                    <ul>
+                        <li><strong>Cardiovascular Fitness:</strong> Heart and lung efficiency in oxygen delivery</li>
+                        <li><strong>Aerobic Capacity:</strong> Maximum rate your body can use oxygen</li>
+                        <li><strong>Endurance Potential:</strong> Indicator of endurance performance capability</li>
+                        <li><strong>Health Status:</strong> General cardiovascular health marker</li>
+                    </ul>
+                    
+                    <h3>Testing Methods</h3>
+                    <ul>
+                        <li><strong>Resting Heart Rate:</strong> Simple estimation using morning resting heart rate</li>
+                        <li><strong>1.5 Mile Run:</strong> Standard fitness test for time to complete 1.5 miles</li>
+                        <li><strong>12-Minute Run:</strong> Maximum distance covered in 12 minutes (Cooper test)</li>
+                        <li><strong>Step Test:</strong> Heart rate recovery after standardized stepping protocol</li>
+                    </ul>
+                    
+                    <h3>Fitness Categories</h3>
+                    <p>VO2 Max values are typically categorized by age and gender. Elite athletes often have VO2 Max values above 60-70 ml/kg/min, while average values range from 30-50 ml/kg/min depending on age and fitness level.</p>
+                    
+                    <h3>Improving Your VO2 Max</h3>
+                    <ul>
+                        <li>High-intensity interval training (HIIT)</li>
+                        <li>Long slow distance (LSD) training</li>
+                        <li>Tempo runs and threshold training</li>
+                        <li>Consistent aerobic exercise 3-5 times per week</li>
+                        <li>Proper recovery and periodization</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macronutrient-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const methodSelect = document.getElementById('calculation-method');
+            
+            // Show/hide method-specific fields
+            methodSelect.addEventListener('change', function() {
+                // Hide all method fields
+                document.querySelectorAll('.method-fields').forEach(field => {
+                    field.style.display = 'none';
+                });
+                
+                // Show selected method fields
+                const selectedMethod = this.value;
+                if (selectedMethod) {
+                    const fieldsElement = document.getElementById(selectedMethod + '-fields');
+                    if (fieldsElement) {
+                        fieldsElement.style.display = 'block';
+                    }
+                }
+            });
+
+            // VO2 Max Calculator functionality
+            document.getElementById('vo2max-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateVO2Max();
+            });
+
+            function calculateVO2Max() {
+                const method = document.getElementById('calculation-method').value;
+                const age = parseInt(document.getElementById('age').value);
+                const gender = document.querySelector('input[name="gender"]:checked')?.value;
+                const weight = parseFloat(document.getElementById('weight').value);
+                const weightUnit = document.getElementById('weight-unit').value;
+
+                // Input validation
+                if (!method || !age || !gender || !weight) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+
+                // Convert weight to kg if needed
+                let weightKg = weight;
+                if (weightUnit === 'lbs') {
+                    weightKg = weight * 0.453592;
+                }
+
+                let vo2max = 0;
+
+                switch (method) {
+                    case 'resting-heart-rate':
+                        vo2max = calculateRestingHeartRateVO2Max(age, gender);
+                        break;
+                    case '1.5-mile-run':
+                        vo2max = calculate15MileRunVO2Max(age, gender, weightKg);
+                        break;
+                    case '12-minute-run':
+                        vo2max = calculate12MinuteRunVO2Max(age, gender);
+                        break;
+                    case 'step-test':
+                        vo2max = calculateStepTestVO2Max(age, gender);
+                        break;
+                    default:
+                        alert('Please select a calculation method.');
+                        return;
+                }
+
+                if (vo2max <= 0) {
+                    alert('Invalid input values. Please check your entries.');
+                    return;
+                }
+
+                displayVO2MaxResults(vo2max, age, gender, method);
+            }
+
+            function calculateRestingHeartRateVO2Max(age, gender) {
+                const restingHR = parseInt(document.getElementById('resting-hr').value);
+                const maxHR = 220 - age;
+                const heartRateReserve = maxHR - restingHR;
+                
+                // Uth-Sørensen equation
+                let vo2max = 15.3 * (maxHR / restingHR);
+                
+                // Gender adjustment
+                if (gender === 'female') {
+                    vo2max *= 0.85;
+                }
+                
+                return vo2max;
+            }
+
+            function calculate15MileRunVO2Max(age, gender, weightKg) {
+                const minutes = parseInt(document.getElementById('run-minutes').value) || 0;
+                const seconds = parseInt(document.getElementById('run-seconds').value) || 0;
+                const totalTimeMinutes = minutes + (seconds / 60);
+                
+                // George et al. equation for 1.5 mile run
+                let vo2max = 100.5 - (0.163 * weightKg) - (2.2 * totalTimeMinutes) - (0.071 * age);
+                
+                // Gender adjustment
+                if (gender === 'female') {
+                    vo2max *= 0.85;
+                }
+                
+                return vo2max;
+            }
+
+            function calculate12MinuteRunVO2Max(age, gender) {
+                const distance = parseFloat(document.getElementById('distance-covered').value);
+                const distanceUnit = document.getElementById('distance-unit').value;
+                
+                // Convert to meters
+                let distanceMeters = distance;
+                if (distanceUnit === 'km') {
+                    distanceMeters = distance * 1000;
+                } else if (distanceUnit === 'miles') {
+                    distanceMeters = distance * 1609.34;
+                }
+                
+                // Cooper test equation
+                let vo2max = (distanceMeters - 504.9) / 44.73;
+                
+                // Age and gender adjustments
+                if (gender === 'female') {
+                    vo2max *= 0.85;
+                }
+                
+                // Age adjustment factor
+                const ageFactor = Math.max(0.7, 1 - (age - 25) * 0.01);
+                vo2max *= ageFactor;
+                
+                return vo2max;
+            }
+
+            function calculateStepTestVO2Max(age, gender) {
+                const postExerciseHR = parseInt(document.getElementById('post-exercise-hr').value);
+                const recoveryHR = parseInt(document.getElementById('recovery-hr').value);
+                const duration = parseInt(document.getElementById('step-duration').value);
+                
+                // Harvard step test equation
+                const heartRateRecovery = postExerciseHR - recoveryHR;
+                let vo2max = 111.33 - (0.42 * postExerciseHR) + (0.234 * age) + (0.845 * heartRateRecovery) - (2.9 * duration);
+                
+                // Gender adjustment
+                if (gender === 'female') {
+                    vo2max *= 0.85;
+                }
+                
+                return vo2max;
+            }
+
+            function displayVO2MaxResults(vo2max, age, gender, method) {
+                // Round VO2 Max
+                const roundedVO2Max = Math.round(vo2max * 10) / 10;
+                
+                // Determine category
+                const category = getVO2MaxCategory(vo2max, age, gender);
+                const color = getVO2MaxColor(category);
+                
+                // Display results
+                document.getElementById('vo2max-value').textContent = roundedVO2Max.toFixed(1) + ' ml/kg/min';
+                document.getElementById('vo2max-value').style.color = color;
+                document.getElementById('vo2max-category').textContent = category;
+                document.getElementById('vo2max-category').style.color = color;
+                
+                // Generate ranges for this age/gender
+                generateVO2MaxRanges(age, gender);
+                
+                // Generate recommendations
+                const recommendations = generateVO2MaxRecommendations(category, method);
+                document.getElementById('recommendation-text').textContent = recommendations;
+                
+                // Show results section
+                const resultsElement = document.getElementById('vo2max-results');
+                resultsElement.style.display = 'block';
+                resultsElement.classList.add('show');
+                
+                // Scroll to results
+                resultsElement.scrollIntoView({ behavior: 'smooth' });
+                
+                // Track usage
+                if (window.calculatorUtils) {
+                    window.calculatorUtils.trackToolUsage('VO2 Max Calculator');
+                }
+            }
+
+            function getVO2MaxCategory(vo2max, age, gender) {
+                const ranges = getVO2MaxRangesByAgeGender(age, gender);
+                
+                for (const range of ranges) {
+                    if (vo2max >= range.min) {
+                        return range.category;
+                    }
+                }
+                
+                return 'Very Poor';
+            }
+
+            function getVO2MaxColor(category) {
+                const colors = {
+                    'Excellent': '#10b981',
+                    'Superior': '#10b981',
+                    'Good': '#3b82f6',
+                    'Average': '#f59e0b',
+                    'Fair': '#f59e0b',
+                    'Poor': '#ef4444',
+                    'Very Poor': '#ef4444'
+                };
+                
+                return colors[category] || '#6b7280';
+            }
+
+            function getVO2MaxRangesByAgeGender(age, gender) {
+                // Simplified VO2 Max ranges (can be expanded with more detailed tables)
+                const baseRanges = [
+                    { min: 60, category: 'Excellent' },
+                    { min: 50, category: 'Good' },
+                    { min: 40, category: 'Average' },
+                    { min: 30, category: 'Fair' },
+                    { min: 0, category: 'Poor' }
+                ];
+                
+                // Adjust for age (simplified)
+                if (age > 40) {
+                    baseRanges.forEach(range => {
+                        range.min *= 0.85;
+                    });
+                }
+                
+                // Adjust for gender
+                if (gender === 'female') {
+                    baseRanges.forEach(range => {
+                        range.min *= 0.85;
+                    });
+                }
+                
+                return baseRanges;
+            }
+
+            function generateVO2MaxRanges(age, gender) {
+                const rangesContainer = document.getElementById('vo2max-ranges');
+                const ranges = getVO2MaxRangesByAgeGender(age, gender);
+                
+                let rangesHTML = '';
+                ranges.forEach(range => {
+                    const color = getVO2MaxColor(range.category);
+                    rangesHTML += `
+                        <div class="range-item" style="border-left: 4px solid ${color}">
+                            <span class="range-label">${range.category}</span>
+                            <span class="range-value">≥ ${range.min.toFixed(1)}</span>
+                        </div>
+                    `;
+                });
+                
+                rangesContainer.innerHTML = rangesHTML;
+            }
+
+            function generateVO2MaxRecommendations(category, method) {
+                let recommendations = '';
+                
+                switch (category) {
+                    case 'Excellent':
+                    case 'Superior':
+                        recommendations = 'Outstanding cardiovascular fitness! Maintain your current training program with 3-5 sessions per week. Consider adding variety with different types of cardio and ensure adequate recovery.';
+                        break;
+                    case 'Good':
+                        recommendations = 'Great fitness level! Continue with regular aerobic exercise 3-4 times per week. Incorporate both steady-state and interval training to further improve your VO2 Max.';
+                        break;
+                    case 'Average':
+                        recommendations = 'Good foundation for improvement. Aim for 3-4 cardio sessions per week, gradually increasing intensity. Include interval training and longer duration sessions to boost your cardiovascular fitness.';
+                        break;
+                    case 'Fair':
+                    case 'Poor':
+                        recommendations = 'Focus on building your aerobic base with regular moderate-intensity exercise 3-4 times per week. Start with 20-30 minute sessions and gradually increase duration and intensity. Consult with a healthcare provider before starting a new exercise program.';
+                        break;
+                    default:
+                        recommendations = 'Regular cardiovascular exercise is essential for health. Start with low-intensity activities and gradually progress. Consider consulting with a fitness professional for a personalized program.';
+                }
+                
+                recommendations += ' Remember that consistency is key, and proper recovery is just as important as training.';
+                
+                return recommendations;
+            }
+
+            function shareResults() {
+                const vo2max = document.getElementById('vo2max-value').textContent;
+                const category = document.getElementById('vo2max-category').textContent;
+                const text = `My VO2 Max is ${vo2max} (${category}). Calculate yours at Sports Tools Hub!`;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'VO2 Max Calculator Results',
+                        text: text,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback - copy to clipboard
+                    navigator.clipboard.writeText(text + ' ' + window.location.href);
+                    alert('Results copied to clipboard!');
+                }
+            }
+
+            // Add event listeners to radio buttons for styling
+            document.querySelectorAll('.radio-group input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', () => {
+                    // Remove 'radio-selected' from all labels in the same group
+                    document.querySelectorAll(`.radio-group input[name="${radio.name}"]`).forEach(siblingRadio => {
+                        siblingRadio.closest('label').classList.remove('radio-selected');
+                    });
+                    // Add 'radio-selected' to the label of the checked radio
+                    if (radio.checked) {
+                        radio.closest('label').classList.add('radio-selected');
+                    }
+                });
+            });
+
+            // Set initial 'radio-selected' class on DOMContentLoaded for pre-checked radios
+            document.querySelectorAll('.radio-group input[type="radio"]:checked').forEach(radio => {
+                radio.closest('label').classList.add('radio-selected');
+            });
+
+            // Form validation
+            document.getElementById('age').addEventListener('input', function() {
+                if (this.value < 13 || this.value > 100) {
+                    this.setCustomValidity('Please enter a valid age between 13 and 100');
+                } else {
+                    this.setCustomValidity('');
+                }
+            });
+
+            document.getElementById('weight').addEventListener('input', function() {
+                if (this.value < 30 || this.value > 300) {
+                    this.setCustomValidity('Please enter a valid weight between 30 and 300');
+                } else {
+                    this.setCustomValidity('');
+                }
+            });
+
+            // Reset form handler
+            document.getElementById('vo2max-form').addEventListener('reset', function() {
+                document.getElementById('vo2max-value').textContent = '--';
+                document.getElementById('vo2max-category').textContent = '--';
+                document.getElementById('recommendation-text').textContent = '';
+                document.getElementById('vo2max-results').classList.remove('show');
+                document.getElementById('vo2max-results').style.display = 'none';
+                
+                // Hide all method fields
+                document.querySelectorAll('.method-fields').forEach(field => {
+                    field.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

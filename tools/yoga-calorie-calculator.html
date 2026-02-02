@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate calories burned during yoga with our free yoga calorie calculator. Get accurate estimates for different yoga styles and session durations.">
+    <meta name="keywords" content="yoga calorie calculator, calories burned yoga, yoga calories, exercise calorie burn, yoga metabolism">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Yoga Calorie Calculator - Free Calorie Burn Calculator">
+    <meta property="og:description" content="Calculate calories burned during yoga with accurate estimates for different yoga styles">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sports Tools Hub">
+    <meta name="twitter:description" content="Your complete sports and fitness resource destination">
+    <title>Yoga Calorie Calculator - Free Calorie Burn Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+
+</head>
+    <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">Yoga Calorie Calculator</h1>
+                <p class="tool-subtitle">Calculate calories burned during yoga based on style, duration, intensity, and personal factors</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Calculate Yoga Calories Burned</h2>
+                        </div>
+                        <form id="yoga-calorie-form" class="calculator-form" aria-labelledby="yoga-form-title">
+                            <h3 id="yoga-form-title" class="sr-only">Yoga Calorie Calculation Form</h3>
+                            
+                            <!-- Personal Information -->
+                            <div class="personal-info-section">
+                                <h4>Personal Information</h4>
+                                <div class="form-group">
+                                    <label for="weight">Weight</label>
+                                    <div class="input-group">
+                                        <input type="number" id="weight" name="weight" step="0.1" min="30" required 
+                                               aria-describedby="weight-help" placeholder="Enter your weight">
+                                        <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
+                                            <option value="kg">kg</option>
+                                            <option value="lbs">lbs</option>
+                                        </select>
+                                    </div>
+                                    <small id="weight-help">Enter your body weight</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <fieldset>
+                                        <legend>Gender</legend>
+                                        <div class="radio-group">
+                                            <label>
+                                                <input type="radio" name="gender" value="male" required>
+                                                <span>Male</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="gender" value="female" required>
+                                                <span>Female</span>
+                                            </label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" name="age" min="13" max="100" required 
+                                           aria-describedby="age-help" placeholder="Enter your age">
+                                    <small id="age-help">Enter your age (affects metabolism)</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="experience">Yoga Experience</label>
+                                    <select id="experience" name="experience">
+                                        <option value="beginner">Beginner (0-6 months)</option>
+                                        <option value="intermediate">Intermediate (6 months-2 years)</option>
+                                        <option value="advanced">Advanced (2+ years)</option>
+                                        <option value="expert">Expert/Teacher (5+ years)</option>
+                                    </select>
+                                    <small>Your experience level affects calorie burn</small>
+                                </div>
+                            </div>
+
+                            <!-- Yoga Session Details -->
+                            <div class="yoga-session-section">
+                                <h4>Yoga Session Details</h4>
+                                <div class="form-group">
+                                    <label for="yoga-style">Yoga Style</label>
+                                    <select id="yoga-style" name="yoga-style" required>
+                                        <option value="">Select yoga style</option>
+                                        <option value="hatha">Hatha Yoga</option>
+                                        <option value="vinyasa">Vinyasa Flow</option>
+                                        <option value="ashtanga">Ashtanga Yoga</option>
+                                        <option value="power-yoga">Power Yoga</option>
+                                        <option value="bikram">Bikram/Hot Yoga</option>
+                                        <option value="yin">Yin Yoga</option>
+                                        <option value="restorative">Restorative Yoga</option>
+                                        <option value="iyengar">Iyengar Yoga</option>
+                                        <option value="kundalini">Kundalini Yoga</option>
+                                        <option value="aerial">Aerial Yoga</option>
+                                        <option value="acroyoga">Acro Yoga</option>
+                                    </select>
+                                    <small id="style-help">Different yoga styles have different intensities</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="duration">Session Duration</label>
+                                    <div class="time-input-group">
+                                        <input type="number" id="duration-minutes" name="duration-minutes" min="10" max="180" 
+                                               placeholder="Minutes" aria-label="Duration in minutes">
+                                        <span>minutes</span>
+                                    </div>
+                                    <small id="duration-help">Length of your yoga session</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="intensity">Intensity Level</label>
+                                    <select id="intensity" name="intensity">
+                                        <option value="gentle">Gentle (Beginner/Restorative)</option>
+                                        <option value="moderate">Moderate (Intermediate)</option>
+                                        <option value="vigorous">Vigorous (Advanced/Power)</option>
+                                        <option value="extreme">Extreme (Hot Yoga/Advanced)</option>
+                                    </select>
+                                    <small>Your perceived effort during the session</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="temperature">Room Temperature</label>
+                                    <div class="input-group">
+                                        <input type="number" id="temperature" name="temperature" step="1" min="15" max="45" 
+                                               placeholder="Enter temperature">
+                                        <select id="temperature-unit" name="temperature-unit" aria-label="Temperature unit">
+                                            <option value="celsius">°C</option>
+                                            <option value="fahrenheit">°F</option>
+                                        </select>
+                                    </div>
+                                    <small>Room temperature (affects metabolism)</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="heart-rate">Average Heart Rate</label>
+                                    <div class="input-group">
+                                        <input type="number" id="heart-rate" name="heart-rate" min="50" max="180" 
+                                               placeholder="Enter heart rate" aria-describedby="hr-help">
+                                        <span class="input-suffix">bpm</span>
+                                    </div>
+                                    <small id="hr-help">Optional: Enter average heart rate for more accuracy</small>
+                                </div>
+                            </div>
+
+                            <!-- Advanced Options -->
+                            <div class="advanced-options-section">
+                                <h4>Advanced Options</h4>
+                                <div class="form-group">
+                                    <label for="body-composition">Body Composition</label>
+                                    <select id="body-composition" name="body-composition">
+                                        <option value="balanced">Balanced</option>
+                                        <option value="lean">Lean (Low body fat)</option>
+                                        <option value="muscular">Muscular</option>
+                                        <option value="higher-fat">Higher body fat</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="flexibility">Flexibility Level</label>
+                                    <select id="flexibility" name="flexibility">
+                                        <option value="limited">Limited</option>
+                                        <option value="moderate">Moderate</option>
+                                        <option value="good">Good</option>
+                                        <option value="excellent">Excellent</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="breathing">Breathing Focus</label>
+                                    <select id="breathing" name="breathing">
+                                        <option value="minimal">Minimal focus</option>
+                                        <option value="moderate">Moderate focus</option>
+                                        <option value="intensive">Intensive pranayama</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary">Calculate Calories</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card results-card" id="yoga-results">
+                        <div class="card-header">
+                            <h2 class="card-title">Your Yoga Calorie Results</h2>
+                        </div>
+                        
+                        <div class="results-display" id="calorie-display">
+                            <!-- Results will be populated here -->
+                        </div>
+
+                        <div class="results-chart" id="calorie-breakdown" style="display: none;">
+                            <h3>Calorie Burn Analysis</h3>
+                            <div class="calorie-breakdown-content" id="breakdown-content">
+                                <!-- Breakdown will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="results-comparison" id="style-comparison" style="display: none;">
+                            <h3>Yoga Style Comparisons</h3>
+                            <div class="comparison-grid" id="comparison-grid">
+                                <!-- Comparisons will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="results-recommendations" id="yoga-recommendations">
+                            <h3>Wellness Benefits</h3>
+                            <div id="recommendation-text" class="recommendation-content">
+                                <!-- Recommendations will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="results-actions">
+                            <button class="btn btn-secondary" onclick="window.print()">Print Results</button>
+                            <button class="btn btn-primary" onclick="shareResults()">Share Results</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yoga Calorie Information -->
+                <div class="card info-card">
+                    <div class="card-header">
+                        <h2 class="card-title">About Yoga Calorie Burn</h2>
+                    </div>
+                    <p>Yoga burns calories through a combination of physical movement, muscle engagement, breathing techniques, and sometimes heat. The calorie burn varies significantly based on the style, intensity, duration, and individual factors.</p>
+                    
+                    <h3>Yoga Style Intensities</h3>
+                    <ul>
+                        <li><strong>Hatha Yoga (2-3 MET):</strong> Gentle, basic poses, slow pace</li>
+                        <li><strong>Vinyasa Flow (3-5 MET):</strong> Flowing sequences, continuous movement</li>
+                        <li><strong>Ashtanga (4-6 MET):</strong> Demanding, structured sequences</li>
+                        <li><strong>Power Yoga (5-7 MET):</strong> Athletic, fitness-focused</li>
+                        <li><strong>Bikram/Hot Yoga (4-6 MET):</strong> Heat increases metabolism</li>
+                        <li><strong>Yin/Restorative (1.5-2.5 MET):</strong> Very gentle, passive stretching</li>
+                    </ul>
+                    
+                    <h3>Factors Affecting Calorie Burn</h3>
+                    <ul>
+                        <li><strong>Body Weight:</strong> Heavier individuals burn more calories</li>
+                        <li><strong>Muscle Mass:</strong> More muscle increases metabolic rate</li>
+                        <li><strong>Experience Level:</strong> Advanced practitioners often burn more calories</li>
+                        <li><strong>Room Temperature:</strong> Hot rooms increase metabolic demand</li>
+                        <li><strong>Heart Rate:</strong> Higher heart rate indicates greater intensity</li>
+                    </ul>
+                    
+                    <h3>Beyond Calorie Burn</h3>
+                    <p>While calorie burn is one metric, yoga offers numerous additional benefits:</p>
+                    <ul>
+                        <li>Improved flexibility and balance</li>
+                        <li>Enhanced mental clarity and stress reduction</li>
+                        <li>Better posture and body awareness</li>
+                        <li>Increased strength and muscle tone</li>
+                        <li>Improved breathing and respiratory function</li>
+                    </ul>
+                    
+                    <h3>Maximizing Calorie Burn</h3>
+                    <ul>
+                        <li>Choose more dynamic styles (Vinyasa, Power, Ashtanga)</li>
+                        <li>Maintain proper form and muscle engagement</li>
+                        <li>Focus on continuous movement between poses</li>
+                        <li>Incorporate challenging variations as you progress</li>
+                        <li>Practice in warmer environments (hot yoga)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macronutrient-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Yoga Calorie Calculator functionality
+            document.getElementById('yoga-calorie-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateYogaCalories();
+            });
+
+            function calculateYogaCalories() {
+                const weight = parseFloat(document.getElementById('weight').value);
+                const weightUnit = document.getElementById('weight-unit').value;
+                const gender = document.querySelector('input[name="gender"]:checked')?.value;
+                const age = parseInt(document.getElementById('age').value);
+                const experience = document.getElementById('experience').value;
+                const yogaStyle = document.getElementById('yoga-style').value;
+                const duration = parseInt(document.getElementById('duration-minutes').value);
+                const intensity = document.getElementById('intensity').value;
+                const temperature = parseFloat(document.getElementById('temperature').value) || 20;
+                const temperatureUnit = document.getElementById('temperature-unit').value;
+                const heartRate = parseInt(document.getElementById('heart-rate').value) || 0;
+                const bodyComposition = document.getElementById('body-composition').value;
+                const flexibility = document.getElementById('flexibility').value;
+                const breathing = document.getElementById('breathing').value;
+
+                // Input validation
+                if (!weight || !gender || !age || !yogaStyle || !duration) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+
+                // Convert weight to kg
+                let weightKg = weight;
+                if (weightUnit === 'lbs') {
+                    weightKg = weight * 0.453592;
+                }
+
+                // Convert temperature to Celsius
+                let temperatureCelsius = temperature;
+                if (temperatureUnit === 'fahrenheit') {
+                    temperatureCelsius = (temperature - 32) * 5/9;
+                }
+
+                // Calculate calories
+                const calories = calculateYogaCaloriesBurned(
+                    weightKg, gender, age, experience, yogaStyle, duration,
+                    intensity, temperatureCelsius, heartRate, bodyComposition, flexibility, breathing
+                );
+                
+                displayYogaResults(calories, weightKg, duration, yogaStyle, intensity);
+            }
+
+            function calculateYogaCaloriesBurned(weightKg, gender, age, experience, yogaStyle, duration, 
+                                                  intensity, temperatureCelsius, heartRate, bodyComposition, flexibility, breathing) {
+                
+                // Get base MET value for yoga style
+                const baseMET = getYogaMET(yogaStyle, intensity);
+                
+                // Experience adjustment (more experienced practitioners often burn more due to better form and deeper engagement)
+                const experienceMultiplier = {
+                    'beginner': 0.85,
+                    'intermediate': 1.0,
+                    'advanced': 1.15,
+                    'expert': 1.25
+                };
+                
+                // Gender adjustment
+                const genderAdjustment = gender === 'male' ? 1.0 : 0.95;
+                
+                // Age adjustment (metabolism generally decreases with age)
+                const ageAdjustment = Math.max(0.8, 1.0 - ((age - 25) * 0.003));
+                
+                // Temperature adjustment (hot environments increase metabolic rate)
+                let temperatureAdjustment = 1.0;
+                if (temperatureCelsius > 30) {
+                    temperatureAdjustment = 1.0 + ((temperatureCelsius - 30) * 0.01);
+                } else if (temperatureCelsius < 18) {
+                    temperatureAdjustment = 0.95;
+                }
+                
+                // Heart rate adjustment (if provided)
+                let heartRateAdjustment = 1.0;
+                if (heartRate > 0) {
+                    // Estimate MET from heart rate (simplified formula)
+                    const estimatedMETFromHR = (heartRate / 60) * 2.5;
+                    heartRateAdjustment = Math.min(1.5, estimatedMETFromHR / baseMET);
+                }
+                
+                // Body composition adjustment
+                const compositionMultiplier = {
+                    'balanced': 1.0,
+                    'lean': 1.1,
+                    'muscular': 1.15,
+                    'higher-fat': 0.9
+                };
+                
+                // Flexibility adjustment (more flexible practitioners can engage more deeply in poses)
+                const flexibilityMultiplier = {
+                    'limited': 0.9,
+                    'moderate': 1.0,
+                    'good': 1.05,
+                    'excellent': 1.1
+                };
+                
+                // Breathing adjustment (intensive breathing practice can increase metabolic rate)
+                const breathingMultiplier = {
+                    'minimal': 0.95,
+                    'moderate': 1.0,
+                    'intensive': 1.08
+                };
+                
+                // Calculate final MET value
+                const finalMET = baseMET * 
+                    experienceMultiplier[experience] *
+                    genderAdjustment *
+                    ageAdjustment *
+                    temperatureAdjustment *
+                    heartRateAdjustment *
+                    compositionMultiplier[bodyComposition] *
+                    flexibilityMultiplier[flexibility] *
+                    breathingMultiplier[breathing];
+                
+                // Calculate calories using MET formula
+                const hours = duration / 60;
+                const calories = finalMET * weightKg * hours;
+                
+                return Math.round(calories);
+            }
+
+            function getYogaMET(yogaStyle, intensity) {
+                const styleMETs = {
+                    'hatha': { gentle: 2.0, moderate: 2.5, vigorous: 3.0, extreme: 3.5 },
+                    'vinyasa': { gentle: 3.0, moderate: 4.0, vigorous: 5.0, extreme: 6.0 },
+                    'ashtanga': { gentle: 3.5, moderate: 4.5, vigorous: 5.5, extreme: 6.5 },
+                    'power-yoga': { gentle: 4.0, moderate: 5.0, vigorous: 6.5, extreme: 7.5 },
+                    'bikram': { gentle: 3.5, moderate: 4.5, vigorous: 5.5, extreme: 6.5 },
+                    'yin': { gentle: 1.5, moderate: 2.0, vigorous: 2.5, extreme: 3.0 },
+                    'restorative': { gentle: 1.5, moderate: 2.0, vigorous: 2.5, extreme: 3.0 },
+                    'iyengar': { gentle: 2.0, moderate: 2.5, vigorous: 3.0, extreme: 3.5 },
+                    'kundalini': { gentle: 2.5, moderate: 3.0, vigorous: 4.0, extreme: 5.0 },
+                    'aerial': { gentle: 3.0, moderate: 4.0, vigorous: 5.0, extreme: 6.0 },
+                    'acroyoga': { gentle: 3.5, moderate: 4.5, vigorous: 5.5, extreme: 6.5 }
+                };
+                
+                return styleMETs[yogaStyle]?.[intensity] || 2.5;
+            }
+
+            function displayYogaResults(calories, weightKg, duration, yogaStyle, intensity) {
+                // Calculate additional metrics
+                const caloriesPerMinute = Math.round(calories / duration * 10) / 10;
+                const caloriesPerHour = Math.round(calories / duration * 60);
+                
+                // Generate breakdown
+                generateYogaBreakdown(calories, yogaStyle, intensity);
+                
+                // Generate comparisons
+                generateYogaComparisons(calories, duration, yogaStyle);
+                
+                // Generate recommendations
+                const recommendations = generateYogaRecommendations(calories, duration, yogaStyle, intensity);
+                document.getElementById('recommendation-text').textContent = recommendations;
+
+                const resultsHTML = `
+                    <div class="yoga-results-display">
+                        <div class="calorie-main-result">
+                            <h3>Calories Burned</h3>
+                            <div class="calorie-value">${calories}</div>
+                        </div>
+                        
+                        <div class="yoga-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">Session Duration</div>
+                                <div class="stat-value">${duration} minutes</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Yoga Style</div>
+                                <div class="stat-value">${formatYogaStyle(yogaStyle)}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Intensity</div>
+                                <div class="stat-value">${formatIntensity(intensity)}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Calories per Minute</div>
+                                <div class="stat-value">${caloriesPerMinute}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Calories per Hour</div>
+                                <div class="stat-value">${caloriesPerHour}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Equivalent Walking</div>
+                                <div class="stat-value">${Math.round(calories / 4)} minutes</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('calorie-display').innerHTML = resultsHTML;
+                const resultsElement = document.getElementById('yoga-results');
+                resultsElement.style.display = 'block';
+                resultsElement.classList.add('show');
+                
+                // Scroll to results
+                document.getElementById('yoga-results').scrollIntoView({ behavior: 'smooth' });
+                
+                // Track usage
+                if (window.calculatorUtils) {
+                    window.calculatorUtils.trackToolUsage('Yoga Calorie Calculator');
+                }
+            }
+
+            function formatYogaStyle(style) {
+                const names = {
+                    'hatha': 'Hatha Yoga',
+                    'vinyasa': 'Vinyasa Flow',
+                    'ashtanga': 'Ashtanga Yoga',
+                    'power-yoga': 'Power Yoga',
+                    'bikram': 'Bikram/Hot Yoga',
+                    'yin': 'Yin Yoga',
+                    'restorative': 'Restorative Yoga',
+                    'iyengar': 'Iyengar Yoga',
+                    'kundalini': 'Kundalini Yoga',
+                    'aerial': 'Aerial Yoga',
+                    'acroyoga': 'Acro Yoga'
+                };
+                return names[style] || style;
+            }
+
+            function formatIntensity(intensity) {
+                const names = {
+                    'gentle': 'Gentle',
+                    'moderate': 'Moderate',
+                    'vigorous': 'Vigorous',
+                    'extreme': 'Extreme'
+                };
+                return names[intensity] || intensity;
+            }
+
+            function generateYogaBreakdown(calories, yogaStyle, intensity) {
+                const breakdownElement = document.getElementById('calorie-breakdown');
+                const breakdownContent = document.getElementById('breakdown-content');
+                
+                const baseCalories = Math.round(calories * 0.7);
+                const styleCalories = Math.round(calories * 0.2);
+                const individualCalories = calories - baseCalories - styleCalories;
+                
+                const breakdownHTML = `
+                    <div class="calorie-breakdown-grid">
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Base Metabolic Rate</div>
+                            <div class="breakdown-value">${baseCalories}</div>
+                            <div class="breakdown-percent">${((baseCalories/calories)*100).toFixed(1)}%</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Style Intensity</div>
+                            <div class="breakdown-value">${styleCalories}</div>
+                            <div class="breakdown-percent">${((styleCalories/calories)*100).toFixed(1)}%</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Personal Factors</div>
+                            <div class="breakdown-value">${individualCalories}</div>
+                            <div class="breakdown-percent">${((individualCalories/calories)*100).toFixed(1)}%</div>
+                        </div>
+                    </div>
+                `;
+                
+                breakdownContent.innerHTML = breakdownHTML;
+                breakdownElement.style.display = 'block';
+            }
+
+            function generateYogaComparisons(calories, duration, yogaStyle) {
+                const comparisonElement = document.getElementById('style-comparison');
+                const comparisonGrid = document.getElementById('comparison-grid');
+                
+                const otherStyles = ['hatha', 'vinyasa', 'ashtanga', 'power-yoga', 'yin'];
+                const comparisons = otherStyles.filter(style => style !== yogaStyle).map(style => {
+                    const styleMET = getYogaMET(style, 'moderate');
+                    const estimatedCalories = Math.round(styleMET * 70 * (duration / 60)); // Assuming 70kg average weight
+                    return {
+                        style: formatYogaStyle(style),
+                        calories: estimatedCalories
+                    };
+                });
+                
+                let comparisonHTML = '<div class="comparison-list">';
+                comparisons.forEach(comp => {
+                    const difference = comp.calories - calories;
+                    const diffText = difference > 0 ? `+${difference}` : `${difference}`;
+                    comparisonHTML += `
+                        <div class="comparison-item">
+                            <div class="comparison-activity">${comp.style}</div>
+                            <div class="comparison-calories">${comp.calories} cal</div>
+                            <div class="comparison-difference">${diffText}</div>
+                        </div>
+                    `;
+                });
+                comparisonHTML += '</div>';
+                
+                comparisonGrid.innerHTML = comparisonHTML;
+                comparisonElement.style.display = 'block';
+            }
+
+            function generateYogaRecommendations(calories, duration, yogaStyle, intensity) {
+                let recommendations = `Your ${duration}-minute ${formatYogaStyle(yogaStyle)} session burned ${calories} calories. `;
+                
+                if (calories < 50) {
+                    recommendations += 'This was a gentle, restorative practice. Perfect for flexibility, stress relief, and recovery days.';
+                } else if (calories < 150) {
+                    recommendations += 'This was a moderate yoga practice providing good benefits for both physical fitness and mental well-being.';
+                } else if (calories < 250) {
+                    recommendations += 'Excellent calorie burn! This vigorous yoga session contributed significantly to your daily energy expenditure while providing mind-body benefits.';
+                } else {
+                    recommendations += 'Outstanding calorie burn for yoga! This intense session provided excellent physical conditioning while maintaining yoga\'s mental and spiritual benefits.';
+                }
+                
+                recommendations += ` Remember that yoga offers benefits beyond calorie burn, including improved flexibility, balance, strength, and mental clarity. `;
+                
+                if (intensity === 'gentle' || intensity === 'moderate') {
+                    recommendations += 'Consider adding more vigorous sessions or longer durations for increased calorie burn.';
+                } else {
+                    recommendations += 'Maintain consistency with your practice while allowing for gentler sessions for recovery.';
+                }
+                
+                return recommendations;
+            }
+
+            function shareResults() {
+                const calories = document.querySelector('.calorie-value').textContent;
+                const text = `I burned ${calories} calories during my yoga practice! Calculate your yoga calories at Sports Tools Hub!`;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Yoga Calorie Calculator Results',
+                        text: text,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback - copy to clipboard
+                    navigator.clipboard.writeText(text + ' ' + window.location.href);
+                    alert('Results copied to clipboard!');
+                }
+            }
+
+            // Add event listeners to radio buttons for styling
+            document.querySelectorAll('.radio-group input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', () => {
+                    // Remove 'radio-selected' from all labels in the same group
+                    document.querySelectorAll(`.radio-group input[name="${radio.name}"]`).forEach(siblingRadio => {
+                        siblingRadio.closest('label').classList.remove('radio-selected');
+                    });
+                    // Add 'radio-selected' to the label of the checked radio
+                    if (radio.checked) {
+                        radio.closest('label').classList.add('radio-selected');
+                    }
+                });
+            });
+
+            // Set initial 'radio-selected' class on DOMContentLoaded for pre-checked radios
+            document.querySelectorAll('.radio-group input[type="radio"]:checked').forEach(radio => {
+                radio.closest('label').classList.add('radio-selected');
+            });
+
+            // Reset form handler
+            document.getElementById('yoga-calorie-form').addEventListener('reset', function() {
+                document.getElementById('calorie-display').innerHTML = '';
+                document.getElementById('recommendation-text').textContent = '';
+                document.getElementById('yoga-results').classList.remove('show');
+                document.getElementById('yoga-results').style.display = 'none';
+                document.getElementById('calorie-breakdown').style.display = 'none';
+                document.getElementById('style-comparison').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

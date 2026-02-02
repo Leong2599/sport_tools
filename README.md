@@ -13,17 +13,22 @@ A comprehensive sports tools directory featuring fitness calculators, performanc
 - **One Rep Max Calculator** - Estimate maximum lifting potential
 - **Lean Body Mass Calculator** - Calculate lean body mass and body fat percentage
 - **Body Type Quiz** - Determine your body type (ectomorph/mesomorph/endomorph)
+- **VO2 Max Calculator** - Estimate maximum oxygen uptake and cardiovascular fitness
+- **Golf Handicap Calculator** - Calculate golf handicap index and course handicap
+- **Sports Injury Risk Calculator** - Assess injury risk factors and prevention strategies
 
 ### 📊 Performance Trackers
 - **Pace Calculator** - Running pace and race time predictions
 - **Cycling Power Calculator** - Power output, speed, and FTP calculations
 - **Swim Pace Calculator** - Swimming pace and interval training
+- **Running Calorie Calculator** - Calculate calories burned during running with terrain factors
 
 ### 🥗 Nutrition Tools
 - **Protein Calculator** - Daily protein intake recommendations
 - **Hydration Calculator** - Daily water intake and exercise hydration
 - **Macro Calculator** - Macronutrient ratios and meal planning
 - **Meal Timing Planner** - Optimal meal timing and nutrient scheduling
+- **Yoga Calorie Calculator** - Calculate calories burned during different yoga styles
 
 
 
@@ -67,6 +72,11 @@ sport_tools/
 │   ├── hydration-calculator.html # Water intake calculator
 │   ├── macro-calculator.html    # Macronutrient calculator
 │   └── meal-timing.html       # Meal timing planner
+│   ├── vo2max-calculator.html  # VO2 Max cardiovascular fitness calculator
+│   ├── golf-handicap-calculator.html # Golf handicap index calculator
+│   ├── running-calorie-calculator.html # Running calorie burn calculator
+│   ├── yoga-calorie-calculator.html # Yoga calorie burn calculator
+│   ├── injury-risk-calculator.html # Sports injury risk assessment
 │
 └── images/                     # Image assets
     ├── logo.png               # Sports Tools Hub logo
@@ -83,22 +93,28 @@ sport_tools/
 - **One Rep Max Calculator** - Estimate maximum lifting potential with multiple formulas
 - **Lean Body Mass Calculator** - Calculate lean body mass and body fat percentage
 - **Body Type Quiz** - Determine your body type (ectomorph/mesomorph/endomorph) with personalized recommendations
+- **VO2 Max Calculator** - Estimate maximum oxygen uptake and cardiovascular fitness with multiple test methods
+- **Golf Handicap Calculator** - Calculate golf handicap index and course handicap using USGA methodology
+- **Sports Injury Risk Calculator** - Assess injury risk factors and get personalized prevention strategies
 
 ### 📊 **Performance Trackers**
 - **Pace Calculator** - Running pace and race time predictions with split calculations
 - **Cycling Power Calculator** - Power output, speed, and FTP calculations for cyclists
 - **Swim Pace Calculator** - Swimming pace and interval training calculations for swimmers
+- **Running Calorie Calculator** - Calculate calories burned during running with terrain and intensity factors
 
 ### 🥗 **Nutrition Tools**
 - **Protein Calculator** - Daily protein intake recommendations based on goals and activity
 - **Hydration Calculator** - Daily water intake and exercise hydration requirements
 - **Macro Calculator** - Macronutrient ratios and meal planning with diet-specific adjustments
 - **Meal Timing Planner** - Optimal meal timing and nutrient scheduling for workout performance
+- **Yoga Calorie Calculator** - Calculate calories burned during different yoga styles with experience and intensity factors
 
 ## Recent Updates
 
 ### ✨ **Features Added**
-- **Complete tool suite**: 15+ fitness and nutrition calculators with detailed results
+- **Complete tool suite**: 20+ fitness and nutrition calculators with detailed results
+- **New tools added**: VO2 Max, Golf Handicap, Running Calorie, Yoga Calorie, and Injury Risk calculators
 - **Responsive navigation**: Consistent navbar across all pages with mobile menu
 - **Form accessibility**: ARIA labels, keyboard navigation, screen reader support
 - **Mobile optimization**: Touch-friendly interface and responsive design
@@ -126,7 +142,7 @@ sport_tools/
 1. **Open `index.html`** in your web browser to view the main site
 2. **Navigate** using the responsive navbar (desktop/mobile)
 3. **Try calculators** from the Tools dropdown menu
-4. **Explore tools** like BMI, BMR, Calories, Macros, and more
+4. **Explore tools** like BMI, BMR, Calories, Macros, VO2 Max, Golf Handicap, and more
 5. **Bookmark favorite tools** for quick access to your most-used calculators
 
 ## Browser Support

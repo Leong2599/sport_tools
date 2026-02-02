@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate calories burned during running with our free running calorie calculator. Get accurate estimates based on distance, pace, weight, and terrain.">
+    <meta name="keywords" content="running calorie calculator, calories burned running, running calories, exercise calorie burn, running metabolism">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Running Calorie Calculator - Free Calorie Burn Calculator">
+    <meta property="og:description" content="Calculate calories burned during running with accurate estimates based on your metrics">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/running-calorie-calculator.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sports Tools Hub">
+    <meta name="twitter:description" content="Your complete sports and fitness resource destination">
+    <title>Running Calorie Calculator - Free Calorie Burn Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/running-calorie-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+
+</head>
+    <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macronutrient-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macronutrient-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const methodSelect = document.getElementById('calculation-method');
+            
+            // Show/hide method-specific fields
+            methodSelect.addEventListener('change', function() {
+                // Hide all method fields
+                document.querySelectorAll('.method-fields').forEach(field => {
+                    field.style.display = 'none';
+                });
+                
+                // Show selected method fields
+                const selectedMethod = this.value;
+                if (selectedMethod) {
+                    const fieldsElement = document.getElementById(selectedMethod + '-fields');
+                    if (fieldsElement) {
+                        fieldsElement.style.display = 'block';
+                    }
+                }
+            });
+
+            // Running Calorie Calculator functionality
+            document.getElementById('running-calorie-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateRunningCalories();
+            });
+
+            function calculateRunningCalories() {
+                const method = document.getElementById('calculation-method').value;
+                const weight = parseFloat(document.getElementById('weight').value);
+                const weightUnit = document.getElementById('weight-unit').value;
+                const gender = document.querySelector('input[name="gender"]:checked')?.value;
+                const age = parseInt(document.getElementById('age').value);
+                const terrain = document.getElementById('terrain').value;
+                const intensity = document.getElementById('intensity').value;
+
+                // Input validation
+                if (!method || !weight || !gender || !age) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+
+                // Convert weight to kg
+                let weightKg = weight;
+                if (weightUnit === 'lbs') {
+                    weightKg = weight * 0.453592;
+                }
+
+                let distanceKm = 0;
+                let timeHours = 0;
+
+                // Calculate distance and time based on method
+                switch (method) {
+                    case 'distance-pace':
+                        const distance = parseFloat(document.getElementById('distance').value);
+                        const distanceUnit = document.getElementById('distance-unit').value;
+                        const paceMinutes = parseInt(document.getElementById('pace-minutes').value) || 0;
+                        const paceSeconds = parseInt(document.getElementById('pace-seconds').value) || 0;
+                        const paceUnit = document.getElementById('pace-unit').value;
+                        
+                        // Convert distance to km
+                        distanceKm = convertDistanceToKm(distance, distanceUnit);
+                        
+                        // Calculate time
+                        const paceSecondsPerUnit = (paceMinutes * 60) + paceSeconds;
+                        let paceSecondsPerKm;
+                        if (paceUnit === 'min-per-km') {
+                            paceSecondsPerKm = paceSecondsPerUnit;
+                        } else {
+                            paceSecondsPerKm = paceSecondsPerUnit * 0.621371;
+                        }
+                        
+                        timeHours = (paceSecondsPerKm * distanceKm) / 3600;
+                        break;
+                        
+                    case 'distance-time':
+                        const dtDistance = parseFloat(document.getElementById('dt-distance').value);
+                        const dtDistanceUnit = document.getElementById('dt-distance-unit').value;
+                        const hours = parseInt(document.getElementById('time-hours').value) || 0;
+                        const minutes = parseInt(document.getElementById('time-minutes').value) || 0;
+                        const seconds = parseInt(document.getElementById('time-seconds').value) || 0;
+                        
+                        distanceKm = convertDistanceToKm(dtDistance, dtDistanceUnit);
+                        timeHours = hours + (minutes / 60) + (seconds / 3600);
+                        break;
+                        
+                    case 'time-pace':
+                        const tpHours = parseInt(document.getElementById('tp-time-hours').value) || 0;
+                        const tpMinutes = parseInt(document.getElementById('tp-time-minutes').value) || 0;
+                        const tpSeconds = parseInt(document.getElementById('tp-time-seconds').value) || 0;
+                        const tpPaceMinutes = parseInt(document.getElementById('tp-pace-minutes').value) || 0;
+                        const tpPaceSeconds = parseInt(document.getElementById('tp-pace-seconds').value) || 0;
+                        const tpPaceUnit = document.getElementById('tp-pace-unit').value;
+                        
+                        timeHours = tpHours + (tpMinutes / 60) + (tpSeconds / 3600);
+                        const tpPaceSecondsPerUnit = (tpPaceMinutes * 60) + tpPaceSeconds;
+                        
+                        if (tpPaceUnit === 'min-per-km') {
+                            distanceKm = (timeHours * 3600) / tpPaceSecondsPerUnit;
+                        } else {
+                            distanceKm = (timeHours * 3600) / (tpPaceSecondsPerUnit * 0.621371);
+                        }
+                        break;
+                }
+
+                // Calculate calories
+                const calories = calculateCaloriesBurned(weightKg, timeHours, distanceKm, gender, age, terrain, intensity);
+                
+                displayCalorieResults(calories, distanceKm, timeHours, weightKg);
+            }
+
+            function convertDistanceToKm(distance, unit) {
+                switch (unit) {
+                    case 'km': return distance;
+                    case 'miles': return distance * 1.60934;
+                    case 'meters': return distance / 1000;
+                    case 'yards': return distance * 0.0009144;
+                    default: return distance;
+                }
+            }
+
+            function calculateCaloriesBurned(weightKg, timeHours, distanceKm, gender, age, terrain, intensity) {
+                // Base MET values for running based on speed
+                const speedKmh = distanceKm / timeHours;
+                let baseMET = getRunningMET(speedKmh);
+                
+                // Terrain adjustments
+                const terrainMultiplier = getTerrainMultiplier(terrain);
+                
+                // Intensity adjustments
+                const intensityMultiplier = getIntensityMultiplier(intensity);
+                
+                // Gender and age adjustments (simplified)
+                const genderAdjustment = gender === 'male' ? 1.0 : 0.9;
+                const ageAdjustment = Math.max(0.8, 1.0 - ((age - 25) * 0.005));
+                
+                // Calculate calories using MET formula
+                const caloriesPerHour = baseMET * weightKg * terrainMultiplier * intensityMultiplier * genderAdjustment * ageAdjustment;
+                const totalCalories = caloriesPerHour * timeHours;
+                
+                // Add elevation gain bonus if provided
+                const elevationGain = parseFloat(document.getElementById('elevation').value) || 0;
+                const elevationUnit = document.getElementById('elevation-unit').value;
+                let elevationMeters = elevationGain;
+                if (elevationUnit === 'feet') {
+                    elevationMeters = elevationGain * 0.3048;
+                }
+                
+                const elevationBonus = elevationMeters * 0.05 * weightKg; // ~0.05 cal per meter per kg
+                
+                return Math.round(totalCalories + elevationBonus);
+            }
+
+            function getRunningMET(speedKmh) {
+                // MET values based on running speed (simplified)
+                if (speedKmh < 6) return 6.0; // Very slow jogging
+                if (speedKmh < 8) return 8.3; // Jogging
+                if (speedKmh < 10) return 9.8; // Easy running
+                if (speedKmh < 12) return 11.0; // Moderate running
+                if (speedKmh < 14) return 12.3; // Faster running
+                if (speedKmh < 16) return 14.0; // Hard running
+                if (speedKmh < 18) return 16.0; // Very hard running
+                return 18.0; // Sprint/Interval pace
+            }
+
+            function getTerrainMultiplier(terrain) {
+                const multipliers = {
+                    'flat-road': 1.0,
+                    'hilly-road': 1.15,
+                    'trail-flat': 1.10,
+                    'trail-hilly': 1.25,
+                    'sand': 1.40,
+                    'treadmill': 0.95
+                };
+                return multipliers[terrain] || 1.0;
+            }
+
+            function getIntensityMultiplier(intensity) {
+                const multipliers = {
+                    'easy': 0.9,
+                    'moderate': 1.0,
+                    'hard': 1.15,
+                    'very-hard': 1.25,
+                    'race': 1.30
+                };
+                return multipliers[intensity] || 1.0;
+            }
+
+            function displayCalorieResults(calories, distanceKm, timeHours, weightKg) {
+                // Calculate additional metrics
+                const caloriesPerKm = Math.round(calories / distanceKm);
+                const caloriesPerMinute = Math.round(calories / (timeHours * 60));
+                const paceMinPerKm = (timeHours * 60) / distanceKm;
+                const speedKmh = distanceKm / timeHours;
+                
+                // Generate breakdown
+                generateCalorieBreakdown(calories, distanceKm, timeHours, weightKg);
+                
+                // Generate comparisons
+                generateCalorieComparisons(calories);
+                
+                // Generate recommendations
+                const recommendations = generateCalorieRecommendations(calories, timeHours, distanceKm);
+                document.getElementById('recommendation-text').textContent = recommendations;
+
+                const resultsHTML = `
+                    <div class="calorie-results-display">
+                        <div class="calorie-main-result">
+                            <h3>Calories Burned</h3>
+                            <div class="calorie-value">${calories}</div>
+                        </div>
+                        
+                        <div class="calorie-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">Distance</div>
+                                <div class="stat-value">${distanceKm.toFixed(2)} km</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Time</div>
+                                <div class="stat-value">${formatTime(timeHours)}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Pace</div>
+                                <div class="stat-value">${formatPace(paceMinPerKm)}/km</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Speed</div>
+                                <div class="stat-value">${speedKmh.toFixed(1)} km/h</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Calories per km</div>
+                                <div class="stat-value">${caloriesPerKm}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Calories per min</div>
+                                <div class="stat-value">${caloriesPerMinute}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('calorie-display').innerHTML = resultsHTML;
+                const resultsElement = document.getElementById('running-results');
+                resultsElement.style.display = 'block';
+                resultsElement.classList.add('show');
+                
+                // Scroll to results
+                document.getElementById('running-results').scrollIntoView({ behavior: 'smooth' });
+                
+                // Track usage
+                if (window.calculatorUtils) {
+                    window.calculatorUtils.trackToolUsage('Running Calorie Calculator');
+                }
+            }
+
+            function formatTime(hours) {
+                const totalMinutes = hours * 60;
+                const h = Math.floor(totalMinutes / 60);
+                const m = Math.round(totalMinutes % 60);
+                if (h > 0) {
+                    return `${h}h ${m}m`;
+                }
+                return `${m} minutes`;
+            }
+
+            function formatPace(minutesPerKm) {
+                const mins = Math.floor(minutesPerKm);
+                const secs = Math.round((minutesPerKm - mins) * 60);
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            function generateCalorieBreakdown(calories, distanceKm, timeHours, weightKg) {
+                const breakdownElement = document.getElementById('calorie-breakdown');
+                const breakdownContent = document.getElementById('breakdown-content');
+                
+                const baseCalories = Math.round(calories * 0.85);
+                const elevationBonus = calories - baseCalories;
+                
+                const breakdownHTML = `
+                    <div class="calorie-breakdown-grid">
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Base Running Calories</div>
+                            <div class="breakdown-value">${baseCalories}</div>
+                            <div class="breakdown-percent">${((baseCalories/calories)*100).toFixed(1)}%</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Terrain/Elevation Bonus</div>
+                            <div class="breakdown-value">${elevationBonus}</div>
+                            <div class="breakdown-percent">${((elevationBonus/calories)*100).toFixed(1)}%</div>
+                        </div>
+                    </div>
+                `;
+                
+                breakdownContent.innerHTML = breakdownHTML;
+                breakdownElement.style.display = 'block';
+            }
+
+            function generateCalorieComparisons(calories) {
+                const comparisonElement = document.getElementById('calorie-comparison');
+                const comparisonGrid = document.getElementById('comparison-grid');
+                
+                const activities = [
+                    { name: 'Walking (1 hour)', calories: Math.round(calories * 0.4) },
+                    { name: 'Cycling (moderate, 1 hour)', calories: Math.round(calories * 0.8) },
+                    { name: 'Swimming (moderate, 1 hour)', calories: Math.round(calories * 0.9) },
+                    { name: 'Weight Training (1 hour)', calories: Math.round(calories * 0.6) },
+                    { name: 'Yoga (1 hour)', calories: Math.round(calories * 0.3) }
+                ];
+                
+                let comparisonHTML = '<div class="comparison-list">';
+                activities.forEach(activity => {
+                    comparisonHTML += `
+                        <div class="comparison-item">
+                            <div class="comparison-activity">${activity.name}</div>
+                            <div class="comparison-calories">${activity.calories} cal</div>
+                        </div>
+                    `;
+                });
+                comparisonHTML += '</div>';
+                
+                comparisonGrid.innerHTML = comparisonHTML;
+                comparisonElement.style.display = 'block';
+            }
+
+            function generateCalorieRecommendations(calories, timeHours, distanceKm) {
+                let recommendations = `You burned ${calories} calories during your ${distanceKm.toFixed(1)}km run. `;
+                
+                if (calories < 200) {
+                    recommendations += 'This was a light workout. Consider increasing duration or intensity for more calorie burn.';
+                } else if (calories < 400) {
+                    recommendations += 'Good job! This is a solid calorie-burning workout that contributes well to your fitness goals.';
+                } else if (calories < 600) {
+                    recommendations += 'Excellent calorie burn! Make sure to refuel properly with carbohydrates and protein within 30-60 minutes post-run.';
+                } else {
+                    recommendations += 'Outstanding calorie burn! This was a significant workout. Focus on proper recovery with adequate nutrition, hydration, and rest.';
+                }
+                
+                recommendations += ' For optimal recovery, consume a mix of carbohydrates and protein within 2 hours of your run, and stay well-hydrated throughout the day.';
+                
+                return recommendations;
+            }
+
+            function shareResults() {
+                const calories = document.querySelector('.calorie-value').textContent;
+                const text = `I burned ${calories} calories during my run! Calculate your running calories at Sports Tools Hub!`;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Running Calorie Calculator Results',
+                        text: text,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback - copy to clipboard
+                    navigator.clipboard.writeText(text + ' ' + window.location.href);
+                    alert('Results copied to clipboard!');
+                }
+            }
+
+            // Add event listeners to radio buttons for styling
+            document.querySelectorAll('.radio-group input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', () => {
+                    // Remove 'radio-selected' from all labels in the same group
+                    document.querySelectorAll(`.radio-group input[name="${radio.name}"]`).forEach(siblingRadio => {
+                        siblingRadio.closest('label').classList.remove('radio-selected');
+                    });
+                    // Add 'radio-selected' to the label of the checked radio
+                    if (radio.checked) {
+                        radio.closest('label').classList.add('radio-selected');
+                    }
+                });
+            });
+
+            // Set initial 'radio-selected' class on DOMContentLoaded for pre-checked radios
+            document.querySelectorAll('.radio-group input[type="radio"]:checked').forEach(radio => {
+                radio.closest('label').classList.add('radio-selected');
+            });
+
+            // Reset form handler
+            document.getElementById('running-calorie-form').addEventListener('reset', function() {
+                document.getElementById('calorie-display').innerHTML = '';
+                document.getElementById('recommendation-text').textContent = '';
+                document.getElementById('running-results').classList.remove('show');
+                document.getElementById('running-results').style.display = 'none';
+                document.getElementById('calorie-breakdown').style.display = 'none';
+                document.getElementById('calorie-comparison').style.display = 'none';
+                
+                // Hide all method fields
+                document.querySelectorAll('.method-fields').forEach(field => {
+                    field.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
