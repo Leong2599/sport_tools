@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track cricket bowling workload, monitor injury risk, and optimize performance with comprehensive analytics">
+    <meta name="keywords" content="cricket bowling workload, injury prevention, bowling analysis, cricket performance, fast bowling">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Cricket Bowling Workload Tracker - Performance & Injury Prevention">
+    <meta property="og:description" content="Monitor bowling workload, calculate injury risk, and optimize cricket bowling performance">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Cricket Bowling Workload Tracker | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">🏏 Cricket Bowling Workload Tracker</h1>
+                <p class="tool-subtitle">Track bowling workload, monitor injury risk, and optimize performance with comprehensive analytics</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Bowling Session Data</h2>
+                        </div>
+                        <form id="bowling-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="bowling-type">Bowling Type</label>
+                                <select id="bowling-type" name="bowling-type" required aria-describedby="bowling-type-help">
+                                    <option value="">Select bowling type</option>
+                                    <option value="fast">Fast Bowler</option>
+                                    <option value="fast-medium">Fast-Medium</option>
+                                    <option value="medium">Medium Pace</option>
+                                    <option value="spin-finger">Finger Spinner</option>
+                                    <option value="spin-wrist">Wrist Spinner</option>
+                                </select>
+                                <small id="bowling-type-help">Your primary bowling style</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="balls-bowled">Balls Bowled</label>
+                                <input type="number" id="balls-bowled" name="balls-bowled" min="1" max="300" required 
+                                       placeholder="Enter number of balls" aria-describedby="balls-help">
+                                <small id="balls-help">Total balls delivered in session</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="overs">Overs</label>
+                                <input type="number" id="overs" name="overs" step="0.1" min="0" max="50" required 
+                                       placeholder="Enter overs (e.g., 12.3)" aria-describedby="overs-help">
+                                <small id="overs-help">Overs bowled (use decimal for partial overs)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="session-duration">Session Duration (minutes)</label>
+                                <input type="number" id="session-duration" name="session-duration" min="10" max="300" required 
+                                       placeholder="Enter session duration" aria-describedby="duration-help">
+                                <small id="duration-help">Total time spent bowling</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="intensity">Session Intensity</label>
+                                <select id="intensity" name="intensity" required aria-describedby="intensity-help">
+                                    <option value="">Select intensity level</option>
+                                    <option value="light">Light (60-70% effort)</option>
+                                    <option value="moderate">Moderate (70-85% effort)</option>
+                                    <option value="high">High (85-95% effort)</option>
+                                    <option value="maximum">Maximum (95-100% effort)</option>
+                                </select>
+                                <small id="intensity-help">Peak bowling effort during session</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="days-since-last">Days Since Last Bowling</label>
+                                <input type="number" id="days-since-last" name="days-since-last" min="0" max="30" required 
+                                       placeholder="Enter days" aria-describedby="recovery-help">
+                                <small id="recovery-help">Recovery time since previous session</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="12" max="45" required 
+                                       placeholder="Enter your age" aria-describedby="age-help">
+                                <small id="age-help">Important for injury risk assessment</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experience">Years of Experience</label>
+                                <input type="number" id="experience" name="experience" min="0" max="30" required 
+                                       placeholder="Enter years" aria-describedby="experience-help">
+                                <small id="experience-help">Bowling experience level</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="recent-workload">Recent 7-Day Workload (balls)</label>
+                                <input type="number" id="recent-workload" name="recent-workload" min="0" max="500" required 
+                                       placeholder="Enter recent workload" aria-describedby="recent-help">
+                                <small id="recent-help">Total balls bowled in past 7 days</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Analyze Workload</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Workload Analysis Results</h2>
+                        </div>
+                        <div id="results" class="results-container" aria-live="polite">
+                            <div class="placeholder-message">
+                                <p>Enter your bowling session data to see detailed analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🏏 Understanding Bowling Workload</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>📊 Workload Guidelines</h4>
+                                    <ul>
+                                        <li><strong>Junior (Under 19):</strong> Max 100-120 balls per session</li>
+                                        <li><strong>Young Adult (19-23):</strong> Max 150-180 balls per session</li>
+                                        <li><strong>Senior (24+):</strong> Max 200-240 balls per session</li>
+                                        <li><strong>Professional:</strong> Varies by role and schedule</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>⚠️ Injury Risk Factors</h4>
+                                    <ul>
+                                        <li>Rapid workload spikes (≥50% increase)</li>
+                                        <li>Insufficient recovery time (&lt;48 hours)</li>
+                                        <li>Maximum intensity sessions</li>
+                                        <li>Poor bowling mechanics</li>
+                                        <li>Fatigue and overtraining</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🔄 Acute:Chronic Workload Ratio</h4>
+                                    <p>ACWR compares recent workload to longer-term average:</p>
+                                    <ul>
+                                        <li><strong>&lt;0.8:</strong> Undertraining risk</li>
+                                        <li><strong>0.8-1.3:</strong> Optimal range</li>
+                                        <li><strong>1.3-1.5:</strong> Caution zone</li>
+                                        <li><strong>&gt;1.5:</strong> High injury risk</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>💪 Recovery Recommendations</h4>
+                                    <ul>
+                                        <li><strong>After light session:</strong> 24-48 hours</li>
+                                        <li><strong>After moderate session:</strong> 48-72 hours</li>
+                                        <li><strong>After heavy session:</strong> 72+ hours</li>
+                                        <li>Focus on mobility and strengthening</li>
+                                        <li>Monitor for pain or discomfort</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('bowling-form');
+            const resultsContainer = document.getElementById('results');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                analyzeWorkload();
+            });
+
+            function analyzeWorkload() {
+                const bowlingType = document.getElementById('bowling-type').value;
+                const ballsBowled = parseInt(document.getElementById('balls-bowled').value);
+                const overs = parseFloat(document.getElementById('overs').value);
+                const sessionDuration = parseInt(document.getElementById('session-duration').value);
+                const intensity = document.getElementById('intensity').value;
+                const daysSinceLast = parseInt(document.getElementById('days-since-last').value);
+                const age = parseInt(document.getElementById('age').value);
+                const experience = parseInt(document.getElementById('experience').value);
+                const recentWorkload = parseInt(document.getElementById('recent-workload').value);
+
+                // Calculate metrics
+                const workloadScore = calculateWorkloadScore(ballsBowled, sessionDuration, intensity, bowlingType);
+                const acuteChronicRatio = calculateAcuteChronicRatio(ballsBowled, recentWorkload);
+                const injuryRisk = calculateInjuryRisk(workloadScore, acuteChronicRatio, daysSinceLast, age, experience);
+                const fatigueLevel = calculateFatigueLevel(workloadScore, daysSinceLast, recentWorkload);
+                const performanceReadiness = calculatePerformanceReadiness(fatigueLevel, daysSinceLast, injuryRisk);
+                const recoveryRecommendation = getRecoveryRecommendation(workloadScore, intensity, daysSinceLast);
+                const workloadPercentage = calculateWorkloadPercentage(ballsBowled, age, bowlingType);
+
+                // Generate insights
+                const insights = generateInsights(workloadScore, acuteChronicRatio, injuryRisk, fatigueLevel, ballsBowled, overs);
+                const recommendations = generateRecommendations(injuryRisk, fatigueLevel, acuteChronicRatio, bowlingType, age);
+
+                // Display results
+                displayResults({
+                    workloadScore: workloadScore.toFixed(1),
+                    acuteChronicRatio: acuteChronicRatio.toFixed(2),
+                    injuryRisk: injuryRisk,
+                    fatigueLevel: fatigueLevel,
+                    performanceReadiness: performanceReadiness.toFixed(0),
+                    recoveryRecommendation: recoveryRecommendation,
+                    workloadPercentage: workloadPercentage.toFixed(0),
+                    ballsPerOver: (ballsBowled / overs).toFixed(1),
+                    ballsPerMinute: (ballsBowled / sessionDuration * 60).toFixed(1),
+                    insights: insights,
+                    recommendations: recommendations
+                });
+            }
+
+            function calculateWorkloadScore(balls, duration, intensity, bowlingType) {
+                // Base workload calculation
+                let baseScore = (balls / duration) * 60; // Balls per hour
+
+                // Intensity multipliers
+                const intensityMultipliers = {
+                    'light': 0.8,
+                    'moderate': 1.0,
+                    'high': 1.3,
+                    'maximum': 1.6
+                };
+
+                // Bowling type adjustments
+                const typeAdjustments = {
+                    'fast': 1.3,
+                    'fast-medium': 1.2,
+                    'medium': 1.0,
+                    'spin-finger': 0.8,
+                    'spin-wrist': 0.9
+                };
+
+                return baseScore * (intensityMultipliers[intensity] || 1.0) * (typeAdjustments[bowlingType] || 1.0);
+            }
+
+            function calculateAcuteChronicRatio(currentBalls, recentWorkload) {
+                // Calculate average chronic workload (assuming 4 weeks of data)
+                // For this calculation, we'll estimate based on recent workload
+                const estimatedChronic = recentWorkload || (currentBalls * 2.5); // Rough estimate
+                const acuteWorkload = currentBalls;
+
+                if (estimatedChronic === 0) return 1.0; // No previous data
+                return acuteWorkload / estimatedChronic;
+            }
+
+            function calculateInjuryRisk(workloadScore, acwr, daysSinceLast, age, experience) {
+                let riskScore = 0;
+
+                // Workload score risk
+                if (workloadScore > 100) riskScore += 3;
+                else if (workloadScore > 75) riskScore += 2;
+                else if (workloadScore > 50) riskScore += 1;
+
+                // ACWR risk
+                if (acwr > 1.5) riskScore += 4;
+                else if (acwr > 1.3) riskScore += 3;
+                else if (acwr < 0.8) riskScore += 1;
+
+                // Recovery risk
+                if (daysSinceLast < 2) riskScore += 3;
+                else if (daysSinceLast < 3) riskScore += 2;
+
+                // Age risk
+                if (age < 16) riskScore += 2;
+                else if (age < 19 && age >= 16) riskScore += 1;
+
+                // Experience factor (more experience reduces risk)
+                if (experience < 2) riskScore += 2;
+                else if (experience < 5) riskScore += 1;
+
+                // Determine risk level
+                if (riskScore >= 8) return 'Very High';
+                if (riskScore >= 6) return 'High';
+                if (riskScore >= 4) return 'Medium';
+                if (riskScore >= 2) return 'Low';
+                return 'Very Low';
+            }
+
+            function calculateFatigueLevel(workloadScore, daysSinceLast, recentWorkload) {
+                let fatigueScore = workloadScore * 0.3; // 30% from current workload
+                fatigueScore += (recentWorkload / 100) * 0.4; // 40% from recent workload
+                fatigueScore += Math.max(0, (3 - daysSinceLast) * 5) * 0.3; // 30% from recovery
+
+                if (fatigueScore > 80) return 'Very High';
+                if (fatigueScore > 60) return 'High';
+                if (fatigueScore > 40) return 'Moderate';
+                if (fatigueScore > 20) return 'Low';
+                return 'Very Low';
+            }
+
+            function calculatePerformanceReadiness(fatigueLevel, daysSinceLast, injuryRisk) {
+                let readiness = 100;
+
+                // Fatigue impact
+                const fatigueImpact = {
+                    'Very High': -40,
+                    'High': -25,
+                    'Moderate': -15,
+                    'Low': -5,
+                    'Very Low': 0
+                };
+
+                // Recovery impact
+                const recoveryImpact = daysSinceLast < 2 ? -20 : (daysSinceLast < 3 ? -10 : 0);
+
+                // Injury risk impact
+                const riskImpact = {
+                    'Very High': -30,
+                    'High': -20,
+                    'Medium': -10,
+                    'Low': -5,
+                    'Very Low': 0
+                };
+
+                readiness += fatigueImpact[fatigueLevel] + recoveryImpact + riskImpact[injuryRisk];
+                return Math.max(0, readiness);
+            }
+
+            function getRecoveryRecommendation(workloadScore, intensity, daysSinceLast) {
+                if (workloadScore > 80 || intensity === 'maximum') return '72-96 hours';
+                if (workloadScore > 60 || intensity === 'high') return '48-72 hours';
+                if (workloadScore > 40) return '24-48 hours';
+                if (daysSinceLast < 2) return '48+ hours';
+                return '24 hours';
+            }
+
+            function calculateWorkloadPercentage(balls, age, bowlingType) {
+                // Maximum recommended balls per session
+                const maxBalls = age < 16 ? 80 : (age < 19 ? 120 : (age < 23 ? 180 : 240));
+                
+                // Adjust for bowling type
+                const typeAdjustment = {
+                    'fast': 0.8,
+                    'fast-medium': 0.85,
+                    'medium': 1.0,
+                    'spin-finger': 1.1,
+                    'spin-wrist': 1.05
+                };
+
+                const adjustedMax = maxBalls * (typeAdjustment[bowlingType] || 1.0);
+                return (balls / adjustedMax) * 100;
+            }
+
+            function generateInsights(workloadScore, acwr, injuryRisk, fatigue, balls, overs) {
+                const insights = [];
+
+                if (acwr > 1.3) {
+                    insights.push('Acute workload spike detected - monitor closely');
+                } else if (acwr < 0.8) {
+                    insights.push('Workload below recent average - consider gradual increase');
+                }
+
+                if (fatigue === 'Very High') {
+                    insights.push('High fatigue detected - prioritize recovery');
+                } else if (fatigue === 'Low') {
+                    insights.push('Low fatigue - good condition for training');
+                }
+
+                if (balls / overs > 7) {
+                    insights.push('High balls per over rate - ensure adequate rest');
+                } else if (balls / overs < 5) {
+                    insights.push('Low bowling rate - consider increasing workload gradually');
+                }
+
+                if (workloadScore > 70) {
+                    insights.push('High intensity session - excellent for building fitness');
+                }
+
+                if (injuryRisk === 'High' || injuryRisk === 'Very High') {
+                    insights.push('Elevated injury risk - review training plan');
+                }
+
+                return insights;
+            }
+
+            function generateRecommendations(injuryRisk, fatigue, acwr, bowlingType, age) {
+                const recommendations = [];
+
+                // Injury risk recommendations
+                if (injuryRisk === 'High' || injuryRisk === 'Very High') {
+                    recommendations.push('Consider reducing session volume or intensity');
+                    recommendations.push('Schedule additional recovery time');
+                    recommendations.push('Monitor for any pain or discomfort');
+                }
+
+                // Fatigue recommendations
+                if (fatigue === 'High' || fatigue === 'Very High') {
+                    recommendations.push('Focus on recovery nutrition and hydration');
+                    recommendations.push('Include mobility work and stretching');
+                    recommendations.push('Consider lighter training session next');
+                }
+
+                // Workload management recommendations
+                if (acwr > 1.3) {
+                    recommendations.push('Gradually reduce workload to safer levels');
+                } else if (acwr < 0.8) {
+                    recommendations.push('Gradually increase training volume');
+                }
+
+                // Bowling type specific recommendations
+                const typeRecommendations = {
+                    'fast': ['Focus on strengthening shoulder and core', 'Monitor elbow stress'],
+                    'fast-medium': ['Maintain balanced bowling action', 'Work on stamina'],
+                    'medium': ['Focus on accuracy and variation', 'Build bowling endurance'],
+                    'spin-finger': ['Work on finger strength', 'Focus on revolutions'],
+                    'spin-wrist': ['Strengthen wrist and forearm', 'Focus on control']
+                };
+
+                recommendations.push(...(typeRecommendations[bowlingType] || []));
+
+                // Age-specific recommendations
+                if (age < 16) {
+                    recommendations.push('Limit maximum effort bowling');
+                    recommendations.push('Focus on technique over pace');
+                } else if (age < 19) {
+                    recommendations.push('Gradual workload progression');
+                    recommendations.push('Monitor growth-related injury risks');
+                }
+
+                return recommendations;
+            }
+
+            function displayResults(results) {
+                const riskColors = {
+                    'Very Low': '#10b981',
+                    'Low': '#3b82f6',
+                    'Medium': '#f59e0b',
+                    'High': '#f97316',
+                    'Very High': '#ef4444'
+                };
+
+                const fatigueColors = {
+                    'Very Low': '#10b981',
+                    'Low': '#3b82f6',
+                    'Moderate': '#f59e0b',
+                    'High': '#f97316',
+                    'Very High': '#ef4444'
+                };
+
+                const readinessColor = results.performanceReadiness >= 80 ? '#10b981' :
+                                      results.performanceReadiness >= 60 ? '#3b82f6' :
+                                      results.performanceReadiness >= 40 ? '#f59e0b' : '#ef4444';
+
+                const html = `
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">Workload Score</div>
+                            <div class="result-value">${results.workloadScore}</div>
+                            <div class="result-sublabel">Arbitrary Units</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Injury Risk</div>
+                            <div class="result-value" style="color: ${riskColors[results.injuryRisk]}">${results.injuryRisk}</div>
+                            <div class="result-sublabel">Current assessment</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Fatigue Level</div>
+                            <div class="result-value" style="color: ${fatigueColors[results.fatigueLevel]}">${results.fatigueLevel}</div>
+                            <div class="result-sublabel">Physical status</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Performance Readiness</div>
+                            <div class="result-value" style="color: ${readinessColor}">${results.performanceReadiness}%</div>
+                            <div class="result-sublabel">Training readiness</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Acute:Chronic Ratio</div>
+                            <div class="result-value">${results.acuteChronicRatio}</div>
+                            <div class="result-sublabel">Workload balance</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Session Load</div>
+                            <div class="result-value">${results.workloadPercentage}%</div>
+                            <div class="result-sublabel">Of recommended max</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Bowling Rate</div>
+                            <div class="result-value">${results.ballsPerOver}</div>
+                            <div class="result-sublabel">Balls per over</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Recovery Time</div>
+                            <div class="result-value">${results.recoveryRecommendation}</div>
+                            <div class="result-sublabel">Recommended</div>
+                        </div>
+                    </div>
+                    
+                    <div class="acwr-indicator">
+                        <h4>Acute:Chronic Workload Ratio</h4>
+                        <div class="acwr-scale">
+                            <div class="acwr-zones">
+                                <div class="acwr-zone safe">0.8-1.3</div>
+                                <div class="acwr-zone caution">1.3-1.5</div>
+                                <div class="acwr-zone danger">&gt;1.5</div>
+                            </div>
+                            <div class="acwr-marker" style="left: ${Math.min(90, Math.max(5, results.acuteChronicRatio * 30))}%">▲</div>
+                        </div>
+                        <div class="acwr-label">Current: ${results.acuteChronicRatio} (Optimal: 0.8-1.3)</div>
+                    </div>
+                    
+                    <div class="insights">
+                        <h4>Performance Insights</h4>
+                        <ul>
+                            ${results.insights.map(insight => `<li>${insight}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="recommendations">
+                        <h4>Training Recommendations</h4>
+                        <ul>
+                            ${results.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                resultsContainer.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

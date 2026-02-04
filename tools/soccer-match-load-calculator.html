@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate soccer match load, distance covered, intensity levels, and recovery needs with advanced performance metrics">
+    <meta name="keywords" content="soccer match load, football performance, distance calculator, soccer analytics, match intensity">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Soccer Match Load Calculator - Performance Analytics">
+    <meta property="og:description" content="Track soccer match workload, distance covered, and optimize recovery with advanced metrics">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Soccer Match Load Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">⚽ Soccer Match Load Calculator</h1>
+                <p class="tool-subtitle">Calculate match workload, distance covered, intensity levels, and optimize recovery with advanced performance metrics</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Match Analysis</h2>
+                        </div>
+                        <form id="match-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="position">Playing Position</label>
+                                <select id="position" name="position" required aria-describedby="position-help">
+                                    <option value="">Select position</option>
+                                    <option value="goalkeeper">Goalkeeper</option>
+                                    <option value="defender">Defender</option>
+                                    <option value="fullback">Fullback</option>
+                                    <option value="midfielder">Midfielder</option>
+                                    <option value="winger">Winger</option>
+                                    <option value="forward">Forward/Striker</option>
+                                </select>
+                                <small id="position-help">Your primary position in the match</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="match-duration">Minutes Played</label>
+                                <input type="number" id="match-duration" name="match-duration" min="1" max="120" required 
+                                       placeholder="Enter minutes played" aria-describedby="duration-help">
+                                <small id="duration-help">Total minutes played in the match</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="distance">Total Distance Covered</label>
+                                <div class="input-group">
+                                    <input type="number" id="distance" name="distance" step="0.1" min="0" max="20" required 
+                                           placeholder="Enter distance" aria-describedby="distance-help">
+                                    <select id="distance-unit" name="distance-unit" aria-label="Distance unit">
+                                        <option value="km">kilometers</option>
+                                        <option value="miles">miles</option>
+                                    </select>
+                                </div>
+                                <small id="distance-help">Total distance covered during the match</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="high-intensity">High-Intensity Distance</label>
+                                <div class="input-group">
+                                    <input type="number" id="high-intensity" name="high-intensity" step="0.1" min="0" max="5" required 
+                                           placeholder="Enter high-intensity distance" aria-describedby="high-intensity-help">
+                                    <select id="high-intensity-unit" name="high-intensity-unit" aria-label="Distance unit">
+                                        <option value="km">kilometers</option>
+                                        <option value="miles">miles</option>
+                                    </select>
+                                </div>
+                                <small id="high-intensity-help">Distance covered at high speed/sprinting</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sprints">Number of Sprints</label>
+                                <input type="number" id="sprints" name="sprints" min="0" max="100" required 
+                                       placeholder="Enter number of sprints" aria-describedby="sprints-help">
+                                <small id="sprints-help">Total number of sprints performed</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rating">Match Rating (1-10)</label>
+                                <input type="number" id="rating" name="rating" min="1" max="10" step="0.5" required 
+                                       placeholder="Rate your performance" aria-describedby="rating-help">
+                                <small id="rating-help">Subjective rating of your performance</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="temperature">Match Temperature</label>
+                                <div class="input-group">
+                                    <input type="number" id="temperature" name="temperature" step="1" min="-10" max="45" required 
+                                           placeholder="Enter temperature" aria-describedby="temp-help">
+                                    <select id="temp-unit" name="temp-unit" aria-label="Temperature unit">
+                                        <option value="celsius">°C</option>
+                                        <option value="fahrenheit">°F</option>
+                                    </select>
+                                </div>
+                                <small id="temp-help">Environmental conditions affect load</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Calculate Match Load</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Match Load Analysis</h2>
+                        </div>
+                        <div id="results" class="results-container" aria-live="polite">
+                            <div class="placeholder-message">
+                                <p>Enter your match data to see detailed load analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">⚽ Understanding Soccer Match Load</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>📏 Distance Standards by Position</h4>
+                                    <ul>
+                                        <li><strong>Goalkeeper:</strong> 3-5 km average</li>
+                                        <li><strong>Center Back:</strong> 9-11 km average</li>
+                                        <li><strong>Fullback:</strong> 10-12 km average</li>
+                                        <li><strong>Central Midfielder:</strong> 11-13 km average</li>
+                                        <li><strong>Winger:</strong> 10-11 km average</li>
+                                        <li><strong>Forward:</strong> 8-10 km average</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>⚡ High-Intensity Running</h4>
+                                    <p>High-intensity distance includes running above 5.5 m/s (19.8 km/h):</p>
+                                    <ul>
+                                        <li>Professional average: 600-800 meters</li>
+                                        <li>Elite players: 900+ meters</li>
+                                        <li>Key indicator of match fitness</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🔄 Recovery Guidelines</h4>
+                                    <ul>
+                                        <li><strong>Low Load (&lt;8):</strong> 24-48 hours recovery</li>
+                                        <li><strong>Moderate Load (8-12):</strong> 48-72 hours recovery</li>
+                                        <li><strong>High Load (&gt;12):</strong> 72+ hours recovery</li>
+                                        <li>Consider nutrition and sleep quality</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🌡️ Environmental Factors</h4>
+                                    <ul>
+                                        <li><strong>Heat (&gt;25°C):</strong> +20% load increase</li>
+                                        <li><strong>Cold (&lt;5°C):</strong> +10% load increase</li>
+                                        <li><strong>Humidity:</strong> Affects dehydration risk</li>
+                                        <li><strong>Altitude:</strong> Adjust intensity expectations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('match-form');
+            const resultsContainer = document.getElementById('results');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateMatchLoad();
+            });
+
+            function calculateMatchLoad() {
+                const position = document.getElementById('position').value;
+                const matchDuration = parseFloat(document.getElementById('match-duration').value);
+                const distance = parseFloat(document.getElementById('distance').value);
+                const distanceUnit = document.getElementById('distance-unit').value;
+                const highIntensity = parseFloat(document.getElementById('high-intensity').value);
+                const highIntensityUnit = document.getElementById('high-intensity-unit').value;
+                const sprints = parseInt(document.getElementById('sprints').value);
+                const rating = parseFloat(document.getElementById('rating').value);
+                const temperature = parseFloat(document.getElementById('temperature').value);
+                const tempUnit = document.getElementById('temp-unit').value;
+
+                // Convert to standard units
+                const distanceKm = distanceUnit === 'miles' ? distance * 1.60934 : distance;
+                const highIntensityKm = highIntensityUnit === 'miles' ? highIntensity * 1.60934 : highIntensity;
+                const tempCelsius = tempUnit === 'fahrenheit' ? (temperature - 32) * 5/9 : temperature;
+
+                // Position standards
+                const positionStandards = {
+                    goalkeeper: { avgDistance: 4, avgHighIntensity: 0.3, avgSprints: 10 },
+                    defender: { avgDistance: 10, avgHighIntensity: 0.6, avgSprints: 20 },
+                    fullback: { avgDistance: 11, avgHighIntensity: 0.8, avgSprints: 30 },
+                    midfielder: { avgDistance: 12, avgHighIntensity: 0.7, avgSprints: 25 },
+                    winger: { avgDistance: 10.5, avgHighIntensity: 0.9, avgSprints: 35 },
+                    forward: { avgDistance: 9, avgHighIntensity: 0.6, avgSprints: 22 }
+                };
+
+                const standards = positionStandards[position] || positionStandards.midfielder;
+
+                // Calculate metrics
+                const totalLoad = calculateTotalLoad(distanceKm, highIntensityKm, sprints, matchDuration, rating, tempCelsius);
+                const distancePerMinute = distanceKm / (matchDuration / 90);
+                const highIntensityPercentage = (highIntensityKm / distanceKm * 100);
+                const sprintFrequency = sprints / (matchDuration / 90);
+                const efficiency = calculateEfficiency(distanceKm, highIntensityKm, sprints, rating);
+                const performanceScore = calculatePerformanceScore(position, distanceKm, highIntensityKm, sprints, rating);
+                const recoveryTime = calculateRecoveryTime(totalLoad);
+                const fatigueRisk = calculateFatigueRisk(totalLoad, matchDuration, tempCelsius);
+
+                // Generate insights
+                const insights = generateInsights(position, totalLoad, performanceScore, efficiency, highIntensityPercentage, sprintFrequency);
+                const recommendations = generateRecommendations(totalLoad, recoveryTime, fatigueRisk, position);
+
+                // Display results
+                displayResults({
+                    totalLoad: totalLoad.toFixed(1),
+                    distancePerMinute: distancePerMinute.toFixed(2),
+                    highIntensityPercentage: highIntensityPercentage.toFixed(1),
+                    sprintFrequency: sprintFrequency.toFixed(1),
+                    efficiency: efficiency.toFixed(1),
+                    performanceScore: performanceScore,
+                    recoveryTime: recoveryTime,
+                    fatigueRisk: fatigueRisk,
+                    insights: insights,
+                    recommendations: recommendations,
+                    comparison: {
+                        distanceVsAverage: ((distanceKm / standards.avgDistance) * 100).toFixed(0),
+                        highIntensityVsAverage: ((highIntensityKm / standards.avgHighIntensity) * 100).toFixed(0),
+                        sprintsVsAverage: ((sprints / standards.avgSprints) * 100).toFixed(0)
+                    }
+                });
+            }
+
+            function calculateTotalLoad(distance, highIntensity, sprints, duration, rating, temperature) {
+                // Load calculation based on distance, intensity, sprints, and environmental factors
+                let baseLoad = (distance * 10) + (highIntensity * 30) + (sprints * 0.5);
+                
+                // Adjust for match duration
+                const durationFactor = 90 / duration;
+                baseLoad *= durationFactor;
+                
+                // Adjust for subjective rating
+                const ratingFactor = rating / 7.5; // 7.5 is average rating
+                baseLoad *= ratingFactor;
+                
+                // Environmental adjustment
+                if (temperature > 25) {
+                    baseLoad *= 1.2; // 20% increase in heat
+                } else if (temperature < 5) {
+                    baseLoad *= 1.1; // 10% increase in cold
+                }
+                
+                return baseLoad;
+            }
+
+            function calculateEfficiency(distance, highIntensity, sprints, rating) {
+                // Efficiency = Performance output / Physical output
+                const output = rating * 10; // Scale rating to 100
+                const physicalOutput = (distance * 5) + (highIntensity * 20) + (sprints * 0.3);
+                return (output / physicalOutput) * 100;
+            }
+
+            function calculatePerformanceScore(position, distance, highIntensity, sprints, rating) {
+                const positionStandards = {
+                    goalkeeper: { distWeight: 0.3, hiWeight: 0.2, sprintWeight: 0.1, ratingWeight: 0.4 },
+                    defender: { distWeight: 0.25, hiWeight: 0.25, sprintWeight: 0.2, ratingWeight: 0.3 },
+                    fullback: { distWeight: 0.2, hiWeight: 0.3, sprintWeight: 0.3, ratingWeight: 0.2 },
+                    midfielder: { distWeight: 0.3, hiWeight: 0.2, sprintWeight: 0.2, ratingWeight: 0.3 },
+                    winger: { distWeight: 0.15, hiWeight: 0.35, sprintWeight: 0.3, ratingWeight: 0.2 },
+                    forward: { distWeight: 0.2, hiWeight: 0.3, sprintWeight: 0.25, ratingWeight: 0.25 }
+                };
+
+                const weights = positionStandards[position] || positionStandards.midfielder;
+                const norms = { dist: 11, hi: 0.7, sprint: 25, rating: 7.5 };
+                
+                const distScore = Math.min(100, (distance / norms.dist) * 100);
+                const hiScore = Math.min(100, (highIntensity / norms.hi) * 100);
+                const sprintScore = Math.min(100, (sprints / norms.sprint) * 100);
+                const ratingScore = (rating / 10) * 100;
+                
+                const score = (distScore * weights.distWeight) + 
+                             (hiScore * weights.hiWeight) + 
+                             (sprintScore * weights.sprintWeight) + 
+                             (ratingScore * weights.ratingWeight);
+                
+                return Math.min(100, score);
+            }
+
+            function calculateRecoveryTime(totalLoad) {
+                if (totalLoad < 8) return '24-48 hours';
+                if (totalLoad < 12) return '48-72 hours';
+                if (totalLoad < 16) return '72-96 hours';
+                return '96+ hours';
+            }
+
+            function calculateFatigueRisk(load, duration, temperature) {
+                let risk = 'Low';
+                if (load > 12 || duration > 90 || temperature > 28) risk = 'Medium';
+                if (load > 16 || duration > 105 || temperature > 32) risk = 'High';
+                if (load > 20 || duration > 115 || temperature > 35) risk = 'Very High';
+                return risk;
+            }
+
+            function generateInsights(position, load, score, efficiency, hiPercent, sprintFreq) {
+                const insights = [];
+                
+                if (load > 15) {
+                    insights.push('High match load detected - prioritize recovery');
+                } else if (load < 6) {
+                    insights.push('Low match load - consider additional training');
+                }
+                
+                if (score > 80) {
+                    insights.push('Excellent performance relative to position standards');
+                } else if (score < 60) {
+                    insights.push('Room for improvement in key performance areas');
+                }
+                
+                if (efficiency > 80) {
+                    insights.push('High efficiency - great performance optimization');
+                } else if (efficiency < 60) {
+                    insights.push('Consider technique improvements for better efficiency');
+                }
+                
+                if (hiPercent > 10) {
+                    insights.push('Excellent high-intensity work rate');
+                } else if (hiPercent < 6) {
+                    insights.push('Focus on increasing high-intensity running');
+                }
+                
+                if (sprintFreq > 25 && position === 'midfielder') {
+                    insights.push('Exceptional sprint frequency for midfield role');
+                }
+                
+                return insights;
+            }
+
+            function generateRecommendations(load, recovery, risk, position) {
+                const recommendations = [];
+                
+                // Recovery recommendations
+                if (recovery.includes('72+')) {
+                    recommendations.push('Schedule adequate recovery time before next match');
+                    recommendations.push('Focus on hydration and nutrition for recovery');
+                }
+                
+                // Risk-based recommendations
+                if (risk === 'High' || risk === 'Very High') {
+                    recommendations.push('Monitor for overtraining symptoms');
+                    recommendations.push('Consider lighter training sessions');
+                }
+                
+                // Position-specific recommendations
+                const positionRecs = {
+                    goalkeeper: ['Practice explosive movements', 'Work on reaction time'],
+                    defender: ['Focus on positional awareness', 'Improve recovery speed between sprints'],
+                    fullback: ['Develop endurance for overlapping runs', 'Work on crossing technique'],
+                    midfielder: ['Improve stamina for 90-minute performance', 'Focus on ball retention under pressure'],
+                    winger: ['Develop explosive acceleration', 'Work on 1v1 situations'],
+                    forward: ['Improve finishing under fatigue', 'Focus on movement off the ball']
+                };
+                
+                recommendations.push(...(positionRecs[position] || []));
+                
+                return recommendations;
+            }
+
+            function displayResults(results) {
+                const performanceColors = {
+                    80: '#10b981', // Excellent
+                    70: '#3b82f6', // Good
+                    60: '#f59e0b', // Average
+                    0: '#ef4444'   // Below Average
+                };
+
+                const riskColors = {
+                    'Low': '#10b981',
+                    'Medium': '#f59e0b',
+                    'High': '#f97316',
+                    'Very High': '#ef4444'
+                };
+
+                const performanceColor = results.performanceScore >= 80 ? performanceColors[80] :
+                                        results.performanceScore >= 70 ? performanceColors[70] :
+                                        results.performanceScore >= 60 ? performanceColors[60] : performanceColors[0];
+
+                const html = `
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">Total Match Load</div>
+                            <div class="result-value">${results.totalLoad}</div>
+                            <div class="result-sublabel">Arbitrary Units</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Performance Score</div>
+                            <div class="result-value" style="color: ${performanceColor}">${results.performanceScore.toFixed(0)}%</div>
+                            <div class="result-sublabel">Position-adjusted</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Distance per 90min</div>
+                            <div class="result-value">${results.distancePerMinute} km</div>
+                            <div class="result-sublabel">Normalized</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">High-Intensity %</div>
+                            <div class="result-value">${results.highIntensityPercentage}%</div>
+                            <div class="result-sublabel">Of total distance</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Sprint Frequency</div>
+                            <div class="result-value">${results.sprintFrequency}</div>
+                            <div class="result-sublabel">Per 90min</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Efficiency Rating</div>
+                            <div class="result-value">${results.efficiency}%</div>
+                            <div class="result-sublabel">Performance/Load ratio</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Recovery Time</div>
+                            <div class="result-value">${results.recoveryTime}</div>
+                            <div class="result-sublabel">Recommended</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Fatigue Risk</div>
+                            <div class="result-value" style="color: ${riskColors[results.fatigueRisk]}">${results.fatigueRisk}</div>
+                            <div class="result-sublabel">Current status</div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-section">
+                        <h4>Position Comparison</h4>
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <div class="comparison-label">Distance vs Average</div>
+                                <div class="comparison-value">${results.comparison.distanceVsAverage}%</div>
+                                <div class="comparison-bar">
+                                    <div class="comparison-fill" style="width: ${Math.min(150, results.comparison.distanceVsAverage)}%"></div>
+                                </div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">High-Intensity vs Average</div>
+                                <div class="comparison-value">${results.comparison.highIntensityVsAverage}%</div>
+                                <div class="comparison-bar">
+                                    <div class="comparison-fill" style="width: ${Math.min(150, results.comparison.highIntensityVsAverage)}%"></div>
+                                </div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Sprints vs Average</div>
+                                <div class="comparison-value">${results.comparison.sprintsVsAverage}%</div>
+                                <div class="comparison-bar">
+                                    <div class="comparison-fill" style="width: ${Math.min(150, results.comparison.sprintsVsAverage)}%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="insights">
+                        <h4>Performance Insights</h4>
+                        <ul>
+                            ${results.insights.map(insight => `<li>${insight}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="recommendations">
+                        <h4>Training Recommendations</h4>
+                        <ul>
+                            ${results.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                resultsContainer.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

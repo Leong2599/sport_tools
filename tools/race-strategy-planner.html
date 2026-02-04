@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plan race strategy with negative splits and optimal fueling strategies for endurance events and competitions">
+    <meta name="keywords" content="race strategy planner, negative split calculator, fueling strategy, endurance racing, pacing strategy">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Race Strategy Planner - Negative Split and Fueling Strategy">
+    <meta property="og:description" content="Optimize your race strategy with negative splits and scientific fueling planning">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/race-strategy-planner.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Race Strategy Planner | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/race-strategy-planner.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">🏁 Race Strategy Planner</h1>
+                <p class="tool-subtitle">Plan race strategy with negative splits and optimal fueling strategies for endurance events and competitions</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Race Strategy Details</h2>
+                        </div>
+                        <form id="race-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="race-type">Race Type</label>
+                                <select id="race-type" name="race-type" required aria-describedby="race-type-help">
+                                    <option value="">Select race type</option>
+                                    <option value="5k">5K Run</option>
+                                    <option value="10k">10K Run</option>
+                                    <option value="half-marathon">Half Marathon (21.1K)</option>
+                                    <option value="marathon">Marathon (42.2K)</option>
+                                    <option value="50k">50K Ultra</option>
+                                    <option value="100k">100K Ultra</option>
+                                    <option value="sprint-triathlon">Sprint Triathlon</option>
+                                    <option value="olympic-triathlon">Olympic Triathlon</option>
+                                    <option value="703-triathlon">70.3 Triathlon</option>
+                                    <option value="1406-triathlon">140.6 Triathlon</option>
+                                    <option value="cycling-40k">40K Cycling TT</option>
+                                    <option value="cycling-100k">100K Cycling Race</option>
+                                    <option value="swimming-1500">1500m Swimming</option>
+                                </select>
+                                <small id="race-type-help">Select your event distance and discipline</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="target-time">Target Finish Time</label>
+                                <div class="time-input-group">
+                                    <input type="number" id="hours" name="hours" min="0" max="24" placeholder="HH" aria-describedby="time-help">
+                                    <span>:</span>
+                                    <input type="number" id="minutes" name="minutes" min="0" max="59" placeholder="MM" aria-describedby="time-help">
+                                    <span>:</span>
+                                    <input type="number" id="seconds" name="seconds" min="0" max="59" placeholder="SS" aria-describedby="time-help">
+                                </div>
+                                <small id="time-help">Your target finish time (HH:MM:SS)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experience-level">Experience Level</label>
+                                <select id="experience-level" name="experience-level" required aria-describedby="experience-help">
+                                    <option value="">Select experience level</option>
+                                    <option value="beginner">Beginner (First timer)</option>
+                                    <option value="novice">Novice (1-3 races)</option>
+                                    <option value="intermediate">Intermediate (3-10 races)</option>
+                                    <option value="advanced">Advanced (10+ races)</option>
+                                    <option value="elite">Elite/Competitive</option>
+                                </select>
+                                <small id="experience-help">Your racing experience affects strategy recommendations</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="goal-type">Race Goal</label>
+                                <select id="goal-type" name="goal-type" required aria-describedby="goal-help">
+                                    <option value="">Select race goal</option>
+                                    <option value="finish">Just Finish</option>
+                                    <option value="pr">Personal Record (PR)</option>
+                                    <option value="age-group">Age Group Podium</option>
+                                    <option value="overall">Overall Podium</option>
+                                    <option value="qualify">Qualification (Boston/Kona/etc)</option>
+                                </select>
+                                <small id="goal-help">Your primary goal for this race</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pace-strategy">Pacing Strategy</label>
+                                <select id="pace-strategy" name="pace-strategy" required aria-describedby="strategy-help">
+                                    <option value="">Select pacing strategy</option>
+                                    <option value="negative-split">Negative Split (Faster second half)</option>
+                                    <option value="even-pace">Even Pace (Consistent throughout)</option>
+                                    <option value="positive-split">Positive Split (Faster first half)</option>
+                                    <option value="conservative-start">Conservative Start, Strong Finish</option>
+                                    <option value="aggressive-start">Aggressive Start, Hold On</option>
+                                </select>
+                                <small id="strategy-help">How you want to distribute your effort</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="body-weight">Body Weight</label>
+                                <div class="input-group">
+                                    <input type="number" id="body-weight" name="body-weight" step="0.1" min="30" max="200" required 
+                                           placeholder="Enter weight" aria-describedby="weight-help">
+                                    <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
+                                        <option value="kg">kg</option>
+                                        <option value="lbs">lbs</option>
+                                    </select>
+                                </div>
+                                <small id="weight-help">For fueling calculations</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="temperature">Expected Temperature</label>
+                                <div class="input-group">
+                                    <input type="number" id="temperature" name="temperature" step="1" min="-10" max="45" required 
+                                           placeholder="Enter temperature" aria-describedby="temp-help">
+                                    <select id="temp-unit" name="temp-unit" aria-label="Temperature unit">
+                                        <option value="celsius">°C</option>
+                                        <option value="fahrenheit">°F</option>
+                                    </select>
+                                </div>
+                                <small id="temp-help">Expected race day temperature</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="humidity">Expected Humidity (%)</label>
+                                <input type="number" id="humidity" name="humidity" min="0" max="100" required 
+                                       placeholder="Enter humidity" aria-describedby="humidity-help">
+                                <small id="humidity-help">Relative humidity affects fueling needs</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Generate Race Strategy</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Race Strategy Results</h2>
+                        </div>
+                        <div id="results" class="results-container" aria-live="polite">
+                            <div class="placeholder-message">
+                                <p>Enter your race details to see personalized strategy recommendations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🏁 Understanding Race Strategy</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>📈 Negative Split Benefits</h4>
+                                    <ul>
+                                        <li>Conserves energy for strong finish</li>
+                                        <li>Reduces risk of early fatigue</li>
+                                        <li>Mental advantage over competitors</li>
+                                        <li>Better overall time management</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>⛽ Fueling Guidelines</h4>
+                                    <ul>
+                                        <li><strong>60-90g carbs/hour</strong> for events &gt;2 hours</li>
+                                        <li><strong>500-750ml fluid/hour</strong> based on conditions</li>
+                                        <li><strong>300-500mg sodium/hour</strong> for electrolytes</li>
+                                        <li>Practice fueling in training</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🎯 Pacing Psychology</h4>
+                                    <ul>
+                                        <li>Start 5-10% slower than goal pace</li>
+                                        <li>Maintain discipline in middle section</li>
+                                        <li>Accelerate gradually in final 20%</li>
+                                        <li>Trust your training and strategy</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🌡️ Environmental Factors</h4>
+                                    <ul>
+                                        <li><strong>Heat:</strong> Slow pace 10-20 seconds/mile</li>
+                                        <li><strong>Humidity:</strong> Increase fluid intake</li>
+                                        <li><strong>Altitude:</strong> Expect 30-60 sec/mile slower</li>
+                                        <li><strong>Wind:</strong> Adjust effort, not pace</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('race-form');
+            const resultsContainer = document.getElementById('results');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                generateRaceStrategy();
+            });
+
+            function generateRaceStrategy() {
+                const raceType = document.getElementById('race-type').value;
+                const hours = parseInt(document.getElementById('hours').value) || 0;
+                const minutes = parseInt(document.getElementById('minutes').value) || 0;
+                const seconds = parseInt(document.getElementById('seconds').value) || 0;
+                const experienceLevel = document.getElementById('experience-level').value;
+                const goalType = document.getElementById('goal-type').value;
+                const paceStrategy = document.getElementById('pace-strategy').value;
+                const bodyWeight = parseFloat(document.getElementById('body-weight').value);
+                const weightUnit = document.getElementById('weight-unit').value;
+                const temperature = parseFloat(document.getElementById('temperature').value);
+                const tempUnit = document.getElementById('temp-unit').value;
+                const humidity = parseInt(document.getElementById('humidity').value);
+
+                // Convert to standard units
+                const targetTimeSeconds = (hours * 3600) + (minutes * 60) + seconds;
+                const bodyWeightKg = weightUnit === 'lbs' ? bodyWeight / 2.20462 : bodyWeight;
+                const tempCelsius = tempUnit === 'fahrenheit' ? (temperature - 32) * 5/9 : temperature;
+
+                // Get race details
+                const raceDetails = getRaceDetails(raceType);
+                const targetTimeMinutes = targetTimeSeconds / 60;
+                const targetPace = calculateTargetPace(raceDetails.distance, targetTimeSeconds, raceType);
+
+                // Calculate split strategy
+                const splitStrategy = calculateSplitStrategy(targetTimeSeconds, paceStrategy, raceType);
+                
+                // Calculate fueling strategy
+                const fuelingStrategy = calculateFuelingStrategy(
+                    raceDetails, targetTimeMinutes, bodyWeightKg, tempCelsius, humidity
+                );
+
+                // Calculate pace adjustments
+                const environmentalAdjustments = calculateEnvironmentalAdjustments(tempCelsius, humidity, raceType);
+                const adjustedPaces = calculateAdjustedPaces(targetPace, environmentalAdjustments);
+
+                // Generate recommendations
+                const recommendations = generateRecommendations(
+                    experienceLevel, goalType, paceStrategy, raceDetails, targetTimeMinutes
+                );
+                const insights = generateInsights(
+                    paceStrategy, fuelingStrategy, environmentalAdjustments, experienceLevel
+                );
+
+                // Display results
+                displayResults({
+                    raceType: raceDetails.name,
+                    targetTime: formatTime(targetTimeSeconds),
+                    targetPace: targetPace,
+                    splitStrategy: splitStrategy,
+                    fuelingStrategy: fuelingStrategy,
+                    environmentalAdjustments: environmentalAdjustments,
+                    adjustedPaces: adjustedPaces,
+                    recommendations: recommendations,
+                    insights: insights,
+                    raceDetails: raceDetails
+                });
+            }
+
+            function getRaceDetails(raceType) {
+                const races = {
+                    '5k': { name: '5K Run', distance: 5, unit: 'km', duration: 25, discipline: 'running' },
+                    '10k': { name: '10K Run', distance: 10, unit: 'km', duration: 50, discipline: 'running' },
+                    'half-marathon': { name: 'Half Marathon', distance: 21.1, unit: 'km', duration: 110, discipline: 'running' },
+                    'marathon': { name: 'Marathon', distance: 42.2, unit: 'km', duration: 240, discipline: 'running' },
+                    '50k': { name: '50K Ultra', distance: 50, unit: 'km', duration: 300, discipline: 'running' },
+                    '100k': { name: '100K Ultra', distance: 100, unit: 'km', duration: 600, discipline: 'running' },
+                    'sprint-triathlon': { name: 'Sprint Triathlon', distance: 750, unit: 'swim', duration: 90, discipline: 'triathlon' },
+                    'olympic-triathlon': { name: 'Olympic Triathlon', distance: 1500, unit: 'swim', duration: 150, discipline: 'triathlon' },
+                    '703-triathlon': { name: '70.3 Triathlon', distance: 1900, unit: 'swim', duration: 330, discipline: 'triathlon' },
+                    '1406-triathlon': { name: '140.6 Triathlon', distance: 3800, unit: 'swim', duration: 720, discipline: 'triathlon' },
+                    'cycling-40k': { name: '40K Cycling TT', distance: 40, unit: 'km', duration: 60, discipline: 'cycling' },
+                    'cycling-100k': { name: '100K Cycling Race', distance: 100, unit: 'km', duration: 150, discipline: 'cycling' },
+                    'swimming-1500': { name: '1500m Swimming', distance: 1500, unit: 'm', duration: 25, discipline: 'swimming' }
+                };
+                return races[raceType] || races['10k'];
+            }
+
+            function calculateTargetPace(distance, timeSeconds, raceType) {
+                const timeMinutes = timeSeconds / 60;
+                
+                if (raceType.includes('triathlon')) {
+                    return {
+                        swim: formatPace(timeSeconds * 0.2 / distance, 'swim'),
+                        bike: formatPace(timeSeconds * 0.5 / distance, 'bike'),
+                        run: formatPace(timeSeconds * 0.3 / distance, 'run'),
+                        overall: formatPace(timeSeconds / distance, 'overall')
+                    };
+                } else {
+                    return formatPace(timeSeconds / distance, raceType);
+                }
+            }
+
+            function formatPace(secondsPerUnit, type) {
+                const minutes = Math.floor(secondsPerUnit / 60);
+                const seconds = Math.round(secondsPerUnit % 60);
+                
+                if (type === 'swim') {
+                    return `${minutes}:${seconds.toString().padStart(2, '0')}/100m`;
+                } else if (type === 'bike') {
+                    const kmh = (3600 / secondsPerUnit).toFixed(1);
+                    return `${kmh} km/h`;
+                } else {
+                    return `${minutes}:${seconds.toString().padStart(2, '0')}/km`;
+                }
+            }
+
+            function calculateSplitStrategy(targetTime, strategy, raceType) {
+                const halfTime = targetTime / 2;
+                const splits = [];
+
+                switch (strategy) {
+                    case 'negative-split':
+                        splits.push({
+                            name: 'First Half',
+                            time: Math.round(halfTime * 0.48),
+                            percentage: 48
+                        });
+                        splits.push({
+                            name: 'Second Half',
+                            time: Math.round(halfTime * 0.52),
+                            percentage: 52
+                        });
+                        break;
+                    case 'even-pace':
+                        splits.push({
+                            name: 'First Half',
+                            time: Math.round(halfTime),
+                            percentage: 50
+                        });
+                        splits.push({
+                            name: 'Second Half',
+                            time: Math.round(halfTime),
+                            percentage: 50
+                        });
+                        break;
+                    case 'positive-split':
+                        splits.push({
+                            name: 'First Half',
+                            time: Math.round(halfTime * 0.52),
+                            percentage: 52
+                        });
+                        splits.push({
+                            name: 'Second Half',
+                            time: Math.round(halfTime * 0.48),
+                            percentage: 48
+                        });
+                        break;
+                    case 'conservative-start':
+                        splits.push({
+                            name: 'First 25%',
+                            time: Math.round(targetTime * 0.26),
+                            percentage: 26
+                        });
+                        splits.push({
+                            name: 'Middle 50%',
+                            time: Math.round(targetTime * 0.48),
+                            percentage: 48
+                        });
+                        splits.push({
+                            name: 'Final 25%',
+                            time: Math.round(targetTime * 0.26),
+                            percentage: 26
+                        });
+                        break;
+                    case 'aggressive-start':
+                        splits.push({
+                            name: 'First 25%',
+                            time: Math.round(targetTime * 0.24),
+                            percentage: 24
+                        });
+                        splits.push({
+                            name: 'Middle 50%',
+                            time: Math.round(targetTime * 0.50),
+                            percentage: 50
+                        });
+                        splits.push({
+                            name: 'Final 25%',
+                            time: Math.round(targetTime * 0.26),
+                            percentage: 26
+                        });
+                        break;
+                    default:
+                        splits.push({
+                            name: 'Even Split',
+                            time: Math.round(halfTime),
+                            percentage: 50
+                        });
+                        splits.push({
+                            name: 'Even Split',
+                            time: Math.round(halfTime),
+                            percentage: 50
+                        });
+                }
+
+                return splits;
+            }
+
+            function calculateFuelingStrategy(raceDetails, duration, weight, temp, humidity) {
+                const strategy = {
+                    fluids: [],
+                    calories: [],
+                    electrolytes: []
+                };
+
+                // Fluid needs
+                let baseFluid = 500; // ml/hour
+                if (temp > 20) baseFluid += (temp - 20) * 50;
+                if (humidity > 70) baseFluid += 100;
+                if (raceDetails.discipline === 'running') baseFluid += 100;
+
+                // Calorie needs
+                let baseCalories = weight * 8; // calories/hour
+                if (duration > 120) baseCalories = Math.min(baseCalories, 300);
+                if (duration > 240) baseCalories = Math.min(baseCalories, 250);
+
+                // Electrolyte needs
+                const sodium = Math.max(300, weight * 5); // mg/hour
+
+                // Create timeline
+                const intervals = Math.ceil(duration / 30);
+                for (let i = 0; i < intervals; i++) {
+                    const time = i * 30;
+                    const fluidAmount = Math.round(baseFluid * 0.5); // per 30 min
+                    const calorieAmount = Math.round(baseCalories * 0.5); // per 30 min
+                    const sodiumAmount = Math.round(sodium * 0.5); // per 30 min
+
+                    strategy.fluids.push({
+                        time: time,
+                        amount: fluidAmount,
+                        description: `${fluidAmount}ml fluid`
+                    });
+
+                    if (duration > 90) {
+                        strategy.calories.push({
+                            time: time,
+                            amount: calorieAmount,
+                            description: `${calorieAmount} calories`
+                        });
+                    }
+
+                    if (duration > 60) {
+                        strategy.electrolytes.push({
+                            time: time,
+                            amount: sodiumAmount,
+                            description: `${sodiumAmount}mg sodium`
+                        });
+                    }
+                }
+
+                return strategy;
+            }
+
+            function calculateEnvironmentalAdjustments(temp, humidity, raceType) {
+                const adjustments = {
+                    temperature: temp,
+                    humidity: humidity,
+                    paceAdjustment: 0,
+                    fluidAdjustment: 0,
+                    riskLevel: 'Low'
+                };
+
+                // Heat index calculation
+                if (temp > 27 && humidity > 40) {
+                    adjustments.riskLevel = 'High';
+                    adjustments.paceAdjustment = -15; // seconds per km slower
+                    adjustments.fluidAdjustment = 25; // % more fluid needed
+                } else if (temp > 20) {
+                    adjustments.riskLevel = 'Medium';
+                    adjustments.paceAdjustment = -8;
+                    adjustments.fluidAdjustment = 15;
+                }
+
+                // Discipline-specific adjustments
+                if (raceType.includes('cycling')) {
+                    adjustments.paceAdjustment *= 1.2; // cycling affected more
+                } else if (raceType.includes('running')) {
+                    adjustments.fluidAdjustment *= 1.3; // running needs more fluid
+                }
+
+                return adjustments;
+            }
+
+            function calculateAdjustedPaces(targetPace, adjustments) {
+                // Simple adjustment for demonstration
+                if (typeof targetPace === 'string') {
+                    return targetPace; // Can't easily adjust formatted pace
+                }
+                return targetPace;
+            }
+
+            function generateRecommendations(experience, goal, strategy, race, duration) {
+                const recommendations = [];
+
+                // Experience-based recommendations
+                if (experience === 'beginner') {
+                    recommendations.push('Focus on finishing rather than time goals');
+                    recommendations.push('Start conservatively and maintain steady effort');
+                } else if (experience === 'elite') {
+                    recommendations.push('Push negative split strategy for optimal performance');
+                    recommendations.push('Practice race pace efforts in training');
+                }
+
+                // Goal-based recommendations
+                if (goal === 'pr' || goal.includes('podium')) {
+                    recommendations.push('Stick to calculated paces religiously');
+                    recommendations.push('Practice race day nutrition exactly as planned');
+                }
+
+                // Duration-based recommendations
+                if (duration > 180) {
+                    recommendations.push('Test all fueling products during long training');
+                    recommendations.push('Have backup nutrition plan for race day');
+                }
+
+                // Strategy-specific recommendations
+                if (strategy === 'negative-split') {
+                    recommendations.push('Resist temptation to start fast - hold back 5-10%');
+                    recommendations.push('Build gradually through middle section');
+                }
+
+                return recommendations;
+            }
+
+            function generateInsights(strategy, fueling, environmental, experience) {
+                const insights = [];
+
+                if (strategy === 'negative-split') {
+                    insights.push('Negative splits show 2-5% better finishing times on average');
+                }
+
+                if (environmental.riskLevel === 'High') {
+                    insights.push('High heat/humidity expected - prioritize hydration over pace');
+                }
+
+                if (fueling.calories.length > 0) {
+                    insights.push('Event duration requires planned fueling strategy');
+                }
+
+                if (experience === 'beginner') {
+                    insights.push('Your first race - experience is more valuable than time');
+                }
+
+                return insights;
+            }
+
+            function formatTime(seconds) {
+                const hours = Math.floor(seconds / 3600);
+                const minutes = Math.floor((seconds % 3600) / 60);
+                const secs = Math.round(seconds % 60);
+                
+                if (hours > 0) {
+                    return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                } else {
+                    return `${minutes}:${secs.toString().padStart(2, '0')}`;
+                }
+            }
+
+            function displayResults(results) {
+                const html = `
+                    <div class="strategy-overview">
+                        <h3>Race Strategy Overview</h3>
+                        <div class="overview-grid">
+                            <div class="overview-item">
+                                <div class="overview-label">Event</div>
+                                <div class="overview-value">${results.raceType}</div>
+                            </div>
+                            <div class="overview-item">
+                                <div class="overview-label">Target Time</div>
+                                <div class="overview-value">${results.targetTime}</div>
+                            </div>
+                            <div class="overview-item">
+                                <div class="overview-label">Target Pace</div>
+                                <div class="overview-value">${typeof results.targetPace === 'object' ? 
+                                    Object.values(results.targetPace).join(' | ') : results.targetPace}</div>
+                            </div>
+                            <div class="overview-item">
+                                <div class="overview-label">Risk Level</div>
+                                <div class="overview-value" style="color: ${results.environmentalAdjustments.riskLevel === 'High' ? '#ef4444' : 
+                                    results.environmentalAdjustments.riskLevel === 'Medium' ? '#f59e0b' : '#10b981'}">
+                                    ${results.environmentalAdjustments.riskLevel}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="split-strategy">
+                        <h4>Pacing Strategy</h4>
+                        <div class="split-grid">
+                            ${results.splitStrategy.map(split => `
+                                <div class="split-item">
+                                    <div class="split-name">${split.name}</div>
+                                    <div class="split-time">${formatTime(split.time)}</div>
+                                    <div class="split-percentage">${split.percentage}% of race</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    ${results.fuelingStrategy.fluids.length > 0 ? `
+                    <div class="fueling-strategy">
+                        <h4>Fueling Timeline</h4>
+                        <div class="fueling-grid">
+                            <div class="fueling-category">
+                                <h5>💧 Hydration</h5>
+                                ${results.fuelingStrategy.fluids.map((item, i) => `
+                                    <div class="fueling-item ${i === 0 ? 'first' : ''}">
+                                        <span class="fueling-time">${formatTime(item.time * 60)}</span>
+                                        <span class="fueling-desc">${item.description}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            ${results.fuelingStrategy.calories.length > 0 ? `
+                            <div class="fueling-category">
+                                <h5>🍝 Calories</h5>
+                                ${results.fuelingStrategy.calories.map((item, i) => `
+                                    <div class="fueling-item">
+                                        <span class="fueling-time">${formatTime(item.time * 60)}</span>
+                                        <span class="fueling-desc">${item.description}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            ` : ''}
+                            ${results.fuelingStrategy.electrolytes.length > 0 ? `
+                            <div class="fueling-category">
+                                <h5>🧂 Electrolytes</h5>
+                                ${results.fuelingStrategy.electrolytes.map((item, i) => `
+                                    <div class="fueling-item">
+                                        <span class="fueling-time">${formatTime(item.time * 60)}</span>
+                                        <span class="fueling-desc">${item.description}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                    ` : ''}
+
+                    <div class="environmental-adjustments">
+                        <h4>Environmental Considerations</h4>
+                        <div class="env-grid">
+                            <div class="env-item">
+                                <div class="env-label">Temperature</div>
+                                <div class="env-value">${results.environmentalAdjustments.temperature}°C</div>
+                            </div>
+                            <div class="env-item">
+                                <div class="env-label">Humidity</div>
+                                <div class="env-value">${results.environmentalAdjustments.humidity}%</div>
+                            </div>
+                            <div class="env-item">
+                                <div class="env-label">Pace Adjustment</div>
+                                <div class="env-value">${results.environmentalAdjustments.paceAdjustment}s/km slower</div>
+                            </div>
+                            <div class="env-item">
+                                <div class="env-label">Fluid Adjustment</div>
+                                <div class="env-value">+${results.environmentalAdjustments.fluidAdjustment}% hydration</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="insights">
+                        <h4>Strategic Insights</h4>
+                        <ul>
+                            ${results.insights.map(insight => `<li>${insight}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="recommendations">
+                        <h4>Race Day Recommendations</h4>
+                        <ul>
+                            ${results.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                resultsContainer.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

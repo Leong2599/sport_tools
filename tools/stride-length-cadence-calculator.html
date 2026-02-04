@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate stride length and cadence for optimal running efficiency with detailed biomechanical analysis">
+    <meta name="keywords" content="stride length calculator, running cadence, running efficiency, gait analysis, running form">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Stride Length & Cadence Calculator - Running Efficiency">
+    <meta property="og:description" content="Optimize running efficiency with stride length and cadence analysis for better performance">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Stride Length & Cadence Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">🏃‍♂️ Stride Length & Cadence Calculator</h1>
+                <p class="tool-subtitle">Calculate stride length and cadence for optimal running efficiency with detailed biomechanical analysis</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Running Gait Analysis</h2>
+                        </div>
+                        <form id="stride-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="input-type">Input Type</label>
+                                <select id="input-type" name="input-type" required aria-describedby="input-type-help" onchange="toggleInputFields()">
+                                    <option value="">Select input type</option>
+                                    <option value="pace-cadence">Pace & Cadence</option>
+                                    <option value="pace-stride">Pace & Stride Length</option>
+                                    <option value="cadence-stride">Cadence & Stride Length</option>
+                                    <option value="height-based">Height-Based Estimate</option>
+                                </select>
+                                <small id="input-type-help">Choose what measurements you have available</small>
+                            </div>
+
+                            <div id="pace-cadence-fields" class="input-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label for="pace">Running Pace (per km)</label>
+                                    <div class="pace-input-group">
+                                        <input type="number" id="pace-minutes" name="pace-minutes" min="0" max="20" 
+                                               placeholder="MM" aria-describedby="pace-help">
+                                        <span>:</span>
+                                        <input type="number" id="pace-seconds" name="pace-seconds" min="0" max="59" 
+                                               placeholder="SS" aria-describedby="pace-help">
+                                    </div>
+                                    <small id="pace-help">Your running pace (MM:SS per km)</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cadence">Cadence (steps per minute)</label>
+                                    <input type="number" id="cadence" name="cadence" min="120" max="220" step="1" 
+                                           placeholder="Enter cadence" aria-describedby="cadence-help">
+                                    <small id="cadence-help">Steps per minute (count right foot steps × 2)</small>
+                                </div>
+                            </div>
+
+                            <div id="pace-stride-fields" class="input-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label for="pace2">Running Pace (per km)</label>
+                                    <div class="pace-input-group">
+                                        <input type="number" id="pace2-minutes" name="pace2-minutes" min="0" max="20" 
+                                               placeholder="MM" aria-describedby="pace2-help">
+                                        <span>:</span>
+                                        <input type="number" id="pace2-seconds" name="pace2-seconds" min="0" max="59" 
+                                               placeholder="SS" aria-describedby="pace2-help">
+                                    </div>
+                                    <small id="pace2-help">Your running pace (MM:SS per km)</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="stride-length">Stride Length (cm)</label>
+                                    <input type="number" id="stride-length" name="stride-length" min="50" max="300" step="1" 
+                                           placeholder="Enter stride length" aria-describedby="stride-help">
+                                    <small id="stride-help">Distance between consecutive foot contacts (cm)</small>
+                                </div>
+                            </div>
+
+                            <div id="cadence-stride-fields" class="input-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label for="cadence2">Cadence (steps per minute)</label>
+                                    <input type="number" id="cadence2" name="cadence2" min="120" max="220" step="1" 
+                                           placeholder="Enter cadence" aria-describedby="cadence2-help">
+                                    <small id="cadence2-help">Steps per minute (count right foot steps × 2)</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="stride-length2">Stride Length (cm)</label>
+                                    <input type="number" id="stride-length2" name="stride-length2" min="50" max="300" step="1" 
+                                           placeholder="Enter stride length" aria-describedby="stride2-help">
+                                    <small id="stride2-help">Distance between consecutive foot contacts (cm)</small>
+                                </div>
+                            </div>
+
+                            <div id="height-based-fields" class="input-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label for="height">Height</label>
+                                    <div class="input-group">
+                                        <input type="number" id="height" name="height" step="1" min="120" max="250" 
+                                               placeholder="Enter height" aria-describedby="height-help">
+                                        <select id="height-unit" name="height-unit" aria-label="Height unit">
+                                            <option value="cm">cm</option>
+                                            <option value="feet">feet/inches</option>
+                                        </select>
+                                    </div>
+                                    <small id="height-help">Your height for optimal calculations</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="height-pace">Running Pace (per km)</label>
+                                    <div class="pace-input-group">
+                                        <input type="number" id="height-pace-minutes" name="height-pace-minutes" min="0" max="20" 
+                                               placeholder="MM" aria-describedby="height-pace-help">
+                                        <span>:</span>
+                                        <input type="number" id="height-pace-seconds" name="height-pace-seconds" min="0" max="59" 
+                                               placeholder="SS" aria-describedby="height-pace-help">
+                                    </div>
+                                    <small id="height-pace-help">Your running pace (MM:SS per km)</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="running-experience">Running Experience</label>
+                                <select id="running-experience" name="running-experience" required aria-describedby="experience-help">
+                                    <option value="">Select experience level</option>
+                                    <option value="beginner">Beginner (&lt;6 months)</option>
+                                    <option value="novice">Novice (6 months-2 years)</option>
+                                    <option value="intermediate">Intermediate (2-5 years)</option>
+                                    <option value="advanced">Advanced (5-10 years)</option>
+                                    <option value="elite">Elite (&gt;10 years)</option>
+                                </select>
+                                <small id="experience-help">Experience affects optimal cadence recommendations</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="running-distance">Typical Running Distance</label>
+                                <select id="running-distance" name="running-distance" required aria-describedby="distance-help">
+                                    <option value="">Select typical distance</option>
+                                    <option value="5k">5K</option>
+                                    <option value="10k">10K</option>
+                                    <option value="half-marathon">Half Marathon</option>
+                                    <option value="marathon">Marathon</option>
+                                    <option value="ultra">Ultra Marathon</option>
+                                    <option value="mixed">Mixed Distances</option>
+                                </select>
+                                <small id="distance-help">Primary distance affects optimal stride parameters</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="goal">Primary Running Goal</label>
+                                <select id="goal" name="goal" required aria-describedby="goal-help">
+                                    <option value="">Select goal</option>
+                                    <option value="endurance">Endurance/Long Distance</option>
+                                    <option value="speed">Speed/Short Distance</option>
+                                    <option value="efficiency">Running Efficiency</option>
+                                    <option value="injury-prevention">Injury Prevention</option>
+                                    <option value="general">General Fitness</option>
+                                </select>
+                                <small id="goal-help">Your main running objective</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Calculate Running Efficiency</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Running Efficiency Analysis</h2>
+                        </div>
+                        <div id="results" class="results-container" aria-live="polite">
+                            <div class="placeholder-message">
+                                <p>Enter your running data to see detailed efficiency analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🏃‍♂️ Understanding Stride & Cadence</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>🎯 Optimal Cadence Ranges</h4>
+                                    <ul>
+                                        <li><strong>Beginner:</strong> 160-170 spm (steps per minute)</li>
+                                        <li><strong>Intermediate:</strong> 170-180 spm</li>
+                                        <li><strong>Advanced:</strong> 175-185 spm</li>
+                                        <li><strong>Elite:</strong> 180-190+ spm</li>
+                                        <li><strong>Uphill:</strong> +5-10 spm from normal</li>
+                                        <li><strong>Downhill:</strong> -5-10 spm from normal</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>📏 Stride Length Guidelines</h4>
+                                    <ul>
+                                        <li><strong>General:</strong> Height × 0.45-0.55</li>
+                                        <li><strong>Sprinting:</strong> Height × 0.60-0.70</li>
+                                        <li><strong>Distance:</strong> Height × 0.40-0.50</li>
+                                        <li><strong>Efficient:</strong> Height × 0.43-0.47</li>
+                                        <li><strong>Short runners:</strong> Higher cadence focus</li>
+                                        <li><strong>Tall runners:</strong> Longer stride focus</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>⚡ Efficiency Metrics</h4>
+                                    <ul>
+                                        <li><strong>Vertical Oscillation:</strong> 6-10 cm optimal</li>
+                                        <li><strong>Ground Contact Time:</strong> 200-250ms ideal</li>
+                                        <li><strong>Flight Time:</strong> 70-100ms per step</li>
+                                        <li><strong>Stride Angle:</strong> 2-4 degrees forward</li>
+                                        <li><strong>Knee Lift:</strong> 70-90 degrees for distance</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🏃‍♀️ Training Benefits</h4>
+                                    <ul>
+                                        <li>Higher cadence reduces impact forces</li>
+                                        <li>Optimal stride length improves efficiency</li>
+                                        <li>Better form reduces injury risk</li>
+                                        <li>Consistent cadence enhances pacing</li>
+                                        <li>Efficient form conserves energy</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        function toggleInputFields() {
+            const inputType = document.getElementById('input-type').value;
+            const fields = ['pace-cadence-fields', 'pace-stride-fields', 'cadence-stride-fields', 'height-based-fields'];
+            
+            fields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.style.display = 'none';
+                }
+            });
+
+            if (inputType && document.getElementById(inputType + '-fields')) {
+                document.getElementById(inputType + '-fields').style.display = 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('stride-form');
+            const resultsContainer = document.getElementById('results');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateRunningEfficiency();
+            });
+
+            function calculateRunningEfficiency() {
+                const inputType = document.getElementById('input-type').value;
+                const experience = document.getElementById('running-experience').value;
+                const distance = document.getElementById('running-distance').value;
+                const goal = document.getElementById('goal').value;
+
+                let pace, cadence, strideLength;
+
+                // Calculate based on input type
+                switch(inputType) {
+                    case 'pace-cadence':
+                        pace = getPaceFromInputs('pace');
+                        cadence = parseFloat(document.getElementById('cadence').value);
+                        strideLength = calculateStrideLength(pace, cadence);
+                        break;
+                    case 'pace-stride':
+                        pace = getPaceFromInputs('pace2');
+                        strideLength = parseFloat(document.getElementById('stride-length').value);
+                        cadence = calculateCadence(pace, strideLength);
+                        break;
+                    case 'cadence-stride':
+                        cadence = parseFloat(document.getElementById('cadence2').value);
+                        strideLength = parseFloat(document.getElementById('stride-length2').value);
+                        pace = calculatePaceFromCadenceStride(cadence, strideLength);
+                        break;
+                    case 'height-based':
+                        const height = getHeightFromInputs();
+                        pace = getPaceFromInputs('height-pace');
+                        const optimalStride = calculateOptimalStride(height, experience);
+                        strideLength = optimalStride.length;
+                        cadence = calculateCadence(pace, strideLength);
+                        break;
+                    default:
+                        return;
+                }
+
+                // Calculate metrics
+                const speed = calculateSpeed(pace);
+                const efficiency = calculateEfficiency(cadence, strideLength, experience);
+                const optimalValues = calculateOptimalValues(experience, distance);
+                const groundContact = calculateGroundContactTime(cadence, experience);
+                const verticalOscillation = calculateVerticalOscillation(strideLength, experience);
+                const strideAngle = calculateStrideAngle(strideLength);
+
+                // Generate analysis
+                const efficiencyAnalysis = analyzeEfficiency(cadence, strideLength, optimalValues);
+                const recommendations = generateRecommendations(
+                    cadence, strideLength, efficiency, experience, distance, goal
+                );
+                const insights = generateInsights(efficiency, cadence, strideLength, experience);
+
+                // Display results
+                displayResults({
+                    pace: formatPace(pace),
+                    speed: speed.toFixed(2),
+                    cadence: cadence,
+                    strideLength: strideLength,
+                    stepLength: strideLength / 2,
+                    efficiency: efficiency,
+                    optimalCadence: optimalValues.cadence,
+                    optimalStride: optimalValues.strideLength,
+                    groundContactTime: groundContact,
+                    verticalOscillation: verticalOscillation,
+                    strideAngle: strideAngle,
+                    efficiencyAnalysis: efficiencyAnalysis,
+                    recommendations: recommendations,
+                    insights: insights,
+                    experience: experience,
+                    distance: distance
+                });
+            }
+
+            function getPaceFromInputs(prefix) {
+                const minutes = parseInt(document.getElementById(prefix + '-minutes').value);
+                const seconds = parseInt(document.getElementById(prefix + '-seconds').value);
+                return (minutes * 60) + seconds;
+            }
+
+            function getHeightFromInputs() {
+                const height = parseFloat(document.getElementById('height').value);
+                const unit = document.getElementById('height-unit').value;
+                return unit === 'feet' ? height * 30.48 : height; // Convert to cm
+            }
+
+            function calculateStrideLength(paceSeconds, cadenceSPM) {
+                // pace = seconds per km
+                // cadence = steps per minute
+                const paceMinutes = paceSeconds / 60;
+                const stepsPerKm = cadenceSPM * paceMinutes;
+                const cmPerStep = (1000 * 100) / stepsPerKm; // 1km = 1000m = 100000cm
+                return cmPerStep;
+            }
+
+            function calculateCadence(paceSeconds, strideLengthCm) {
+                // Calculate how many steps needed to cover 1km
+                const stepsPerKm = (1000 * 100) / strideLengthCm;
+                const paceMinutes = paceSeconds / 60;
+                return stepsPerKm / paceMinutes;
+            }
+
+            function calculatePaceFromCadenceStride(cadenceSPM, strideLengthCm) {
+                const stepsPerKm = (1000 * 100) / strideLengthCm;
+                const paceMinutes = stepsPerKm / cadenceSPM;
+                return paceMinutes * 60;
+            }
+
+            function calculateSpeed(paceSeconds) {
+                // km/h = 3600 / paceInSeconds
+                return 3600 / paceSeconds;
+            }
+
+            function calculateOptimalStride(height, experience) {
+                // Optimal stride is approximately 43-47% of height for distance running
+                const multipliers = {
+                    'beginner': 0.43,
+                    'novice': 0.44,
+                    'intermediate': 0.45,
+                    'advanced': 0.46,
+                    'elite': 0.47
+                };
+                
+                return {
+                    length: height * (multipliers[experience] || 0.45),
+                    range: {
+                        min: height * 0.40,
+                        max: height * 0.50
+                    }
+                };
+            }
+
+            function calculateOptimalValues(experience, distance) {
+                const experienceMultipliers = {
+                    'beginner': { cadence: 165, range: [160, 170] },
+                    'novice': { cadence: 170, range: [165, 175] },
+                    'intermediate': { cadence: 175, range: [170, 180] },
+                    'advanced': { cadence: 180, range: [175, 185] },
+                    'elite': { cadence: 185, range: [180, 190] }
+                };
+
+                const baseValues = experienceMultipliers[experience] || experienceMultipliers['intermediate'];
+                
+                // Distance adjustments
+                if (distance === 'marathon' || distance === 'ultra') {
+                    baseValues.cadence += 5;
+                } else if (distance === '5k') {
+                    baseValues.cadence += 3;
+                }
+
+                return {
+                    cadence: baseValues.cadence,
+                    cadenceRange: baseValues.range,
+                    strideLength: null // Will be calculated based on height if needed
+                };
+            }
+
+            function calculateEfficiency(cadence, strideLength, experience) {
+                // Efficiency score based on optimal ranges
+                const optimalValues = calculateOptimalValues(experience);
+                
+                let efficiency = 100;
+                
+                // Cadence efficiency (50% of score)
+                const optimalCadence = optimalValues.cadence;
+                const cadenceDeviation = Math.abs(cadence - optimalCadence);
+                efficiency -= (cadenceDeviation / 20) * 50; // 20 steps = 50% penalty
+                
+                // Stride efficiency (30% of score)
+                const optimalStride = 110; // Average optimal stride in cm
+                const strideDeviation = Math.abs(strideLength - optimalStride) / optimalStride;
+                efficiency -= (strideDeviation * 30);
+                
+                // Cadence-stride balance (20% of score)
+                const idealStride = (100000 / cadence) / 60; // Ideal stride for this cadence at 6:00/km pace
+                const balanceDeviation = Math.abs(strideLength - idealStride) / idealStride;
+                efficiency -= (balanceDeviation * 20);
+                
+                return Math.max(0, Math.min(100, efficiency));
+            }
+
+            function calculateGroundContactTime(cadence, experience) {
+                // Ground contact time decreases with cadence and experience
+                const baseGCT = 250; // Base ground contact time in ms
+                
+                // Cadence adjustment
+                const cadenceFactor = Math.max(0.7, 1 - (cadence - 160) / 200);
+                
+                // Experience adjustment
+                const experienceFactors = {
+                    'beginner': 1.0,
+                    'novice': 0.9,
+                    'intermediate': 0.85,
+                    'advanced': 0.8,
+                    'elite': 0.75
+                };
+                
+                return Math.round(baseGCT * cadenceFactor * (experienceFactors[experience] || 0.85));
+            }
+
+            function calculateVerticalOscillation(strideLength, experience) {
+                // Vertical oscillation should be proportional to stride length but minimized
+                const baseOscillation = strideLength * 0.08; // 8% of stride length
+                
+                const experienceFactors = {
+                    'beginner': 1.2,
+                    'novice': 1.1,
+                    'intermediate': 1.0,
+                    'advanced': 0.9,
+                    'elite': 0.8
+                };
+                
+                return Math.round(baseOscillation * (experienceFactors[experience] || 1.0));
+            }
+
+            function calculateStrideAngle(strideLength) {
+                // Approximate stride angle based on stride length
+                // Simplified calculation assuming average height
+                const averageHeight = 175; // cm
+                const angle = Math.atan(strideLength / averageHeight) * (180 / Math.PI);
+                return angle.toFixed(1);
+            }
+
+            function analyzeEfficiency(cadence, strideLength, optimal) {
+                const cadenceStatus = cadence > optimal.cadence + 10 ? 'Too High' :
+                                      cadence < optimal.cadence - 10 ? 'Too Low' : 'Optimal';
+                
+                const cadenceEfficiency = 100 - Math.abs(cadence - optimal.cadence) * 0.5;
+                
+                return {
+                    cadenceStatus: cadenceStatus,
+                    cadenceEfficiency: Math.max(0, Math.min(100, cadenceEfficiency)),
+                    strideStatus: strideLength > 120 ? 'Long' : strideLength < 90 ? 'Short' : 'Optimal',
+                    overallBalance: Math.abs(cadence - optimal.cadence) < 10 && strideLength > 90 && strideLength < 120
+                };
+            }
+
+            function generateRecommendations(cadence, strideLength, efficiency, experience, distance, goal) {
+                const recommendations = [];
+                
+                // Cadence recommendations
+                if (cadence < 170 && experience !== 'beginner') {
+                    recommendations.push('Increase cadence by 5-10 steps per minute for better efficiency');
+                } else if (cadence > 190) {
+                    recommendations.push('Consider slightly reducing cadence - may indicate overstriding');
+                }
+                
+                // Stride length recommendations
+                if (strideLength < 90) {
+                    recommendations.push('Your stride is short - focus on increasing forward propulsion');
+                } else if (strideLength > 130) {
+                    recommendations.push('Long stride detected - focus on higher cadence to reduce impact');
+                }
+                
+                // Efficiency recommendations
+                if (efficiency < 70) {
+                    recommendations.push('Low efficiency score - work on running form and technique');
+                } else if (efficiency > 90) {
+                    recommendations.push('Excellent efficiency - maintain current form and focus on consistency');
+                }
+                
+                // Goal-specific recommendations
+                if (goal === 'injury-prevention') {
+                    recommendations.push('Focus on cadence of 175-180 spm to minimize impact forces');
+                } else if (goal === 'speed') {
+                    recommendations.push('Increase both cadence and stride length for maximum speed');
+                } else if (goal === 'endurance') {
+                    recommendations.push('Maintain steady cadence 170-175 spm for energy conservation');
+                }
+                
+                // Distance-specific recommendations
+                if (distance === 'marathon') {
+                    recommendations.push('For marathon distance, prioritize consistent cadence over stride length');
+                }
+                
+                return recommendations;
+            }
+
+            function generateInsights(efficiency, cadence, strideLength, experience) {
+                const insights = [];
+                
+                if (efficiency > 85) {
+                    insights.push('Excellent running efficiency - your form is well-optimized');
+                } else if (efficiency < 60) {
+                    insights.push('Significant room for improvement in running efficiency');
+                }
+                
+                if (cadence >= 175 && cadence <= 185) {
+                    insights.push('Ideal cadence range - optimal for injury prevention and efficiency');
+                }
+                
+                const stepLength = strideLength / 2;
+                if (stepLength > 75 && stepLength < 85) {
+                    insights.push('Good step length balance between cadence and stride');
+                }
+                
+                if (experience === 'elite' && cadence < 180) {
+                    insights.push('Elite runners typically benefit from cadence 180+ spm');
+                }
+                
+                return insights;
+            }
+
+            function formatPace(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const secs = Math.round(seconds % 60);
+                return `${minutes}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            function displayResults(results) {
+                const efficiencyColor = results.efficiency > 85 ? '#10b981' :
+                                        results.efficiency > 70 ? '#3b82f6' :
+                                        results.efficiency > 55 ? '#f59e0b' : '#ef4444';
+
+                const cadenceStatusColor = results.efficiencyAnalysis.cadenceStatus === 'Optimal' ? '#10b981' :
+                                           results.efficiencyAnalysis.cadenceStatus === 'Too High' ? '#f59e0b' : '#ef4444';
+
+                const html = `
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">Pace</div>
+                            <div class="result-value">${results.pace}/km</div>
+                            <div class="result-sublabel">${results.speed} km/h</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Cadence</div>
+                            <div class="result-value">${results.cadence} spm</div>
+                            <div class="result-sublabel" style="color: ${cadenceStatusColor}">${results.efficiencyAnalysis.cadenceStatus}</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Stride Length</div>
+                            <div class="result-value">${results.strideLength.toFixed(1)} cm</div>
+                            <div class="result-sublabel">${results.stepLength.toFixed(1)} cm step</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Efficiency Score</div>
+                            <div class="result-value" style="color: ${efficiencyColor}">${results.efficiency.toFixed(0)}%</div>
+                            <div class="result-sublabel">Running form efficiency</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Ground Contact</div>
+                            <div class="result-value">${results.groundContactTime} ms</div>
+                            <div class="result-sublabel">Foot strike time</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Vertical Oscillation</div>
+                            <div class="result-value">${results.verticalOscillation} cm</div>
+                            <div class="result-sublabel">Bounce height</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Stride Angle</div>
+                            <div class="result-value">${results.strideAngle}°</div>
+                            <div class="result-sublabel">Forward lean</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Optimal Cadence</div>
+                            <div class="result-value">${results.optimalCadence} spm</div>
+                            <div class="result-sublabel">${results.optimalCadenceRange[0]}-${results.optimalCadenceRange[1]} range</div>
+                        </div>
+                    </div>
+
+                    <div class="efficiency-analysis">
+                        <h4>⚡ Running Efficiency Analysis</h4>
+                        <div class="analysis-grid">
+                            <div class="analysis-item">
+                                <div class="analysis-label">Cadence Efficiency</div>
+                                <div class="analysis-bar">
+                                    <div class="analysis-fill cadence" style="width: ${results.efficiencyAnalysis.cadenceEfficiency}%"></div>
+                                </div>
+                                <div class="analysis-value">${results.efficiencyAnalysis.cadenceEfficiency.toFixed(0)}%</div>
+                            </div>
+                            <div class="analysis-item">
+                                <div class="analysis-label">Form Balance</div>
+                                <div class="analysis-bar">
+                                    <div class="analysis-fill balance" style="width: ${results.efficiencyAnalysis.overallBalance ? 90 : 60}%"></div>
+                                </div>
+                                <div class="analysis-value">${results.efficiencyAnalysis.overallBalance ? 'Excellent' : 'Needs Work'}</div>
+                            </div>
+                            <div class="analysis-item">
+                                <div class="analysis-label">Overall Efficiency</div>
+                                <div class="analysis-bar">
+                                    <div class="analysis-fill overall" style="width: ${results.efficiency}%"></div>
+                                </div>
+                                <div class="analysis-value">${results.efficiency.toFixed(0)}%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="biomechanics-metrics">
+                        <h4>🦴 Biomechanical Metrics</h4>
+                        <div class="biomechanics-grid">
+                            <div class="bio-item">
+                                <div class="bio-icon">🦶</div>
+                                <div class="bio-data">
+                                    <div class="bio-label">Ground Contact Time</div>
+                                    <div class="bio-value">${results.groundContactTime}ms</div>
+                                    <div class="bio-status">${results.groundContactTime < 220 ? 'Excellent' : results.groundContactTime < 250 ? 'Good' : 'Needs Improvement'}</div>
+                                </div>
+                            </div>
+                            <div class="bio-item">
+                                <div class="bio-icon">⬆️</div>
+                                <div class="bio-data">
+                                    <div class="bio-label">Vertical Oscillation</div>
+                                    <div class="bio-value">${results.verticalOscillation}cm</div>
+                                    <div class="bio-status">${results.verticalOscillation < 8 ? 'Excellent' : results.verticalOscillation < 10 ? 'Good' : 'Needs Improvement'}</div>
+                                </div>
+                            </div>
+                            <div class="bio-item">
+                                <div class="bio-icon">📐</div>
+                                <div class="bio-data">
+                                    <div class="bio-label">Stride Angle</div>
+                                    <div class="bio-value">${results.strideAngle}°</div>
+                                    <div class="bio-status">${parseFloat(results.strideAngle) > 2 && parseFloat(results.strideAngle) < 4 ? 'Optimal' : 'Adjust'}</div>
+                                </div>
+                            </div>
+                            <div class="bio-item">
+                                <div class="bio-icon">🎯</div>
+                                <div class="bio-data">
+                                    <div class="bio-label">Cadence Range</div>
+                                    <div class="bio-value">${results.cadence} spm</div>
+                                    <div class="bio-status">${results.efficiencyAnalysis.cadenceStatus}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="optimal-comparison">
+                        <h4>📊 Optimal vs Current Comparison</h4>
+                        <div class="comparison-chart">
+                            <div class="comparison-item">
+                                <div class="comparison-label">Cadence</div>
+                                <div class="comparison-bars">
+                                    <div class="comparison-current" style="width: ${(results.cadence / 220) * 100}%"></div>
+                                    <div class="comparison-optimal" style="width: ${(results.optimalCadence / 220) * 100}%"></div>
+                                </div>
+                                <div class="comparison-legend">
+                                    <span class="current-dot"></span> Current: ${results.cadence}
+                                    <span class="optimal-dot"></span> Optimal: ${results.optimalCadence}
+                                </div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Efficiency</div>
+                                <div class="comparison-bars">
+                                    <div class="comparison-current efficiency" style="width: ${results.efficiency}%"></div>
+                                    <div class="comparison-optimal" style="width: 90%"></div>
+                                </div>
+                                <div class="comparison-legend">
+                                    <span class="current-dot"></span> Current: ${results.efficiency.toFixed(0)}%
+                                    <span class="optimal-dot"></span> Target: 90%+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="insights">
+                        <h4>🧠 Running Insights</h4>
+                        <ul>
+                            ${results.insights.map(insight => `<li>${insight}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="recommendations">
+                        <h4>🎯 Training Recommendations</h4>
+                        <ul>
+                            ${results.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                resultsContainer.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

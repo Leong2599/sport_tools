@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Build optimal post-workout recovery meals with perfect protein/carb ratios for muscle repair and glycogen replenishment">
+    <meta name="keywords" content="post-workout nutrition, recovery meal, protein optimization, muscle repair, athletic recovery">
+    <meta name="author" content="Sports Tools Hub">
+    <title>Post-Workout Recovery Meal Builder - Sports Tools Hub</title>
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/post-workout-recovery.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../about.html" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="../index.html#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Header -->
+        <section class="tool-header" aria-labelledby="tool-title">
+            <div class="container">
+                <div class="tool-header-content">
+                    <div class="tool-icon">🔄</div>
+                    <div class="tool-header-text">
+                        <h1 id="tool-title">Post-Workout Recovery Meal Builder</h1>
+                        <p class="tool-subtitle">Build optimal recovery meals with perfect protein/carb ratios for muscle repair and glycogen replenishment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section" aria-labelledby="calculator-title">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Input Form -->
+                    <div class="calculator-form">
+                        <h2 id="calculator-title">Workout Recovery Details</h2>
+                        <form id="postWorkoutForm">
+                            <!-- Athlete Information -->
+                            <div class="form-section">
+                                <h3>Athlete Profile</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="currentWeight">Current Weight (kg)</label>
+                                        <input type="number" id="currentWeight" min="40" max="200" step="0.1" placeholder="75" required>
+                                        <small class="input-hint">Guide: 40-200 kg</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bodyFat">Body Fat (%)</label>
+                                        <input type="number" id="bodyFat" min="5" max="50" step="0.5" placeholder="Optional">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="fitnessLevel">Fitness Level</label>
+                                        <select id="fitnessLevel" required>
+                                            <option value="">Select fitness level...</option>
+                                            <option value="beginner">Beginner (< 6 months training)</option>
+                                            <option value="intermediate">Intermediate (6 months - 2 years)</option>
+                                            <option value="advanced">Advanced (2-5 years)</option>
+                                            <option value="elite">Elite (> 5 years or competitive)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="primaryGoal">Primary Training Goal</label>
+                                        <select id="primaryGoal" required>
+                                            <option value="">Select primary goal...</option>
+                                            <option value="muscle-gain">Muscle Gain/Hypertrophy</option>
+                                            <option value="strength">Strength Development</option>
+                                            <option value="endurance">Endurance Performance</option>
+                                            <option value="fat-loss">Fat Loss</option>
+                                            <option value="performance">Athletic Performance</option>
+                                            <option value="maintenance">General Maintenance</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Workout Details -->
+                            <div class="form-section">
+                                <h3>Just Completed Workout</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="workoutType">Workout Type</label>
+                                        <select id="workoutType" required>
+                                            <option value="">Select workout type...</option>
+                                            <option value="strength">Strength Training</option>
+                                            <option value="endurance">Endurance/Cardio</option>
+                                            <option value="hiit">HIIT/Metabolic Conditioning</option>
+                                            <option value="sports">Team Sports/Game</option>
+                                            <option value="mixed">Strength + Cardio</option>
+                                            <option value="endurance-strength">Endurance + Strength</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="workoutDuration">Duration (minutes)</label>
+                                        <input type="number" id="workoutDuration" min="15" max="240" placeholder="60" required>
+                                        <small class="input-hint">Guide: 15-240 minutes</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="workoutIntensity">Intensity (1-10)</label>
+                                        <input type="range" id="workoutIntensity" min="1" max="10" value="5" class="range-input">
+                                        <span class="range-value">5</span>
+                                        <div class="range-labels">
+                                            <span>Light</span>
+                                            <span>Moderate</span>
+                                            <span>Very Hard</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="timeSinceWorkout">Time Since Workout End</label>
+                                        <select id="timeSinceWorkout" required>
+                                            <option value="immediately">Immediately (within 15 min)</option>
+                                            <option value="30min">30 minutes ago</option>
+                                            <option value="1hour">1 hour ago</option>
+                                            <option value="2hours">2 hours ago</option>
+                                            <option value="3hours">3+ hours ago</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Next Training Session -->
+                            <div class="form-section">
+                                <h3>Next Training Session</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="nextWorkoutTime">Next Workout In</label>
+                                        <select id="nextWorkoutTime" required>
+                                            <option value="">Select time frame...</option>
+                                            <option value="8hours">8 hours (later today)</option>
+                                            <option value="12hours">12 hours (tonight/early morning)</option>
+                                            <option value="24hours">24 hours (tomorrow)</option>
+                                            <option value="48hours">48 hours (day after tomorrow)</option>
+                                            <option value="72hours">3+ days</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nextWorkoutType">Next Workout Type</label>
+                                        <select id="nextWorkoutType">
+                                            <option value="">Same as today</option>
+                                            <option value="strength">Strength Training</option>
+                                            <option value="endurance">Endurance/Cardio</option>
+                                            <option value="hiit">HIIT/Metabolic</option>
+                                            <option value="sports">Team Sports/Game</option>
+                                            <option value="recovery">Recovery/Active Rest</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dietary Preferences -->
+                            <div class="form-section">
+                                <h3>Dietary Preferences</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="dietaryRestrictions">Dietary Restrictions</label>
+                                        <select id="dietaryRestrictions">
+                                            <option value="none">No restrictions</option>
+                                            <option value="vegetarian">Vegetarian</option>
+                                            <option value="vegan">Vegan</option>
+                                            <option value="gluten-free">Gluten-free</option>
+                                            <option value="dairy-free">Dairy-free</option>
+                                            <option value="low-fodmap">Low FODMAP</option>
+                                            <option value="paleo">Paleo</option>
+                                            <option value="keto">Ketogenic</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mealType">Preferred Meal Type</label>
+                                        <select id="mealType">
+                                            <option value="shake">Recovery Shake/Smoothie</option>
+                                            <option value="light">Light Meal/Snack</option>
+                                            <option value="full">Full Meal</option>
+                                            <option value="flexible">Flexible - whatever works</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Build Recovery Meal</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="calculator-results">
+                        <div class="results-card" id="resultsCard">
+                            <h3>Your Recovery Nutrition Plan</h3>
+                            
+                            <div id="recoveryMacros" class="recovery-macros">
+                                <h4>Optimal Recovery Macros</h4>
+                                <div class="macro-targets">
+                                    <div class="macro-item">
+                                        <span class="macro-label">Protein</span>
+                                        <span class="macro-value" id="proteinTarget">--g</span>
+                                    </div>
+                                    <div class="macro-item">
+                                        <span class="macro-label">Carbs</span>
+                                        <span class="macro-value" id="carbTarget">--g</span>
+                                    </div>
+                                    <div class="macro-item">
+                                        <span class="macro-label">Ratio</span>
+                                        <span class="macro-value" id="ratioDisplay">--:--</span>
+                                    </div>
+                                    <div class="macro-item">
+                                        <span class="macro-label">Calories</span>
+                                        <span class="macro-value" id="calorieTarget">--</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="timingWindow" class="timing-window">
+                                <h4>Recovery Timing</h4>
+                                <div id="timingInfo">
+                                    <!-- Timing information will be populated here -->
+                                </div>
+                            </div>
+
+                            <div id="mealPlan" class="meal-plan">
+                                <h4>Meal Suggestions</h4>
+                                <div id="mealSuggestions">
+                                    <!-- Meal suggestions will be populated here -->
+                                </div>
+                            </div>
+
+                            <div id="hydrationPlan" class="hydration-plan">
+                                <h4>Rehydration Strategy</h4>
+                                <div id="hydrationDetails">
+                                    <!-- Hydration details will be populated here -->
+                                </div>
+                            </div>
+
+                            <div id="supplementOptions" class="supplement-options">
+                                <h4>Optional Recovery Boosters</h4>
+                                <div id="supplementList">
+                                    <!-- Supplement options will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Section -->
+        <section class="info-section" aria-labelledby="info-title">
+            <div class="container">
+                <h2 id="info-title">Recovery Nutrition Science</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Protein for Repair</h3>
+                        <p>Consume 20-40g of high-quality protein within 30-120 minutes post-workout to maximize muscle protein synthesis and repair damaged tissues.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Carbs for Replenishment</h3>
+                        <p>Replenish glycogen stores with 1-1.2g of carbs per kg body weight for endurance sessions, or 0.5-0.8g/kg for strength training.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>The 3:1 Ratio</h3>
+                        <p>For most athletes, a 3:1 or 4:1 carb-to-protein ratio optimizes both glycogen replenishment and muscle protein synthesis simultaneously.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Hydration is Critical</h3>
+                        <p>Replace 150% of fluid lost during exercise. For every kg of body weight lost, consume 1.5L of fluid over the next 2-6 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

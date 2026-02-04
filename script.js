@@ -44,8 +44,228 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Search functionality
+class SportsToolsSearch {
+    constructor() {
+        this.searchInput = document.getElementById('searchInput');
+        this.searchBtn = document.getElementById('searchBtn');
+        this.searchResults = document.getElementById('searchResults');
+        this.searchResultsList = document.getElementById('searchResultsList');
+        this.searchCount = document.getElementById('searchCount');
+        this.clearSearchBtn = document.getElementById('clearSearch');
+        this.highlightedIndex = -1;
+        
+        this.tools = this.extractToolsFromPage();
+        this.initializeEventListeners();
+    }
+
+    extractToolsFromPage() {
+        const tools = [];
+        const toolCards = document.querySelectorAll('.tool-card');
+        
+        toolCards.forEach((card, index) => {
+            const title = card.querySelector('h4')?.textContent.trim() || '';
+            const description = card.querySelector('p')?.textContent.trim() || '';
+            const link = card.querySelector('.tool-link')?.getAttribute('href') || '';
+            const categoryElement = card.closest('.category-section')?.querySelector('h3');
+            const category = categoryElement?.textContent.trim().replace(/[^\w\s]/gi, '').trim() || 'Other';
+            
+            if (title && link) {
+                tools.push({
+                    id: index,
+                    title: title.toLowerCase(),
+                    originalTitle: title,
+                    description: description.toLowerCase(),
+                    originalDescription: description,
+                    category: category.toLowerCase(),
+                    originalCategory: category,
+                    link: link,
+                    element: card
+                });
+            }
+        });
+        
+        return tools;
+    }
+
+    initializeEventListeners() {
+        this.searchInput.addEventListener('input', (e) => this.handleSearch(e.target.value));
+        this.searchBtn.addEventListener('click', () => this.handleSearch(this.searchInput.value));
+        this.clearSearchBtn.addEventListener('click', () => this.clearSearch());
+        
+        this.searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                this.highlightNextResult();
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                this.highlightPreviousResult();
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                this.selectHighlightedResult();
+            } else if (e.key === 'Escape') {
+                this.clearSearch();
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!this.searchInput.closest('.search-container').contains(e.target)) {
+                this.clearSearch();
+            }
+        });
+    }
+
+    handleSearch(query) {
+        const trimmedQuery = query.trim().toLowerCase();
+        
+        if (trimmedQuery === '') {
+            this.clearSearch();
+            this.showAllTools();
+            return;
+        }
+
+        const filteredTools = this.tools.filter(tool => 
+            tool.title.includes(trimmedQuery) ||
+            tool.description.includes(trimmedQuery) ||
+            tool.category.includes(trimmedQuery)
+        );
+
+        this.displaySearchResults(filteredTools, trimmedQuery);
+        this.filterToolsDisplay(filteredTools);
+    }
+
+    displaySearchResults(tools, query) {
+        this.searchResultsList.innerHTML = '';
+        
+        if (tools.length === 0) {
+            this.searchResultsList.innerHTML = `
+                <div class="search-no-results">
+                    No tools found for "${query}". Try searching for calculators, activities, or sports.
+                </div>
+            `;
+        } else {
+            tools.forEach((tool, index) => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'search-result-item';
+                resultItem.dataset.index = index;
+                
+                const highlightedTitle = this.highlightText(tool.originalTitle, query);
+                const highlightedDescription = this.highlightText(tool.originalDescription, query);
+                
+                resultItem.innerHTML = `
+                    <div class="search-result-title">${highlightedTitle}</div>
+                    <div class="search-result-category">${tool.originalCategory}</div>
+                    <div class="search-result-description">${highlightedDescription}</div>
+                `;
+                
+                resultItem.addEventListener('click', () => {
+                    window.location.href = tool.link;
+                });
+                
+                resultItem.addEventListener('mouseenter', () => {
+                    this.highlightedIndex = index;
+                    this.updateHighlight();
+                });
+                
+                this.searchResultsList.appendChild(resultItem);
+            });
+        }
+        
+        this.searchCount.textContent = `${tools.length} result${tools.length !== 1 ? 's' : ''}`;
+        this.searchResults.classList.remove('hidden');
+        this.highlightedIndex = -1;
+    }
+
+    highlightText(text, query) {
+        if (!query) return text;
+        const regex = new RegExp(`(${query})`, 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
+    }
+
+    filterToolsDisplay(filteredTools) {
+        const allToolCards = document.querySelectorAll('.tool-card');
+        const categorySections = document.querySelectorAll('.category-section');
+        
+        allToolCards.forEach(card => {
+            card.style.display = 'none';
+        });
+        
+        filteredTools.forEach(tool => {
+            if (tool.element) {
+                tool.element.style.display = 'block';
+            }
+        });
+
+        categorySections.forEach(section => {
+            const visibleTools = section.querySelectorAll('.tool-card:not([style*="display: none"])');
+            if (visibleTools.length === 0) {
+                section.style.display = 'none';
+            } else {
+                section.style.display = 'block';
+            }
+        });
+    }
+
+    showAllTools() {
+        const allToolCards = document.querySelectorAll('.tool-card');
+        const categorySections = document.querySelectorAll('.category-section');
+        
+        allToolCards.forEach(card => {
+            card.style.display = 'block';
+        });
+        
+        categorySections.forEach(section => {
+            section.style.display = 'block';
+        });
+    }
+
+    highlightNextResult() {
+        const results = this.searchResultsList.querySelectorAll('.search-result-item');
+        if (results.length === 0) return;
+        
+        this.highlightedIndex = Math.min(this.highlightedIndex + 1, results.length - 1);
+        this.updateHighlight();
+    }
+
+    highlightPreviousResult() {
+        const results = this.searchResultsList.querySelectorAll('.search-result-item');
+        if (results.length === 0) return;
+        
+        this.highlightedIndex = Math.max(this.highlightedIndex - 1, -1);
+        this.updateHighlight();
+    }
+
+    updateHighlight() {
+        const results = this.searchResultsList.querySelectorAll('.search-result-item');
+        results.forEach((item, index) => {
+            item.classList.toggle('highlighted', index === this.highlightedIndex);
+        });
+        
+        if (this.highlightedIndex >= 0) {
+            results[this.highlightedIndex].scrollIntoView({ block: 'nearest' });
+        }
+    }
+
+    selectHighlightedResult() {
+        const results = this.searchResultsList.querySelectorAll('.search-result-item');
+        if (this.highlightedIndex >= 0 && results[this.highlightedIndex]) {
+            results[this.highlightedIndex].click();
+        }
+    }
+
+    clearSearch() {
+        this.searchInput.value = '';
+        this.searchResults.classList.add('hidden');
+        this.highlightedIndex = -1;
+        this.showAllTools();
+    }
+}
+
 // Add fade-in class to elements
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize search functionality
+    new SportsToolsSearch();
+    
     const animatedElements = document.querySelectorAll('.tool-card, .blog-card');
     animatedElements.forEach(el => {
         el.classList.add('fade-in');
@@ -1178,6 +1398,648 @@ function initLBMCalculator() {
     }
 }
 
+// Initialize Micronutrient Intake Checker
+function initMicronutrientChecker() {
+    const micronutrientForm = document.getElementById('micronutrientForm');
+    if (micronutrientForm) {
+        setupRadioStyling('gender');
+        
+        micronutrientForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const age = getInputValue(document.getElementById('age'));
+            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            
+            if (isNaN(age) || age < 15 || age > 80) {
+                alert('Please enter a valid age between 15 and 80.');
+                return;
+            }
+            
+            if (!gender) {
+                alert('Please select your gender.');
+                return;
+            }
+            
+            // Get micronutrient inputs
+            const micronutrients = {
+                vitaminA: getInputValue(document.getElementById('vitamin-a')) || 0,
+                vitaminC: getInputValue(document.getElementById('vitamin-c')) || 0,
+                vitaminD: getInputValue(document.getElementById('vitamin-d')) || 0,
+                vitaminE: getInputValue(document.getElementById('vitamin-e')) || 0,
+                vitaminK: getInputValue(document.getElementById('vitamin-k')) || 0,
+                thiamine: getInputValue(document.getElementById('thiamine')) || 0,
+                riboflavin: getInputValue(document.getElementById('riboflavin')) || 0,
+                niacin: getInputValue(document.getElementById('niacin')) || 0,
+                vitaminB6: getInputValue(document.getElementById('vitamin-b6')) || 0,
+                folate: getInputValue(document.getElementById('folate')) || 0,
+                vitaminB12: getInputValue(document.getElementById('vitamin-b12')) || 0,
+                calcium: getInputValue(document.getElementById('calcium')) || 0,
+                iron: getInputValue(document.getElementById('iron')) || 0,
+                magnesium: getInputValue(document.getElementById('magnesium')) || 0,
+                phosphorus: getInputValue(document.getElementById('phosphorus')) || 0,
+                potassium: getInputValue(document.getElementById('potassium')) || 0,
+                sodium: getInputValue(document.getElementById('sodium')) || 0,
+                zinc: getInputValue(document.getElementById('zinc')) || 0,
+                selenium: getInputValue(document.getElementById('selenium')) || 0
+            };
+            
+            // RDA values (adults, may vary by age/gender)
+            const rda = gender === 'male' ? {
+                vitaminA: 900, vitaminC: 90, vitaminD: 15, vitaminE: 15, vitaminK: 120,
+                thiamine: 1.2, riboflavin: 1.3, niacin: 16, vitaminB6: 1.3, folate: 400, vitaminB12: 2.4,
+                calcium: 1000, iron: 8, magnesium: 400, phosphorus: 700, potassium: 3500, sodium: 2300,
+                zinc: 11, selenium: 55
+            } : {
+                vitaminA: 700, vitaminC: 75, vitaminD: 15, vitaminE: 15, vitaminK: 90,
+                thiamine: 1.1, riboflavin: 1.1, niacin: 14, vitaminB6: 1.3, folate: 400, vitaminB12: 2.4,
+                calcium: 1000, iron: 18, magnesium: 310, phosphorus: 700, potassium: 3500, sodium: 2300,
+                zinc: 8, selenium: 55
+            };
+            
+            // Calculate sufficiency scores
+            let totalScore = 0;
+            let totalNutrients = 0;
+            const breakdown = document.getElementById('micronutrientBreakdown');
+            
+            let breakdownHTML = '<div class="nutrient-breakdown-grid">';
+            
+            for (const [nutrient, intake] of Object.entries(micronutrients)) {
+                if (intake > 0) {
+                    const percentage = Math.min((intake / rda[nutrient]) * 100, 200);
+                    totalScore += percentage;
+                    totalNutrients++;
+                    
+                    const status = percentage >= 100 ? 'adequate' : percentage >= 80 ? 'adequate' : percentage >= 60 ? 'insufficient' : 'deficient';
+                    
+                    breakdownHTML += `
+                        <div class="nutrient-item ${status}">
+                            <span class="nutrient-name">${nutrient.replace(/([A-Z])/g, ' $1').trim()}</span>
+                            <span class="nutrient-percentage">${Math.round(percentage)}%</span>
+                        </div>
+                    `;
+                }
+            }
+            
+            breakdownHTML += '</div>';
+            breakdown.innerHTML = breakdownHTML;
+            
+            // Calculate overall score
+            const overallScore = totalNutrients > 0 ? Math.round(totalScore / totalNutrients) : 0;
+            
+            document.getElementById('overallScore').textContent = overallScore;
+            
+            // Set score description
+            const scoreDescription = document.getElementById('scoreDescription');
+            if (overallScore >= 90) {
+                scoreDescription.textContent = 'Excellent micronutrient intake!';
+            } else if (overallScore >= 80) {
+                scoreDescription.textContent = 'Good micronutrient intake';
+            } else if (overallScore >= 70) {
+                scoreDescription.textContent = 'Adequate, but could be improved';
+            } else if (overallScore >= 60) {
+                scoreDescription.textContent = 'Some deficiencies detected';
+            } else {
+                scoreDescription.textContent = 'Multiple deficiencies - consider supplementation';
+            }
+            
+            // Generate recommendations
+            const recommendations = document.getElementById('recommendationList');
+            let recommendationHTML = '<ul>';
+            
+            if (overallScore < 80) {
+                recommendationHTML += '<li>Consider a multivitamin supplement to fill gaps</li>';
+            }
+            if (micronutrients.vitaminD < rda.vitaminD) {
+                recommendationHTML += '<li>Increase Vitamin D intake through sunlight or supplements</li>';
+            }
+            if (micronutrients.iron < rda.iron) {
+                recommendationHTML += '<li>Increase iron intake with leafy greens or lean meats</li>';
+            }
+            if (overallScore >= 90) {
+                recommendationHTML += '<li>Excellent job maintaining micronutrient balance!</li>';
+            }
+            
+            recommendationHTML += '</ul>';
+            recommendations.innerHTML = recommendationHTML;
+            
+            document.getElementById('resultsCard').classList.add('show');
+            document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth' });
+            
+            if (window.calculatorUtils) {
+                window.calculatorUtils.trackToolUsage('Micronutrient Intake Checker');
+            }
+        });
+    }
+}
+
+// Initialize Glycemic Load Calculator
+function initGlycemicLoadCalculator() {
+    const glycemicLoadForm = document.getElementById('glycemicLoadForm');
+    const addFoodBtn = document.getElementById('addFood');
+    const clearFoodsBtn = document.getElementById('clearFoods');
+    const currentFoodsDiv = document.getElementById('currentFoods');
+    const foodsList = document.getElementById('foodsList');
+    
+    if (!glycemicLoadForm) return;
+    
+    let mealFoods = [];
+    
+    // Food database with GI values
+    const foodDatabase = {
+        'white-rice': { name: 'White Rice', gi: 73, carbsPer100g: 28 },
+        'brown-rice': { name: 'Brown Rice', gi: 68, carbsPer100g: 23 },
+        'oats': { name: 'Rolled Oats', gi: 55, carbsPer100g: 66 },
+        'quinoa': { name: 'Quinoa', gi: 53, carbsPer100g: 21 },
+        'whole-wheat-bread': { name: 'Whole Wheat Bread', gi: 71, carbsPer100g: 41 },
+        'white-bread': { name: 'White Bread', gi: 75, carbsPer100g: 49 },
+        'potato': { name: 'White Potato', gi: 82, carbsPer100g: 17 },
+        'sweet-potato': { name: 'Sweet Potato', gi: 61, carbsPer100g: 20 },
+        'pasta': { name: 'Pasta', gi: 49, carbsPer100g: 25 },
+        'corn': { name: 'Corn', gi: 60, carbsPer100g: 19 },
+        'apple': { name: 'Apple', gi: 38, carbsPer100g: 14 },
+        'banana': { name: 'Banana', gi: 51, carbsPer100g: 23 },
+        'orange': { name: 'Orange', gi: 43, carbsPer100g: 12 },
+        'grapes': { name: 'Grapes', gi: 53, carbsPer100g: 17 },
+        'watermelon': { name: 'Watermelon', gi: 76, carbsPer100g: 8 },
+        'strawberries': { name: 'Strawberries', gi: 40, carbsPer100g: 8 },
+        'blueberries': { name: 'Blueberries', gi: 53, carbsPer100g: 14 },
+        'mango': { name: 'Mango', gi: 56, carbsPer100g: 15 },
+        'lentils': { name: 'Lentils', gi: 32, carbsPer100g: 20 },
+        'chickpeas': { name: 'Chickpeas', gi: 28, carbsPer100g: 27 },
+        'black-beans': { name: 'Black Beans', gi: 30, carbsPer100g: 16 },
+        'carrots': { name: 'Carrots', gi: 47, carbsPer100g: 10 },
+        'broccoli': { name: 'Broccoli', gi: 15, carbsPer100g: 7 },
+        'spinach': { name: 'Spinach', gi: 15, carbsPer100g: 4 },
+        'milk': { name: 'Cow\'s Milk', gi: 39, carbsPer100g: 5 },
+        'yogurt': { name: 'Plain Yogurt', gi: 36, carbsPer100g: 4 },
+        'soy-milk': { name: 'Soy Milk', gi: 34, carbsPer100g: 6 },
+        'honey': { name: 'Honey', gi: 61, carbsPer100g: 82 },
+        'dark-chocolate': { name: 'Dark Chocolate (70%)', gi: 25, carbsPer100g: 45 },
+        'chocolate-bar': { name: 'Chocolate Bar', gi: 70, carbsPer100g: 60 },
+        'soda': { name: 'Regular Soda', gi: 63, carbsPer100g: 11 }
+    };
+    
+    addFoodBtn.addEventListener('click', () => {
+        const foodSelect = document.getElementById('foodSelect');
+        const foodAmount = getInputValue(document.getElementById('foodAmount'));
+        
+        if (!foodSelect.value || isNaN(foodAmount) || foodAmount <= 0) {
+            alert('Please select a food and enter a valid amount.');
+            return;
+        }
+        
+        const food = foodDatabase[foodSelect.value];
+        const carbs = (food.carbsPer100g * foodAmount) / 100;
+        const gl = (food.gi * carbs) / 100;
+        
+        mealFoods.push({
+            ...food,
+            amount: foodAmount,
+            carbs: carbs,
+            gl: gl
+        });
+        
+        updateFoodsList();
+        currentFoodsDiv.style.display = 'block';
+    });
+    
+    clearFoodsBtn.addEventListener('click', () => {
+        mealFoods = [];
+        updateFoodsList();
+        currentFoodsDiv.style.display = 'none';
+    });
+    
+    function updateFoodsList() {
+        foodsList.innerHTML = mealFoods.map((food, index) => `
+            <div class="food-item">
+                <span class="food-name">${food.amount}g ${food.name}</span>
+                <span class="food-gl">GL: ${food.gl.toFixed(1)}</span>
+            </div>
+        `).join('');
+    }
+    
+    glycemicLoadForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        if (mealFoods.length === 0) {
+            alert('Please add at least one food to your meal.');
+            return;
+        }
+        
+        const totalGL = mealFoods.reduce((sum, food) => sum + food.gl, 0);
+        const totalCarbs = mealFoods.reduce((sum, food) => sum + food.carbs, 0);
+        const avgGI = mealFoods.reduce((sum, food) => sum + (food.gi * food.carbs), 0) / totalCarbs;
+        
+        document.getElementById('totalGL').textContent = totalGL.toFixed(1);
+        
+        const glCategory = document.getElementById('glCategory');
+        if (totalGL < 10) {
+            glCategory.textContent = 'Low Glycemic Load - Excellent for blood sugar control';
+        } else if (totalGL < 20) {
+            glCategory.textContent = 'Medium Glycemic Load - Moderate blood sugar impact';
+        } else {
+            glCategory.textContent = 'High Glycemic Load - Significant blood sugar impact';
+        }
+        
+        // Display details
+        const details = document.getElementById('glycemicDetails');
+        details.innerHTML = `
+            <div class="gl-details-grid">
+                <div class="gl-detail-item">
+                    <span class="detail-label">Total Glycemic Load:</span>
+                    <span class="detail-value">${totalGL.toFixed(1)}</span>
+                </div>
+                <div class="gl-detail-item">
+                    <span class="detail-label">Total Carbohydrates:</span>
+                    <span class="detail-value">${totalCarbs.toFixed(1)}g</span>
+                </div>
+                <div class="gl-detail-item">
+                    <span class="detail-label">Average GI:</span>
+                    <span class="detail-value">${avgGI.toFixed(0)}</span>
+                </div>
+            </div>
+        `;
+        
+        // Generate recommendations
+        const recommendations = document.getElementById('recommendationList');
+        let recommendationHTML = '<ul>';
+        
+        if (totalGL > 20) {
+            recommendationHTML += '<li>Consider reducing portion sizes or choosing lower GI foods</li>';
+        }
+        if (avgGI > 70) {
+            recommendationHTML += '<li>Include more low GI foods like vegetables, legumes, and whole grains</li>';
+        }
+        if (totalGL < 10) {
+            recommendationHTML += '<li>Great choice for blood sugar management!</li>';
+        }
+        
+        recommendationHTML += '</ul>';
+        recommendations.innerHTML = recommendationHTML;
+        
+        document.getElementById('resultsCard').classList.add('show');
+        document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth' });
+        
+        if (window.calculatorUtils) {
+            window.calculatorUtils.trackToolUsage('Glycemic Load Calculator');
+        }
+    });
+}
+
+// Initialize Pre-Workout Nutrition Planner
+function initPreWorkoutNutrition() {
+    const preWorkoutForm = document.getElementById('preWorkoutForm');
+    if (preWorkoutForm) {
+        setupRadioStyling('gender');
+        
+        preWorkoutForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const bodyWeight = getInputValue(document.getElementById('bodyWeight'));
+            const workoutType = document.getElementById('workoutType').value;
+            const workoutDuration = getInputValue(document.getElementById('workoutDuration'));
+            const workoutIntensity = document.getElementById('workoutIntensity').value;
+            const primaryGoal = document.getElementById('primaryGoal').value;
+            
+            if (isNaN(bodyWeight) || bodyWeight <= 0) {
+                alert('Please enter a valid body weight.');
+                return;
+            }
+            
+            if (isNaN(workoutDuration) || workoutDuration <= 0) {
+                alert('Please enter a valid workout duration.');
+                return;
+            }
+            
+            // Calculate macronutrient needs based on workout type and intensity
+            let carbsPerKg = 1.5; // Base carbs per kg
+            let proteinPerKg = 0.25; // Base protein per kg
+            
+            // Adjust based on workout type
+            if (workoutType === 'endurance') {
+                carbsPerKg = 3.0;
+                proteinPerKg = 0.2;
+            } else if (workoutType === 'hiit') {
+                carbsPerKg = 2.0;
+                proteinPerKg = 0.3;
+            } else if (workoutType === 'strength') {
+                carbsPerKg = 1.0;
+                proteinPerKg = 0.4;
+            }
+            
+            // Adjust for intensity
+            const intensityMultiplier = workoutIntensity === 'low' ? 0.8 : 
+                                   workoutIntensity === 'moderate' ? 1.0 : 
+                                   workoutIntensity === 'high' ? 1.2 : 1.4;
+            
+            carbsPerKg *= intensityMultiplier;
+            proteinPerKg *= intensityMultiplier;
+            
+            // Calculate total macros
+            const totalCarbs = Math.round(carbsPerKg * bodyWeight);
+            const totalProtein = Math.round(proteinPerKg * bodyWeight);
+            const totalCalories = (totalCarbs * 4) + (totalProtein * 4);
+            
+            // Generate timeline
+            const workoutTime = document.getElementById('workoutTime').value;
+            const timeline = document.getElementById('nutritionTimeline');
+            timeline.innerHTML = `
+                <div class="timeline-grid">
+                    <div class="timeline-item">
+                        <span class="timeline-time">3-4 hours before</span>
+                        <span class="timeline-meal">Full meal: 50-60% of total carbs</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">1-2 hours before</span>
+                        <span class="timeline-meal">Light snack: 20-30% of total carbs</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">30-60 minutes before</span>
+                        <span class="timeline-meal">${workoutType === 'endurance' ? 'Quick fuel: 10-20% of total carbs' : 'Optional light snack'}</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">Workout time</span>
+                        <span class="timeline-meal">Focus on hydration during exercise</span>
+                    </div>
+                </div>
+            `;
+            
+            // Display macro breakdown
+            const macroDetails = document.getElementById('macroDetails');
+            macroDetails.innerHTML = `
+                <div class="macro-grid">
+                    <div class="macro-card">
+                        <span class="macro-label">Carbohydrates</span>
+                        <span class="macro-value">${totalCarbs}g</span>
+                        <span class="macro-calories">${totalCarbs * 4} cal</span>
+                    </div>
+                    <div class="macro-card">
+                        <span class="macro-label">Protein</span>
+                        <span class="macro-value">${totalProtein}g</span>
+                        <span class="macro-calories">${totalProtein * 4} cal</span>
+                    </div>
+                    <div class="macro-card">
+                        <span class="macro-label">Total Calories</span>
+                        <span class="macro-value">${totalCalories} cal</span>
+                        <span class="macro-calories">~${(totalCalories/bodyWeight).toFixed(1)} cal/kg</span>
+                    </div>
+                </div>
+            `;
+            
+            // Generate meal suggestions
+            const mealSuggestions = document.getElementById('mealSuggestions');
+            const dietaryRestrictions = document.getElementById('dietaryRestrictions').value;
+            
+            let suggestionsHTML = '<div class="suggestions-grid">';
+            
+            if (dietaryRestrictions === 'vegan' || dietaryRestrictions === 'vegetarian') {
+                suggestionsHTML += `
+                    <div class="suggestion-card">
+                        <h4>Plant-Based Options</h4>
+                        <ul>
+                            <li>Oatmeal with banana and nut butter</li>
+                            <li>Quinoa bowl with sweet potato</li>
+                            <li>Smoothie with plant protein</li>
+                        </ul>
+                    </div>
+                `;
+            } else {
+                suggestionsHTML += `
+                    <div class="suggestion-card">
+                        <h4>Quick Energy Sources</h4>
+                        <ul>
+                            <li>Banana with almond butter</li>
+                            <li>Oatmeal with berries</li>
+                            <li>Rice cakes with honey</li>
+                        </ul>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>Protein Sources</h4>
+                        <ul>
+                            <li>Greek yogurt</li>
+                            <li>Protein shake</li>
+                            <li>Chicken breast (3+ hours before)</li>
+                        </ul>
+                    </div>
+                `;
+            }
+            
+            suggestionsHTML += '</div>';
+            mealSuggestions.innerHTML = suggestionsHTML;
+            
+            // Hydration strategy
+            const hydrationDetails = document.getElementById('hydrationDetails');
+            hydrationDetails.innerHTML = `
+                <div class="hydration-grid">
+                    <div class="hydration-item">
+                        <span class="hydration-time">2-3 hours before</span>
+                        <span class="hydration-amount">500-600ml water</span>
+                    </div>
+                    <div class="hydration-item">
+                        <span class="hydration-time">20-30 minutes before</span>
+                        <span class="hydration-amount">200-300ml water</span>
+                    </div>
+                    <div class="hydration-item">
+                        <span class="hydration-time">During workout</span>
+                        <span class="hydration-amount">150-200ml every 15-20 min</span>
+                    </div>
+                    <div class="hydration-item">
+                        <span class="hydration-time">For >90min sessions</span>
+                        <span class="hydration-amount">Consider electrolyte drink</span>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('resultsCard').classList.add('show');
+            document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth' });
+            
+            if (window.calculatorUtils) {
+                window.calculatorUtils.trackToolUsage('Pre-Workout Nutrition Planner');
+            }
+        });
+    }
+}
+
+// Initialize Post-Workout Recovery Meal Builder
+function initPostWorkoutRecovery() {
+    const postWorkoutForm = document.getElementById('postWorkoutForm');
+    if (postWorkoutForm) {
+        setupRadioStyling('gender');
+        
+        // Add range input interaction
+        const intensityRange = document.getElementById('workoutIntensity');
+        const rangeValue = intensityRange?.nextElementSibling;
+        if (intensityRange && rangeValue) {
+            intensityRange.addEventListener('input', () => {
+                rangeValue.textContent = intensityRange.value;
+            });
+        }
+        
+        postWorkoutForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const currentWeight = getInputValue(document.getElementById('currentWeight'));
+            const bodyFat = getInputValue(document.getElementById('bodyFat')) || 20;
+            const workoutType = document.getElementById('workoutType').value;
+            const workoutDuration = getInputValue(document.getElementById('workoutDuration'));
+            const workoutIntensity = getInputValue(document.getElementById('workoutIntensity'));
+            const primaryGoal = document.getElementById('primaryGoal').value;
+            const timeSinceWorkout = document.getElementById('timeSinceWorkout').value;
+            
+            if (isNaN(currentWeight) || currentWeight <= 0) {
+                alert('Please enter a valid body weight.');
+                return;
+            }
+            
+            if (isNaN(workoutDuration) || workoutDuration <= 0) {
+                alert('Please enter a valid workout duration.');
+                return;
+            }
+            
+            // Calculate protein needs (20-40g for most athletes)
+            let proteinPerKg = 0.25; // Base protein per kg
+            
+            // Adjust based on workout type
+            if (workoutType === 'strength') {
+                proteinPerKg = 0.3;
+            } else if (workoutType === 'endurance') {
+                proteinPerKg = 0.2;
+            } else if (workoutType === 'hiit') {
+                proteinPerKg = 0.35;
+            }
+            
+            // Adjust for intensity
+            const intensityMultiplier = workoutIntensity / 5; // Normalize to 1.0 for medium
+            proteinPerKg *= intensityMultiplier;
+            
+            const totalProtein = Math.max(20, Math.min(40, Math.round(proteinPerKg * currentWeight)));
+            
+            // Calculate carb needs based on workout type and duration
+            let carbsPerKg = 1.0; // Base carbs per kg
+            
+            if (workoutType === 'endurance') {
+                carbsPerKg = 1.2;
+            } else if (workoutType === 'strength') {
+                carbsPerKg = 0.8;
+            } else if (workoutType === 'hiit') {
+                carbsPerKg = 1.0;
+            }
+            
+            // Adjust for duration
+            if (workoutDuration > 90) {
+                carbsPerKg *= 1.2;
+            } else if (workoutDuration < 30) {
+                carbsPerKg *= 0.7;
+            }
+            
+            const totalCarbs = Math.round(carbsPerKg * currentWeight);
+            const totalCalories = (totalProtein * 4) + (totalCarbs * 4);
+            
+            // Display recovery macros
+            document.getElementById('proteinTarget').textContent = `${totalProtein}g`;
+            document.getElementById('carbTarget').textContent = `${totalCarbs}g`;
+            document.getElementById('ratioDisplay').textContent = `${Math.round(totalCarbs/totalProtein)}:1`;
+            document.getElementById('calorieTarget').textContent = `${totalCalories} cal`;
+            
+            // Timing window information
+            const timingInfo = document.getElementById('timingInfo');
+            const isImmediate = timeSinceWorkout === 'immediately';
+            const isWithin30min = timeSinceWorkout === '30min';
+            
+            timingInfo.innerHTML = `
+                <div class="timing-card">
+                    <h4>${isImmediate ? 'Immediate Recovery Window' : isWithin30min ? 'Optimal Recovery Window' : 'Delayed Recovery'}</h4>
+                    <p>${isImmediate ? 'Perfect timing! This is when muscle protein synthesis is highest.' : 
+                         isWithin30min ? 'Great timing! Still within optimal window for recovery.' :
+                         'Late, but still beneficial. Focus on quickly digestible nutrients.'}</p>
+                    <p><strong>Target consumption:</strong> Within 30-120 minutes post-workout</p>
+                </div>
+            `;
+            
+            // Meal suggestions
+            const mealSuggestions = document.getElementById('mealSuggestions');
+            const dietaryRestrictions = document.getElementById('dietaryRestrictions').value;
+            
+            let suggestionsHTML = '<div class="meal-grid">';
+            
+            if (dietaryRestrictions === 'vegan') {
+                suggestionsHTML += `
+                    <div class="meal-card">
+                        <h4>Plant-Based Recovery</h4>
+                        <ul>
+                            <li>Plant protein shake with banana</li>
+                            <li>Quinoa bowl with beans and vegetables</li>
+                            <li>Smoothie with plant protein and berries</li>
+                        </ul>
+                    </div>
+                `;
+            } else {
+                suggestionsHTML += `
+                    <div class="meal-card">
+                        <h4>Quick Recovery Options</h4>
+                        <ul>
+                            <li>Protein shake with banana</li>
+                            <li>Greek yogurt with honey and berries</li>
+                            <li>Chicken breast with sweet potato</li>
+                        </ul>
+                    </div>
+                    <div class="meal-card">
+                        <h4>Meal Combinations</h4>
+                        <ul>
+                            <li>${totalProtein}g protein + ${totalCarbs}g fast carbs</li>
+                            <li>Chocolate milk (natural 3:1 ratio)</li>
+                            <li>Salmon with rice and vegetables</li>
+                        </ul>
+                    </div>
+                `;
+            }
+            
+            suggestionsHTML += '</div>';
+            mealSuggestions.innerHTML = suggestionsHTML;
+            
+            // Hydration strategy
+            const hydrationDetails = document.getElementById('hydrationDetails');
+            const estimatedFluidLoss = Math.round(workoutDuration * 15 * intensityMultiplier); // Rough estimate
+            
+            hydrationDetails.innerHTML = `
+                <div class="hydration-strategy">
+                    <h4>Rehydration Needs</h4>
+                    <p><strong>Estimated fluid loss:</strong> ${estimatedFluidLoss}ml</p>
+                    <p><strong>Immediate goal:</strong> ${Math.round(estimatedFluidLoss * 1.5)}ml (150% of loss)</p>
+                    <p><strong>Next 2-3 hours:</strong> Continue sipping water</p>
+                    <p><strong>Electrolytes:</strong> Include sodium if sweat loss was high</p>
+                </div>
+            `;
+            
+            // Supplement options
+            const supplementList = document.getElementById('supplementList');
+            supplementList.innerHTML = `
+                <div class="supplement-grid">
+                    <div class="supplement-card">
+                        <h4>Optional - Creatine</h4>
+                        <p>5g post-workout for strength/power athletes</p>
+                    </div>
+                    <div class="supplement-card">
+                        <h4>Optional - BCAA</h4>
+                        <p>5-10g if training fasted or very intense</p>
+                    </div>
+                    <div class="supplement-card">
+                        <h4>Optional - Tart Cherry</h4>
+                        <p>Reduces muscle soreness for recovery</p>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('resultsCard').classList.add('show');
+            document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth' });
+            
+            if (window.calculatorUtils) {
+                window.calculatorUtils.trackToolUsage('Post-Workout Recovery Meal Builder');
+            }
+        });
+    }
+}
+
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initCategoryFiltering();
@@ -1187,6 +2049,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initMacroCalculator();
     initBMRCalculator();
     initLBMCalculator();
+    initMicronutrientChecker();
+    initGlycemicLoadCalculator();
+    initPreWorkoutNutrition();
+    initPostWorkoutRecovery();
     
     // Initialize optional features
     // initThemeToggle();

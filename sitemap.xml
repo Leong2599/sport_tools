@@ -15,7 +15,13 @@
         </image:image>
     </url>
 
-    <!-- Fitness Calculators -->
+    <url>
+        <loc>https://sportstoolshub.com/tools/about.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
     <url>
         <loc>https://sportstoolshub.com/tools/bmi-calculator.html</loc>
         <lastmod>2026-01-31</lastmod>
@@ -79,7 +85,6 @@
         <priority>0.7</priority>
     </url>
     
-    <!-- Performance Trackers -->
     <url>
         <loc>https://sportstoolshub.com/tools/pace-calculator.html</loc>
         <lastmod>2026-01-31</lastmod>
@@ -152,11 +157,139 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-        <url>
+    <url>
         <loc>https://sportstoolshub.com/tools/yoga-calorie-calculator.html</loc>
         <lastmod>2026-01-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>      
+    </url>
+
+    <url>
+        <loc>https://sportstoolshub.com/tools/altitude-adjustment-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url> 
+    <url>
+        <loc>https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/glycemic-load-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/heat-acclimatization-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/intermittent-fasting-planner.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/micronutrient-checker.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/post-workout-recovery.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/pre-workout-nutrition.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/race-strategy-planner.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/refeed-day-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/soccer-match-load-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/stride-length-cadence-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/weight-cut-gain-planner.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/pre-workout-nutrition.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://sportstoolshub.com/tools/training-load-calculator.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
 
 </urlset>

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate training load with CTL, ATL, TSB metrics for optimal fatigue and form modeling in endurance sports">
+    <meta name="keywords"="="training load calculator, CTL ATL TSB, fatigue modeling, performance management, endurance training">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Training Load Calculator (CTL/ATL/TSB) - Performance Management">
+    <meta property="og:description" content="Calculate Chronic Training Load, Acute Training Load, and Training Stress Balance for optimal performance">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/training-load-calculator.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Training Load Calculator (CTL/ATL/TSB) | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/training-load-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">📊 Training Load Calculator (CTL/ATL/TSB)</h1>
+                <p class="tool-subtitle">Calculate Chronic Training Load, Acute Training Load, and Training Stress Balance for optimal fatigue and form modeling</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Training Load Analysis</h2>
+                        </div>
+                        <form id="training-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="sport">Sport Type</label>
+                                <select id="sport" name="sport" required aria-describedby="sport-help">
+                                    <option value="">Select sport</option>
+                                    <option value="running">Running</option>
+                                    <option value="cycling">Cycling</option>
+                                    <option value="swimming">Swimming</option>
+                                    <option value="triathlon">Triathlon</option>
+                                    <option value="rowing">Rowing</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <small id="sport-help">Select your primary sport for accurate calculations</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="current-ctl">Current CTL (Chronic Training Load)</label>
+                                <input type="number" id="current-ctl" name="current-ctl" step="1" min="0" max="200" required 
+                                       placeholder="Enter current CTL" aria-describedby="ctl-help">
+                                <small id="ctl-help">Your current fitness level (42-day average)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="current-atl">Current ATL (Acute Training Load)</label>
+                                <input type="number" id="current-atl" name="current-atl" step="1" min="0" max="200" required 
+                                       placeholder="Enter current ATL" aria-describedby="atl-help">
+                                <small id="atl-help">Your current fatigue level (7-day average)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="today-tss">Today's Training Stress Score (TSS)</label>
+                                <input type="number" id="today-tss" name="today-tss" step="1" min="0" max="500" required 
+                                       placeholder="Enter today's TSS" aria-describedby="tss-help">
+                                <small id="tss-help">Training stress score for today's workout</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="training-goal">Training Goal</label>
+                                <select id="training-goal" name="training-goal" required aria-describedby="goal-help">
+                                    <option value="">Select training goal</option>
+                                    <option value="base-building">Base Building</option>
+                                    <option value="build-phase">Build Phase</option>
+                                    <option value="peak-phase">Peak Phase</option>
+                                    <option value="taper">Taper Phase</option>
+                                    <option value="recovery">Recovery Week</option>
+                                    <option value="maintain">Maintenance</option>
+                                </select>
+                                <small id="goal-help">Your current training phase or goal</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experience-level">Experience Level</label>
+                                <select id="experience-level" name="experience-level" required aria-describedby="experience-help">
+                                    <option value="">Select experience level</option>
+                                    <option value="beginner">Beginner (&lt;2 years)</option>
+                                    <option value="intermediate">Intermediate (2-5 years)</option>
+                                    <option value="advanced">Advanced (5-10 years)</option>
+                                    <option value="elite">Elite (&gt;10 years)</option>
+                                </select>
+                                <small id="experience-help">Your training experience affects optimal ranges</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="upcoming-event">Upcoming Event</label>
+                                <select id="upcoming-event" name="upcoming-event" required aria-describedby="event-help">
+                                    <option value="">Select event type</option>
+                                    <option value="none">No upcoming event</option>
+                                    <option value="5k-10k">5K/10K (1-2 weeks)</option>
+                                    <option value="half-marathon">Half Marathon (2-4 weeks)</option>
+                                    <option value="marathon">Marathon (4-6 weeks)</option>
+                                    <option value="triathlon-sprint">Sprint Triathlon (2-3 weeks)</option>
+                                    <option value="triathlon-olympic">Olympic Triathlon (3-4 weeks)</option>
+                                    <option value="triathlon-703">70.3 Triathlon (4-6 weeks)</option>
+                                    <option value="triathlon-1406">140.6 Triathlon (6-8 weeks)</option>
+                                </select>
+                                <small id="event-help">Important for TSB target recommendations</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Analyze Training Load</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Training Load Analysis Results</h2>
+                        </div>
+                        <div id="results" class="results-container" aria-live="polite">
+                            <div class="placeholder-message">
+                                <p>Enter your training data to see detailed load analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">📊 Understanding Training Load Metrics</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>🔷 Chronic Training Load (CTL)</h4>
+                                    <ul>
+                                        <li>42-day exponential moving average of daily TSS</li>
+                                        <li>Represents your current fitness level</li>
+                                        <li>Slow to change, builds gradually over time</li>
+                                        <li>Higher CTL = better fitness/endurance</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🔶 Acute Training Load (ATL)</h4>
+                                    <ul>
+                                        <li>7-day exponential moving average of daily TSS</li>
+                                        <li>Represents your current fatigue level</li>
+                                        <li>Changes quickly based on recent training</li>
+                                        <li>Higher ATL = more fatigue from recent training</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🟢 Training Stress Balance (TSB)</h4>
+                                    <ul>
+                                        <li>TSB = CTL - ATL (Fitness - Fatigue)</li>
+                                        <li>Represents your current form/readiness to perform</li>
+                                        <li>Positive TSB = Fresh, ready to perform</li>
+                                        <li>Negative TSB = Fatigued, building fitness</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>⚡ Optimal Ranges by Experience</h4>
+                                    <ul>
+                                        <li><strong>Beginner:</strong> CTL 20-40, TSB +5 to +25</li>
+                                        <li><strong>Intermediate:</strong> CTL 40-70, TSB 0 to +20</li>
+                                        <li><strong>Advanced:</strong> CTL 70-100, TSS 70-120 daily</li>
+                                        <li><strong>Elite:</strong> CTL 100-150+, TSS 100-200 daily</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('training-form');
+            const resultsContainer = document.getElementById('results');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                analyzeTrainingLoad();
+            });
+
+            function analyzeTrainingLoad() {
+                const sport = document.getElementById('sport').value;
+                const currentCTL = parseFloat(document.getElementById('current-ctl').value);
+                const currentATL = parseFloat(document.getElementById('current-atl').value);
+                const todayTSS = parseFloat(document.getElementById('today-tss').value);
+                const trainingGoal = document.getElementById('training-goal').value;
+                const experienceLevel = document.getElementById('experience-level').value;
+                const upcomingEvent = document.getElementById('upcoming-event').value;
+
+                // Calculate new values after today's workout
+                const newATL = calculateATL(currentATL, todayTSS);
+                const newCTL = calculateCTL(currentCTL, todayTSS);
+                const newTSB = calculateTSB(newCTL, newATL);
+
+                // Calculate future projections
+                const projections = calculateFutureProjections(newCTL, newATL, trainingGoal, experienceLevel);
+
+                // Get recommendations
+                const recommendations = getRecommendations(newCTL, newATL, newTSB, trainingGoal, experienceLevel, upcomingEvent);
+                const insights = generateInsights(currentCTL, newCTL, currentATL, newATL, trainingGoal);
+                const optimalRanges = getOptimalRanges(experienceLevel);
+
+                // Display results
+                displayResults({
+                    currentCTL: currentCTL.toFixed(1),
+                    currentATL: currentATL.toFixed(1),
+                    currentTSB: calculateTSB(currentCTL, currentATL).toFixed(1),
+                    newCTL: newCTL.toFixed(1),
+                    newATL: newATL.toFixed(1),
+                    newTSB: newTSB.toFixed(1),
+                    projections: projections,
+                    recommendations: recommendations,
+                    insights: insights,
+                    optimalRanges: optimalRanges,
+                    todayTSS: todayTSS,
+                    fitnessChange: ((newCTL - currentCTL) / currentCTL * 100).toFixed(1),
+                    fatigueChange: ((newATL - currentATL) / currentATL * 100).toFixed(1),
+                    formChange: ((newTSB - calculateTSB(currentCTL, currentATL)) / Math.abs(calculateTSB(currentCTL, currentATL) + 1) * 100).toFixed(1)
+                });
+            }
+
+            function calculateCTL(currentCTL, todayTSS) {
+                // 42-day exponential moving average
+                // New CTL = (Current CTL × 41/42) + (Today's TSS × 1/42)
+                return (currentCTL * 41/42) + (todayTSS * 1/42);
+            }
+
+            function calculateATL(currentATL, todayTSS) {
+                // 7-day exponential moving average
+                // New ATL = (Current ATL × 6/7) + (Today's TSS × 1/7)
+                return (currentATL * 6/7) + (todayTSS * 1/7);
+            }
+
+            function calculateTSB(ctl, atl) {
+                // TSB = CTL - ATL
+                return ctl - atl;
+            }
+
+            function calculateFutureProjections(ctl, atl, goal, experience) {
+                const projections = [];
+                let projCTL = ctl;
+                let projATL = atl;
+
+                // Target TSS based on goal
+                const targetTSS = getTargetTSS(goal, experience);
+
+                for (let day = 1; day <= 14; day++) {
+                    if (day <= 7) {
+                        projATL = (projATL * 6/7) + (targetTSS * 1/7);
+                    } else {
+                        projATL = (projATL * 6/7) + (targetTSS * 0.8 * 1/7); // 20% reduction after week 1
+                    }
+                    projCTL = (projCTL * 41/42) + (targetTSS * 1/42);
+                    const projTSB = projCTL - projATL;
+
+                    projections.push({
+                        day: day,
+                        ctl: projCTL.toFixed(1),
+                        atl: projATL.toFixed(1),
+                        tsb: projTSB.toFixed(1)
+                    });
+                }
+
+                return projections;
+            }
+
+            function getTargetTSS(goal, experience) {
+                const baseTSS = {
+                    'beginner': 40,
+                    'intermediate': 60,
+                    'advanced': 80,
+                    'elite': 100
+                };
+
+                const goalMultipliers = {
+                    'base-building': 0.8,
+                    'build-phase': 1.2,
+                    'peak-phase': 1.4,
+                    'taper': 0.5,
+                    'recovery': 0.3,
+                    'maintain': 0.9
+                };
+
+                return (baseTSS[experience] || 60) * (goalMultipliers[goal] || 1.0);
+            }
+
+            function getOptimalRanges(experience) {
+                const ranges = {
+                    'beginner': { ctl: [20, 40], atl: [30, 50], tsb: [5, 25] },
+                    'intermediate': { ctl: [40, 70], atl: [40, 70], tsb: [0, 20] },
+                    'advanced': { ctl: [70, 100], atl: [60, 90], tsb: [-10, 15] },
+                    'elite': { ctl: [100, 150], atl: [80, 120], tsb: [-20, 10] }
+                };
+
+                return ranges[experience] || ranges['intermediate'];
+            }
+
+            function generateInsights(currentCTL, newCTL, currentATL, newATL, goal) {
+                const insights = [];
+                const currentTSB = currentCTL - currentATL;
+                const newTSB = newCTL - newATL;
+
+                if (Math.abs(newCTL - currentCTL) > 5) {
+                    insights.push('Significant fitness change detected - good progress if positive');
+                }
+
+                if (newATL > currentATL * 1.2) {
+                    insights.push('Fatigue increasing rapidly - watch for overtraining signs');
+                }
+
+                if (newTSB < -30 && goal !== 'peak-phase') {
+                    insights.push('High fatigue level - consider recovery day soon');
+                }
+
+                if (newTSB > 20 && goal === 'peak-phase') {
+                    insights.push('Excellent form for peak performance');
+                }
+
+                if (currentCTL < 30 && newCTL > 35) {
+                    insights.push('Building good base fitness - continue consistent training');
+                }
+
+                return insights;
+            }
+
+            function getRecommendations(ctl, atl, tsb, goal, experience, event) {
+                const recommendations = [];
+                const ranges = getOptimalRanges(experience);
+
+                // CTL recommendations
+                if (ctl < ranges.ctl[0]) {
+                    recommendations.push('Increase training volume to build fitness base');
+                } else if (ctl > ranges.ctl[1]) {
+                    recommendations.push('Excellent fitness level - focus on quality over quantity');
+                }
+
+                // ATL recommendations
+                if (atl < ranges.atl[0]) {
+                    recommendations.push('Add more intensity or volume to increase training load');
+                } else if (atl > ranges.atl[1]) {
+                    recommendations.push('High fatigue detected - schedule recovery soon');
+                }
+
+                // TSB recommendations
+                if (tsb < ranges.tsb[0]) {
+                    if (goal === 'recovery' || goal === 'taper') {
+                        recommendations.push('Perfect! Resting as planned for recovery');
+                    } else {
+                        recommendations.push('High fatigue - consider reducing intensity or adding rest');
+                    }
+                } else if (tsb > ranges.tsb[1]) {
+                    if (goal === 'base-building' || goal === 'build-phase') {
+                        recommendations.push('Good freshness - can handle more training load');
+                    } else {
+                        recommendations.push('Excellent form - ready for high-quality workouts');
+                    }
+                }
+
+                // Event-specific recommendations
+                if (event !== 'none') {
+                    const eventTSB = getEventTargetTSB(event);
+                    if (tsb < eventTSB - 10) {
+                        recommendations.push(`Need to reduce training load to reach target TSB of ${eventTSB} for event`);
+                    }
+                }
+
+                return recommendations;
+            }
+
+            function getEventTargetTSB(event) {
+                const targets = {
+                    '5k-10k': 15,
+                    'half-marathon': 20,
+                    'marathon': 25,
+                    'triathlon-sprint': 12,
+                    'triathlon-olympic': 18,
+                    'triathlon-703': 22,
+                    'triathlon-1406': 25
+                };
+                return targets[event] || 10;
+            }
+
+            function displayResults(results) {
+                const tsbColor = results.newTSB > 10 ? '#10b981' :
+                                results.newTSB > 0 ? '#3b82f6' :
+                                results.newTSB > -10 ? '#f59e0b' : '#ef4444';
+
+                const html = `
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">Current CTL</div>
+                            <div class="result-value">${results.currentCTL}</div>
+                            <div class="result-sublabel">Fitness level</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Current ATL</div>
+                            <div class="result-value">${results.currentATL}</div>
+                            <div class="result-sublabel">Fatigue level</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Current TSB</div>
+                            <div class="result-value">${results.currentTSB}</div>
+                            <div class="result-sublabel">Current form</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Today's TSS</div>
+                            <div class="result-value">${results.todayTSS}</div>
+                            <div class="result-sublabel">Training stress</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">New CTL</div>
+                            <div class="result-value">${results.newCTL}</div>
+                            <div class="result-sublabel">+${results.fitnessChange}%</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">New ATL</div>
+                            <div class="result-value">${results.newATL}</div>
+                            <div class="result-sublabel">+${results.fatigueChange}%</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">New TSB</div>
+                            <div class="result-value" style="color: ${tsbColor}">${results.newTSB}</div>
+                            <div class="result-sublabel">${results.formChange}% change</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Status</div>
+                            <div class="result-value" style="color: ${tsbColor}">${getTSBStatus(results.newTSB)}</div>
+                            <div class="result-sublabel">Training readiness</div>
+                        </div>
+                    </div>
+                    
+                    <div class="load-projection">
+                        <h4>14-Day Training Load Projection</h4>
+                        <div class="projection-chart">
+                            <canvas id="projectionCanvas" width="600" height="300"></canvas>
+                        </div>
+                        <div class="projection-legend">
+                            <div class="legend-item"><span class="legend-color ctl"></span> CTL (Fitness)</div>
+                            <div class="legend-item"><span class="legend-color atl"></span> ATL (Fatigue)</div>
+                            <div class="legend-item"><span class="legend-color tsb"></span> TSB (Form)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="optimal-ranges">
+                        <h4>Optimal Ranges for Your Experience Level</h4>
+                        <div class="range-indicators">
+                            <div class="range-item">
+                                <div class="range-label">CTL (Fitness)</div>
+                                <div class="range-bar">
+                                    <div class="range-fill" style="width: ${results.optimalRanges.ctl[1]}%"></div>
+                                    <div class="range-current" style="left: ${Math.min(100, (results.newCTL / results.optimalRanges.ctl[1]) * 100)}%"></div>
+                                </div>
+                                <div class="range-value">${results.optimalRanges.ctl[0]}-${results.optimalRanges.ctl[1]}</div>
+                            </div>
+                            <div class="range-item">
+                                <div class="range-label">ATL (Fatigue)</div>
+                                <div class="range-bar">
+                                    <div class="range-fill fatigue" style="width: ${results.optimalRanges.atl[1]}%"></div>
+                                    <div class="range-current" style="left: ${Math.min(100, (results.newATL / results.optimalRanges.atl[1]) * 100)}%"></div>
+                                </div>
+                                <div class="range-value">${results.optimalRanges.atl[0]}-${results.optimalRanges.atl[1]}</div>
+                            </div>
+                            <div class="range-item">
+                                <div class="range-label">TSB (Form)</div>
+                                <div class="range-bar">
+                                    <div class="range-fill form" style="width: 50%; left: 25%"></div>
+                                    <div class="range-current" style="left: ${Math.max(0, Math.min(100, 50 + (results.newTSB * 2)))}%"></div>
+                                </div>
+                                <div class="range-value">${results.optimalRanges.tsb[0]} to ${results.optimalRanges.tsb[1]}</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="insights">
+                        <h4>Training Insights</h4>
+                        <ul>
+                            ${results.insights.map(insight => `<li>${insight}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="recommendations">
+                        <h4>Training Recommendations</h4>
+                        <ul>
+                            ${results.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                resultsContainer.innerHTML = html;
+
+                // Draw projection chart
+                drawProjectionChart(results.projections);
+            }
+
+            function getTSBStatus(tsb) {
+                if (tsb > 15) return 'Peak Form';
+                if (tsb > 5) return 'Fresh';
+                if (tsb > -5) return 'Balanced';
+                if (tsb > -15) return 'Fatigued';
+                return 'Over-trained';
+            }
+
+            function drawProjectionChart(projections) {
+                const canvas = document.getElementById('projectionCanvas');
+                if (!canvas) return;
+
+                const ctx = canvas.getContext('2d');
+                const width = canvas.width;
+                const height = canvas.height;
+
+                // Clear canvas
+                ctx.clearRect(0, 0, width, height);
+
+                // Set up scales
+                const padding = 40;
+                const chartWidth = width - 2 * padding;
+                const chartHeight = height - 2 * padding;
+
+                // Find min/max values
+                let minValue = Infinity;
+                let maxValue = -Infinity;
+                projections.forEach(p => {
+                    minValue = Math.min(minValue, p.ctl, p.atl, p.tsb);
+                    maxValue = Math.max(maxValue, p.ctl, p.atl, p.tsb);
+                });
+
+                // Draw axes
+                ctx.strokeStyle = '#e5e7eb';
+                ctx.beginPath();
+                ctx.moveTo(padding, padding);
+                ctx.lineTo(padding, height - padding);
+                ctx.lineTo(width - padding, height - padding);
+                ctx.stroke();
+
+                // Draw zero line for TSB
+                const zeroY = height - padding - ((-minValue) / (maxValue - minValue) * chartHeight);
+                ctx.strokeStyle = '#6b7280';
+                ctx.setLineDash([5, 5]);
+                ctx.beginPath();
+                ctx.moveTo(padding, zeroY);
+                ctx.lineTo(width - padding, zeroY);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // Draw lines
+                const drawLine = (data, color) => {
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    projections.forEach((p, i) => {
+                        const x = padding + (i / (projections.length - 1)) * chartWidth;
+                        const y = height - padding - ((p[data] - minValue) / (maxValue - minValue) * chartHeight);
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    });
+                    ctx.stroke();
+                };
+
+                drawLine('ctl', '#3b82f6');
+                drawLine('atl', '#ef4444');
+                drawLine('tsb', '#10b981');
+
+                // Draw labels
+                ctx.fillStyle = '#374151';
+                ctx.font = '12px Inter, sans-serif';
+                projections.forEach((p, i) => {
+                    if (i % 2 === 0) {
+                        const x = padding + (i / (projections.length - 1)) * chartWidth;
+                        ctx.fillText(`Day ${p.day}`, x - 15, height - padding + 20);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

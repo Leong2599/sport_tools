@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate cycling gear ratios for optimal cadence vs speed analysis across different terrains and conditions">
+    <meta name="keywords" content="cycling gear ratio calculator, bike gearing, cadence speed analysis, cycling performance, gear optimization">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Cycling Gear Ratio Calculator - Cadence vs Speed by Terrain">
+    <meta property="og:description" content="Calculate optimal cycling gear ratios for terrain-specific performance and cadence management">
+    <meta property="og:type" content="website">
+    <property="og:url" content="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Cycling Gear Ratio Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">🚴‍♂️ Cycling Gear Ratio Calculator</h1>
+                <p class="tool-subtitle">Calculate cycling gear ratios for optimal cadence vs speed analysis across different terrains and conditions</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Bike Gearing Analysis</h2>
+                        </div>
+                        <form id="gear-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="bike-type">Bike Type</label>
+                                <select id="bike-type" name="bike-type" required aria-describedby="bike-type-help" onchange="updateGearInputs()">
+                                    <option value="">Select bike type</option>
+                                    <option value="road">Road Bike</option>
+                                    <option value="mountain">Mountain Bike</option>
+                                    <option value="gravel">Gravel Bike</option>
+                                    <option value="hybrid">Hybrid Bike</option>
+                                    <option value="cyclocross">Cyclocross Bike</option>
+                                    <option value="time-trial">Time Trial/Triathlon</option>
+                                    <option value="touring">Touring Bike</option>
+                                    <option value="custom">Custom Setup</option>
+                                </select>
+                                <small id="bike-type-help">Select your bike type for preset gear ranges</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="chainrings">Chainrings (teeth)</label>
+                                <select id="chainrings" name="chainrings" required aria-describedby="chainrings-help">
+                                    <option value="">Select chainring setup</option>
+                                </select>
+                                <small id="chainrings-help">Front chainring teeth count</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cassette">Cassette (teeth)</label>
+                                <select id="cassette" name="cassette" required aria-describedby="cassette-help">
+                                    <option value="">Select cassette range</option>
+                                </select>
+                                <small id="cassette-help">Rear cassette teeth range</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="wheel-size">Wheel Size</label>
+                                <select id="wheel-size" name="wheel-size" required aria-describedby="wheel-help">
+                                    <option value="">Select wheel size</option>
+                                    <option value="700c">700c (Standard Road)</option>
+                                    <option value="650b">650b (27.5" MTB)</option>
+                                    <option value="26inch">26" MTB</option>
+                                    <option value="29er">29er MTB</option>
+                                    <option value="650c">650c (Small Road/Triathlon)</option>
+                                </select>
+                                <small id="wheel-help">Wheel and tire size affects gear ratio</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tire-size">Tire Size</label>
+                                <select id="tire-size" name="tire-size" required aria-describedby="tire-help">
+                                    <option value="">Select tire size</option>
+                                </select>
+                                <small id="tire-help">Tire width affects overall wheel diameter</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="target-cadence">Target Cadence (RPM)</label>
+                                <input type="number" id="target-cadence" name="target-cadence" min="60" max="120" step="5" required 
+                                       placeholder="Enter target cadence" aria-describedby="cadence-help">
+                                <small id="cadence-help">Your preferred pedaling cadence (revolutions per minute)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rider-type">Rider Type</label>
+                                <select id="rider-type" name="rider-type" required aria-describedby="rider-help">
+                                    <option value="">Select rider type</option>
+                                    <option value="spinner">Spinner (High cadence 90-100 RPM)</option>
+                                    <option value="masher">Masher (Low cadence 70-80 RPM)</option>
+                                    <option value="balanced">Balanced (80-90 RPM)</option>
+                                    <option value="climber">Climber (Variable cadence)</option>
+                                    <option value="sprinter">Sprinter (High power, variable cadence)</option>
+                                </select>
+                                <small id="rider-help">Your riding style affects optimal gear selection</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="terrain-type">Primary Terrain</label>
+                                <select id="terrain-type" name="terrain-type" required aria-describedby="terrain-help">
+                                    <option value="">Select terrain type</option>
+                                    <option value="flat">Flat Roads/Race Courses</option>
+                                    <option value="rolling">Rolling Hills</option>
+                                    <option value="climbing">Mountain Climbing</option>
+                                    <option value="mixed">Mixed Terrain</option>
+                                    <option value="off-road">Off-Road/Trail</option>
+                                    <option value="time-trial">Time Trial/Flat Racing</option>
+                                </select>
+                                <small id="terrain-help">Primary riding terrain affects gear needs</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fitness-level">Fitness Level</label>
+                                <select id="fitness-level" name="fitness-level" required aria-describedby="fitness-help">
+                                    <option value="">Select fitness level</option>
+                                    <option value="beginner">Beginner (&lt;1 year)</option>
+                                    <option value="recreational">Recreational (1-3 years)</option>
+                                    <option value="competitive">Competitive (3-5 years)</option>
+                                    <option value="advanced">Advanced (5-10 years)</option>
+                                    <option value="elite">Elite/Professional</option>
+                                </select>
+                                <small id="fitness-help">Fitness affects sustainable power and cadence</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Calculate Gear Ratios</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Gear Ratio Analysis Results</h2>
+                        </div>
+                        <div id="results" class="results-container" aria-live="polite">
+                            <div class="placeholder-message">
+                                <p>Enter your bike setup to see detailed gear ratio analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🚴‍♂️ Understanding Cycling Gearing</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>⚙️ Gear Ratio Basics</h4>
+                                    <ul>
+                                        <li><strong>Low gears:</strong> Easy pedaling, climbing, acceleration</li>
+                                        <li><strong>High gears:</strong> Hard pedaling, high speed, flats</li>
+                                        <li><strong>1:1 ratio:</strong> Chainring = cassette tooth</li>
+                                        <li><strong>Range:</strong> Difference between lowest/highest gear</li>
+                                        <li><strong>Steps:</strong> Gaps between consecutive gears</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🎯 Optimal Cadence</h4>
+                                    <ul>
+                                        <li><strong>Beginner:</strong> 70-85 RPM</li>
+                                        <li><strong>Recreational:</strong> 80-90 RPM</li>
+                                        <li><strong>Competitive:</strong> 85-95 RPM</li>
+                                        <li><strong>Elite:</strong> 90-100 RPM</li>
+                                        <li><strong>Climbing:</strong> 60-80 RPM</li>
+                                        <li><strong>Sprinting:</strong> 100-120+ RPM</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🏔️ Terrain Considerations</h4>
+                                    <ul>
+                                        <li><strong>Flat racing:</strong> 11-25T cassette, 53-39T chainrings</li>
+                                        <li><strong>Gravel:</strong> 11-32T cassette, 46-36T chainrings</li>
+                                        <li><strong>Mountain:</strong> 11-51T cassette, 34-24T chainrings</li>
+                                        <li><strong>Climbing:</strong> Larger rear cassettes, compact chainrings</li>
+                                        <li><strong>Time trial:</strong> Narrow ranges, 11-23T typical</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>📈 Performance Factors</h4>
+                                    <ul>
+                                        <li><strong>Efficiency:</strong> Optimal cadence reduces fatigue</li>
+                                        <li><strong>Power:</strong> Different cadences for different efforts</li>
+                                        <li><strong>Muscle fatigue:</strong> Lower cadence stresses muscles</li>
+                                        <li><strong>Cardio stress:</strong> Higher cadence stresses heart</li>
+                                        <li><strong>Terrain adaptation:</strong> Wide range for varied terrain</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Bike setups database
+        const bikeSetups = {
+            road: {
+                chainrings: [
+                    { value: '53-39', text: '53-39 (Standard)' },
+                    { value: '52-36', text: '52-36 (Compact)' },
+                    { value: '50-34', text: '50-34 (Semi-Compact)' },
+                    { value: '48-32', text: '48-32 (Sub-Compact)' },
+                    { value: '54-42', text: '54-42 (Classic)' }
+                ],
+                cassettes: [
+                    { value: '11-28', text: '11-28T' },
+                    { value: '11-30', text: '11-30T' },
+                    { value: '11-32', text: '11-32T' },
+                    { value: '11-34', text: '11-34T' },
+                    { value: '12-25', text: '12-25T' },
+                    { value: '12-27', text: '12-27T' }
+                ],
+                tires: [
+                    { value: '23', text: '23mm' },
+                    { value: '25', text: '25mm' },
+                    { value: '28', text: '28mm' },
+                    { value: '30', text: '30mm' },
+                    { value: '32', text: '32mm' }
+                ]
+            },
+            mountain: {
+                chainrings: [
+                    { value: '34-24', text: '34-24T' },
+                    { value: '32-22', text: '32-22T' },
+                    { value: '30-22', text: '30-22T' },
+                    { value: '36-26', text: '36-26T' },
+                    { value: '38-28', text: '38-28T' },
+                    { value: 'single-32', text: 'Single Ring 32T' },
+                    { value: 'single-34', text: 'Single Ring 34T' }
+                ],
+                cassettes: [
+                    { value: '11-46', text: '11-46T (10-speed)' },
+                    { value: '11-50', text: '11-50T (11-speed)' },
+                    { value: '10-51', text: '10-51T (12-speed)' },
+                    { value: '10-52', text: '10-52T (12-speed)' },
+                    { value: '11-42', text: '11-42T (10-speed)' }
+                ],
+                tires: [
+                    { value: '2.1', text: '2.1"' },
+                    { value: '2.2', text: '2.2"' },
+                    { value: '2.3', text: '2.3"' },
+                    { value: '2.4', text: '2.4"' },
+                    { value: '2.5', text: '2.5"' }
+                ]
+            },
+            gravel: {
+                chainrings: [
+                    { value: '48-32', text: '48-32T' },
+                    { value: '46-30', text: '46-30T' },
+                    { value: '44-28', text: '44-28T' },
+                    { value: '42-28', text: '42-28T' },
+                    { value: 'single-40', text: 'Single Ring 40T' },
+                    { value: 'single-42', text: 'Single Ring 42T' }
+                ],
+                cassettes: [
+                    { value: '11-32', text: '11-32T' },
+                    { value: '11-34', text: '11-34T' },
+                    { value: '11-36', text: '11-36T' },
+                    { value: '10-44', text: '10-44T' },
+                    { value: '11-42', text: '11-42T' }
+                ],
+                tires: [
+                    { value: '35', text: '35mm' },
+                    { value: '38', text: '38mm' },
+                    { value: '40', text: '40mm' },
+                    { value: '42', text: '42mm' },
+                    { value: '45', text: '45mm' }
+                ]
+            },
+            hybrid: {
+                chainrings: [
+                    { value: '48-38', text: '48-38T' },
+                    { value: '46-36', text: '46-36T' },
+                    { value: '44-32', text: '44-32T' },
+                    { value: '42-30', text: '42-30T' },
+                    { value: 'single-42', text: 'Single Ring 42T' }
+                ],
+                cassettes: [
+                    { value: '11-32', text: '11-32T' },
+                    { value: '11-34', text: '11-34T' },
+                    { value: '12-28', text: '12-28T' },
+                    { value: '13-26', text: '13-26T' }
+                ],
+                tires: [
+                    { value: '32', text: '32mm' },
+                    { value: '35', text: '35mm' },
+                    { value: '38', text: '38mm' },
+                    { value: '40', text: '40mm' }
+                ]
+            },
+            cyclocross: {
+                chainrings: [
+                    { value: '46-36', text: '46-36T' },
+                    { value: '44-34', text: '44-34T' },
+                    { value: '42-32', text: '42-32T' },
+                    { value: 'single-40', text: 'Single Ring 40T' },
+                    { value: 'single-42', text: 'Single Ring 42T' }
+                ],
+                cassettes: [
+                    { value: '11-32', text: '11-32T' },
+                    { value: '11-34', text: '11-34T' },
+                    { value: '12-28', text: '12-28T' }
+                ],
+                tires: [
+                    { value: '30', text: '30mm' },
+                    { value: '32', text: '32mm' },
+                    { value: '33', text: '33mm' },
+                    { value: '34', text: '34mm' }
+                ]
+            },
+            'time-trial': {
+                chainrings: [
+                    { value: '55-42', text: '55-42T' },
+                    { value: '54-42', text: '54-42T' },
+                    { value: '56-44', text: '56-44T' },
+                    { value: '58-44', text: '58-44T' },
+                    { value: 'single-55', text: 'Single Ring 55T' }
+                ],
+                cassettes: [
+                    { value: '11-23', text: '11-23T' },
+                    { value: '11-25', text: '11-25T' },
+                    { value: '12-25', text: '12-25T' },
+                    { value: '11-26', text: '11-26T' }
+                ],
+                tires: [
+                    { value: '20', text: '20mm' },
+                    { value: '22', text: '22mm' },
+                    { value: '23', text: '23mm' },
+                    { value: '25', text: '25mm' }
+                ]
+            },
+            touring: {
+                chainrings: [
+                    { value: '48-36', text: '48-36T' },
+                    { value: '46-34', text: '46-34T' },
+                    { value: '44-32', text: '44-32T' },
+                    { value: '42-30', text: '42-30T' },
+                    { value: '50-34', text: '50-34T' }
+                ],
+                cassettes: [
+                    { value: '11-34', text: '11-34T' },
+                    { value: '11-36', text: '11-36T' },
+                    { value: '11-40', text: '11-40T' },
+                    { value: '12-36', text: '12-36T' }
+                ],
+                tires: [
+                    { value: '32', text: '32mm' },
+                    { value: '35', text: '35mm' },
+                    { value: '38', text: '38mm' },
+                    { value: '40', text: '40mm' },
+                    { value: '42', text: '42mm' }
+                ]
+            },
+            custom: {
+                chainrings: [
+                    { value: '53-39', text: '53-39T' },
+                    { value: '52-36', text: '52-36T' },
+                    { value: '50-34', text: '50-34T' },
+                    { value: '48-32', text: '48-32T' },
+                    { value: '46-30', text: '46-30T' },
+                    { value: '44-28', text: '44-28T' },
+                    { value: 'single-50', text: 'Single Ring 50T' }
+                ],
+                cassettes: [
+                    { value: '11-25', text: '11-25T' },
+                    { value: '11-28', text: '11-28T' },
+                    { value: '11-32', text: '11-32T' },
+                    { value: '11-34', text: '11-34T' },
+                    { value: '11-36', text: '11-36T' },
+                    { value: '11-40', text: '11-40T' },
+                    { value: '11-46', text: '11-46T' }
+                ],
+                tires: [
+                    { value: '23', text: '23mm' },
+                    { value: '25', text: '25mm' },
+                    { value: '28', text: '28mm' },
+                    { value: '32', text: '32mm' },
+                    { value: '35', text: '35mm' },
+                    { value: '40', text: '40mm' },
+                    { value: '45', text: '45mm' }
+                ]
+            }
+        };
+
+        function updateGearInputs() {
+            const bikeType = document.getElementById('bike-type').value;
+            const chainringsSelect = document.getElementById('chainrings');
+            const cassetteSelect = document.getElementById('cassette');
+            const tireSelect = document.getElementById('tire-size');
+
+            // Clear existing options
+            chainringsSelect.innerHTML = '<option value="">Select chainring setup</option>';
+            cassetteSelect.innerHTML = '<option value="">Select cassette range</option>';
+            tireSelect.innerHTML = '<option value="">Select tire size</option>';
+
+            if (bikeType && bikeSetups[bikeType]) {
+                const setup = bikeSetups[bikeType];
+                
+                // Add chainring options
+                setup.chainrings.forEach(option => {
+                    const elem = document.createElement('option');
+                    elem.value = option.value;
+                    elem.textContent = option.text;
+                    chainringsSelect.appendChild(elem);
+                });
+
+                // Add cassette options
+                setup.cassettes.forEach(option => {
+                    const elem = document.createElement('option');
+                    elem.value = option.value;
+                    elem.textContent = option.text;
+                    cassetteSelect.appendChild(elem);
+                });
+
+                // Add tire options
+                setup.tires.forEach(option => {
+                    const elem = document.createElement('option');
+                    elem.value = option.value;
+                    elem.textContent = option.text;
+                    tireSelect.appendChild(elem);
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('gear-form');
+            const resultsContainer = document.getElementById('results');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateGearRatios();
+            });
+
+            function calculateGearRatios() {
+                const bikeType = document.getElementById('bike-type').value;
+                const chainrings = document.getElementById('chainrings').value;
+                const cassette = document.getElementById('cassette').value;
+                const wheelSize = document.getElementById('wheel-size').value;
+                const tireSize = parseFloat(document.getElementById('tire-size').value);
+                const targetCadence = parseInt(document.getElementById('target-cadence').value);
+                const riderType = document.getElementById('rider-type').value;
+                const terrainType = document.getElementById('terrain-type').value;
+                const fitnessLevel = document.getElementById('fitness-level').value;
+
+                // Parse chainrings and cassette
+                const chainringTeeth = parseChainrings(chainrings);
+                const cassetteTeeth = parseCassette(cassette);
+
+                // Calculate wheel circumference
+                const wheelCircumference = calculateWheelCircumference(wheelSize, tireSize);
+
+                // Calculate gear ratios and speeds
+                const gearAnalysis = calculateGearAnalysis(chainringTeeth, cassetteTeeth, wheelCircumference, targetCadence);
+
+                // Determine optimal gearing
+                const optimalGearing = determineOptimalGearing(gearAnalysis, terrainType, riderType, fitnessLevel);
+
+                // Generate recommendations
+                const recommendations = generateRecommendations(
+                    gearAnalysis, optimalGearing, terrainType, riderType, fitnessLevel
+                );
+
+                // Generate insights
+                const insights = generateInsights(
+                    gearAnalysis, riderType, terrainType, bikeType
+                );
+
+                // Display results
+                displayResults({
+                    gearAnalysis: gearAnalysis,
+                    optimalGearing: optimalGearing,
+                    recommendations: recommendations,
+                    insights: insights,
+                    bikeType: bikeType,
+                    chainrings: chainrings,
+                    cassette: cassette,
+                    targetCadence: targetCadence,
+                    riderType: riderType,
+                    terrainType: terrainType
+                });
+            }
+
+            function parseChainrings(chainrings) {
+                if (chainrings.includes('single')) {
+                    const teeth = parseInt(chainrings.split('-')[1]);
+                    return [teeth];
+                }
+                return chainrings.split('-').map(t => parseInt(t));
+            }
+
+            function parseCassette(cassette) {
+                const range = cassette.split('-');
+                const start = parseInt(range[0]);
+                const end = parseInt(range[1]);
+                
+                // Generate realistic cassette teeth sequence
+                const teeth = [start];
+                let current = start;
+                
+                while (current < end) {
+                    if (current <= 15) {
+                        current += 1;
+                    } else if (current <= 19) {
+                        current += 2;
+                    } else {
+                        current += 2;
+                    }
+                    teeth.push(Math.min(current, end));
+                }
+                
+                return teeth;
+            }
+
+            function calculateWheelCircumference(wheelSize, tireSize) {
+                const wheelDiameters = {
+                    '700c': 622, // mm bead seat diameter
+                    '650b': 584,
+                    '26inch': 559,
+                    '29er': 622,
+                    '650c': 571
+                };
+
+                const baseDiameter = wheelDiameters[wheelSize] || 622;
+                const totalDiameter = baseDiameter + (tireSize * 2); // Add tire on both sides
+                
+                return totalDiameter * Math.PI; // Circumference in mm
+            }
+
+            function calculateGearAnalysis(chainringTeeth, cassetteTeeth, wheelCircumference, targetCadence) {
+                const analysis = [];
+
+                chainringTeeth.forEach(chainring => {
+                    cassetteTeeth.forEach(cog => {
+                        const gearRatio = chainring / cog;
+                        const metersPerCrank = (wheelCircumference * gearRatio) / 1000; // Convert mm to m
+                        const speedAtTargetCadence = (metersPerCrank * targetCadence * 60) / 1000; // km/h
+                        const gearInches = gearRatio * 27; // Standard gear inches calculation
+                        
+                        analysis.push({
+                            chainring: chainring,
+                            cog: cog,
+                            gearRatio: gearRatio.toFixed(2),
+                            metersPerCrank: metersPerCrank.toFixed(2),
+                            speedAtTargetCadence: speedAtTargetCadence.toFixed(1),
+                            gearInches: gearInches.toFixed(1),
+                            development: metersPerCrank.toFixed(2) // Distance per pedal revolution
+                        });
+                    });
+                });
+
+                // Sort by gear ratio (highest first)
+                analysis.sort((a, b) => parseFloat(b.gearRatio) - parseFloat(a.gearRatio));
+
+                return analysis;
+            }
+
+            function determineOptimalGearing(gearAnalysis, terrain, riderType, fitness) {
+                const optimal = {
+                    highCadenceGear: null,
+                    cruisingGear: null,
+                    climbingGear: null,
+                    lowestGear: null,
+                    highestGear: null,
+                    gearRange: null,
+                    recommendedCadence: getRecommendedCadence(riderType, terrain)
+                };
+
+                // Find optimal gears for different conditions
+                const speeds = gearAnalysis.map(g => parseFloat(g.speedAtTargetCadence));
+                
+                optimal.highestGear = gearAnalysis[0]; // Fastest gear
+                optimal.lowestGear = gearAnalysis[gearAnalysis.length - 1]; // Easiest gear
+                optimal.gearRange = parseFloat(optimal.highestGear.gearRatio) / parseFloat(optimal.lowestGear.gearRatio);
+
+                // Find cruising gear (around 25-30 km/h for most riders)
+                const cruisingTarget = fitness === 'elite' ? 35 : (fitness === 'advanced' ? 30 : 25);
+                optimal.cruisingGear = gearAnalysis.find(g => Math.abs(parseFloat(g.speedAtTargetCadence) - cruisingTarget) < 2) || gearAnalysis[Math.floor(gearAnalysis.length / 2)];
+
+                // Find climbing gear (around 15-20 km/h)
+                optimal.climbingGear = gearAnalysis.find(g => Math.abs(parseFloat(g.speedAtTargetCadence) - 18) < 3) || gearAnalysis[Math.floor(gearAnalysis.length * 0.8)];
+
+                // Find high cadence gear for sprinting
+                optimal.highCadenceGear = gearAnalysis[Math.floor(gearAnalysis.length * 0.2)];
+
+                return optimal;
+            }
+
+            function getRecommendedCadence(riderType, terrain) {
+                const baseCadence = {
+                    'spinner': 95,
+                    'masher': 75,
+                    'balanced': 85,
+                    'climber': 80,
+                    'sprinter': 90
+                };
+
+                const terrainAdjustment = {
+                    'climbing': -10,
+                    'flat': 0,
+                    'rolling': 5,
+                    'time-trial': 10,
+                    'off-road': -5
+                };
+
+                return (baseCadence[riderType] || 85) + (terrainAdjustment[terrain] || 0);
+            }
+
+            function generateRecommendations(gearAnalysis, optimal, terrain, riderType, fitness) {
+                const recommendations = [];
+
+                // Terrain-specific recommendations
+                if (terrain === 'climbing') {
+                    if (parseFloat(optimal.lowestGear.gearRatio) > 0.7) {
+                        recommendations.push('Consider easier cassette (larger rear cogs) for steep climbs');
+                    }
+                    recommendations.push('Your lowest gear should allow climbing at 60-70 RPM');
+                } else if (terrain === 'time-trial') {
+                    recommendations.push('Consider narrower cassette range for smoother gear transitions');
+                    recommendations.push('Aim for consistent cadence in your primary gear');
+                } else if (terrain === 'off-road') {
+                    recommendations.push('Wide gear range is essential for varied terrain');
+                    recommendations.push('Consider 1x setup for simplicity if terrain allows');
+                }
+
+                // Rider type recommendations
+                if (riderType === 'spinner') {
+                    recommendations.push('Ensure you have gears to maintain 90-100+ RPM');
+                } else if (riderType === 'masher') {
+                    recommendations.push('Your setup favors lower cadences - ensure adequate low gears');
+                }
+
+                // Fitness level recommendations
+                if (fitness === 'beginner') {
+                    recommendations.push('Wider gear range helps manage varying fitness levels');
+                    recommendations.push('Focus on maintaining comfortable cadence rather than speed');
+                } else if (fitness === 'elite') {
+                    recommendations.push('Consider tight gear spacing for optimal power output');
+                    recommendations.push('Fine-tune gear ratios for specific race demands');
+                }
+
+                // Gear range recommendations
+                if (optimal.gearRange > 3.5) {
+                    recommendations.push('Very wide gear range - excellent for varied terrain');
+                } else if (optimal.gearRange < 2.5) {
+                    recommendations.push('Narrow gear range - may be limiting for diverse terrain');
+                }
+
+                return recommendations;
+            }
+
+            function generateInsights(gearAnalysis, riderType, terrain, bikeType) {
+                const insights = [];
+
+                const totalGears = gearAnalysis.length;
+                const uniqueGears = new Set(gearAnalysis.map(g => g.gearRatio)).size;
+
+                if (uniqueGears < totalGears) {
+                    insights.push('Some gear ratios are duplicated - consider more distinct gear combinations');
+                }
+
+                const speedRange = parseFloat(gearAnalysis[0].speedAtTargetCadence) - parseFloat(gearAnalysis[gearAnalysis.length - 1].speedAtTargetCadence);
+                if (speedRange > 50) {
+                    insights.push('Excellent speed range - versatile setup for all conditions');
+                } else if (speedRange < 25) {
+                    insights.push('Limited speed range - may struggle with extreme conditions');
+                }
+
+                if (riderType === 'spinner' && bikeType === 'mountain') {
+                    insights.push('High cadence preference with mountain biking - ensure adequate low gears');
+                }
+
+                if (terrain === 'mixed' && totalGears < 18) {
+                    insights.push('Mixed terrain benefits from wider gear range - consider 2x setup');
+                }
+
+                return insights;
+            }
+
+            function displayResults(results) {
+                const html = `
+                    <div class="gear-overview">
+                        <h3>🚴‍♂️ Your Setup</h3>
+                        <div class="overview-grid">
+                            <div class="overview-item">
+                                <div class="overview-label">Bike Type</div>
+                                <div class="overview-value">${results.bikeType.charAt(0).toUpperCase() + results.bikeType.slice(1)}</div>
+                            </div>
+                            <div class="overview-item">
+                                <div class="overview-label">Chainrings</div>
+                                <div class="overview-value">${results.chainrings}T</div>
+                            </div>
+                            <div class="overview-item">
+                                <div class="overview-label">Cassette</div>
+                                <div class="overview-value">${results.cassette}T</div>
+                            </div>
+                            <div class="overview-item">
+                                <div class="overview-label">Target Cadence</div>
+                                <div class="overview-value">${results.targetCadence} RPM</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gear-analysis">
+                        <h4>⚙️ Gear Ratio Analysis</h4>
+                        <div class="gear-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Chainring</th>
+                                        <th>Cog</th>
+                                        <th>Ratio</th>
+                                        <th>Speed @ ${results.targetCadence} RPM</th>
+                                        <th>Development</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${results.gearAnalysis.map(gear => `
+                                        <tr class="${gear.chainring === results.optimalGearing.cruisingGear?.chainring && gear.cog === results.optimalGearing.cruisingGear?.cog ? 'optimal-gear' : ''}">
+                                            <td>${gear.chainring}T</td>
+                                            <td>${gear.cog}T</td>
+                                            <td>${gear.gearRatio}</td>
+                                            <td>${gear.speedAtTargetCadence} km/h</td>
+                                            <td>${gear.development} m</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="optimal-gearing">
+                        <h4>🎯 Optimal Gearing for Your Style</h4>
+                        <div class="gearing-grid">
+                            <div class="gearing-item">
+                                <div class="gearing-label">Fastest Gear</div>
+                                <div class="gearing-value">${results.optimalGearing.highestGear.chainring}T / ${results.optimalGearing.highestGear.cog}T</div>
+                                <div class="gearing-speed">${results.optimalGearing.highestGear.speedAtTargetCadence} km/h</div>
+                            </div>
+                            <div class="gearing-item">
+                                <div class="gearing-label">Cruising Gear</div>
+                                <div class="gearing-value">${results.optimalGearing.cruisingGear?.chainring}T / ${results.optimalGearing.cruisingGear?.cog}T</div>
+                                <div class="gearing-speed">${results.optimalGearing.cruisingGear?.speedAtTargetCadence} km/h</div>
+                            </div>
+                            <div class="gearing-item">
+                                <div class="gearing-label">Climbing Gear</div>
+                                <div class="gearing-value">${results.optimalGearing.climbingGear?.chainring}T / ${results.optimalGearing.climbingGear?.cog}T</div>
+                                <div class="gearing-speed">${results.optimalGearing.climbingGear?.speedAtTargetCadence} km/h</div>
+                            </div>
+                            <div class="gearing-item">
+                                <div class="gearing-label">Easiest Gear</div>
+                                <div class="gearing-value">${results.optimalGearing.lowestGear.chainring}T / ${results.optimalGearing.lowestGear.cog}T</div>
+                                <div class="gearing-speed">${results.optimalGearing.lowestGear.speedAtTargetCadence} km/h</div>
+                            </div>
+                        </div>
+                        <div class="gear-range-indicator">
+                            <div class="range-label">Gear Range: ${results.optimalGearing.gearRange.toFixed(1)}:1</div>
+                            <div class="range-bar">
+                                <div class="range-fill" style="width: ${Math.min(100, (results.optimalGearing.gearRange / 4) * 100)}%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="speed-cadence-chart">
+                        <h4>📊 Speed vs Cadence Chart</h4>
+                        <div class="speed-grid">
+                            <div class="speed-item">
+                                <div class="speed-label">20 km/h</div>
+                                <div class="speed-gears">
+                                    ${results.gearAnalysis.filter(g => parseFloat(g.speedAtTargetCadence) >= 19 && parseFloat(g.speedAtTargetCadence) <= 21).slice(0, 3).map(gear => 
+                                        `<span class="speed-gear">${gear.chainring}/${gear.cog}</span>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                            <div class="speed-item">
+                                <div class="speed-label">30 km/h</div>
+                                <div class="speed-gears">
+                                    ${results.gearAnalysis.filter(g => parseFloat(g.speedAtTargetCadence) >= 29 && parseFloat(g.speedAtTargetCadence) <= 31).slice(0, 3).map(gear => 
+                                        `<span class="speed-gear">${gear.chainring}/${gear.cog}</span>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                            <div class="speed-item">
+                                <div class="speed-label">40 km/h</div>
+                                <div class="speed-gears">
+                                    ${results.gearAnalysis.filter(g => parseFloat(g.speedAtTargetCadence) >= 39 && parseFloat(g.speedAtTargetCadence) <= 41).slice(0, 3).map(gear => 
+                                        `<span class="speed-gear">${gear.chainring}/${gear.cog}</span>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="insights">
+                        <h4>🧠 Gearing Insights</h4>
+                        <ul>
+                            ${results.insights.map(insight => `<li>${insight}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="recommendations">
+                        <h4>🎯 Setup Recommendations</h4>
+                        <ul>
+                            ${results.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                resultsContainer.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

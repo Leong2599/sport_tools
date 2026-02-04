@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate tennis match energy expenditure, calorie burn, and recovery needs with advanced performance metrics">
+    <meta name="keywords" content="tennis calorie calculator, match energy expenditure, tennis performance, sports metabolism, tennis analytics">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Tennis Match Energy Expenditure Tool - Performance Analytics">
+    <meta property="og:description" content="Track tennis match energy expenditure, calorie burn, and optimize recovery with detailed metrics">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Tennis Match Energy Expenditure Tool | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">🎾 Tennis Match Energy Expenditure Tool</h1>
+                <p class="tool-subtitle">Calculate match energy expenditure, calorie burn, and optimize recovery with advanced performance metrics</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Match Data</h2>
+                        </div>
+                        <form id="tennis-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="match-duration">Match Duration</label>
+                                <div class="input-group">
+                                    <input type="number" id="match-duration" name="match-duration" step="1" min="10" max="300" required 
+                                           placeholder="Enter duration" aria-describedby="duration-help">
+                                    <select id="duration-unit" name="duration-unit" aria-label="Duration unit">
+                                        <option value="minutes">minutes</option>
+                                        <option value="hours">hours</option>
+                                    </select>
+                                </div>
+                                <small id="duration-help">Total time spent playing</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="body-weight">Body Weight</label>
+                                <div class="input-group">
+                                    <input type="number" id="body-weight" name="body-weight" step="0.1" min="30" max="150" required 
+                                           placeholder="Enter weight" aria-describedby="weight-help">
+                                    <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
+                                        <option value="kg">kg</option>
+                                        <option value="lbs">lbs</option>
+                                    </select>
+                                </div>
+                                <small id="weight-help">Your current body weight</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="playing-style">Playing Style</label>
+                                <select id="playing-style" name="playing-style" required aria-describedby="style-help">
+                                    <option value="">Select playing style</option>
+                                    <option value="serve-volley">Serve-and-Volley</option>
+                                    <option value="aggressive-baseline">Aggressive Baseline</option>
+                                    <option value="counter-puncher">Counter-Puncher</option>
+                                    <option value="all-court">All-Court Player</option>
+                                </select>
+                                <small id="style-help">Your primary playing style affects energy use</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="surface">Court Surface</label>
+                                <select id="surface" name="surface" required aria-describedby="surface-help">
+                                    <option value="">Select court surface</option>
+                                    <option value="hard-court">Hard Court</option>
+                                    <option value="clay">Clay Court</option>
+                                    <option value="grass">Grass Court</option>
+                                    <option value="carpet">Carpet Court</option>
+                                </select>
+                                <small id="surface-help">Different surfaces require different energy levels</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="intensity">Match Intensity</label>
+                                <select id="intensity" name="intensity" required aria-describedby="intensity-help">
+                                    <option value="">Select intensity level</option>
+                                    <option value="casual">Casual/Social Play</option>
+                                    <option value="moderate">Club/League Match</option>
+                                    <option value="high">Tournament Match</option>
+                                    <option value="professional">Professional Level</option>
+                                </select>
+                                <small id="intensity-help">Competitive intensity of the match</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rallies-per-game">Average Rallies per Game</label>
+                                <input type="number" id="rallies-per-game" name="rallies-per-game" step="0.5" min="2" max="20" required 
+                                       placeholder="Enter rallies per game" aria-describedby="rallies-help">
+                                <small id="rallies-help">Average number of shots in each rally</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="temperature">Temperature</label>
+                                <div class="input-group">
+                                    <input type="number" id="temperature" name="temperature" step="1" min="-10" max="45" required 
+                                           placeholder="Enter temperature" aria-describedby="temp-help">
+                                    <select id="temp-unit" name="temp-unit" aria-label="Temperature unit">
+                                        <option value="celsius">°C</option>
+                                        <option value="fahrenheit">°F</option>
+                                    </select>
+                                </div>
+                                <small id="temp-help">Environmental conditions affect energy expenditure</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="humidity">Humidity (%)</label>
+                                <input type="number" id="humidity" name="humidity" min="0" max="100" required 
+                                       placeholder="Enter humidity" aria-describedby="humidity-help">
+                                <small id="humidity-help">Relative humidity during play</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Calculate Energy Expenditure</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Energy Analysis Results</h2>
+                        </div>
+                        <div id="results" class="results-container" aria-live="polite">
+                            <div class="placeholder-message">
+                                <p>Enter your match data to see detailed energy analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🎾 Understanding Tennis Energy Expenditure</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>🔥 Calorie Burn Rates</h4>
+                                    <ul>
+                                        <li><strong>Casual Play:</strong> 6-8 cal/min</li>
+                                        <li><strong>Club Match:</strong> 8-10 cal/min</li>
+                                        <li><strong>Tournament Match:</strong> 10-14 cal/min</li>
+                                        <li><strong>Professional:</strong> 14-18+ cal/min</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🏟️ Surface Energy Impact</h4>
+                                    <ul>
+                                        <li><strong>Hard Court:</strong> Baseline energy cost</li>
+                                        <li><strong>Clay Court:</strong> +15% energy use</li>
+                                        <li><strong>Grass Court:</strong> +10% energy use</li>
+                                        <li><strong>Carpet Court:</strong> -5% energy use</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>💧 Hydration Needs</h4>
+                                    <ul>
+                                        <li>Normal conditions: 500-750ml/hour</li>
+                                        <li>Hot/humid: 750-1000ml/hour</li>
+                                        <li>High intensity: +25% fluid needs</li>
+                                        <li>Monitor urine color as guide</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>⚡ Recovery Requirements</h4>
+                                    <ul>
+                                        <li><strong>Light match (&lt;60min):</strong> 24 hours</li>
+                                        <li><strong>Medium match (60-90min):</strong> 48 hours</li>
+                                        <li><strong>Long match (&gt;90min):</strong> 72+ hours</li>
+                                        <li>Focus on carbs and protein</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('tennis-form');
+            const resultsContainer = document.getElementById('results');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateEnergyExpenditure();
+            });
+
+            function calculateEnergyExpenditure() {
+                const matchDuration = parseFloat(document.getElementById('match-duration').value);
+                const durationUnit = document.getElementById('duration-unit').value;
+                const bodyWeight = parseFloat(document.getElementById('body-weight').value);
+                const weightUnit = document.getElementById('weight-unit').value;
+                const playingStyle = document.getElementById('playing-style').value;
+                const surface = document.getElementById('surface').value;
+                const intensity = document.getElementById('intensity').value;
+                const ralliesPerGame = parseFloat(document.getElementById('rallies-per-game').value);
+                const temperature = parseFloat(document.getElementById('temperature').value);
+                const tempUnit = document.getElementById('temp-unit').value;
+                const humidity = parseInt(document.getElementById('humidity').value);
+
+                // Convert to standard units
+                const durationMinutes = durationUnit === 'hours' ? matchDuration * 60 : matchDuration;
+                const weightKg = weightUnit === 'lbs' ? bodyWeight / 2.20462 : bodyWeight;
+                const tempCelsius = tempUnit === 'fahrenheit' ? (temperature - 32) * 5/9 : temperature;
+
+                // Calculate base metabolic rate during activity
+                const baseMETs = getBaseMETs(intensity);
+                const styleMultiplier = getStyleMultiplier(playingStyle, ralliesPerGame);
+                const surfaceMultiplier = getSurfaceMultiplier(surface);
+                const environmentalFactor = getEnvironmentalFactor(tempCelsius, humidity);
+
+                // Energy expenditure calculation
+                const metValue = baseMETs * styleMultiplier * surfaceMultiplier * environmentalFactor;
+                const caloriesPerMinute = (metValue * weightKg * 3.5) / 200; // VO2 to calories formula
+                const totalCalories = caloriesPerMinute * durationMinutes;
+
+                // Calculate additional metrics
+                const activePlayingTime = durationMinutes * 0.7; // Assuming 70% active play
+                const restingCalories = (1 * weightKg * 3.5) / 200 * durationMinutes; // Resting metabolic rate
+                const netCalories = totalCalories - restingCalories;
+
+                // Calculate distance covered (approximation)
+                const distanceCovered = calculateDistanceCovered(durationMinutes, playingStyle, surface);
+                
+                // Calculate hydration needs
+                const hydrationNeeds = calculateHydrationNeeds(durationMinutes, intensity, tempCelsius, humidity);
+                
+                // Calculate recovery metrics
+                const recoveryTime = calculateRecoveryTime(totalCalories, durationMinutes, intensity);
+                const glycogenDepletion = calculateGlycogenDepletion(totalCalories, durationMinutes);
+                const electrolyteLoss = calculateElectrolyteLoss(durationMinutes, tempCelsius, humidity);
+
+                // Generate insights and recommendations
+                const insights = generateInsights(totalCalories, intensity, durationMinutes, playingStyle, tempCelsius);
+                const recommendations = generateRecommendations(totalCalories, hydrationNeeds, recoveryTime, glycogenDepletion, intensity);
+
+                // Display results
+                displayResults({
+                    totalCalories: totalCalories.toFixed(0),
+                    netCalories: netCalories.toFixed(0),
+                    caloriesPerMinute: caloriesPerMinute.toFixed(1),
+                    metValue: metValue.toFixed(1),
+                    distanceCovered: distanceCovered.toFixed(1),
+                    hydrationNeeds: hydrationNeeds.toFixed(0),
+                    recoveryTime: recoveryTime,
+                    glycogenDepletion: glycogenDepletion.toFixed(0),
+                    electrolyteLoss: electrolyteLoss.toFixed(0),
+                    activePlayingTime: activePlayingTime.toFixed(0),
+                    energyDensity: (totalCalories / durationMinutes).toFixed(1),
+                    insights: insights,
+                    recommendations: recommendations
+                });
+            }
+
+            function getBaseMETs(intensity) {
+                const metValues = {
+                    'casual': 6.0,
+                    'moderate': 8.0,
+                    'high': 10.0,
+                    'professional': 13.0
+                };
+                return metValues[intensity] || 8.0;
+            }
+
+            function getStyleMultiplier(style, rallies) {
+                const baseMultipliers = {
+                    'serve-volley': 0.9,
+                    'aggressive-baseline': 1.1,
+                    'counter-puncher': 1.0,
+                    'all-court': 1.05
+                };
+
+                const rallyMultiplier = rallies > 8 ? 1.1 : (rallies < 4 ? 0.95 : 1.0);
+                return baseMultipliers[style] * rallyMultiplier;
+            }
+
+            function getSurfaceMultiplier(surface) {
+                const surfaceMultipliers = {
+                    'hard-court': 1.0,
+                    'clay': 1.15,
+                    'grass': 1.10,
+                    'carpet': 0.95
+                };
+                return surfaceMultipliers[surface] || 1.0;
+            }
+
+            function getEnvironmentalFactor(temp, humidity) {
+                let factor = 1.0;
+
+                // Temperature effects
+                if (temp > 30) factor *= 1.2;
+                else if (temp > 25) factor *= 1.1;
+                else if (temp < 10) factor *= 1.05;
+
+                // Humidity effects
+                if (humidity > 70) factor *= 1.1;
+                else if (humidity < 30) factor *= 0.95;
+
+                return factor;
+            }
+
+            function calculateDistanceCovered(duration, style, surface) {
+                // Approximate distance in km
+                const baseDistance = duration * 0.06; // 6km per hour base
+                
+                const styleFactors = {
+                    'serve-volley': 0.8,
+                    'aggressive-baseline': 1.1,
+                    'counter-puncher': 1.0,
+                    'all-court': 1.05
+                };
+
+                const surfaceFactors = {
+                    'hard-court': 1.0,
+                    'clay': 1.15,
+                    'grass': 0.95,
+                    'carpet': 1.0
+                };
+
+                return baseDistance * (styleFactors[style] || 1.0) * (surfaceFactors[surface] || 1.0);
+            }
+
+            function calculateHydrationNeeds(duration, intensity, temp, humidity) {
+                let baseHydration = duration * 0.6; // 600ml per hour base
+                
+                // Intensity adjustments
+                if (intensity === 'high' || intensity === 'professional') baseHydration *= 1.3;
+                else if (intensity === 'moderate') baseHydration *= 1.15;
+
+                // Environmental adjustments
+                if (temp > 25) baseHydration *= 1.2;
+                if (humidity > 70) baseHydration *= 1.1;
+
+                return baseHydration;
+            }
+
+            function calculateRecoveryTime(calories, duration, intensity) {
+                let recoveryHours = duration / 60; // Base recovery equal to play duration
+                
+                if (calories > 800) recoveryHours *= 1.5;
+                else if (calories > 500) recoveryHours *= 1.2;
+
+                if (intensity === 'professional') recoveryHours *= 1.3;
+                else if (intensity === 'high') recoveryHours *= 1.2;
+
+                return `${Math.round(recoveryHours * 24)}-${Math.round(recoveryHours * 36)} hours`;
+            }
+
+            function calculateGlycogenDepletion(calories, duration) {
+                // Approximate glycogen depletion in grams
+                const carbsUsed = calories * 0.6; // 60% from carbs during tennis
+                return carbsUsed / 4; // 4 calories per gram of carbs
+            }
+
+            function calculateElectrolyteLoss(duration, temp, humidity) {
+                let baseLoss = duration * 0.5; // Base loss in grams
+                
+                if (temp > 25) baseLoss *= 1.5;
+                if (humidity > 70) baseLoss *= 1.2;
+
+                return baseLoss;
+            }
+
+            function generateInsights(calories, intensity, duration, style, temp) {
+                const insights = [];
+
+                if (calories > 1000) {
+                    insights.push('High-calorie burn - excellent for fitness and weight management');
+                } else if (calories < 300) {
+                    insights.push('Lower intensity session - good for technique practice');
+                }
+
+                if (duration > 120) {
+                    insights.push('Extended match duration - focus on endurance recovery');
+                }
+
+                if (style === 'aggressive-baseline') {
+                    insights.push('Aggressive baseline style maximizes calorie expenditure');
+                }
+
+                if (temp > 25) {
+                    insights.push('Hot conditions increase energy demand and hydration needs');
+                }
+
+                if (intensity === 'professional') {
+                    insights.push('Professional-level intensity requires elite recovery strategies');
+                }
+
+                return insights;
+            }
+
+            function generateRecommendations(calories, hydration, recovery, glycogen, intensity) {
+                const recommendations = [];
+
+                // Calorie-based recommendations
+                if (calories > 600) {
+                    recommendations.push('Consume 300-500 calories within 30 minutes post-match');
+                    recommendations.push('Focus on 3:1 or 4:1 carb-to-protein ratio for recovery');
+                } else if (calories > 300) {
+                    recommendations.push('Consume 200-300 calories within 60 minutes post-match');
+                }
+
+                // Hydration recommendations
+                if (hydration > 1000) {
+                    recommendations.push('Aggressive hydration strategy needed - 150% of fluid loss');
+                    recommendations.push('Include electrolyte replacement drinks');
+                } else {
+                    recommendations.push('Maintain regular hydration throughout recovery');
+                }
+
+                // Recovery recommendations
+                if (recovery.includes('48') || recovery.includes('72')) {
+                    recommendations.push('Schedule adequate rest before next intense session');
+                    recommendations.push('Include active recovery on light days');
+                }
+
+                // Glycogen recommendations
+                if (glycogen > 100) {
+                    recommendations.push('Significant glycogen depletion - carb-rich meals needed');
+                    recommendations.push('Consider 1.2-1.5g carbs per kg body weight post-match');
+                }
+
+                // Intensity-specific recommendations
+                if (intensity === 'professional') {
+                    recommendations.push('Professional recovery protocol: ice bath, compression, massage');
+                } else if (intensity === 'high') {
+                    recommendations.push('Include foam rolling and light stretching in recovery');
+                }
+
+                return recommendations;
+            }
+
+            function displayResults(results) {
+                const html = `
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">Total Calories Burned</div>
+                            <div class="result-value">${results.totalCalories}</div>
+                            <div class="result-sublabel">Kilocalories</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Net Calories Burned</div>
+                            <div class="result-value">${results.netCalories}</div>
+                            <div class="result-sublabel">Above resting rate</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Calories Per Minute</div>
+                            <div class="result-value">${results.caloriesPerMinute}</div>
+                            <div class="result-sublabel">Energy density</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">MET Value</div>
+                            <div class="result-value">${results.metValue}</div>
+                            <div class="result-sublabel">Metabolic equivalent</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Distance Covered</div>
+                            <div class="result-value">${results.distanceCovered} km</div>
+                            <div class="result-sublabel">Court movement</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Hydration Needs</div>
+                            <div class="result-value">${results.hydrationNeeds} ml</div>
+                            <div class="result-sublabel">Recommended intake</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Recovery Time</div>
+                            <div class="result-value">${results.recoveryTime}</div>
+                            <div class="result-sublabel">Optimal recovery</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Glycogen Used</div>
+                            <div class="result-value">${results.glycogenDepletion} g</div>
+                            <div class="result-sublabel">Carbohydrates burned</div>
+                        </div>
+                    </div>
+                    
+                    <div class="energy-breakdown">
+                        <h4>Energy Expenditure Breakdown</h4>
+                        <div class="breakdown-chart">
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Active Play (${results.activePlayingTime} min)</div>
+                                <div class="breakdown-bar">
+                                    <div class="breakdown-fill active" style="width: 70%"></div>
+                                </div>
+                                <div class="breakdown-value">${Math.round(results.totalCalories * 0.7)} cal</div>
+                            </div>
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Rest Periods</div>
+                                <div class="breakdown-bar">
+                                    <div class="breakdown-fill rest" style="width: 30%"></div>
+                                </div>
+                                <div class="breakdown-value">${Math.round(results.totalCalories * 0.3)} cal</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recovery-needs">
+                        <h4>Recovery Needs Summary</h4>
+                        <div class="recovery-grid">
+                            <div class="recovery-item">
+                                <div class="recovery-icon">💧</div>
+                                <div class="recovery-data">
+                                    <div class="recovery-label">Hydration</div>
+                                    <div class="recovery-value">${results.hydrationNeeds}ml</div>
+                                </div>
+                            </div>
+                            <div class="recovery-item">
+                                <div class="recovery-icon">🍝</div>
+                                <div class="recovery-data">
+                                    <div class="recovery-label">Carbohydrates</div>
+                                    <div class="recovery-value">${results.glycogenDepletion}g</div>
+                                </div>
+                            </div>
+                            <div class="recovery-item">
+                                <div class="recovery-icon">🧂</div>
+                                <div class="recovery-data">
+                                    <div class="recovery-label">Electrolytes</div>
+                                    <div class="recovery-value">${results.electrolyteLoss}g</div>
+                                </div>
+                            </div>
+                            <div class="recovery-item">
+                                <div class="recovery-icon">⏰</div>
+                                <div class="recovery-data">
+                                    <div class="recovery-label">Recovery</div>
+                                    <div class="recovery-value">${results.recoveryTime}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="insights">
+                        <h4>Performance Insights</h4>
+                        <ul>
+                            ${results.insights.map(insight => `<li>${insight}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="recommendations">
+                        <h4>Recovery Recommendations</h4>
+                        <ul>
+                            ${results.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                resultsContainer.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

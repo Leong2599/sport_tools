@@ -67,6 +67,9 @@
                     <li class="nav-item" role="none">
                         <a href="index.html" class="nav-link" role="menuitem">Home</a>
                     </li>
+                    <li class="nav-item" role="none">
+                        <a href="about.html" class="nav-link" role="menuitem">About</a>
+                    </li>
                     <li class="nav-item dropdown" role="none">
                         <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
                         <ul class="dropdown-menu" role="menu">
@@ -87,6 +90,35 @@
             <div class="hero-container">
                 <h1 id="hero-title">Comprehensive Sports Tools & Resources</h1>
                 <p class="hero-subtitle">Discover comprehensive tools, calculators, and expert insights to optimize your athletic performance and fitness journey</p>
+                
+                <!-- Search Section -->
+                <div class="search-section">
+                    <div class="search-container">
+                        <div class="search-box">
+                            <input 
+                                type="text" 
+                                id="searchInput" 
+                                placeholder="Search for tools, calculators, or sports activities..." 
+                                aria-label="Search sports tools"
+                                autocomplete="off"
+                            >
+                            <button id="searchBtn" aria-label="Search">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div id="searchResults" class="search-results hidden" aria-live="polite">
+                            <div class="search-results-header">
+                                <span id="searchCount"></span>
+                                <button id="clearSearch" class="clear-search" aria-label="Clear search">✕</button>
+                            </div>
+                            <div id="searchResultsList" class="search-results-list"></div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="hero-cta">
                     <a href="#tools" class="btn btn-primary">Explore Tools</a>
                 </div>
@@ -199,6 +231,84 @@
                             <p>Estimate your lean body mass and body fat percentage</p>
                             <a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html" class="tool-link">Calculate LBM</a>
                         </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🏀</div>
+                            <h4>Basketball Vertical Jump Analyzer</h4>
+                            <p>Analyze vertical jump with power output and performance metrics</p>
+                            <a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html" class="tool-link">Analyze Jump</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">⚽</div>
+                            <h4>Soccer Match Load Calculator</h4>
+                            <p>Track match workload, distance covered, and recovery needs</p>
+                            <a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html" class="tool-link">Calculate Load</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🏏</div>
+                            <h4>Cricket Bowling Workload Tracker</h4>
+                            <p>Monitor bowling workload and calculate injury risk factors</p>
+                            <a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html" class="tool-link">Track Workload</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🎾</div>
+                            <h4>Tennis Match Energy Expenditure</h4>
+                            <p>Calculate match calories burned and recovery requirements</p>
+                            <a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html" class="tool-link">Calculate Energy</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🏸</div>
+                            <h4>Badminton Rally Intensity Calculator</h4>
+                            <p>Analyze rally intensity, shot patterns, and tactical diversity</p>
+                            <a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html" class="tool-link">Analyze Rally</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🥊</div>
+                            <h4>Combat Sports Weight Class Optimizer</h4>
+                            <p>Optimize weight class for MMA, boxing, wrestling, and martial arts</p>
+                            <a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html" class="tool-link">Optimize Weight</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">📊</div>
+                            <h4>Training Load Calculator (CTL/ATL/TSB)</h4>
+                            <p>Fatigue and form modeling with chronic/acute training load analysis</p>
+                            <a href="https://sportstoolshub.com/tools/training-load-calculator.html" class="tool-link">Calculate Load</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🏁</div>
+                            <h4>Race Strategy Planner</h4>
+                            <p>Negative split and fueling strategy for endurance events</p>
+                            <a href="https://sportstoolshub.com/tools/race-strategy-planner.html" class="tool-link">Plan Strategy</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🌡️</div>
+                            <h4>Heat Acclimatization Calculator</h4>
+                            <p>Adjust pace and hydration for hot climate training and racing</p>
+                            <a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html" class="tool-link">Heat Adjustment</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">⛰️</div>
+                            <h4>Altitude Adjustment Calculator</h4>
+                            <p>Training and race pacing adjustments for high altitude performance</p>
+                            <a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html" class="tool-link">Altitude Pacing</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🏃‍♂️</div>
+                            <h4>Stride Length & Cadence Calculator</h4>
+                            <p>Running efficiency metrics and optimal form analysis</p>
+                            <a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html" class="tool-link">Analyze Gait</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🚴‍♂️</div>
+                            <h4>Cycling Gear Ratio Calculator</h4>
+                            <p>Cadence vs speed analysis by terrain and gearing optimization</p>
+                            <a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html" class="tool-link">Gear Analysis</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🏊‍♀️</div>
+                            <h4>Swimming Stroke Efficiency Calculator</h4>
+                            <p>SWOLF and stroke rate analysis for swimming performance</p>
+                            <a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html" class="tool-link">Stroke Analysis</a>
+                        </article>
                     </div>
                 </div>
 
@@ -242,20 +352,65 @@
                             <p>Calculate your Basal Metabolic Rate (BMR)</p>
                             <a href="https://sportstoolshub.com/tools/bmr-calculator.html" class="tool-link">Calculate BMR</a>
                         </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🥬</div>
+                            <h4>Micronutrient Intake Checker</h4>
+                            <p>Vitamin & mineral sufficiency score analysis</p>
+                            <a href="https://sportstoolshub.com/tools/micronutrient-checker.html" class="tool-link">Check Levels</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">📊</div>
+                            <h4>Glycemic Load Calculator</h4>
+                            <p>Carb quality analysis for blood sugar management</p>
+                            <a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html" class="tool-link">Calculate GL</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">⚡</div>
+                            <h4>Pre-Workout Nutrition Planner</h4>
+                            <p>Timing and macro optimization for training</p>
+                            <a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html" class="tool-link">Plan Nutrition</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🔄</div>
+                            <h4>Post-Workout Recovery Meal Builder</h4>
+                            <p>Protein/carb ratio optimization for recovery</p>
+                            <a href="https://sportstoolshub.com/tools/post-workout-recovery.html" class="tool-link">Build Meal</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">⏰</div>
+                            <h4>Intermittent Fasting Planner</h4>
+                            <p>Fasting windows and training alignment</p>
+                            <a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html" class="tool-link">Plan Fasting</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">🍝</div>
+                            <h4>Refeed Day Calculator</h4>
+                            <p>Strategic carb refeed planning for diet breaks</p>
+                            <a href="https://sportstoolshub.com/tools/refeed-day-calculator.html" class="tool-link">Plan Refeed</a>
+                        </article>
+                        <article class="tool-card">
+                            <div class="tool-icon">⚖️</div>
+                            <h4>Weight-Cut / Weight-Gain Planner</h4>
+                            <p>Safe weekly targets and realistic timelines</p>
+                            <a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html" class="tool-link">Plan Weight</a>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+
+                    
     <!-- Footer -->
     <footer class="footer" role="contentinfo">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
+                        <div class="footer-section">
                     <h4>Sports Tools Hub</h4>
                     <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
                 </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
                 
                 <div class="footer-section">
                     <h4>Fitness Calculators</h4>
@@ -284,6 +439,27 @@
                             <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
                             <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
                             <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -295,9 +471,16 @@
                             <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
                             <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
                             <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
-                            <li><a href="https://sportstoolshub.com/tools/macronutrient-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
                             <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
                             <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
                         </ul>
                     </nav>
                 </div>

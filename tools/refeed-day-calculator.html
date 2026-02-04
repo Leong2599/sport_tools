@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate strategic carbohydrate refeed days for diet breaks, metabolic boosting, and sustained fat loss during cutting phases">
+    <meta name="keywords" content="refeed day calculator, carb cycling, diet break, metabolic boost, fat loss strategy">
+    <meta name="author" content="Sports Tools Hub">
+    <title>Refeed Day Calculator - Sports Tools Hub</title>
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/refeed-day-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../about.html" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="../index.html#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">Refeed Day Calculator</h1>
+                <p class="tool-subtitle">Strategic carbohydrate refeed planning for metabolic boosting and sustained fat loss</p>
+            </div>
+        </section>
+
+
+        <!-- Calculator Section -->
+        <section class="calculator-section" aria-labelledby="calculator-title">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Input Form -->
+                    <div class="calculator-form">
+                        <h2 id="calculator-title">Your Current Diet & Training</h2>
+                        <form id="refeedForm">
+                            <!-- Personal Information -->
+                            <div class="form-section">
+                                <h3>Personal Details</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="gender">Gender</label>
+                                        <div class="radio-group">
+                                            <label class="radio-label">
+                                                <input type="radio" name="gender" value="male" checked>
+                                                <span class="radio-custom"></span>
+                                                Male
+                                            </label>
+                                            <label class="radio-label">
+                                                <input type="radio" name="gender" value="female">
+                                                <span class="radio-custom"></span>
+                                                Female
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="age">Age</label>
+                                        <input type="number" id="age" min="18" max="80" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="currentWeight">Current Weight (kg)</label>
+                                        <input type="number" id="currentWeight" min="40" max="200" step="0.1" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bodyFat">Body Fat (%)</label>
+                                        <input type="number" id="bodyFat" min="5" max="50" step="0.5" placeholder="Optional but recommended">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Current Diet Information -->
+                            <div class="form-section">
+                                <h3>Current Diet Details</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="maintenanceCalories">Maintenance Calories</label>
+                                        <input type="number" id="maintenanceCalories" min="1200" max="5000" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cuttingCalories">Current Cutting Calories</label>
+                                        <input type="number" id="cuttingCalories" min="1200" max="5000" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cuttingProtein">Cutting Protein (g)</label>
+                                        <input type="number" id="cuttingProtein" min="50" max="400" step="1" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cuttingCarbs">Cutting Carbs (g)</label>
+                                        <input type="number" id="cuttingCarbs" min="20" max="500" step="1" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cuttingFats">Cutting Fats (g)</label>
+                                        <input type="number" id="cuttingFats" min="20" max="200" step="1" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="weeksDieting">Weeks in Current Cut</label>
+                                        <input type="number" id="weeksDieting" min="0" max="52" step="1" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Training Information -->
+                            <div class="form-section">
+                                <h3>Training & Activity</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="trainingFrequency">Training Days/Week</label>
+                                        <select id="trainingFrequency" required>
+                                            <option value="">Select frequency...</option>
+                                            <option value="3">3 days/week</option>
+                                            <option value="4">4 days/week</option>
+                                            <option value="5">5 days/week</option>
+                                            <option value="6">6 days/week</option>
+                                            <option value="7">7 days/week</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="trainingIntensity">Training Intensity</label>
+                                        <select id="trainingIntensity" required>
+                                            <option value="">Select intensity...</option>
+                                            <option value="low">Low (Light, recovery-focused)</option>
+                                            <option value="moderate">Moderate (Standard training)</option>
+                                            <option value="high">High (Intense, demanding)</option>
+                                            <option value="very-high">Very High (Elite level)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="primaryTraining">Primary Training Type</label>
+                                        <select id="primaryTraining" required>
+                                            <option value="">Select type...</option>
+                                            <option value="strength">Strength Training</option>
+                                            <option value="endurance">Endurance/Cardio</option>
+                                            <option value="mixed">Mixed Training</option>
+                                            <option value="hiit">HIIT/Metabolic</option>
+                                            <option value="sports">Team Sports</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardioAmount">Weekly Cardio (minutes)</label>
+                                        <input type="number" id="cardioAmount" min="0" max="600" step="15" placeholder="0 if no separate cardio">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Refeed Strategy -->
+                            <div class="form-section">
+                                <h3>Refeed Strategy</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="refeedFrequency">Current Refeed Frequency</label>
+                                        <select id="refeedFrequency" required>
+                                            <option value="">Select frequency...</option>
+                                            <option value="never">Never - First refeed</option>
+                                            <option value="weekly">Weekly (Every 7 days)</option>
+                                            <option value="10days">Every 10 days</option>
+                                            <option value="2weeks">Every 2 weeks</option>
+                                            <option value="3weeks">Every 3 weeks</option>
+                                            <option value="monthly">Monthly</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="refeedStyle">Refeed Style Preference</label>
+                                        <select id="refeedStyle">
+                                            <option value="moderate">Moderate (30-50% above maintenance)</option>
+                                            <option value="aggressive">Aggressive (50-75% above maintenance)</option>
+                                            <option value="conservative">Conservative (20-30% above maintenance)</option>
+                                            <option value="custom">Custom (I'll set my own)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="refeedTiming">Preferred Refeed Day</label>
+                                        <select id="refeedTiming">
+                                            <option value="rest-day">Rest day (Recommended)</option>
+                                            <option value="light-training">Light training day</option>
+                                            <option value="post-leg-day">After leg day</option>
+                                            <option value="heavy-training">Heavy training day</option>
+                                            <option value="flexible">Flexible - whichever works</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="carbSensitivity">Carbohydrate Sensitivity</label>
+                                        <select id="carbSensitivity">
+                                            <option value="normal">Normal (Can handle carbs well)</option>
+                                            <option value="sensitive">Sensitive (Prone to bloating/water retention)</option>
+                                            <option value="resistant">Resistant (Minimal water retention)</option>
+                                            <option value="unknown">Not sure yet</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Calculate Refeed Plan</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="calculator-results">
+                        <div class="results-card" id="resultsCard">
+                            <h3>Your Strategic Refeed Plan</h3>
+                            
+                            <div id="refeedRecommendations" class="refeed-recommendations">
+                                <h4>Recommended Refeed Schedule</h4>
+                                <div id="scheduleDetails">
+                                    <!-- Schedule details will be populated here -->
+                                </div>
+                            </div>
+
+                            <div id="refeedMacros" class="refeed-macros">
+                                <h4>Refeed Day Macros</h4>
+                                <div class="macro-targets">
+                                    <div class="macro-item">
+                                        <span class="macro-label">Calories</span>
+                                        <span class="macro-value" id="refeedCalories">--</span>
+                                    </div>
+                                    <div class="macro-item">
+                                        <span class="macro-label">Protein</span>
+                                        <span class="macro-value" id="refeedProtein">--g</span>
+                                    </div>
+                                    <div class="macro-item">
+                                        <span class="macro-label">Carbs</span>
+                                        <span class="macro-value" id="refeedCarbs">--g</span>
+                                    </div>
+                                    <div class="macro-item">
+                                        <span class="macro-label">Fats</span>
+                                        <span class="macro-value" id="refeedFats">--g</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="foodRecommendations" class="food-recommendations">
+                                <h4>Best Refeed Foods</h4>
+                                <div id="foodList">
+                                    <!-- Food recommendations will be populated here -->
+                                </div>
+                            </div>
+
+                            <div id="timingStrategy" class="timing-strategy">
+                                <h4>Refeed Timing Strategy</h4>
+                                <div id="timingDetails">
+                                    <!-- Timing strategy will be populated here -->
+                                </div>
+                            </div>
+
+                            <div id="postRefeedPlan" class="post-refeed-plan">
+                                <h4>Post-Refeed Protocol</h4>
+                                <div id="postRefeedDetails">
+                                    <!-- Post-refeed plan will be populated here -->
+                                </div>
+                            </div>
+
+                            <div id="progressionGuide" class="progression-guide">
+                                <h4>Refeed Progression</h4>
+                                <div id="progressionDetails">
+                                    <!-- Progression guide will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Section -->
+        <section class="info-section" aria-labelledby="info-title">
+            <div class="container">
+                <h2 id="info-title">Understanding Refeed Days</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>What is a Refeed?</h3>
+                        <p>A strategic increase in calories, primarily from carbohydrates, designed to boost leptin, restore glycogen, and improve metabolic rate during dieting phases.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Metabolic Benefits</h3>
+                        <p>Refeeds can temporarily increase metabolic rate by 3-10%, improve hormone function, and break through weight loss plateaus after extended dieting.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Psychological Relief</h3>
+                        <p>Planned refeeds provide mental breaks from dieting, reduce cravings, and improve long-term adherence to cutting phases.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Carb Loading Effect</h4>
+                        <p>Refeeds replenish muscle glycogen stores, improving training performance and subsequent workouts during the cutting phase.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

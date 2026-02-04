@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Optimize combat sports weight class with advanced analysis for MMA, boxing, wrestling, and martial arts performance">
+    <meta name="keywords" content="combat sports weight class, MMA weight cutting, boxing weight divisions, martial arts optimization, fight weight">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Combat Sports Weight Class Optimizer - Performance Analysis">
+    <meta property="og:description" content="Optimize weight class for combat sports with detailed performance analysis and health considerations">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Combat Sports Weight Class Optimizer | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">🥊 Combat Sports Weight Class Optimizer</h1>
+                <p class="tool-subtitle">Optimize weight class with advanced analysis for MMA, boxing, wrestling, and martial arts performance</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Weight Class Analysis</h2>
+                        </div>
+                        <form id="combat-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="sport">Combat Sport</label>
+                                <select id="sport" name="sport" required aria-describedby="sport-help">
+                                    <option value="">Select combat sport</option>
+                                    <option value="mma">Mixed Martial Arts (MMA)</option>
+                                    <option value="boxing">Boxing</option>
+                                    <option value="wrestling">Wrestling</option>
+                                    <option value="bjj">Brazilian Jiu-Jitsu</option>
+                                    <option value="muay-thai">Muay Thai</option>
+                                    <option value="judo">Judo</option>
+                                    <option value="karate">Karate</option>
+                                </select>
+                                <small id="sport-help">Your primary combat discipline</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="current-weight">Current Body Weight</label>
+                                <div class="input-group">
+                                    <input type="number" id="current-weight" name="current-weight" step="0.1" min="40" max="300" required 
+                                           placeholder="Enter weight" aria-describedby="weight-help">
+                                    <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
+                                        <option value="kg">kg</option>
+                                        <option value="lbs">lbs</option>
+                                    </select>
+                                </div>
+                                <small id="weight-help">Your current natural body weight</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="height">Height</label>
+                                <div class="input-group">
+                                    <input type="number" id="height" name="height" step="0.1" min="120" max="250" required 
+                                           placeholder="Enter height" aria-describedby="height-help">
+                                    <select id="height-unit" name="height-unit" aria-label="Height unit">
+                                        <option value="cm">cm</option>
+                                        <option value="feet">feet/inches</option>
+                                    </select>
+                                </div>
+                                <small id="height-help">Your height for reach advantage analysis</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="body-fat">Body Fat Percentage</label>
+                                <input type="number" id="body-fat" name="body-fat" step="0.5" min="3" max="40" required 
+                                       placeholder="Enter body fat %" aria-describedby="bodyfat-help">
+                                <small id="bodyfat-help">Current body fat percentage for weight cutting potential</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experience">Years of Experience</label>
+                                <input type="number" id="experience" name="experience" min="0" max="30" required 
+                                       placeholder="Enter years" aria-describedby="experience-help">
+                                <small id="experience-help">Experience level affects competitive advantages</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fight-style">Fighting Style</label>
+                                <select id="fight-style" name="fight-style" required aria-describedby="style-help">
+                                    <option value="">Select fighting style</option>
+                                    <option value="striker">Striker (Stand-up)</option>
+                                    <option value="grappler">Grappler (Ground)</option>
+                                    <option value="well-rounded">Well-Rounded</option>
+                                    <option value="counter-fighter">Counter-Fighter</option>
+                                    <option value="pressure-fighter">Pressure Fighter</option>
+                                </select>
+                                <small id="style-help">Primary fighting approach and techniques</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="competition-level">Competition Level</label>
+                                <select id="competition-level" name="competition-level" required aria-describedby="level-help">
+                                    <option value="">Select level</option>
+                                    <option value="amateur">Amateur</option>
+                                    <option value="semi-pro">Semi-Professional</option>
+                                    <option value="professional">Professional</option>
+                                    <option value="elite">Elite/International</option>
+                                </select>
+                                <small id="level-help">Current competitive tier</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="16" max="50" required 
+                                       placeholder="Enter age" aria-describedby="age-help">
+                                <small id="age-help">Age affects recovery and weight cutting ability</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="weight-cut-history">Previous Weight Cut Experience</label>
+                                <select id="weight-cut-history" name="weight-cut-history" required aria-describedby="cut-history-help">
+                                    <option value="">Select experience level</option>
+                                    <option value="none">No experience</option>
+                                    <option value="beginner">Beginner (1-2 cuts)</option>
+                                    <option value="intermediate">Intermediate (3-5 cuts)</option>
+                                    <option value="advanced">Advanced (6+ cuts)</option>
+                                </select>
+                                <small id="cut-history-help">Previous weight cutting experience</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Optimize Weight Class</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Weight Class Optimization Results</h2>
+                        </div>
+                        <div id="results" class="results-container" aria-live="polite">
+                            <div class="placeholder-message">
+                                <p>Enter your details to see weight class optimization analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🥊 Understanding Weight Class Optimization</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>⚖️ Weight Cutting Guidelines</h4>
+                                    <ul>
+                                        <li><strong>Safe weekly loss:</strong> 1-1.5% body weight</li>
+                                        <li><strong>Maximum water cut:</strong> 5-7% body weight</li>
+                                        <li><strong>Recovery time:</strong> 24+ hours for every 2% cut</li>
+                                        <li><strong>Medical supervision:</strong> Required for cuts >5%</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🏆 Competitive Factors</h4>
+                                    <ul>
+                                        <li>Reach advantage vs weight advantage</li>
+                                        <li>Power-to-weight ratio optimization</li>
+                                        <li>Recovery between fights</li>
+                                        <li>Long-term health considerations</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>💪 Performance Metrics</h4>
+                                    <ul>
+                                        <li><strong>Strength:</strong> Declines with excessive cutting</li>
+                                        <li><strong>Endurance:</strong> Affected by dehydration</li>
+                                        <li><strong>Speed:</strong> May increase at lower weights</li>
+                                        <li><strong>Recovery:</strong> Slower with larger cuts</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🎯 Strategic Considerations</h4>
+                                    <ul>
+                                        <li>Talent density in weight classes</li>
+                                        <li>Body type suitability</li>
+                                        <li>Career trajectory goals</li>
+                                        <li>Longevity vs immediate advantage</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('combat-form');
+            const resultsContainer = document.getElementById('results');
+
+            // Weight classes for different sports
+            const weightClasses = {
+                mma: [
+                    { name: 'Flyweight', min: 125, max: 125 },
+                    { name: 'Bantamweight', min: 135, max: 135 },
+                    { name: 'Featherweight', min: 145, max: 145 },
+                    { name: 'Lightweight', min: 155, max: 155 },
+                    { name: 'Welterweight', min: 170, max: 170 },
+                    { name: 'Middleweight', min: 185, max: 185 },
+                    { name: 'Light Heavyweight', min: 205, max: 205 },
+                    { name: 'Heavyweight', min: 205, max: 265 },
+                    { name: 'Super Heavyweight', min: 265, max: 400 }
+                ],
+                boxing: [
+                    { name: 'Minimumweight', min: 105, max: 108 },
+                    { name: 'Light Flyweight', min: 108, max: 112 },
+                    { name: 'Flyweight', min: 112, max: 118 },
+                    { name: 'Super Flyweight', min: 118, max: 122 },
+                    { name: 'Bantamweight', min: 122, max: 126 },
+                    { name: 'Super Bantamweight', min: 126, max: 130 },
+                    { name: 'Featherweight', min: 130, max: 135 },
+                    { name: 'Super Featherweight', min: 135, max: 140 },
+                    { name: 'Lightweight', min: 140, max: 147 },
+                    { name: 'Super Lightweight', min: 147, max: 154 },
+                    { name: 'Welterweight', min: 154, max: 160 },
+                    { name: 'Super Welterweight', min: 160, max: 168 },
+                    { name: 'Middleweight', min: 168, max: 175 },
+                    { name: 'Super Middleweight', min: 175, max: 184 },
+                    { name: 'Light Heavyweight', min: 184, max: 200 },
+                    { name: 'Heavyweight', min: 200, max: 400 }
+                ],
+                wrestling: [
+                    { name: '125 lbs', min: 125, max: 125 },
+                    { name: '133 lbs', min: 133, max: 133 },
+                    { name: '141 lbs', min: 141, max: 141 },
+                    { name: '149 lbs', min: 149, max: 149 },
+                    { name: '157 lbs', min: 157, max: 157 },
+                    { name: '165 lbs', min: 165, max: 165 },
+                    { name: '174 lbs', min: 174, max: 174 },
+                    { name: '184 lbs', min: 184, max: 184 },
+                    { name: '197 lbs', min: 197, max: 197 },
+                    { name: '285 lbs (Heavyweight)', min: 197, max: 285 }
+                ],
+                bjj: [
+                    { name: 'Roosterweight', min: 127.5, max: 127.5 },
+                    { name: 'Light Featherweight', min: 141, max: 141 },
+                    { name: 'Featherweight', min: 154, max: 154 },
+                    { name: 'Lightweight', min: 168, max: 168 },
+                    { name: 'Middleweight', min: 181.5, max: 181.5 },
+                    { name: 'Medium Heavyweight', min: 195, max: 195 },
+                    { name: 'Heavyweight', min: 208, max: 208 },
+                    { name: 'Super Heavyweight', min: 208, max: 400 }
+                ]
+            };
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                optimizeWeightClass();
+            });
+
+            function optimizeWeightClass() {
+                const sport = document.getElementById('sport').value;
+                const currentWeight = parseFloat(document.getElementById('current-weight').value);
+                const weightUnit = document.getElementById('weight-unit').value;
+                const height = parseFloat(document.getElementById('height').value);
+                const heightUnit = document.getElementById('height-unit').value;
+                const bodyFat = parseFloat(document.getElementById('body-fat').value);
+                const experience = parseInt(document.getElementById('experience').value);
+                const fightStyle = document.getElementById('fight-style').value;
+                const competitionLevel = document.getElementById('competition-level').value;
+                const age = parseInt(document.getElementById('age').value);
+                const cutHistory = document.getElementById('weight-cut-history').value;
+
+                // Convert to standard units
+                const weightLbs = weightUnit === 'kg' ? currentWeight * 2.20462 : currentWeight;
+                const heightInches = heightUnit === 'cm' ? height / 2.54 : height * 12;
+
+                // Get appropriate weight classes
+                const classes = getWeightClassesForSport(sport);
+                
+                // Analyze current position
+                const currentClass = findWeightClass(weightLbs, classes);
+                const leanMass = weightLbs * (1 - bodyFat / 100);
+                const idealWeight = calculateIdealWeight(heightInches, bodyFat, fightStyle, sport);
+                
+                // Find optimal weight classes
+                const optimalClasses = findOptimalWeightClasses(weightLbs, leanMass, classes, bodyFat, cutHistory);
+                
+                // Calculate metrics
+                const powerToWeightRatio = calculatePowerToWeightRatio(weightLbs, leanMass, fightStyle);
+                const reachAdvantage = calculateReachAdvantage(heightInches, optimalClasses);
+                const cuttingDifficulty = calculateCuttingDifficulty(bodyFat, age, cutHistory, experience);
+                const performanceImpact = calculatePerformanceImpact(optimalClasses, cuttingDifficulty);
+                const healthRisk = calculateHealthRisk(cuttingDifficulty, bodyFat, age);
+
+                // Generate insights and recommendations
+                const insights = generateInsights(
+                    currentWeight, leanMass, optimalClasses, cuttingDifficulty, fightStyle, sport
+                );
+                const recommendations = generateRecommendations(
+                    optimalClasses, cuttingDifficulty, healthRisk, competitionLevel, experience
+                );
+
+                // Display results
+                displayResults({
+                    currentWeight: weightLbs.toFixed(1),
+                    leanMass: leanMass.toFixed(1),
+                    currentClass: currentClass,
+                    idealWeight: idealWeight.toFixed(1),
+                    optimalClasses: optimalClasses,
+                    powerToWeightRatio: powerToWeightRatio.toFixed(1),
+                    reachAdvantage: reachAdvantage.toFixed(0),
+                    cuttingDifficulty: cuttingDifficulty,
+                    performanceImpact: performanceImpact,
+                    healthRisk: healthRisk,
+                    insights: insights,
+                    recommendations: recommendations
+                });
+            }
+
+            function getWeightClassesForSport(sport) {
+                const sportMapping = {
+                    'bjj': 'bjj',
+                    'muay-thai': 'boxing',
+                    'karate': 'boxing',
+                    'judo': 'wrestling'
+                };
+                return weightClasses[sportMapping[sport] || sport] || weightClasses.mma;
+            }
+
+            function findWeightClass(weight, classes) {
+                for (let cls of classes) {
+                    if (weight <= cls.max) {
+                        return cls.name;
+                    }
+                }
+                return 'Above Heavyweight';
+            }
+
+            function calculateIdealWeight(height, bodyFat, style, sport) {
+                let baseWeight = 0;
+                
+                // Base calculations by height
+                if (height < 65) baseWeight = 125;
+                else if (height < 68) baseWeight = 140;
+                else if (height < 71) baseWeight = 155;
+                else if (height < 74) baseWeight = 170;
+                else if (height < 77) baseWeight = 185;
+                else baseWeight = 205;
+
+                // Style adjustments
+                const styleAdjustments = {
+                    'striker': -10,
+                    'grappler': 5,
+                    'well-rounded': 0,
+                    'counter-fighter': -5,
+                    'pressure-fighter': 5
+                };
+
+                baseWeight += styleAdjustments[style] || 0;
+
+                // Sport adjustments
+                const sportAdjustments = {
+                    'mma': 0,
+                    'boxing': -5,
+                    'wrestling': 10,
+                    'bjj': 5,
+                    'muay-thai': -3,
+                    'judo': 8
+                };
+
+                return baseWeight + (sportAdjustments[sport] || 0);
+            }
+
+            function findOptimalWeightClasses(currentWeight, leanMass, classes, bodyFat, cutHistory) {
+                const safeCutWeight = currentWeight - (currentWeight * 0.05); // Maximum 5% safe cut
+                const aggressiveCutWeight = currentWeight - (currentWeight * 0.08); // 8% for experienced
+                
+                let targetWeight = cutHistory === 'advanced' ? aggressiveCutWeight : safeCutWeight;
+                
+                // Account for body fat
+                const minimumCompetitionWeight = leanMass / 0.85; // Minimum 85% lean mass
+                targetWeight = Math.max(targetWeight, minimumCompetitionWeight);
+
+                const suitableClasses = [];
+                for (let cls of classes) {
+                    if (targetWeight >= cls.min - 5 && targetWeight <= cls.max + 5) {
+                        suitableClasses.push({
+                            ...cls,
+                            weightNeeded: cls.max,
+                            cutRequired: Math.max(0, currentWeight - cls.max),
+                            cutPercentage: ((currentWeight - cls.max) / currentWeight * 100),
+                            suitability: calculateSuitability(targetWeight, cls, bodyFat)
+                        });
+                    }
+                }
+
+                return suitableClasses.sort((a, b) => b.suitability - a.suitability);
+            }
+
+            function calculateSuitability(targetWeight, weightClass, bodyFat) {
+                let suitability = 50;
+
+                // Close to target weight
+                const weightDiff = Math.abs(targetWeight - weightClass.max);
+                suitability -= weightDiff;
+
+                // Body fat considerations
+                if (bodyFat > 15 && weightClass.max < targetWeight - 10) suitability += 10;
+                if (bodyFat < 8 && weightClass.max > targetWeight + 10) suitability -= 5;
+
+                return Math.max(0, Math.min(100, suitability));
+            }
+
+            function calculatePowerToWeightRatio(weight, leanMass, style) {
+                const styleFactors = {
+                    'striker': 1.2,
+                    'grappler': 1.1,
+                    'well-rounded': 1.0,
+                    'counter-fighter': 0.9,
+                    'pressure-fighter': 1.15
+                };
+                
+                return (leanMass / weight * 100) * (styleFactors[style] || 1.0);
+            }
+
+            function calculateReachAdvantage(height, optimalClasses) {
+                if (optimalClasses.length === 0) return 0;
+                
+                const targetClass = optimalClasses[0];
+                const averageHeightForClass = getAverageHeightForWeightClass(targetClass.max);
+                
+                return ((height - averageHeightForClass) / averageHeightForClass) * 100;
+            }
+
+            function getAverageHeightForWeightClass(weight) {
+                // Approximate average heights for weight classes
+                if (weight <= 125) return 64;
+                if (weight <= 135) return 66;
+                if (weight <= 145) return 68;
+                if (weight <= 155) return 70;
+                if (weight <= 170) return 72;
+                if (weight <= 185) return 74;
+                if (weight <= 205) return 76;
+                return 78;
+            }
+
+            function calculateCuttingDifficulty(bodyFat, age, cutHistory, experience) {
+                let difficulty = 0;
+
+                // Body fat factor
+                if (bodyFat > 15) difficulty = 1;
+                else if (bodyFat > 12) difficulty = 2;
+                else if (bodyFat > 10) difficulty = 3;
+                else difficulty = 4;
+
+                // Age factor
+                if (age > 35) difficulty += 2;
+                else if (age > 25) difficulty += 1;
+
+                // Experience factor
+                const historyScores = {
+                    'none': 3,
+                    'beginner': 2,
+                    'intermediate': 1,
+                    'advanced': 0
+                };
+                difficulty += historyScores[cutHistory] || 2;
+
+                // Overall experience
+                if (experience < 2) difficulty += 1;
+
+                if (difficulty <= 3) return 'Low';
+                if (difficulty <= 6) return 'Medium';
+                if (difficulty <= 9) return 'High';
+                return 'Very High';
+            }
+
+            function calculatePerformanceImpact(optimalClasses, cuttingDifficulty) {
+                if (optimalClasses.length === 0) return 'No suitable class found';
+
+                const bestClass = optimalClasses[0];
+                const cutPercentage = bestClass.cutPercentage;
+
+                if (cutPercentage < 2) return 'Minimal impact';
+                if (cutPercentage < 4) return 'Low impact';
+                if (cutPercentage < 6) return 'Moderate impact';
+                if (cutPercentage < 8) return 'High impact';
+                return 'Very high impact';
+            }
+
+            function calculateHealthRisk(cuttingDifficulty, bodyFat, age) {
+                let riskScore = 0;
+
+                // Cutting difficulty
+                const difficultyScores = {
+                    'Low': 1,
+                    'Medium': 2,
+                    'High': 3,
+                    'Very High': 4
+                };
+                riskScore += difficultyScores[cuttingDifficulty] || 2;
+
+                // Body fat
+                if (bodyFat < 8) riskScore += 2;
+                else if (bodyFat < 10) riskScore += 1;
+
+                // Age
+                if (age > 35) riskScore += 2;
+                else if (age > 25) riskScore += 1;
+
+                if (riskScore <= 2) return 'Low';
+                if (riskScore <= 4) return 'Medium';
+                if (riskScore <= 6) return 'High';
+                return 'Very High';
+            }
+
+            function generateInsights(weight, leanMass, optimalClasses, cuttingDifficulty, fightStyle, sport) {
+                const insights = [];
+
+                if (optimalClasses.length > 0) {
+                    const bestOption = optimalClasses[0];
+                    if (bestOption.cutPercentage > 5) {
+                        insights.push('Significant weight cut required - consider long-term health implications');
+                    } else if (bestOption.cutPercentage < 2) {
+                        insights.push('Minimal weight cutting needed - excellent for performance retention');
+                    }
+
+                    if (cuttingDifficulty === 'High' || cuttingDifficulty === 'Very High') {
+                        insights.push('Weight cutting will be challenging - may affect performance');
+                    }
+                }
+
+                const leanMassPercentage = (leanMass / weight * 100);
+                if (leanMassPercentage > 85) {
+                    insights.push('High lean mass percentage - excellent for combat sports');
+                } else if (leanMassPercentage < 75) {
+                    insights.push('Consider body recomposition before competition');
+                }
+
+                if (fightStyle === 'grappler' && optimalClasses.some(c => c.max > weight)) {
+                    insights.push('Higher weight class may benefit grappling style');
+                }
+
+                return insights;
+            }
+
+            function generateRecommendations(optimalClasses, cuttingDifficulty, healthRisk, competitionLevel, experience) {
+                const recommendations = [];
+
+                if (optimalClasses.length > 0) {
+                    const bestOption = optimalClasses[0];
+                    recommendations.push(`Primary recommendation: ${bestOption.name} (${bestOption.weightRequired} lbs)`);
+                    recommendations.push(`Weight cut required: ${bestOption.cutPercentage.toFixed(1)}%`);
+
+                    if (bestOption.cutPercentage > 5) {
+                        recommendations.push('Plan 8-12 weeks gradual weight cut');
+                        recommendations.push('Consider professional nutrition guidance');
+                    }
+                }
+
+                if (cuttingDifficulty === 'High' || cuttingDifficulty === 'Very High') {
+                    recommendations.push('Consider staying in current weight class');
+                    recommendations.push('Focus on skill development over weight advantage');
+                }
+
+                if (healthRisk === 'High' || healthRisk === 'Very High') {
+                    recommendations.push('Medical supervision recommended for weight cutting');
+                    recommendations.push('Regular health monitoring during cut');
+                }
+
+                if (experience < 3) {
+                    recommendations.push('Focus on technical skills before weight class optimization');
+                }
+
+                if (competitionLevel === 'amateur') {
+                    recommendations.push('Prioritize skill development over weight advantage');
+                }
+
+                return recommendations;
+            }
+
+            function displayResults(results) {
+                const difficultyColors = {
+                    'Low': '#10b981',
+                    'Medium': '#3b82f6',
+                    'High': '#f59e0b',
+                    'Very High': '#ef4444'
+                };
+
+                const riskColors = {
+                    'Low': '#10b981',
+                    'Medium': '#3b82f6',
+                    'High': '#f59e0b',
+                    'Very High': '#ef4444'
+                };
+
+                const html = `
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">Current Weight</div>
+                            <div class="result-value">${results.currentWeight} lbs</div>
+                            <div class="result-sublabel">Current class: ${results.currentClass}</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Lean Mass</div>
+                            <div class="result-value">${results.leanMass} lbs</div>
+                            <div class="result-sublabel">${(results.leanMass / results.currentWeight * 100).toFixed(1)}% of weight</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Power-to-Weight</div>
+                            <div class="result-value">${results.powerToWeightRatio}</div>
+                            <div class="result-sublabel">Relative strength</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Reach Advantage</div>
+                            <div class="result-value">${results.reachAdvantage}%</div>
+                            <div class="result-sublabel">Height advantage</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Cutting Difficulty</div>
+                            <div class="result-value" style="color: ${difficultyColors[results.cuttingDifficulty]}">${results.cuttingDifficulty}</div>
+                            <div class="result-sublabel">Difficulty level</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Performance Impact</div>
+                            <div class="result-value">${results.performanceImpact}</div>
+                            <div class="result-sublabel">Expected effect</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Health Risk</div>
+                            <div class="result-value" style="color: ${riskColors[results.healthRisk]}">${results.healthRisk}</div>
+                            <div class="result-sublabel">Risk assessment</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Ideal Weight</div>
+                            <div class="result-value">${results.idealWeight} lbs</div>
+                            <div class="result-sublabel">Natural competition</div>
+                        </div>
+                    </div>
+                    
+                    <div class="weight-class-recommendations">
+                        <h4>Recommended Weight Classes</h4>
+                        <div class="class-list">
+                            ${results.optimalClasses.map((cls, index) => `
+                                <div class="class-item ${index === 0 ? 'primary' : 'secondary'}">
+                                    <div class="class-name">${cls.name}</div>
+                                    <div class="class-details">
+                                        <span class="class-weight">${cls.weightRequired} lbs</span>
+                                        <span class="class-cut">-${cls.cutPercentage.toFixed(1)}% cut</span>
+                                        <span class="class-suitability">${cls.suitability.toFixed(0)}% suitable</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="analysis-metrics">
+                        <h4>Performance Analysis</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-label">Strength Retention</div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: ${100 - (results.optimalClasses[0]?.cutPercentage || 0)}%"></div>
+                                </div>
+                                <div class="metric-value">${(100 - (results.optimalClasses[0]?.cutPercentage || 0)).toFixed(0)}%</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-label">Endurance Impact</div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill endurance" style="width: ${results.optimalClasses[0]?.cutPercentage * 2 || 0}%"></div>
+                                </div>
+                                <div class="metric-value">${Math.min(100, (results.optimalClasses[0]?.cutPercentage || 0) * 2).toFixed(0)}%</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-label">Recovery Time</div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill recovery" style="width: ${results.optimalClasses[0]?.cutPercentage * 3 || 0}%"></div>
+                                </div>
+                                <div class="metric-value">${Math.min(100, (results.optimalClasses[0]?.cutPercentage || 0) * 3).toFixed(0)}%</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="insights">
+                        <h4>Analysis Insights</h4>
+                        <ul>
+                            ${results.insights.map(insight => `<li>${insight}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="recommendations">
+                        <h4>Strategic Recommendations</h4>
+                        <ul>
+                            ${results.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                resultsContainer.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

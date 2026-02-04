@@ -114,7 +114,7 @@ body {
    ------------------- */
 
 .tool-hero {
-    background: url('file:///C:/Users/user/Documents/Projects/sport_tools/images/hero-1.jpg') no-repeat center center/cover; /* Use full file system path */
+    background: url('https://sportstoolshub.com/images/hero-1.jpg') no-repeat center center/cover; /* Use full file system path */
     background-color: var(--primary-blue-dark); /* Fallback background color */
     color: var(--bg-white);
     padding: 4rem 1rem;

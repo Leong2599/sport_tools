@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analyze your basketball vertical jump with advanced metrics including power output, force generation, and performance comparison">
+    <meta name="keywords" content="vertical jump, basketball analytics, jump height calculator, sports performance, vertical leap">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Basketball Vertical Jump Analyzer - Advanced Performance Metrics">
+    <meta property="og:description" content="Calculate vertical jump height, power output, and get performance analysis for basketball">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Basketball Vertical Jump Analyzer | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">🏀 Basketball Vertical Jump Analyzer</h1>
+                <p class="tool-subtitle">Analyze your vertical jump with advanced metrics including power output, force generation, and performance comparison</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Jump Analysis</h2>
+                        </div>
+                        <form id="jump-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="jump-height">Vertical Jump Height</label>
+                                <div class="input-group">
+                                    <input type="number" id="jump-height" name="jump-height" step="0.1" min="0" max="60" required 
+                                           placeholder="Enter jump height" aria-describedby="jump-height-help">
+                                    <select id="jump-unit" name="jump-unit" aria-label="Jump height unit">
+                                        <option value="inches">inches</option>
+                                        <option value="cm">cm</option>
+                                    </select>
+                                </div>
+                                <small id="jump-height-help">Measure your maximum vertical jump reach</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="body-weight">Body Weight</label>
+                                <div class="input-group">
+                                    <input type="number" id="body-weight" name="body-weight" step="0.1" min="50" max="400" required 
+                                           placeholder="Enter body weight" aria-describedby="body-weight-help">
+                                    <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
+                                        <option value="lbs">lbs</option>
+                                        <option value="kg">kg</option>
+                                    </select>
+                                </div>
+                                <small id="body-weight-help">Your current body weight</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="approach-distance">Approach Distance</label>
+                                <div class="input-group">
+                                    <input type="number" id="approach-distance" name="approach-distance" step="0.5" min="0" max="20" required 
+                                           placeholder="Enter approach distance" aria-describedby="approach-help">
+                                    <select id="distance-unit" name="distance-unit" aria-label="Distance unit">
+                                        <option value="feet">feet</option>
+                                        <option value="meters">meters</option>
+                                    </select>
+                                </div>
+                                <small id="approach-help">Distance of your run-up before jumping</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="10" max="50" required 
+                                       placeholder="Enter your age" aria-describedby="age-help">
+                                <small id="age-help">Your age for performance comparison</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender" name="gender" required aria-describedby="gender-help">
+                                    <option value="">Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                                <small id="gender-help">For percentile comparisons</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Analyze Jump</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Jump Analysis Results</h2>
+                        </div>
+                        <div id="results" class="results-container" aria-live="polite">
+                            <div class="placeholder-message">
+                                <p>Enter your jump measurements to see detailed analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🏀 Understanding Vertical Jump Metrics</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>📏 Jump Height Standards</h4>
+                                    <ul>
+                                        <li><strong>High School:</strong> 18-24 inches average</li>
+                                        <li><strong>College:</strong> 24-28 inches average</li>
+                                        <li><strong>Professional:</strong> 28-36+ inches</li>
+                                        <li><strong>Elite:</strong> 40+ inches</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>⚡ Power Output</h4>
+                                    <p>Power = Force × Velocity. Your vertical jump power indicates explosive strength potential and correlates with:</p>
+                                    <ul>
+                                        <li>Sprinting speed</li>
+                                        <li>Quickness on court</li>
+                                        <li>Rebounding ability</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🎯 Position Requirements</h4>
+                                    <ul>
+                                        <li><strong>Point Guard:</strong> Focus on quickness</li>
+                                        <li><strong>Shooting Guard:</strong> Balance height and agility</li>
+                                        <li><strong>Small Forward:</strong> All-around athleticism</li>
+                                        <li><strong>Power Forward:</strong> Strength and elevation</li>
+                                        <li><strong>Center:</strong> Maximum height advantage</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>📈 Training Recommendations</h4>
+                                    <ul>
+                                        <li><strong>Plyometrics:</strong> Box jumps, depth jumps</li>
+                                        <li><strong>Strength:</strong> Squats, deadlifts</li>
+                                        <li><strong>Olympic lifts:</strong> Power cleans, snatches</li>
+                                        <li><strong>Core stability:</strong> Planks, medicine balls</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('jump-form');
+            const resultsContainer = document.getElementById('results');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                analyzeJump();
+            });
+
+            function analyzeJump() {
+                const jumpHeight = parseFloat(document.getElementById('jump-height').value);
+                const jumpUnit = document.getElementById('jump-unit').value;
+                const bodyWeight = parseFloat(document.getElementById('body-weight').value);
+                const weightUnit = document.getElementById('weight-unit').value;
+                const approachDistance = parseFloat(document.getElementById('approach-distance').value);
+                const distanceUnit = document.getElementById('distance-unit').value;
+                const age = parseInt(document.getElementById('age').value);
+                const gender = document.getElementById('gender').value;
+
+                // Convert to standard units
+                const jumpHeightInches = jumpUnit === 'cm' ? jumpHeight / 2.54 : jumpHeight;
+                const bodyWeightLbs = weightUnit === 'kg' ? bodyWeight * 2.20462 : bodyWeight;
+                const bodyWeightKg = weightUnit === 'lbs' ? bodyWeight / 2.20462 : bodyWeight;
+
+                // Calculate metrics
+                const powerOutput = calculatePowerOutput(jumpHeightInches, bodyWeightKg);
+                const forceGeneration = calculateForceGeneration(jumpHeightInches, bodyWeightKg);
+                const percentile = calculatePercentile(jumpHeightInches, age, gender);
+                const approachBonus = calculateApproachBonus(approachDistance, distanceUnit);
+                const rating = getJumpRating(jumpHeightInches);
+
+                // Generate recommendations
+                const recommendations = generateRecommendations(jumpHeightInches, age, rating, powerOutput);
+
+                // Display results
+                displayResults({
+                    jumpHeight: jumpHeightInches.toFixed(1),
+                    powerOutput: powerOutput.toFixed(0),
+                    forceGeneration: forceGeneration.toFixed(0),
+                    percentile: percentile,
+                    approachBonus: approachBonus,
+                    rating: rating,
+                    recommendations: recommendations
+                });
+            }
+
+            function calculatePowerOutput(jumpHeight, bodyWeight) {
+                // Power = (Weight × Gravity × Jump Height × 9.81) / Time
+                // Using simplified formula for peak power in watts
+                const gravity = 9.81;
+                const time = Math.sqrt((2 * jumpHeight * 0.0254) / gravity);
+                return (bodyWeight * gravity * jumpHeight * 0.0254) / time;
+            }
+
+            function calculateForceGeneration(jumpHeight, bodyWeight) {
+                // Force required to achieve jump height
+                const gravity = 9.81;
+                const velocity = Math.sqrt(2 * gravity * jumpHeight * 0.0254);
+                const acceleration = velocity / 0.15; // Assuming 0.15s push-off time
+                return bodyWeight * (gravity + acceleration);
+            }
+
+            function calculatePercentile(jumpHeight, age, gender) {
+                // Simplified percentile calculation
+                const standards = {
+                    male: {
+                        15: { avg: 20, excellent: 28 },
+                        20: { avg: 22, excellent: 30 },
+                        25: { avg: 24, excellent: 32 },
+                        30: { avg: 23, excellent: 31 }
+                    },
+                    female: {
+                        15: { avg: 16, excellent: 22 },
+                        20: { avg: 18, excellent: 24 },
+                        25: { avg: 19, excellent: 25 },
+                        30: { avg: 18, excellent: 24 }
+                    }
+                };
+
+                const ageGroup = Math.min(Math.floor(age / 5) * 5 + 15, 30);
+                const standard = standards[gender]?.[ageGroup] || standards.male[20];
+                
+                const percentile = ((jumpHeight - standard.avg) / (standard.excellent - standard.avg)) * 50 + 50;
+                return Math.max(0, Math.min(99, Math.round(percentile)));
+            }
+
+            function calculateApproachBonus(approachDistance, unit) {
+                const distanceFt = unit === 'meters' ? approachDistance * 3.28084 : approachDistance;
+                return Math.min(15, distanceFt * 1.5); // Max 15% bonus for approach
+            }
+
+            function getJumpRating(jumpHeight) {
+                if (jumpHeight >= 40) return 'Elite';
+                if (jumpHeight >= 35) return 'Excellent';
+                if (jumpHeight >= 30) return 'Very Good';
+                if (jumpHeight >= 25) return 'Good';
+                if (jumpHeight >= 20) return 'Average';
+                return 'Below Average';
+            }
+
+            function generateRecommendations(jumpHeight, age, rating, powerOutput) {
+                const recommendations = [];
+
+                if (jumpHeight < 25) {
+                    recommendations.push('Focus on plyometric training 2-3 times per week');
+                    recommendations.push('Include squats and deadlifts in strength training');
+                } else if (jumpHeight < 35) {
+                    recommendations.push('Add depth jumps and box jumps to your routine');
+                    recommendations.push('Incorporate Olympic lifts for explosive power');
+                } else {
+                    recommendations.push('Maintain current training with progressive overload');
+                    recommendations.push('Focus on landing mechanics and injury prevention');
+                }
+
+                if (powerOutput < 3000) {
+                    recommendations.push('Increase lower body strength training');
+                }
+
+                if (age < 20) {
+                    recommendations.push('Focus on proper technique and gradual progression');
+                } else if (age > 30) {
+                    recommendations.push('Include recovery days and mobility work');
+                }
+
+                return recommendations;
+            }
+
+            function displayResults(results) {
+                const ratingColors = {
+                    'Elite': '#10b981',
+                    'Excellent': '#3b82f6',
+                    'Very Good': '#8b5cf6',
+                    'Good': '#f59e0b',
+                    'Average': '#6b7280',
+                    'Below Average': '#ef4444'
+                };
+
+                const html = `
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">Jump Height</div>
+                            <div class="result-value">${results.jumpHeight} inches</div>
+                            <div class="result-rating" style="color: ${ratingColors[results.rating]}">${results.rating}</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Power Output</div>
+                            <div class="result-value">${results.powerOutput} watts</div>
+                            <div class="result-sublabel">Peak power</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Force Generation</div>
+                            <div class="result-value">${results.forceGeneration} N</div>
+                            <div class="result-sublabel">Peak force</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Performance</div>
+                            <div class="result-value">${results.percentile}th percentile</div>
+                            <div class="result-sublabel">Age/gender group</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Approach Bonus</div>
+                            <div class="result-value">+${results.approachBonus.toFixed(1)}%</div>
+                            <div class="result-sublabel">Run-up advantage</div>
+                        </div>
+                    </div>
+                    <div class="recommendations">
+                        <h4>Training Recommendations</h4>
+                        <ul>
+                            ${results.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                resultsContainer.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

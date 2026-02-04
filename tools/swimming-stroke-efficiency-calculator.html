@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate swimming stroke efficiency with SWOLF score and stroke rate analysis for optimal performance">
+    <meta name="keywords" content="swimming SWOLF calculator, stroke efficiency, swimming performance, stroke rate analysis, swim training">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Swimming Stroke Efficiency Calculator - SWOLF and Stroke Rate Analysis">
+    <meta property="og:description" content="Analyze swimming stroke efficiency with SWOLF score and comprehensive stroke metrics">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Swimming Stroke Efficiency Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">🏊‍♀️ Swimming Stroke Efficiency Calculator</h1>
+                <p class="tool-subtitle">Calculate swimming stroke efficiency with SWOLF score and comprehensive stroke rate analysis</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Stroke Analysis</h2>
+                        </div>
+                        <form id="swimming-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="stroke-type">Stroke Type</label>
+                                <select id="stroke-type" name="stroke-type" required aria-describedby="stroke-help">
+                                    <option value="">Select stroke type</option>
+                                    <option value="freestyle">Freestyle (Front Crawl)</option>
+                                    <option value="backstroke">Backstroke</option>
+                                    <option value="breaststroke">Breaststroke</option>
+                                    <option value="butterfly">Butterfly</option>
+                                    <option value="individual-medley">Individual Medley</option>
+                                </select>
+                                <small id="stroke-help">Your primary swimming stroke</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pool-length">Pool Length</label>
+                                <select id="pool-length" name="pool-length" required aria-describedby="pool-help">
+                                    <option value="">Select pool length</option>
+                                    <option value="25">25 meters (Short Course)</option>
+                                    <option value="50">50 meters (Long Course)</option>
+                                    <option value="33.33">33.33 yards (Short Course Yards)</option>
+                                    <option value="25-yards">25 yards (Short Course Yards)</option>
+                                </select>
+                                <small id="pool-help">Length of the pool you're swimming in</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="distance">Distance Swum</label>
+                                <div class="input-group">
+                                    <input type="number" id="distance" name="distance" step="25" min="25" max="3000" required 
+                                           placeholder="Enter distance" aria-describedby="distance-help">
+                                    <select id="distance-unit" name="distance-unit" aria-label="Distance unit">
+                                        <option value="meters">meters</option>
+                                        <option value="yards">yards</option>
+                                    </select>
+                                </div>
+                                <small id="distance-help">Total distance you swam</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="time">Total Time</label>
+                                <div class="time-input-group">
+                                    <input type="number" id="time-minutes" name="time-minutes" min="0" max="60" required 
+                                           placeholder="MM" aria-describedby="time-help">
+                                    <span>:</span>
+                                    <input type="number" id="time-seconds" name="time-seconds" min="0" max="59" required 
+                                           placeholder="SS" aria-describedby="time-help">
+                                </div>
+                                <small id="time-help">Total time to complete the distance (MM:SS)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="stroke-count">Total Stroke Count</label>
+                                <input type="number" id="stroke-count" name="stroke-count" min="10" max="2000" step="1" required 
+                                       placeholder="Enter stroke count" aria-describedby="stroke-count-help">
+                                <small id="stroke-count-help">Total number of strokes taken (count one arm for freestyle/backstroke, each stroke for breaststroke/butterfly)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experience-level">Swimming Experience</label>
+                                <select id="experience-level" name="experience-level" required aria-describedby="experience-help">
+                                    <option value="">Select experience level</option>
+                                    <option value="beginner">Beginner (&lt;1 year)</option>
+                                    <option value="novice">Novice (1-2 years)</option>
+                                    <option value="intermediate">Intermediate (2-5 years)</option>
+                                    <option value="advanced">Advanced (5-10 years)</option>
+                                    <option value="elite">Elite/Competitive (&gt;10 years)</option>
+                                </select>
+                                <small id="experience-help">Your swimming experience affects optimal metrics</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="training-goal">Training Goal</label>
+                                <select id="training-goal" name="training-goal" required aria-describedby="goal-help">
+                                    <option value="">Select training goal</option>
+                                    <option value="fitness">General Fitness</option>
+                                    <option value="technique">Technique Improvement</option>
+                                    <option value="endurance">Endurance Training</option>
+                                    <option value="speed">Speed Development</option>
+                                    <option value="competition">Competition Preparation</option>
+                                    <option value="triathlon">Triathlon Swimming</option>
+                                </select>
+                                <small id="goal-help">Your primary training objective</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="swimmer-type">Swimmer Type</label>
+                                <select id="swimmer-type" name="swimmer-type" required aria-describedby="swimmer-type-help">
+                                    <option value="">Select swimmer type</option>
+                                    <option value="distance">Distance Swimmer</option>
+                                    <option value="sprinter">Sprint Swimmer</option>
+                                    <option value="middle-distance">Middle Distance</option>
+                                    <option value="triathlete">Triathlete</option>
+                                    <option value="masters">Masters Swimmer</option>
+                                </select>
+                                <small id="swimmer-type-help">Your swimming specialty affects optimal stroke parameters</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Calculate Stroke Efficiency</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Stroke Efficiency Results</h2>
+                        </div>
+                        <div id="results" class="results-container" aria-live="polite">
+                            <div class="placeholder-message">
+                                <p>Enter your swimming data to see detailed stroke efficiency analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🏊‍♀️ Understanding Swimming Efficiency</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>🎯 SWOLF Score</h4>
+                                    <ul>
+                                        <li><strong>What it is:</strong> Time (seconds) + Strokes per length</li>
+                                        <li><strong>Lower is better:</strong> Indicates efficiency</li>
+                                        <li><strong>Elite swimmers:</strong> 20-25 in freestyle</li>
+                                        <li><strong>Intermediate:</strong> 30-40 range typical</li>
+                                        <li><strong>Pool dependent:</strong> Short course = lower SWOLF</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>💪 Stroke Rate</h4>
+                                    <ul>
+                                        <li><strong>Distance swimming:</strong> 45-55 strokes/minute</li>
+                                        <li><strong>Middle distance:</strong> 50-65 strokes/minute</li>
+                                        <li><strong>Sprinting:</strong> 65-85 strokes/minute</li>
+                                        <li><strong>Triathlon:</strong> 40-50 strokes/minute</li>
+                                        <li><strong>Masters:</strong> Often 40-55 for endurance</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>📊 Distance Per Stroke</h4>
+                                    <ul>
+                                        <li><strong>Elite freestyle:</strong> 2.0-2.5m per stroke</li>
+                                        <li><strong>Advanced:</strong> 1.8-2.2m per stroke</li>
+                                        <li><strong>Intermediate:</strong> 1.5-2.0m per stroke</li>
+                                        <li><strong>Beginner:</strong> 1.2-1.8m per stroke</li>
+                                        <li><strong>Stroke efficiency:</strong> Balance distance and rate</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>⚡ Efficiency Factors</h4>
+                                    <ul>
+                                        <li>Streamlining and body position</li>
+                                        <li>Catch and pull technique quality</li>
+                                        <li>Kicking efficiency and rhythm</li>
+                                        <li>Breathing patterns and timing</li>
+                                        <li>Consistency and relaxation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('swimming-form');
+            const resultsContainer = document.getElementById('results');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateStrokeEfficiency();
+            });
+
+            function calculateStrokeEfficiency() {
+                const strokeType = document.getElementById('stroke-type').value;
+                const poolLength = parseFloat(document.getElementById('pool-length').value);
+                const distance = parseFloat(document.getElementById('distance').value);
+                const distanceUnit = document.getElementById('distance-unit').value;
+                const timeMinutes = parseInt(document.getElementById('time-minutes').value);
+                const timeSeconds = parseInt(document.getElementById('time-seconds').value);
+                const strokeCount = parseInt(document.getElementById('stroke-count').value);
+                const experienceLevel = document.getElementById('experience-level').value;
+                const trainingGoal = document.getElementById('training-goal').value;
+                const swimmerType = document.getElementById('swimmer-type').value;
+
+                // Convert to standard units
+                const distanceMeters = distanceUnit === 'yards' ? distance * 0.9144 : distance;
+                const totalTimeSeconds = (timeMinutes * 60) + timeSeconds;
+                const poolLengthMeters = poolLength;
+
+                // Calculate basic metrics
+                const pace = calculatePace(totalTimeSeconds, distanceMeters);
+                const speed = calculateSpeed(distanceMeters, totalTimeSeconds);
+                const strokeRate = calculateStrokeRate(strokeCount, totalTimeSeconds);
+                const distancePerStroke = calculateDistancePerStroke(distanceMeters, strokeCount);
+                const swolf = calculateSWOLF(poolLengthMeters, totalTimeSeconds, strokeCount, distanceMeters);
+
+                // Calculate advanced metrics
+                const strokesPerLength = Math.round(strokeCount / (distanceMeters / poolLengthMeters));
+                const efficiencyIndex = calculateEfficiencyIndex(distancePerStroke, strokeRate, strokeType);
+                const technicalEfficiency = calculateTechnicalEfficiency(swolf, experienceLevel, strokeType);
+                
+                // Calculate optimal ranges and comparisons
+                const optimalRanges = getOptimalRanges(experienceLevel, strokeType, swimmerType);
+                const performanceLevel = assessPerformanceLevel(swolf, strokeRate, distancePerStroke, experienceLevel);
+                const improvementAreas = identifyImprovementAreas(swolf, strokeRate, distancePerStroke, optimalRanges);
+                
+                // Generate training recommendations
+                const trainingRecommendations = generateTrainingRecommendations(
+                    swolf, strokeRate, distancePerStroke, strokeType, experienceLevel, trainingGoal
+                );
+                const insights = generateInsights(
+                    swolf, strokeRate, distancePerStroke, strokeType, swimmerType, performanceLevel
+                );
+
+                // Display results
+                displayResults({
+                    strokeType: strokeType,
+                    poolLength: poolLengthMeters,
+                    distance: distanceMeters,
+                    time: totalTimeSeconds,
+                    pace: pace,
+                    speed: speed,
+                    strokeRate: strokeRate,
+                    distancePerStroke: distancePerStroke,
+                    swolf: swolf,
+                    strokesPerLength: strokesPerLength,
+                    efficiencyIndex: efficiencyIndex,
+                    technicalEfficiency: technicalEfficiency,
+                    optimalRanges: optimalRanges,
+                    performanceLevel: performanceLevel,
+                    improvementAreas: improvementAreas,
+                    trainingRecommendations: trainingRecommendations,
+                    insights: insights
+                });
+            }
+
+            function calculatePace(timeSeconds, distanceMeters) {
+                const pacePer100m = (timeSeconds / distanceMeters) * 100;
+                const minutes = Math.floor(pacePer100m / 60);
+                const seconds = Math.round(pacePer100m % 60);
+                return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }
+
+            function calculateSpeed(distanceMeters, timeSeconds) {
+                return ((distanceMeters / timeSeconds) * 3.6).toFixed(2); // Convert m/s to km/h
+            }
+
+            function calculateStrokeRate(strokeCount, timeSeconds) {
+                return Math.round((strokeCount / timeSeconds) * 60); // Strokes per minute
+            }
+
+            function calculateDistancePerStroke(distanceMeters, strokeCount) {
+                return (distanceMeters / strokeCount).toFixed(2);
+            }
+
+            function calculateSWOLF(poolLengthMeters, timeSeconds, strokeCount, distanceMeters) {
+                // Calculate strokes and time per length
+                const lengths = distanceMeters / poolLengthMeters;
+                const timePerLength = timeSeconds / lengths;
+                const strokesPerLength = strokeCount / lengths;
+                
+                // SWOLF = Time (seconds) + Strokes per length
+                return Math.round(timePerLength + strokesPerLength);
+            }
+
+            function calculateEfficiencyIndex(distancePerStroke, strokeRate, strokeType) {
+                // Efficiency index based on distance per stroke and stroke rate
+                // Higher distance per stroke and optimal stroke rate = higher efficiency
+                
+                const strokeMultipliers = {
+                    'freestyle': 1.0,
+                    'backstroke': 0.95,
+                    'breaststroke': 0.8,
+                    'butterfly': 0.85,
+                    'individual-medley': 0.9
+                };
+                
+                const optimalStrokeRates = {
+                    'freestyle': 55,
+                    'backstroke': 50,
+                    'breaststroke': 40,
+                    'butterfly': 48,
+                    'individual-medley': 52
+                };
+                
+                const optimalRate = optimalStrokeRates[strokeType] || 55;
+                const rateEfficiency = 1 - Math.abs(strokeRate - optimalRate) / optimalRate;
+                
+                const distanceScore = Math.min(distancePerStroke / 2.5, 1); // 2.5m is excellent distance per stroke
+                
+                return Math.round((distanceScore * 0.6 + rateEfficiency * 0.4) * 100 * (strokeMultipliers[strokeType] || 1.0));
+            }
+
+            function calculateTechnicalEfficiency(swolf, experienceLevel, strokeType) {
+                // Technical efficiency based on SWOLF compared to standards
+                
+                const eliteSWOLF = {
+                    'freestyle': 25,
+                    'backstroke': 30,
+                    'breaststroke': 35,
+                    'butterfly': 32,
+                    'individual-medley': 30
+                };
+                
+                const eliteValue = eliteSWOLF[strokeType] || 30;
+                const experienceMultipliers = {
+                    'beginner': 1.5,
+                    'novice': 1.3,
+                    'intermediate': 1.1,
+                    'advanced': 1.0,
+                    'elite': 0.9
+                };
+                
+                const adjustedSWOLF = swolf / (experienceMultipliers[experienceLevel] || 1.1);
+                const efficiency = Math.max(0, Math.min(100, (1 - (adjustedSWOLF - eliteValue) / eliteValue) * 100));
+                
+                return Math.round(efficiency);
+            }
+
+            function getOptimalRanges(experience, stroke, swimmerType) {
+                const baseRanges = {
+                    'freestyle': {
+                        swolf: { beginner: [40, 60], novice: [35, 50], intermediate: [30, 45], advanced: [25, 40], elite: [20, 35] },
+                        strokeRate: { beginner: [30, 50], novice: [40, 60], intermediate: [45, 65], advanced: [50, 70], elite: [55, 80] },
+                        distancePerStroke: { beginner: [1.0, 1.5], novice: [1.3, 1.8], intermediate: [1.5, 2.0], advanced: [1.7, 2.2], elite: [1.9, 2.5] }
+                    },
+                    'backstroke': {
+                        swolf: { beginner: [45, 65], novice: [40, 55], intermediate: [35, 50], advanced: [30, 45], elite: [25, 40] },
+                        strokeRate: { beginner: [25, 45], novice: [35, 55], intermediate: [40, 60], advanced: [45, 65], elite: [50, 70] },
+                        distancePerStroke: { beginner: [0.9, 1.4], novice: [1.2, 1.7], intermediate: [1.4, 1.9], advanced: [1.6, 2.1], elite: [1.8, 2.3] }
+                    },
+                    'breaststroke': {
+                        swolf: { beginner: [50, 70], novice: [45, 60], intermediate: [40, 55], advanced: [35, 50], elite: [30, 45] },
+                        strokeRate: { beginner: [20, 35], novice: [25, 40], intermediate: [30, 45], advanced: [35, 50], elite: [40, 55] },
+                        distancePerStroke: { beginner: [0.8, 1.3], novice: [1.0, 1.5], intermediate: [1.2, 1.7], advanced: [1.4, 1.9], elite: [1.6, 2.0] }
+                    },
+                    'butterfly': {
+                        swolf: { beginner: [55, 75], novice: [45, 65], intermediate: [40, 60], advanced: [35, 55], elite: [30, 50] },
+                        strokeRate: { beginner: [25, 40], novice: [30, 45], intermediate: [35, 50], advanced: [40, 60], elite: [45, 65] },
+                        distancePerStroke: { beginner: [0.8, 1.3], novice: [1.0, 1.5], intermediate: [1.2, 1.7], advanced: [1.4, 1.9], elite: [1.6, 2.0] }
+                    }
+                };
+                
+                return baseRanges[stroke] || baseRanges['freestyle'];
+            }
+
+            function assessPerformanceLevel(swolf, strokeRate, distancePerStroke, experience) {
+                const ranges = getOptimalRanges(experience, 'freestyle', 'middle-distance');
+                
+                let score = 0;
+                
+                // SWOLF scoring (40% of total)
+                const swolfRange = ranges.swolf[experience] || ranges.swolf['intermediate'];
+                if (swolf <= swolfRange[0]) score += 40;
+                else if (swolf <= swolfRange[1]) score += 30;
+                else score += 10;
+                
+                // Stroke rate scoring (30% of total)
+                const rateRange = ranges.strokeRate[experience] || ranges.strokeRate['intermediate'];
+                if (strokeRate >= rateRange[0] && strokeRate <= rateRange[1]) score += 30;
+                else if (Math.abs(strokeRate - (rateRange[0] + rateRange[1]) / 2) <= 10) score += 20;
+                else score += 10;
+                
+                // Distance per stroke scoring (30% of total)
+                const distanceRange = ranges.distancePerStroke[experience] || ranges.distancePerStroke['intermediate'];
+                if (distancePerStroke >= distanceRange[1]) score += 30;
+                else if (distancePerStroke >= distanceRange[0]) score += 20;
+                else score += 10;
+                
+                if (score >= 85) return 'Elite';
+                if (score >= 70) return 'Advanced';
+                if (score >= 55) return 'Intermediate';
+                if (score >= 40) return 'Novice';
+                return 'Beginner';
+            }
+
+            function identifyImprovementAreas(swolf, strokeRate, distancePerStroke, optimalRanges) {
+                const areas = [];
+                
+                // Check SWOLF
+                if (swolf > 35) {
+                    areas.push('Reduce stroke count by improving catch and pull technique');
+                    areas.push('Focus on streamlining to reduce drag');
+                }
+                
+                // Check stroke rate
+                if (strokeRate < 40) {
+                    areas.push('Increase stroke rate for better rhythm and speed');
+                    areas.push('Practice tempo training with a metronome');
+                } else if (strokeRate > 70) {
+                    areas.push('Reduce stroke rate to improve distance per stroke');
+                    areas.push('Focus on longer, more powerful strokes');
+                }
+                
+                // Check distance per stroke
+                if (distancePerStroke < 1.5) {
+                    areas.push('Increase distance per stroke through better extension');
+                    areas.push('Work on catch technique and body rotation');
+                }
+                
+                return areas;
+            }
+
+            function generateTrainingRecommendations(swolf, strokeRate, distancePerStroke, strokeType, experience, goal) {
+                const recommendations = [];
+                
+                // SWOLF-based recommendations
+                if (swolf > 40) {
+                    recommendations.push('Drill: Focus on stroke count reduction (7-10% improvement goal)');
+                    recommendations.push('Technique: Work on high elbow catch and early forearm press');
+                }
+                
+                // Stroke rate recommendations
+                if (strokeRate < 45) {
+                    recommendations.push('Training: Use tempo trainer at 50-60 strokes/minute');
+                    recommendations.push('Focus: Quick turnover while maintaining distance per stroke');
+                } else if (strokeRate > 65) {
+                    recommendations.push('Training: Slow down stroke rate to 45-55 strokes/minute');
+                    recommendations.push('Focus: Longer glide phase and body rotation');
+                }
+                
+                // Distance per stroke recommendations
+                if (distancePerStroke < 1.7) {
+                    recommendations.push('Drill: Extension drills - reach full extension before pull');
+                    recommendations.push('Focus: Body rotation and proper hand entry');
+                }
+                
+                // Goal-specific recommendations
+                if (goal === 'triathlon') {
+                    recommendations.push('Triathlon focus: Maintain efficiency over long distances');
+                    recommendations.push('Practice sighting without breaking rhythm');
+                } else if (goal === 'competition') {
+                    recommendations.push('Competition focus: Fine-tune race pace and strategy');
+                    recommendations.push('Practice race-start pacing and negative splits');
+                } else if (goal === 'technique') {
+                    recommendations.push('Technique focus: Video analysis and stroke correction');
+                    recommendations.push('Drill: 50% technique, 50% main sets for optimal learning');
+                }
+                
+                return recommendations;
+            }
+
+            function generateInsights(swolf, strokeRate, distancePerStroke, strokeType, swimmerType, performanceLevel) {
+                const insights = [];
+                
+                if (swolf < 30) {
+                    insights.push('Excellent SWOLF score - you have very efficient technique');
+                } else if (swolf > 45) {
+                    insights.push('SWOLF score indicates room for significant efficiency improvement');
+                }
+                
+                if (strokeRate >= 50 && strokeRate <= 60) {
+                    insights.push('Optimal stroke rate for most swimming distances');
+                }
+                
+                if (distancePerStroke > 2.0) {
+                    insights.push('Great distance per stroke - excellent efficiency');
+                } else if (distancePerStroke < 1.5) {
+                    insights.push('Distance per stroke could be improved with better technique');
+                }
+                
+                if (performanceLevel === 'Elite') {
+                    insights.push('Elite performance level - focus on fine-tuning and race strategy');
+                } else if (performanceLevel === 'Beginner') {
+                    insights.push('Focus on fundamental techniques before speed development');
+                }
+                
+                if (swimmerType === 'distance' && strokeRate > 55) {
+                    insights.push('Consider slightly lower stroke rate for distance events');
+                } else if (swimmerType === 'sprinter' && strokeRate < 55) {
+                    insights.push('Increase stroke rate for sprint performance');
+                }
+                
+                return insights;
+            }
+
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const secs = Math.round(seconds % 60);
+                return `${minutes}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            function displayResults(results) {
+                const performanceColor = results.performanceLevel === 'Elite' ? '#10b981' :
+                                         results.performanceLevel === 'Advanced' ? '#3b82f6' :
+                                         results.performanceLevel === 'Intermediate' ? '#8b5cf6' :
+                                         results.performanceLevel === 'Novice' ? '#f59e0b' : '#ef4444';
+
+                const swolfColor = results.swolf <= 30 ? '#10b981' :
+                                 results.swolf <= 35 ? '#3b82f6' :
+                                 results.swolf <= 40 ? '#8b5cf6' :
+                                 results.swolf <= 45 ? '#f59e0b' : '#ef4444';
+
+                const efficiencyColor = results.efficiencyIndex >= 85 ? '#10b981' :
+                                       results.efficiencyIndex >= 70 ? '#3b82f6' :
+                                       results.efficiencyIndex >= 55 ? '#8b5cf6' :
+                                       results.efficiencyIndex >= 40 ? '#f59e0b' : '#ef4444';
+
+                const html = `
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">SWOLF Score</div>
+                            <div class="result-value" style="color: ${swolfColor}">${results.swolf}</div>
+                            <div class="result-sublabel">Time + Strokes per length</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Pace</div>
+                            <div class="result-value">${results.pace}/100m</div>
+                            <div class="result-sublabel">${results.speed} km/h</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Stroke Rate</div>
+                            <div class="result-value">${results.strokeRate} spm</div>
+                            <div class="result-sublabel">Strokes per minute</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Distance/Stroke</div>
+                            <div class="result-value">${results.distancePerStroke}m</div>
+                            <div class="result-sublabel">${results.strokesPerLength} per length</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Efficiency Index</div>
+                            <div class="result-value" style="color: ${efficiencyColor}">${results.efficiencyIndex}%</div>
+                            <div class="result-sublabel">Technical efficiency</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Performance Level</div>
+                            <div class="result-value" style="color: ${performanceColor}">${results.performanceLevel}</div>
+                            <div class="result-sublabel">Overall assessment</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Stroke Type</div>
+                            <div class="result-value">${results.strokeType.charAt(0).toUpperCase() + results.strokeType.slice(1)}</div>
+                            <div class="result-sublabel">${results.distance}m in ${formatTime(results.time)}</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Pool Length</div>
+                            <div class="result-value">${results.poolLength}m</div>
+                            <div class="result-sublabel">${Math.round(results.distance / results.poolLength)} lengths</div>
+                        </div>
+                    </div>
+
+                    <div class="efficiency-analysis">
+                        <h4>⚡ Efficiency Analysis</h4>
+                        <div class="analysis-chart">
+                            <div class="analysis-item">
+                                <div class="analysis-label">SWOLF Efficiency</div>
+                                <div class="analysis-bar">
+                                    <div class="analysis-fill swolf" style="width: ${Math.max(0, 100 - (results.swolf - 20) * 2)}%"></div>
+                                </div>
+                                <div class="analysis-value">${Math.max(0, 100 - (results.swolf - 20) * 2).toFixed(0)}%</div>
+                            </div>
+                            <div class="analysis-item">
+                                <div class="analysis-label">Stroke Rate Efficiency</div>
+                                <div class="analysis-bar">
+                                    <div class="analysis-fill rate" style="width: ${Math.max(0, 100 - Math.abs(results.strokeRate - 55) * 2)}%"></div>
+                                </div>
+                                <div class="analysis-value">${Math.max(0, 100 - Math.abs(results.strokeRate - 55) * 2).toFixed(0)}%</div>
+                            </div>
+                            <div class="analysis-item">
+                                <div class="analysis-label">Distance Efficiency</div>
+                                <div class="analysis-bar">
+                                    <div class="analysis-fill distance" style="width: ${Math.min(100, (results.distancePerStroke / 2.5) * 100)}%"></div>
+                                </div>
+                                <div class="analysis-value">${Math.min(100, (results.distancePerStroke / 2.5) * 100).toFixed(0)}%</div>
+                            </div>
+                            <div class="analysis-item">
+                                <div class="analysis-label">Overall Efficiency</div>
+                                <div class="analysis-bar">
+                                    <div class="analysis-fill overall" style="width: ${results.efficiencyIndex}%"></div>
+                                </div>
+                                <div class="analysis-value">${results.efficiencyIndex}%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="optimal-ranges">
+                        <h4>📊 Optimal Ranges Comparison</h4>
+                        <div class="ranges-comparison">
+                            <div class="range-item">
+                                <div class="range-label">SWOLF Score</div>
+                                <div class="range-bar">
+                                    <div class="range-current" style="left: ${Math.min(100, (results.swolf / 60) * 100)}%"></div>
+                                    <div class="range-optimal" style="left: 40%; width: 30%;"></div>
+                                </div>
+                                <div class="range-legend">
+                                    <span class="current-dot"></span> Current: ${results.swolf}
+                                    <span class="optimal-dot"></span> Optimal: 25-35
+                                </div>
+                            </div>
+                            <div class="range-item">
+                                <div class="range-label">Stroke Rate</div>
+                                <div class="range-bar">
+                                    <div class="range-current" style="left: ${Math.min(100, (results.strokeRate / 80) * 100)}%"></div>
+                                    <div class="range-optimal" style="left: 44%; width: 30%;"></div>
+                                </div>
+                                <div class="range-legend">
+                                    <span class="current-dot"></span> Current: ${results.strokeRate}
+                                    <span class="optimal-dot"></span> Optimal: 45-60
+                                </div>
+                            </div>
+                            <div class="range-item">
+                                <div class="range-label">Distance/Stroke</div>
+                                <div class="range-bar">
+                                    <div class="range-current" style="left: ${Math.min(100, (results.distancePerStroke / 2.5) * 100)}%"></div>
+                                    <div class="range-optimal" style="left: 60%; width: 30%;"></div>
+                                </div>
+                                <div class="range-legend">
+                                    <span class="current-dot"></span> Current: ${results.distancePerStroke}m
+                                    <span class="optimal-dot"></span> Optimal: 1.5-2.5m
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stroke-metrics">
+                        <h4>🏊‍♀️ Detailed Stroke Metrics</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-icon">⏱️</div>
+                                <div class="metric-data">
+                                    <div class="metric-label">Pace per 100m</div>
+                                    <div class="metric-value">${results.pace}</div>
+                                    <div class="metric-status">${parseFloat(results.speed) > 2.0 ? 'Fast' : parseFloat(results.speed) > 1.5 ? 'Good' : 'Developing'}</div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-icon">💪</div>
+                                <div class="metric-data">
+                                    <div class="metric-label">Strokes per Length</div>
+                                    <div class="metric-value">${results.strokesPerLength}</div>
+                                    <div class="metric-status">${results.strokesPerLength <= 15 ? 'Excellent' : results.strokesPerLength <= 20 ? 'Good' : 'Room for Improvement'}</div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-icon">🎯</div>
+                                <div class="metric-data">
+                                    <div class="metric-label">SWOLF Rating</div>
+                                    <div class="metric-value">${results.swolf}</div>
+                                    <div class="metric-status">${results.swolf <= 30 ? 'Elite' : results.swolf <= 35 ? 'Advanced' : results.swolf <= 40 ? 'Intermediate' : 'Developing'}</div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-icon">⚡</div>
+                                <div class="metric-data">
+                                    <div class="metric-label">Efficiency</div>
+                                    <div class="metric-value">${results.efficiencyIndex}%</div>
+                                    <div class="metric-status">${results.efficiencyIndex >= 85 ? 'Excellent' : results.efficiencyIndex >= 70 ? 'Good' : 'Needs Work'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="insights">
+                        <h4>🧠 Swimming Insights</h4>
+                        <ul>
+                            ${results.insights.map(insight => `<li>${insight}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="recommendations">
+                        <h4>🎯 Training Recommendations</h4>
+                        <ul>
+                            ${results.trainingRecommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                resultsContainer.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate altitude adjustments for training and race pacing with scientific altitude performance calculations">
+    <meta name="keywords" content="altitude training calculator, high altitude pacing, elevation adjustment, altitude acclimatization, altitude performance">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Altitude Adjustment Calculator - High Altitude Performance">
+    <meta property="og:description" content="Calculate pace and performance adjustments for training and racing at altitude">
+    <meta property="og:type" content="website">
+    <property="og:url" content="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Altitude Adjustment Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">⛰️ Altitude Adjustment Calculator</h1>
+                <p class="tool-subtitle">Calculate training and race pacing adjustments for altitude with scientific performance calculations</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Altitude Performance Analysis</h2>
+                        </div>
+                        <form id="altitude-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="activity-type">Activity Type</label>
+                                <select id="activity-type" name="activity-type" required aria-describedby="activity-help">
+                                    <option value="">Select activity</option>
+                                    <option value="running">Running</option>
+                                    <option value="cycling">Cycling</option>
+                                    <option value="swimming">Swimming</option>
+                                    <option value="triathlon">Triathlon</option>
+                                    <option value="skiing">Skiing/Snowboarding</option>
+                                    <option value="mountaineering">Mountaineering</option>
+                                </select>
+                                <small id="activity-help">Select your primary activity type</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sea-level-pace">Sea Level Pace (per km)</label>
+                                <div class="pace-input-group">
+                                    <input type="number" id="pace-minutes" name="pace-minutes" min="0" max="20" required 
+                                           placeholder="MM" aria-describedby="pace-help">
+                                    <span>:</span>
+                                    <input type="number" id="pace-seconds" name="pace-seconds" min="0" max="59" required 
+                                           placeholder="SS" aria-describedby="pace-help">
+                                </div>
+                                <small id="pace-help">Your normal pace at sea level (MM:SS per km)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="target-altitude">Target Altitude</label>
+                                <div class="input-group">
+                                    <input type="number" id="target-altitude" name="target-altitude" step="100" min="0" max="8000" required 
+                                           placeholder="Enter altitude" aria-describedby="altitude-help">
+                                    <select id="altitude-unit" name="altitude-unit" aria-label="Altitude unit">
+                                        <option value="meters">meters</option>
+                                        <option value="feet">feet</option>
+                                    </select>
+                                </div>
+                                <small id="altitude-help">Altitude where you'll be training/racing</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="home-altitude">Home/Training Altitude</label>
+                                <div class="input-group">
+                                    <input type="number" id="home-altitude" name="home-altitude" step="100" min="0" max="8000" required 
+                                           placeholder="Enter altitude" aria-describedby="home-help">
+                                    <select id="home-unit" name="home-unit" aria-label="Altitude unit">
+                                        <option value="meters">meters</option>
+                                        <option value="feet">feet</option>
+                                    </select>
+                                </div>
+                                <small id="home-help">Altitude where you normally train (0 for sea level)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="acclimation-days">Altitude Acclimation Days</label>
+                                <input type="number" id="acclimation-days" name="acclimation-days" min="0" max="30" required 
+                                       placeholder="Enter days" aria-describedby="acclimation-help">
+                                <small id="acclimation-help">Days spent at target altitude (0 if just arriving)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fitness-level">Fitness Level</label>
+                                <select id="fitness-level" name="fitness-level" required aria-describedby="fitness-help">
+                                    <option value="">Select fitness level</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="recreational">Recreational</option>
+                                    <option value="competitive">Competitive</option>
+                                    <option value="elite">Elite/Professional</option>
+                                </select>
+                                <small id="fitness-help">Your overall fitness level affects altitude adaptation</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="duration">Activity Duration</label>
+                                <div class="input-group">
+                                    <input type="number" id="duration" name="duration" step="5" min="15" max="480" required 
+                                           placeholder="Enter duration" aria-describedby="duration-help">
+                                    <select id="duration-unit" name="duration-unit" aria-label="Duration unit">
+                                        <option value="minutes">minutes</option>
+                                        <option value="hours">hours</option>
+                                    </select>
+                                </div>
+                                <small id="duration-help">Expected duration of your activity</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="calculation-type">Calculation Type</label>
+                                <select id="calculation-type" name="calculation-type" required aria-describedby="calc-help">
+                                    <option value="">Select calculation type</option>
+                                    <option value="training">Training Adjustment</option>
+                                    <option value="racing">Race Pacing</option>
+                                    <option value="comparison">Performance Comparison</option>
+                                    <option value="live-train">Live High Train Low</option>
+                                </select>
+                                <small id="calc-help">Purpose of your altitude calculation</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Calculate Altitude Adjustments</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Altitude Adjustment Results</h2>
+                        </div>
+                        <div id="results" class="results-container" aria-live="polite">
+                            <div class="placeholder-message">
+                                <p>Enter your activity details to see altitude adjustment calculations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">⛰️ Understanding Altitude Effects</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>🏔️ Altitude Performance Zones</h4>
+                                    <ul>
+                                        <li><strong>0-500m:</strong> Sea level - no adjustment needed</li>
+                                        <li><strong>500-1500m:</strong> Low altitude - 2-4% slower</li>
+                                        <li><strong>1500-2500m:</strong> Moderate altitude - 5-8% slower</li>
+                                        <li><strong>2500-3500m:</strong> High altitude - 8-12% slower</li>
+                                        <li><strong>3500-5000m:</strong> Very high - 12-20% slower</li>
+                                        <li><strong>&gt;5000m:</strong> Extreme - 20%+ slower</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>📈 Acclimatization Timeline</h4>
+                                    <ul>
+                                        <li><strong>Day 1-3:</strong> Initial adaptation (60% benefit)</li>
+                                        <li><strong>Day 4-7:</strong> Significant improvement (80%)</li>
+                                        <li><strong>Day 8-14:</strong> Near full adaptation (95%)</li>
+                                        <li><strong>Day 14-21:</strong> Complete acclimatization</li>
+                                        <li><strong>Benefits last:</strong> 2-3 weeks after return</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>⚡ Performance Impact</h4>
+                                    <ul>
+                                        <li>VO2 max decreases ~3% per 300m above 1500m</li>
+                                        <li>Maximum power output decreases with altitude</li>
+                                        <li>Recovery time increases significantly</li>
+                                        <li>Hydration needs increase at altitude</li>
+                                        <li>Sleep quality often suffers initially</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>🎯 Training Strategies</h4>
+                                    <ul>
+                                        <li><strong>Live High Train Low:</strong> Gold standard method</li>
+                                        <li><strong>Interval training:</strong> More important at altitude</li>
+                                        <li><strong>Strength training:</strong> Helps maintain power</li>
+                                        <li><strong>Altitude masks:</strong> Limited effectiveness</li>
+                                        <li><strong>Gradual progression:</strong> Essential for adaptation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('altitude-form');
+            const resultsContainer = document.getElementById('results');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateAltitudeAdjustments();
+            });
+
+            function calculateAltitudeAdjustments() {
+                const activityType = document.getElementById('activity-type').value;
+                const paceMinutes = parseInt(document.getElementById('pace-minutes').value);
+                const paceSeconds = parseInt(document.getElementById('pace-seconds').value);
+                const targetAltitude = parseFloat(document.getElementById('target-altitude').value);
+                const altitudeUnit = document.getElementById('altitude-unit').value;
+                const homeAltitude = parseFloat(document.getElementById('home-altitude').value);
+                const homeUnit = document.getElementById('home-unit').value;
+                const acclimationDays = parseInt(document.getElementById('acclimation-days').value);
+                const fitnessLevel = document.getElementById('fitness-level').value;
+                const duration = parseFloat(document.getElementById('duration').value);
+                const durationUnit = document.getElementById('duration-unit').value;
+                const calculationType = document.getElementById('calculation-type').value;
+
+                // Convert to standard units
+                const targetAltitudeMeters = altitudeUnit === 'feet' ? targetAltitude * 0.3048 : targetAltitude;
+                const homeAltitudeMeters = homeUnit === 'feet' ? homeAltitude * 0.3048 : homeAltitude;
+                const durationMinutes = durationUnit === 'hours' ? duration * 60 : duration;
+                const seaLevelPaceSeconds = (paceMinutes * 60) + paceSeconds;
+
+                // Calculate altitude effects
+                const altitudeDifference = targetAltitudeMeters - homeAltitudeMeters;
+                const vo2MaxDecrease = calculateVO2MaxDecrease(targetAltitudeMeters, homeAltitudeMeters);
+                const performanceDecrease = calculatePerformanceDecrease(targetAltitudeMeters, homeAltitudeMeters, acclimationDays, fitnessLevel);
+                
+                // Calculate pace adjustments
+                const paceAdjustmentSeconds = calculatePaceAdjustment(seaLevelPaceSeconds, performanceDecrease);
+                const adjustedPace = seaLevelPaceSeconds + paceAdjustmentSeconds;
+                
+                // Calculate training zones
+                const trainingZones = calculateTrainingZones(seaLevelPaceSeconds, adjustedPace, activityType);
+                
+                // Calculate benefits and risks
+                const altitudeBenefits = calculateAltitudeBenefits(targetAltitudeMeters, acclimationDays, durationMinutes);
+                const healthRisks = assessHealthRisks(targetAltitudeMeters, durationMinutes, acclimationDays, fitnessLevel);
+                
+                // Generate recommendations
+                const recommendations = generateRecommendations(
+                    targetAltitudeMeters, acclimationDays, fitnessLevel, calculationType, healthRisks
+                );
+                const insights = generateInsights(
+                    altitudeDifference, vo2MaxDecrease, performanceDecrease, acclimationDays, activityType
+                );
+
+                // Display results
+                displayResults({
+                    seaLevelPace: formatPace(seaLevelPaceSeconds),
+                    adjustedPace: formatPace(adjustedPace),
+                    paceAdjustment: Math.abs(paceAdjustmentSeconds),
+                    paceAdjustmentPercent: ((paceAdjustmentSeconds / seaLevelPaceSeconds) * 100).toFixed(1),
+                    targetAltitude: targetAltitudeMeters.toFixed(0),
+                    homeAltitude: homeAltitudeMeters.toFixed(0),
+                    altitudeDifference: altitudeDifference.toFixed(0),
+                    vo2MaxDecrease: vo2MaxDecrease.toFixed(1),
+                    performanceDecrease: performanceDecrease.toFixed(1),
+                    trainingZones: trainingZones,
+                    altitudeBenefits: altitudeBenefits,
+                    healthRisks: healthRisks,
+                    recommendations: recommendations,
+                    insights: insights,
+                    acclimationDays: acclimationDays,
+                    calculationType: calculationType
+                });
+            }
+
+            function calculateVO2MaxDecrease(targetAltitude, homeAltitude) {
+                // VO2 max decreases approximately 3% per 300m above 1500m
+                const effectiveAltitude = Math.max(0, targetAltitude - 1500);
+                const homeEffectiveAltitude = Math.max(0, homeAltitude - 1500);
+                const altitudeDifference = effectiveAltitude - homeEffectiveAltitude;
+                
+                if (altitudeDifference <= 0) return 0;
+                
+                // 3% decrease per 300m above 1500m
+                return (altitudeDifference / 300) * 3;
+            }
+
+            function calculatePerformanceDecrease(targetAltitude, homeAltitude, acclimationDays, fitnessLevel) {
+                const baseDecrease = calculateVO2MaxDecrease(targetAltitude, homeAltitude);
+                
+                // Fitness level adjustment (fitter athletes adapt better)
+                const fitnessMultipliers = {
+                    'beginner': 1.2,
+                    'recreational': 1.1,
+                    'competitive': 1.0,
+                    'elite': 0.9
+                };
+                
+                let adjustedDecrease = baseDecrease * (fitnessMultipliers[fitnessLevel] || 1.0);
+                
+                // Acclimation benefit (max 80% recovery after 14 days)
+                const acclimationBenefit = Math.min(0.8, acclimationDays / 17.5);
+                adjustedDecrease *= (1 - acclimationBenefit);
+                
+                return adjustedDecrease;
+            }
+
+            function calculatePaceAdjustment(seaLevelPaceSeconds, performanceDecrease) {
+                // Pace slows proportionally to performance decrease
+                return Math.round(seaLevelPaceSeconds * (performanceDecrease / 100));
+            }
+
+            function calculateTrainingZones(seaLevelPace, adjustedPace, activity) {
+                const zones = {
+                    'running': [
+                        { name: 'Recovery', percentage: 1.3 },
+                        { name: 'Easy', percentage: 1.15 },
+                        { name: 'Moderate', percentage: 1.05 },
+                        { name: 'Threshold', percentage: 0.95 },
+                        { name: 'VO2 Max', percentage: 0.85 },
+                        { name: 'Speed', percentage: 0.75 }
+                    ],
+                    'cycling': [
+                        { name: 'Recovery', percentage: 1.25 },
+                        { name: 'Endurance', percentage: 1.1 },
+                        { name: 'Tempo', percentage: 0.95 },
+                        { name: 'Threshold', percentage: 0.9 },
+                        { name: 'VO2 Max', percentage: 0.8 },
+                        { name: 'Anaerobic', percentage: 0.7 }
+                    ]
+                };
+
+                const activityZones = zones[activity] || zones['running'];
+                
+                return activityZones.map(zone => ({
+                    name: zone.name,
+                    seaLevelPace: formatPace(seaLevelPace * zone.percentage),
+                    altitudePace: formatPace(adjustedPace * zone.percentage),
+                    adjustmentPercent: ((adjustedPace * zone.percentage) / (seaLevelPace * zone.percentage) - 1) * 100
+                }));
+            }
+
+            function calculateAltitudeBenefits(altitude, acclimationDays, duration) {
+                const benefits = {
+                    redBloodCellIncrease: 0,
+                    hemoglobinIncrease: 0,
+                    vo2MaxPotentialIncrease: 0,
+                    performanceTimeframe: ''
+                };
+
+                if (acclimationDays >= 14 && altitude >= 2000) {
+                    // EPO and red blood cell production increases at altitude
+                    benefits.redBloodCellIncrease = Math.min(10, (acclimationDays / 28) * 10);
+                    benefits.hemoglobinIncrease = Math.min(8, (acclimationDays / 28) * 8);
+                    benefits.vo2MaxPotentialIncrease = Math.min(5, (acclimationDays / 28) * 5);
+                    benefits.performanceTimeframe = '2-3 weeks after return to sea level';
+                }
+
+                return benefits;
+            }
+
+            function assessHealthRisks(altitude, duration, acclimationDays, fitnessLevel) {
+                let riskScore = 0;
+
+                // Altitude risk assessment
+                if (altitude > 2500) riskScore += 2;
+                if (altitude > 3500) riskScore += 2;
+                if (altitude > 4500) riskScore += 3;
+                if (altitude > 5500) riskScore += 3;
+
+                // Duration risk
+                if (duration > 120) riskScore += 1;
+                if (duration > 240) riskScore += 1;
+
+                // Acclimation protection
+                riskScore = Math.max(0, riskScore - Math.floor(acclimationDays / 7));
+
+                // Fitness level protection
+                if (fitnessLevel === 'elite') riskScore -= 1;
+                else if (fitnessLevel === 'beginner') riskScore += 1;
+
+                if (riskScore >= 6) return 'Very High';
+                if (riskScore >= 4) return 'High';
+                if (riskScore >= 2) return 'Medium';
+                return 'Low';
+            }
+
+            function generateRecommendations(altitude, acclimationDays, fitness, calcType, risks) {
+                const recommendations = [];
+
+                if (acclimationDays < 7) {
+                    recommendations.push('Allow 1-2 weeks for gradual acclimatization');
+                    recommendations.push('Reduce training intensity by 30-40% initially');
+                }
+
+                if (altitude > 2500) {
+                    recommendations.push('Monitor for altitude sickness symptoms');
+                    recommendations.push('Stay well hydrated - increase fluid intake by 20-30%');
+                }
+
+                if (calcType === 'racing') {
+                    recommendations.push('Adjust race goals - focus on effort over time');
+                    recommendations.push('Start conservatively and build into race');
+                }
+
+                if (calcType === 'training') {
+                    recommendations.push('Use heart rate monitor rather than pace');
+                    recommendations.push('Include interval work to maintain intensity');
+                }
+
+                if (risks === 'High' || risks === 'Very High') {
+                    recommendations.push('Consider medical consultation before trip');
+                    recommendations.push('Have descent plan if symptoms worsen');
+                }
+
+                if (fitness === 'beginner' && altitude > 2000) {
+                    recommendations.push('Start with moderate altitude (1500-2000m) first');
+                    recommendations.push('Consider shorter initial exposure periods');
+                }
+
+                return recommendations;
+            }
+
+            function generateInsights(altitudeDiff, vo2Decrease, performanceDecrease, acclimationDays, activity) {
+                const insights = [];
+
+                if (altitudeDiff > 1000) {
+                    insights.push(`Significant altitude change of ${altitudeDiff.toFixed(0)}m requires major adjustment`);
+                }
+
+                if (vo2Decrease > 5) {
+                    insights.push(`${vo2Decrease.toFixed(1)}% VO2 max decrease will significantly affect performance`);
+                }
+
+                if (acclimationDays >= 14) {
+                    insights.push('Well acclimated - expect near-maximum performance for altitude');
+                } else if (acclimationDays === 0) {
+                    insights.push('No acclimation - expect 15-30% performance decrease');
+                }
+
+                if (activity === 'running' && altitudeDiff > 1500) {
+                    insights.push('Running is most affected by altitude - adjust expectations accordingly');
+                }
+
+                if (performanceDecrease > 10) {
+                    insights.push('Major performance impact expected - focus on effort management');
+                }
+
+                return insights;
+            }
+
+            function formatPace(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const secs = Math.round(seconds % 60);
+                return `${minutes}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            function displayResults(results) {
+                const riskColors = {
+                    'Low': '#10b981',
+                    'Medium': '#3b82f6',
+                    'High': '#f59e0b',
+                    'Very High': '#ef4444'
+                };
+
+                const html = `
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">Sea Level Pace</div>
+                            <div class="result-value">${results.seaLevelPace}</div>
+                            <div class="result-sublabel">Normal conditions</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Altitude Pace</div>
+                            <div class="result-value">${results.adjustedPace}</div>
+                            <div class="result-sublabel">+${results.paceAdjustment}s/km (${results.paceAdjustmentPercent}%)</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Target Altitude</div>
+                            <div class="result-value">${results.targetAltitude}m</div>
+                            <div class="result-sublabel">${results.altitudeDifference}m above home</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">VO2 Max Impact</div>
+                            <div class="result-value">-${results.vo2MaxDecrease}%</div>
+                            <div class="result-sublabel">Oxygen capacity</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Performance Decrease</div>
+                            <div class="result-value">-${results.performanceDecrease}%</div>
+                            <div class="result-sublabel">Overall impact</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Health Risk</div>
+                            <div class="result-value" style="color: ${riskColors[results.healthRisks]}">${results.healthRisks}</div>
+                            <div class="result-sublabel">Medical concern</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Acclimation</div>
+                            <div class="result-value">${results.acclimationDays} days</div>
+                            <div class="result-sublabel">Adaptation level</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Calculation Type</div>
+                            <div class="result-value">${results.calculationType}</div>
+                            <div class="result-sublabel">Analysis purpose</div>
+                        </div>
+                    </div>
+
+                    <div class="training-zones">
+                        <h4>🎯 Training Zones at Altitude</h4>
+                        <div class="zones-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Zone</th>
+                                        <th>Sea Level Pace</th>
+                                        <th>Altitude Pace</th>
+                                        <th>Adjustment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${results.trainingZones.map(zone => `
+                                        <tr>
+                                            <td>${zone.name}</td>
+                                            <td>${zone.seaLevelPace}</td>
+                                            <td>${zone.altitudePace}</td>
+                                            <td>${zone.adjustmentPercent > 0 ? '+' : ''}${zone.adjustmentPercent.toFixed(1)}%</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    ${results.altitudeBenefits.redBloodCellIncrease > 0 ? `
+                    <div class="altitude-benefits">
+                        <h4>📈 Altitude Training Benefits</h4>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <div class="benefit-label">Red Blood Cell Increase</div>
+                                <div class="benefit-value">+${results.altitudeBenefits.redBloodCellIncrease.toFixed(1)}%</div>
+                                <div class="benefit-sublabel">EPO stimulation</div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-label">Hemoglobin Increase</div>
+                                <div class="benefit-value">+${results.altitudeBenefits.hemoglobinIncrease.toFixed(1)}%</div>
+                                <div class="benefit-sublabel">Oxygen carrying capacity</div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-label">Potential VO2 Max Gain</div>
+                                <div class="benefit-value">+${results.altitudeBenefits.vo2MaxPotentialIncrease.toFixed(1)}%</div>
+                                <div class="benefit-sublabel">After return to sea level</div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-label">Performance Window</div>
+                                <div class="benefit-value">${results.altitudeBenefits.performanceTimeframe}</div>
+                                <div class="benefit-sublabel">Peak benefit timing</div>
+                            </div>
+                        </div>
+                    </div>
+                    ` : ''}
+
+                    <div class="altitude-effects">
+                        <h4>🏔️ Altitude Impact Analysis</h4>
+                        <div class="effects-chart">
+                            <div class="effect-item">
+                                <div class="effect-label">VO2 Max Decrease</div>
+                                <div class="effect-bar">
+                                    <div class="effect-fill vo2" style="width: ${Math.min(100, Math.abs(results.vo2MaxDecrease) * 5)}%"></div>
+                                </div>
+                                <div class="effect-value">${results.vo2MaxDecrease}%</div>
+                            </div>
+                            <div class="effect-item">
+                                <div class="effect-label">Performance Impact</div>
+                                <div class="effect-bar">
+                                    <div class="effect-fill performance" style="width: ${Math.min(100, Math.abs(results.performanceDecrease) * 4)}%"></div>
+                                </div>
+                                <div class="effect-value">${results.performanceDecrease}%</div>
+                            </div>
+                            <div class="effect-item">
+                                <div class="effect-label">Pace Adjustment</div>
+                                <div class="effect-bar">
+                                    <div class="effect-fill pace" style="width: ${Math.min(100, (results.paceAdjustment / 60) * 10)}%"></div>
+                                </div>
+                                <div class="effect-value">+${results.paceAdjustment}s/km</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acclimation-status">
+                        <h4>📊 Acclimatization Progress</h4>
+                        <div class="acclimation-progress">
+                            <div class="acclimation-bar">
+                                <div class="acclimation-fill" style="width: ${Math.min(100, (results.acclimationDays / 14) * 100)}%"></div>
+                            </div>
+                            <div class="acclimation-label">
+                                Day ${results.acclimationDays} of 14 for full acclimation (${Math.round((results.acclimationDays / 14) * 100)}% complete)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="insights">
+                        <h4>🧠 Altitude Insights</h4>
+                        <ul>
+                            ${results.insights.map(insight => `<li>${insight}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="recommendations">
+                        <h4>🎯 Recommendations</h4>
+                        <ul>
+                            ${results.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                resultsContainer.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

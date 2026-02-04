@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adjust pace and hydration for hot climates with heat acclimatization calculator for endurance athletes">
+    <meta name="keywords" content="heat acclimatization, hot weather training, pace adjustment, hydration calculator, temperature adaptation">
+    <meta name="author" content="Sports Tools Hub">
+    <meta property="og:title" content="Heat Acclimatization Calculator - Hot Climate Performance">
+    <meta property="og:description" content="Calculate pace adjustments and hydration needs for training and racing in hot weather">
+    <meta property="og:type" content="website">
+    <property="og:url" content="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Heat Acclimatization Calculator | Sports Tools Hub</title>
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">🌡️ Heat Acclimatization Calculator</h1>
+                <p class="tool-subtitle">Adjust pace and hydration for hot climates with scientific heat acclimatization calculations</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Heat Adaptation Analysis</h2>
+                        </div>
+                        <form id="heat-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="activity-type">Activity Type</label>
+                                <select id="activity-type" name="activity-type" required aria-describedby="activity-help">
+                                    <option value="">Select activity</option>
+                                    <option value="running">Running</option>
+                                    <option value="cycling">Cycling</option>
+                                    <option value="swimming">Swimming</option>
+                                    <option value="triathlon">Triathlon</option>
+                                    <option value="hiking">Hiking/Trekking</option>
+                                    <option value="outdoor-sports">Outdoor Sports</option>
+                                </select>
+                                <small id="activity-help">Select your primary activity type</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="normal-pace">Normal Pace (per km)</label>
+                                <div class="pace-input-group">
+                                    <input type="number" id="pace-minutes" name="pace-minutes" min="0" max="20" required 
+                                           placeholder="MM" aria-describedby="pace-help">
+                                    <span>:</span>
+                                    <input type="number" id="pace-seconds" name="pace-seconds" min="0" max="59" required 
+                                           placeholder="SS" aria-describedby="pace-help">
+                                </div>
+                                <small id="pace-help">Your normal pace in cool conditions (MM:SS per km)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="temperature">Current Temperature</label>
+                                <div class="input-group">
+                                    <input type="number" id="temperature" name="temperature" step="1" min="-10" max="50" required 
+                                           placeholder="Enter temperature" aria-describedby="temp-help">
+                                    <select id="temp-unit" name="temp-unit" aria-label="Temperature unit">
+                                        <option value="celsius">°C</option>
+                                        <option value="fahrenheit">°F</option>
+                                    </select>
+                                </div>
+                                <small id="temp-help">Expected temperature during activity</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="humidity">Humidity (%)</label>
+                                <input type="number" id="humidity" name="humidity" min="0" max="100" required 
+                                       placeholder="Enter humidity" aria-describedby="humidity-help">
+                                <small id="humidity-help">Relative humidity (very important for heat stress)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="acclimation-days">Heat Acclimation Days</label>
+                                <input type="number" id="acclimation-days" name="acclimation-days" min="0" max="30" required 
+                                       placeholder="Enter days" aria-describedby="acclimation-help">
+                                <small id="acclimation-help">Days you've been training in similar heat (0 if none)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="body-weight">Body Weight</label>
+                                <div class="input-group">
+                                    <input type="number" id="body-weight" name="body-weight" step="0.1" min="30" max="200" required 
+                                           placeholder="Enter weight" aria-describedby="weight-help">
+                                    <select id="weight-unit" name="weight-unit" aria-label="Weight unit">
+                                        <option value="kg">kg</option>
+                                        <option value="lbs">lbs</option>
+                                    </select>
+                                </div>
+                                <small id="weight-help">For hydration calculations</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="duration">Activity Duration</label>
+                                <div class="input-group">
+                                    <input type="number" id="duration" name="duration" step="5" min="15" max="480" required 
+                                           placeholder="Enter duration" aria-describedby="duration-help">
+                                    <select id="duration-unit" name="duration-unit" aria-label="Duration unit">
+                                        <option value="minutes">minutes</option>
+                                        <option value="hours">hours</option>
+                                    </select>
+                                </div>
+                                <small id="duration-help">Expected duration of activity</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="intensity">Intensity Level</label>
+                                <select id="intensity" name="intensity" required aria-describedby="intensity-help">
+                                    <option value="">Select intensity</option>
+                                    <option value="recovery">Recovery/Very Easy</option>
+                                    <option value="easy">Easy/Aerobic</option>
+                                    <option value="moderate">Moderate/Tempo</option>
+                                    <option value="hard">Hard/Threshold</option>
+                                    <option value="very-hard">Very Hard/Interval</option>
+                                    <option value="race">Race Effort</option>
+                                </select>
+                                <small id="intensity-help">Your planned intensity level</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Calculate Heat Adjustments</button>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Heat Adaptation Results</h2>
+                        </div>
+                        <div id="results" class="results-container" aria-live="polite">
+                            <div class="placeholder-message">
+                                <p>Enter your activity details to see heat adjustment calculations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🌡️ Understanding Heat Acclimatization</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>🌡️ Heat Stress Levels</h4>
+                                    <ul>
+                                        <li><strong>&lt;18°C:</strong> No heat adjustment needed</li>
+                                        <li><strong>18-22°C:</strong> 2-5% slower pace</li>
+                                        <li><strong>22-26°C:</strong> 5-10% slower pace</li>
+                                        <li><strong>26-30°C:</strong> 10-15% slower pace</li>
+                                        <li><strong>&gt;30°C:</strong> 15-20%+ slower pace</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>💧 Hydration Guidelines</h4>
+                                    <ul>
+                                        <li><strong>Mild (&lt;20°C):</strong> 500-750ml/hour</li>
+                                        <li><strong>Moderate (20-25°C):</strong> 750-1000ml/hour</li>
+                                        <li><strong>Hot (25-30°C):</strong> 1000-1500ml/hour</li>
+                                        <li><strong>Very Hot (&gt;30°C):</strong> 1500ml+/hour</li>
+                                        <li>Add 200-300ml per 10°C above 20°C</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>📈 Acclimatization Timeline</h4>
+                                    <ul>
+                                        <li><strong>Day 1-3:</strong> Initial adaptation (60% benefit)</li>
+                                        <li><strong>Day 4-7:</strong> Significant improvement (80%)</li>
+                                        <li><strong>Day 8-14:</strong> Near full adaptation (95%)</li>
+                                        <li><strong>Day 14+: </strong> Complete acclimatization</li>
+                                        <li>Benefits last 2-3 weeks without heat exposure</li>
+                                    </ul>
+                                </div>
+                                <div class="info-item">
+                                    <h4>⚠️ Risk Factors</h4>
+                                    <ul>
+                                        <li>High humidity (>70%) reduces cooling</li>
+                                        <li>No wind increases heat stress</li>
+                                        <li>Direct sun adds 5-8°C effective temperature</li>
+                                        <li>Previous heat illness increases risk</li>
+                                        <li>Medications can affect heat regulation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('heat-form');
+            const resultsContainer = document.getElementById('results');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateHeatAdjustments();
+            });
+
+            function calculateHeatAdjustments() {
+                const activityType = document.getElementById('activity-type').value;
+                const paceMinutes = parseInt(document.getElementById('pace-minutes').value);
+                const paceSeconds = parseInt(document.getElementById('pace-seconds').value);
+                const temperature = parseFloat(document.getElementById('temperature').value);
+                const tempUnit = document.getElementById('temp-unit').value;
+                const humidity = parseInt(document.getElementById('humidity').value);
+                const acclimationDays = parseInt(document.getElementById('acclimation-days').value);
+                const bodyWeight = parseFloat(document.getElementById('body-weight').value);
+                const weightUnit = document.getElementById('weight-unit').value;
+                const duration = parseFloat(document.getElementById('duration').value);
+                const durationUnit = document.getElementById('duration-unit').value;
+                const intensity = document.getElementById('intensity').value;
+
+                // Convert to standard units
+                const tempCelsius = tempUnit === 'fahrenheit' ? (temperature - 32) * 5/9 : temperature;
+                const durationMinutes = durationUnit === 'hours' ? duration * 60 : duration;
+                const bodyWeightKg = weightUnit === 'lbs' ? bodyWeight / 2.20462 : bodyWeight;
+                const normalPaceSeconds = (paceMinutes * 60) + paceSeconds;
+
+                // Calculate heat stress metrics
+                const heatIndex = calculateHeatIndex(tempCelsius, humidity);
+                const wetBulbGlobeTemp = calculateWBGT(tempCelsius, humidity);
+                const heatStressLevel = determineHeatStressLevel(heatIndex, wetBulbGlobeTemp);
+
+                // Calculate pace adjustments
+                const paceAdjustment = calculatePaceAdjustment(tempCelsius, humidity, activityType, acclimationDays, intensity);
+                const adjustedPace = normalPaceSeconds + paceAdjustment;
+
+                // Calculate hydration needs
+                const hydrationStrategy = calculateHydrationStrategy(durationMinutes, tempCelsius, humidity, bodyWeightKg, activityType, intensity);
+                
+                // Calculate performance impact
+                const performanceImpact = calculatePerformanceImpact(paceAdjustment, heatStressLevel, acclimationDays);
+                
+                // Calculate risk assessment
+                const riskAssessment = assessHealthRisk(heatIndex, wetBulbGlobeTemp, durationMinutes, acclimationDays);
+                
+                // Generate recommendations
+                const recommendations = generateRecommendations(heatStressLevel, acclimationDays, activityType, intensity, riskAssessment);
+                const insights = generateInsights(paceAdjustment, heatIndex, humidity, acclimationDays, activityType);
+
+                // Display results
+                displayResults({
+                    normalPace: formatPace(normalPaceSeconds),
+                    adjustedPace: formatPace(adjustedPace),
+                    paceAdjustment: Math.abs(paceAdjustment),
+                    paceAdjustmentPercent: ((paceAdjustment / normalPaceSeconds) * 100).toFixed(1),
+                    temperature: tempCelsius.toFixed(1),
+                    heatIndex: heatIndex.toFixed(1),
+                    wetBulbGlobeTemp: wetBulbGlobeTemp.toFixed(1),
+                    heatStressLevel: heatStressLevel,
+                    hydrationStrategy: hydrationStrategy,
+                    performanceImpact: performanceImpact,
+                    riskAssessment: riskAssessment,
+                    recommendations: recommendations,
+                    insights: insights,
+                    acclimationDays: acclimationDays,
+                    humidity: humidity
+                });
+            }
+
+            function calculateHeatIndex(temp, humidity) {
+                if (temp < 27) return temp; // Heat index only relevant above 27°C
+
+                // Simplified heat index calculation
+                const t = temp;
+                const h = humidity;
+                
+                let heatIndex = t;
+                if (t >= 27 && h >= 40) {
+                    heatIndex = 0.5 * (t + 61.0 + ((t - 68.0) * 1.2) + (h * 0.094));
+                    
+                    if (heatIndex > 26) {
+                        heatIndex = -42.379 + 
+                            2.04901523 * t + 
+                            10.14333127 * h - 
+                            0.22475541 * t * h - 
+                            0.00683783 * t * t - 
+                            0.05481717 * h * h + 
+                            0.00122874 * t * t * h + 
+                            0.00085282 * t * h * h - 
+                            0.00000199 * t * t * h * h;
+                    }
+                }
+                
+                return heatIndex;
+            }
+
+            function calculateWBGT(temp, humidity) {
+                // Simplified Wet Bulb Globe Temperature calculation
+                // This is a simplified version - actual WBGT requires solar radiation measurement
+                const wetBulb = temp - ((100 - humidity) / 5);
+                const globeTemp = temp + 5; // Assumed solar load
+                return 0.7 * wetBulb + 0.2 * globeTemp + 0.1 * temp;
+            }
+
+            function determineHeatStressLevel(heatIndex, wbgt) {
+                if (wbgt < 18) return 'Low';
+                if (wbgt < 23) return 'Moderate';
+                if (wbgt < 28) return 'High';
+                if (wbgt < 30) return 'Very High';
+                return 'Extreme';
+            }
+
+            function calculatePaceAdjustment(temp, humidity, activity, acclimationDays, intensity) {
+                let baseAdjustment = 0;
+
+                // Temperature adjustment (seconds per km slower)
+                if (temp > 25) {
+                    baseAdjustment += (temp - 25) * 8; // 8 seconds per degree above 25°C
+                } else if (temp > 20) {
+                    baseAdjustment += (temp - 20) * 4; // 4 seconds per degree above 20°C
+                } else if (temp > 15) {
+                    baseAdjustment += (temp - 15) * 2; // 2 seconds per degree above 15°C
+                }
+
+                // Humidity adjustment
+                if (humidity > 70) {
+                    baseAdjustment += (humidity - 70) * 1.5; // 1.5 seconds per % above 70%
+                } else if (humidity > 50) {
+                    baseAdjustment += (humidity - 50) * 0.5; // 0.5 seconds per % above 50%
+                }
+
+                // Activity type adjustment
+                const activityMultipliers = {
+                    'running': 1.0,
+                    'cycling': 0.8,
+                    'swimming': 0.6,
+                    'triathlon': 0.9,
+                    'hiking': 1.1,
+                    'outdoor-sports': 1.2
+                };
+                baseAdjustment *= activityMultipliers[activity] || 1.0;
+
+                // Intensity adjustment
+                const intensityMultipliers = {
+                    'recovery': 1.3,
+                    'easy': 1.2,
+                    'moderate': 1.1,
+                    'hard': 1.0,
+                    'very-hard': 0.9,
+                    'race': 0.8
+                };
+                baseAdjustment *= intensityMultipliers[intensity] || 1.0;
+
+                // Acclimation benefit
+                const acclimationBenefit = Math.min(0.4, acclimationDays / 35); // Max 40% benefit after 35 days
+                baseAdjustment *= (1 - acclimationBenefit);
+
+                return Math.round(baseAdjustment);
+            }
+
+            function calculateHydrationStrategy(duration, temp, humidity, weight, activity, intensity) {
+                let baseFluidPerHour = 600; // ml per hour base
+
+                // Temperature adjustment
+                if (temp > 25) {
+                    baseFluidPerHour += (temp - 25) * 100;
+                }
+
+                // Humidity adjustment
+                if (humidity > 60) {
+                    baseFluidPerHour += (humidity - 60) * 20;
+                }
+
+                // Activity adjustment
+                const activityMultipliers = {
+                    'running': 1.2,
+                    'cycling': 1.0,
+                    'swimming': 0.8,
+                    'triathlon': 1.1,
+                    'hiking': 0.9,
+                    'outdoor-sports': 1.3
+                };
+                baseFluidPerHour *= activityMultipliers[activity] || 1.0;
+
+                // Intensity adjustment
+                const intensityMultipliers = {
+                    'recovery': 0.8,
+                    'easy': 0.9,
+                    'moderate': 1.0,
+                    'hard': 1.2,
+                    'very-hard': 1.4,
+                    'race': 1.5
+                };
+                baseFluidPerHour *= intensityMultipliers[intensity] || 1.0;
+
+                const totalFluid = Math.round(baseFluidPerHour * (duration / 60));
+                const electrolytesPerHour = Math.round(300 + (temp - 20) * 20); // mg sodium
+                const totalElectrolytes = Math.round(electrolytesPerHour * (duration / 60));
+
+                return {
+                    totalFluid: totalFluid,
+                    fluidPerHour: Math.round(baseFluidPerHour),
+                    electrolytes: totalElectrolytes,
+                    electrolytesPerHour: electrolytesPerHour,
+                };
+            }
+
+            function calculatePerformanceImpact(paceAdjustment, stressLevel, acclimationDays) {
+                const impactScore = Math.abs(paceAdjustment);
+                
+                let impact = 'Minimal';
+                if (impactScore > 60) impact = 'Major';
+                else if (impactScore > 40) impact = 'Significant';
+                else if (impactScore > 20) impact = 'Moderate';
+                else if (impactScore > 10) impact = 'Minor';
+
+                // Adjust for acclimation
+                if (acclimationDays >= 14 && impact !== 'Minimal') {
+                    impact = impact === 'Major' ? 'Significant' :
+                             impact === 'Significant' ? 'Moderate' :
+                             impact === 'Moderate' ? 'Minor' : 'Minimal';
+                }
+
+                return impact;
+            }
+
+            function assessHealthRisk(heatIndex, wbgt, duration, acclimationDays) {
+                let riskScore = 0;
+
+                // WBGT risk assessment
+                if (wbgt > 30) riskScore += 4;
+                else if (wbgt > 28) riskScore += 3;
+                else if (wbgt > 23) riskScore += 2;
+                else if (wbgt > 18) riskScore += 1;
+
+                // Duration risk
+                if (duration > 180) riskScore += 2;
+                else if (duration > 90) riskScore += 1;
+
+                // Acclimation protection
+                riskScore = Math.max(0, riskScore - Math.floor(acclimationDays / 7));
+
+                if (riskScore >= 5) return 'Very High';
+                if (riskScore >= 4) return 'High';
+                if (riskScore >= 2) return 'Medium';
+                return 'Low';
+            }
+
+            function generateRecommendations(stressLevel, acclimationDays, activity, intensity, risk) {
+                const recommendations = [];
+
+                if (acclimationDays < 7) {
+                    recommendations.push('Reduce intensity by 20-30% until better acclimated');
+                    recommendations.push('Take extra rest breaks in shaded areas');
+                }
+
+                if (stressLevel === 'Extreme' || stressLevel === 'Very High') {
+                    recommendations.push('Consider postponing or moving to cooler times');
+                    recommendations.push('Monitor for heat illness symptoms closely');
+                }
+
+                if (risk === 'High' || risk === 'Very High') {
+                    recommendations.push('Have emergency plan and phone available');
+                    recommendations.push('Train with a partner if possible');
+                }
+
+                if (intensity === 'race' && stressLevel !== 'Low') {
+                    recommendations.push('Adjust race goals - focus on completion over time');
+                }
+
+                return recommendations;
+            }
+
+            function generateInsights(paceAdjustment, heatIndex, humidity, acclimationDays, activity) {
+                const insights = [];
+
+                if (paceAdjustment > 30) {
+                    insights.push('Significant pace adjustment required - heat is major factor');
+                }
+
+                if (humidity > 70 && heatIndex > 25) {
+                    insights.push('High humidity reduces evaporative cooling - slow down more than temperature alone suggests');
+                }
+
+                if (acclimationDays >= 14) {
+                    insights.push('Well acclimated - your body has adapted to heat stress');
+                } else if (acclimationDays === 0) {
+                    insights.push('No acclimation - expect reduced performance of 15-25%');
+                }
+
+                if (activity === 'running' && heatIndex > 28) {
+                    insights.push('Running in these conditions significantly increases core temperature');
+                }
+
+                return insights;
+            }
+
+            function formatPace(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const secs = Math.round(seconds % 60);
+                return `${minutes}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            function displayResults(results) {
+                const stressColors = {
+                    'Low': '#10b981',
+                    'Moderate': '#3b82f6',
+                    'High': '#f59e0b',
+                    'Very High': '#f97316',
+                    'Extreme': '#ef4444'
+                };
+
+                const riskColors = {
+                    'Low': '#10b981',
+                    'Medium': '#3b82f6',
+                    'High': '#f59e0b',
+                    'Very High': '#ef4444'
+                };
+
+                const impactColors = {
+                    'Minimal': '#10b981',
+                    'Minor': '#3b82f6',
+                    'Moderate': '#f59e0b',
+                    'Significant': '#f97316',
+                    'Major': '#ef4444'
+                };
+
+                const html = `
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="result-label">Normal Pace</div>
+                            <div class="result-value">${results.normalPace}</div>
+                            <div class="result-sublabel">Cool conditions</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Adjusted Pace</div>
+                            <div class="result-value">${results.adjustedPace}</div>
+                            <div class="result-sublabel">+${results.paceAdjustment}s/km (${results.paceAdjustmentPercent}%)</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Temperature</div>
+                            <div class="result-value">${results.temperature}°C</div>
+                            <div class="result-sublabel">Heat Index: ${results.heatIndex}°C</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Humidity</div>
+                            <div class="result-value">${results.humidity}%</div>
+                            <div class="result-sublabel">WBGT: ${results.wetBulbGlobeTemp}°C</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Heat Stress Level</div>
+                            <div class="result-value" style="color: ${stressColors[results.heatStressLevel]}">${results.heatStressLevel}</div>
+                            <div class="result-sublabel">Overall risk assessment</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Performance Impact</div>
+                            <div class="result-value" style="color: ${impactColors[results.performanceImpact]}">${results.performanceImpact}</div>
+                            <div class="result-sublabel">Effect on performance</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Health Risk</div>
+                            <div class="result-value" style="color: ${riskColors[results.riskAssessment]}">${results.riskAssessment}</div>
+                            <div class="result-sublabel">Medical concern level</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Acclimation</div>
+                            <div class="result-value">${results.acclimationDays} days</div>
+                            <div class="result-sublabel">Heat adaptation level</div>
+                        </div>
+                    </div>
+
+                    <div class="hydration-strategy">
+                        <h4>💧 Hydration Strategy</h4>
+                        <div class="hydration-grid">
+                            <div class="hydration-item">
+                                <div class="hydration-icon">💧</div>
+                                <div class="hydration-data">
+                                    <div class="hydration-label">Total Fluid Needed</div>
+                                    <div class="hydration-value">${results.hydrationStrategy.totalFluid} ml</div>
+                                    <div class="hydration-sublabel">${results.hydrationStrategy.fluidPerHour} ml/hour</div>
+                                </div>
+                            </div>
+                            <div class="hydration-item">
+                                <div class="hydration-icon">🧂</div>
+                                <div class="hydration-data">
+                                    <div class="hydration-label">Electrolytes Needed</div>
+                                    <div class="hydration-value">${results.hydrationStrategy.electrolytes} mg sodium</div>
+                                    <div class="hydration-sublabel">${results.hydrationStrategy.electrolytesPerHour} mg/hour</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="heat-stress-indicators">
+                        <h4>🌡️ Heat Stress Analysis</h4>
+                        <div class="stress-metrics">
+                            <div class="stress-item">
+                                <div class="stress-label">Temperature</div>
+                                <div class="stress-bar">
+                                    <div class="stress-fill temp" style="width: ${Math.min(100, (results.temperature / 40) * 100)}%"></div>
+                                </div>
+                                <div class="stress-value">${results.temperature}°C</div>
+                            </div>
+                            <div class="stress-item">
+                                <div class="stress-label">Heat Index</div>
+                                <div class="stress-bar">
+                                    <div class="stress-fill heat-index" style="width: ${Math.min(100, (results.heatIndex / 45) * 100)}%"></div>
+                                </div>
+                                <div class="stress-value">${results.heatIndex}°C</div>
+                            </div>
+                            <div class="stress-item">
+                                <div class="stress-label">Humidity</div>
+                                <div class="stress-bar">
+                                    <div class="stress-fill humidity" style="width: ${results.humidity}%"></div>
+                                </div>
+                                <div class="stress-value">${results.humidity}%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acclimation-status">
+                        <h4>📈 Acclimation Status</h4>
+                        <div class="acclimation-progress">
+                            <div class="acclimation-bar">
+                                <div class="acclimation-fill" style="width: ${Math.min(100, (results.acclimationDays / 14) * 100)}%"></div>
+                            </div>
+                            <div class="acclimation-label">
+                                Day ${results.acclimationDays} of 14 for full acclimation (${Math.round((results.acclimationDays / 14) * 100)}% complete)
+                            </div>
+                        </div>
+                        <div class="acclimation-benefits">
+                            <strong>Benefits achieved:</strong> ${Math.min(100, Math.round((results.acclimationDays / 14) * 100))}%
+                        </div>
+                    </div>
+
+                    <div class="insights">
+                        <h4>🧠 Performance Insights</h4>
+                        <ul>
+                            ${results.insights.map(insight => `<li>${insight}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="recommendations">
+                        <h4>⚠️ Safety Recommendations</h4>
+                        <ul>
+                            ${results.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                resultsContainer.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plan safe weight cutting and gaining strategies with sustainable weekly targets and realistic timelines for athletes">
+    <meta name="keywords" content="weight cutting, weight gain planner, safe weight change, athlete weight management, body composition">
+    <meta name="author" content="Sports Tools Hub">
+    <title>Weight-Cut / Weight-Gain Planner - Sports Tools Hub</title>
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../about.html" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="../index.html#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Header -->
+        <section class="tool-header" aria-labelledby="tool-title">
+            <div class="container">
+                <div class="tool-header-content">
+                    <div class="tool-icon">⚖️</div>
+                    <div class="tool-header-text">
+                        <h1 id="tool-title">Weight-Cut / Weight-Gain Planner</h1>
+                        <p class="tool-subtitle">Safe weight change strategies with sustainable weekly targets and realistic timelines</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section" aria-labelledby="calculator-title">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Input Form -->
+                    <div class="calculator-form">
+                        <h2 id="calculator-title">Your Weight Change Goals</h2>
+                        <form id="weightCutGainForm">
+                            <!-- Personal Information -->
+                            <div class="form-section">
+                                <h3>Current Stats</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="gender">Gender</label>
+                                        <div class="radio-group">
+                                            <label class="radio-label">
+                                                <input type="radio" name="gender" value="male" checked>
+                                                <span class="radio-custom"></span>
+                                                Male
+                                            </label>
+                                            <label class="radio-label">
+                                                <input type="radio" name="gender" value="female">
+                                                <span class="radio-custom"></span>
+                                                Female
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="age">Age</label>
+                                        <input type="number" id="age" min="16" max="80" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="currentWeight">Current Weight (kg)</label>
+                                        <input type="number" id="currentWeight" min="40" max="300" step="0.1" placeholder="75" required>
+                                        <small class="input-hint">Guide: 40-300 kg</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="height">Height (cm)</label>
+                                        <input type="number" id="height" min="100" max="250" placeholder="175" required>
+                                        <small class="input-hint">Guide: 100-250 cm</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="bodyFat">Body Fat (%)</label>
+                                        <input type="number" id="bodyFat" min="3" max="60" step="0.5" placeholder="Optional but recommended">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="activityLevel">Activity Level</label>
+                                        <select id="activityLevel" required>
+                                            <option value="">Select activity level...</option>
+                                            <option value="sedentary">Sedentary (Desk job, little exercise)</option>
+                                            <option value="light">Light (1-3 workouts/week)</option>
+                                            <option value="moderate">Moderate (3-5 workouts/week)</option>
+                                            <option value="active">Active (6-7 workouts/week)</option>
+                                            <option value="very-active">Very Active (Athlete, physical job)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Goal Selection -->
+                            <div class="form-section">
+                                <h3>Weight Change Goals</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="goalType">Goal Type</label>
+                                        <select id="goalType" required>
+                                            <option value="">Select your goal...</option>
+                                            <option value="weight-loss">Weight Loss (Fat Loss)</option>
+                                            <option value="weight-gain">Weight Gain (Muscle Building)</option>
+                                            <option value="body-recomp">Body Recomposition</option>
+                                            <option value="weight-maintenance">Weight Maintenance</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="targetWeight">Target Weight (kg)</label>
+                                        <input type="number" id="targetWeight" min="40" max="300" step="0.1" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="targetDate">Target Date</label>
+                                        <input type="date" id="targetDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="priority">Priority Level</label>
+                                        <select id="priority" required>
+                                            <option value="">Select priority...</option>
+                                            <option value="aggressive">Aggressive (Faster results, higher risk)</option>
+                                            <option value="moderate">Moderate (Balanced approach)</option>
+                                            <option value="conservative">Conservative (Sustainable, slower)</option>
+                                            <option value="performance">Performance-focused (Maintain strength)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Training Information -->
+                            <div class="form-section">
+                                <h3>Training Context</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="sportType">Sport/Training Type</label>
+                                        <select id="sportType" required>
+                                            <option value="">Select your sport...</option>
+                                            <option value="powerlifting">Powerlifting/Strongman</option>
+                                            <option value="bodybuilding">Bodybuilding/Physique</option>
+                                            <option value="weightlifting">Olympic Weightlifting</option>
+                                            <option value="combat">Combat Sports (MMA/Boxing)</option>
+                                            <option value="endurance">Endurance (Running/Cycling)</option>
+                                            <option value="team">Team Sports</option>
+                                            <option value="general">General Fitness</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="competitionSchedule">Competition Schedule</label>
+                                        <select id="competitionSchedule">
+                                            <option value="none">No upcoming competitions</option>
+                                            <option value="1month">Within 1 month</option>
+                                            <option value="3months">Within 3 months</option>
+                                            <option value="6months">Within 6 months</option>
+                                            <option value="year">Within 1 year</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="weightClassRequirement">Weight Class Requirement</label>
+                                        <select id="weightClassRequirement">
+                                            <option value="none">No weight class</option>
+                                            <option value="strict">Strict weight limit</option>
+                                            <option value="flexible">Flexible (+/- small margin)</option>
+                                            <option value="advantage">Weight advantage preferred</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="strengthPriority">Strength Performance Priority</label>
+                                        <select id="strengthPriority">
+                                            <option value="critical">Critical (Must maintain)</option>
+                                            <option value="important">Important (Minimize loss)</option>
+                                            <option value="moderate">Moderate (Some loss acceptable)</option>
+                                            <option value="minimal">Minimal (Weight > Strength)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Medical & Health Considerations -->
+                            <div class="form-section">
+                                <h3>Health Considerations</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="medicalConditions">Medical Conditions</label>
+                                        <select id="medicalConditions">
+                                            <option value="none">None</option>
+                                            <option value="diabetes">Diabetes</option>
+                                            <option value="thyroid">Thyroid issues</option>
+                                            <option value="heart">Heart conditions</option>
+                                            <option value="digestive">Digestive issues</option>
+                                            <option value="other">Other conditions</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="medications">Current Medications</label>
+                                        <select id="medications">
+                                            <option value="none">None</option>
+                                            <option value="metabolism">Metabolism-affecting meds</option>
+                                            <option value="hormones">Hormone medications</option>
+                                            <option value="other">Other medications</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="previousWeightChanges">Previous Weight Change Experience</label>
+                                        <select id="previousWeightChanges">
+                                            <option value="none">Never attempted significant changes</option>
+                                            <option value="successful">Previously successful</option>
+                                            <option value="struggled">Struggled in the past</option>
+                                            <option value="yoyodieting">History of yo-yo dieting</option>
+                                            <option value="experienced">Very experienced</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="supportSystem">Support System</label>
+                                        <select id="supportSystem">
+                                            <option value="none">Working alone</option>
+                                            <option value="friends">Friends/family support</option>
+                                            <option value="coach">Working with coach</option>
+                                            <option value="nutritionist">Working with nutritionist</option>
+                                            <option value="team">Team support system</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Generate Weight Plan</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="calculator-results">
+                        <div class="results-card" id="resultsCard">
+                            <h3>Your Personalized Weight Change Plan</h3>
+                            
+                            <div id="recommendations" class="recommendations">
+                                <h4>Recommended Approach</h4>
+                                <div id="approachDetails">
+                                    <!-- Approach details will be populated here -->
+                                </div>
+                            </div>
+
+                            <div id="weeklyTargets" class="weekly-targets">
+                                <h4>Weekly Targets</h4>
+                                <div class="target-grid">
+                                    <div class="target-item">
+                                        <span class="target-label">Weight Change</span>
+                                        <span class="target-value" id="weeklyWeightChange">-- kg</span>
+                                    </div>
+                                    <div class="target-item">
+                                        <span class="target-label">Calorie Deficit/Surplus</span>
+                                        <span class="target-value" id="dailyCalorieAdjustment">-- cal</span>
+                                    </div>
+                                    <div class="target-item">
+                                        <span class="target-label">Timeline</span>
+                                        <span class="target-value" id="timeline">-- weeks</span>
+                                    </div>
+                                    <div class="target-item">
+                                        <span class="target-label">Success Rate</span>
+                                        <span class="target-value" id="successRate">--%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="phasePlan" class="phase-plan">
+                                <h4>Phase-Based Plan</h4>
+                                <div id="phaseDetails">
+                                    <!-- Phase details will be populated here -->
+                                </div>
+                            </div>
+
+                            <div id="nutritionStrategy" class="nutrition-strategy">
+                                <h4>Nutrition Strategy</h4>
+                                <div id="nutritionDetails">
+                                    <!-- Nutrition strategy will be populated here -->
+                                </div>
+                            </div>
+
+                            <div id="trainingModifications" class="training-modifications">
+                                <h4>Training Modifications</h4>
+                                <div id="trainingDetails">
+                                    <!-- Training modifications will be populated here -->
+                                </div>
+                            </div>
+
+                            <div id="monitoringPlan" class="monitoring-plan">
+                                <h4>Monitoring & Adjustments</h4>
+                                <div id="monitoringDetails">
+                                    <!-- Monitoring plan will be populated here -->
+                                </div>
+                            </div>
+
+                            <div id="riskFactors" class="risk-factors">
+                                <h4>Risk Assessment</h4>
+                                <div id="riskDetails">
+                                    <!-- Risk factors will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Section -->
+        <section class="info-section" aria-labelledby="info-title">
+            <div class="container">
+                <h2 id="info-title">Safe Weight Management Principles</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Sustainable Rates</h3>
+                        <p>For most athletes, 0.5-1% of body weight per week is sustainable for fat loss, while 0.25-0.5% is optimal for muscle gain with minimal fat.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Performance Preservation</h3>
+                        <p>Aggressive weight cuts (>2% body weight/week) significantly impair strength, power, and endurance. Moderate approaches maintain performance better.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Body Composition Focus</h3>
+                        <p>Prioritize body composition over scale weight. Muscle preservation during cuts and lean gains during bulks are key for long-term success.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Physiological Adaptation</h3>
+                        <p>The body adapts to sustained calorie deficits. Regular refeeds and diet breaks prevent metabolic slowdown and psychological burnout.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

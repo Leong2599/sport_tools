@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate glycemic load of meals and analyze carbohydrate quality for optimal blood sugar management and athletic performance">
+    <meta name="keywords" content="glycemic load calculator, glycemic index, carbohydrate quality, blood sugar, athlete nutrition">
+    <meta name="author" content="Sports Tools Hub">
+    <title>Glycemic Load Calculator - Sports Tools Hub</title>
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+    
+    <link rel="canonical" href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../tools.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="brand-logo">
+                        <span class="brand-text">Sports Tools Hub</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="../index.html" class="nav-link" role="menuitem">Home</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="../about.html" class="nav-link" role="menuitem">About</a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a href="../index.html#tools" class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="../index.html#fitness-calculators" class="dropdown-item" role="menuitem">Fitness Calculators</a></li>
+                            <li role="none"><a href="../index.html#performance-trackers" class="dropdown-item" role="menuitem">Performance Trackers</a></li>
+                            <li role="none"><a href="../index.html#nutrition-tools" class="dropdown-item" role="menuitem">Nutrition Tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero" aria-labelledby="tool-title">
+            <div class="container">
+                <h1 id="tool-title">Glycemic Load Calculator</h1>
+                <p class="tool-subtitle">Analyze carbohydrate quality and calculate glycemic load for optimal blood sugar management</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section" aria-labelledby="calculator-title">
+            <div class="container">
+                <div class="calculator-layout">
+                    <!-- Input Form -->
+                    <div class="calculator-form">
+                        <h2 id="calculator-title">Build Your Meal</h2>
+                        <form id="glycemicLoadForm">
+                            <!-- Food Input Section -->
+                            <div class="form-section">
+                                <h3>Add Foods to Your Meal</h3>
+                                
+                                <div class="food-input-grid">
+                                    <div class="form-group">
+                                        <label for="foodSelect">Select Food</label>
+                                        <select id="foodSelect">
+                                            <option value="">Choose a food...</option>
+                                            <optgroup label="Grains & Starches">
+                                                <option value="white-rice">White Rice (GI: 73)</option>
+                                                <option value="brown-rice">Brown Rice (GI: 68)</option>
+                                                <option value="oats">Rolled Oats (GI: 55)</option>
+                                                <option value="quinoa">Quinoa (GI: 53)</option>
+                                                <option value="whole-wheat-bread">Whole Wheat Bread (GI: 71)</option>
+                                                <option value="white-bread">White Bread (GI: 75)</option>
+                                                <option value="potato">White Potato (GI: 82)</option>
+                                                <option value="sweet-potato">Sweet Potato (GI: 61)</option>
+                                                <option value="pasta">Pasta (GI: 49)</option>
+                                                <option value="corn">Corn (GI: 60)</option>
+                                            </optgroup>
+                                            <optgroup label="Fruits">
+                                                <option value="apple">Apple (GI: 38)</option>
+                                                <option value="banana">Banana (GI: 51)</option>
+                                                <option value="orange">Orange (GI: 43)</option>
+                                                <option value="grapes">Grapes (GI: 53)</option>
+                                                <option value="watermelon">Watermelon (GI: 76)</option>
+                                                <option value="strawberries">Strawberries (GI: 40)</option>
+                                                <option value="blueberries">Blueberries (GI: 53)</option>
+                                                <option value="mango">Mango (GI: 56)</option>
+                                            </optgroup>
+                                            <optgroup label="Legumes & Vegetables">
+                                                <option value="lentils">Lentils (GI: 32)</option>
+                                                <option value="chickpeas">Chickpeas (GI: 28)</option>
+                                                <option value="black-beans">Black Beans (GI: 30)</option>
+                                                <option value="carrots">Carrots (GI: 47)</option>
+                                                <option value="broccoli">Broccoli (GI: 15)</option>
+                                                <option value="spinach">Spinach (GI: 15)</option>
+                                            </optgroup>
+                                            <optgroup label="Dairy & Alternatives">
+                                                <option value="milk">Cow's Milk (GI: 39)</option>
+                                                <option value="yogurt">Plain Yogurt (GI: 36)</option>
+                                                <option value="soy-milk">Soy Milk (GI: 34)</option>
+                                            </optgroup>
+                                            <optgroup label="Snacks & Sweets">
+                                                <option value="honey">Honey (GI: 61)</option>
+                                                <option value="dark-chocolate">Dark Chocolate (70%) (GI: 25)</option>
+                                                <option value="chocolate-bar">Chocolate Bar (GI: 70)</option>
+                                                <option value="soda">Regular Soda (GI: 63)</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="foodAmount">Amount (grams)</label>
+                                        <input type="number" id="foodAmount" min="1" max="1000" step="1" placeholder="100">
+                                    </div>
+                                    
+                                    <button type="button" id="addFood" class="btn btn-primary">Add Food</button>
+                                </div>
+
+                                <!-- Current Foods List -->
+                                <div class="current-foods" id="currentFoods" style="display: none;">
+                                    <h4>Current Meal</h4>
+                                    <div id="foodsList" class="foods-list">
+                                        <!-- Foods will be added here -->
+                                    </div>
+                                    <button type="button" id="clearFoods" class="btn btn-secondary">Clear All</button>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Calculate Glycemic Load</button>
+                                <button type="reset" class="btn btn-secondary">Reset All</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="calculator-results">
+                        <div class="results-card" id="resultsCard">
+                            <h3>Glycemic Load Analysis</h3>
+                            
+                            <div class="glycemic-load-score">
+                                <div class="score-circle">
+                                    <span id="totalGL">0</span>
+                                    <span class="score-label">Total Glycemic Load</span>
+                                </div>
+                                <p id="glCategory">Add foods to calculate glycemic load</p>
+                            </div>
+
+                            <div id="glycemicDetails" class="glycemic-details">
+                                <!-- Details will be populated here -->
+                            </div>
+
+                            <div id="recommendations" class="recommendations">
+                                <h4>Recommendations</h4>
+                                <div id="recommendationList">
+                                    <!-- Recommendations will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Section -->
+        <section class="info-section" aria-labelledby="info-title">
+            <div class="container">
+                <h2 id="info-title">Understanding Glycemic Load</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>What is Glycemic Load?</h3>
+                        <p>Glycemic Load (GL) measures how much a food item raises blood glucose levels after consumption. It considers both the glycemic index and the serving size.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>GL Categories</h3>
+                        <p>Low GL (1-10): Minimal blood sugar impact<br>
+                        Medium GL (11-19): Moderate impact<br>
+                        High GL (20+): Significant blood sugar impact</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>For Athletes</h3>
+                        <p>Lower GL meals support sustained energy, while higher GL options can be beneficial around training sessions for quick energy replenishment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Foods Reference -->
+        <section class="reference-section" aria-labelledby="reference-title">
+            <div class="container">
+                <h2 id="reference-title">Common Foods Reference</h2>
+                <div class="reference-grid">
+                    <div class="reference-category">
+                        <h4>Low Glycemic Index Foods (≤55)</h4>
+                        <ul>
+                            <li>Most vegetables, legumes, and fruits</li>
+                            <li>Whole grains like oats and quinoa</li>
+                            <li>Nuts, seeds, and dairy products</li>
+                        </ul>
+                    </div>
+                    <div class="reference-category">
+                        <h4>Medium Glycemic Index Foods (56-69)</h4>
+                        <ul>
+                            <li>Brown rice, sweet potatoes</li>
+                            <li>Many tropical fruits</li>
+                            <li>Whole grain breads</li>
+                        </ul>
+                    </div>
+                    <div class="reference-category">
+                        <h4>High Glycemic Index Foods (≥70)</h4>
+                        <ul>
+                            <li>White potatoes, white rice</li>
+                            <li>White bread, sugary foods</li>
+                            <li>Watermelon, pineapple</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+                        <div class="footer-section">
+                    <h4>Sports Tools Hub</h4>
+                    <p>Your comprehensive resource for sports calculators, fitness trackers, training guides, and expert insights.</p>
+                </div>
+        <div class="footer-container">
+            <div class="footer-content">
+
+                
+                <div class="footer-section">
+                    <h4>Fitness Calculators</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/bmi-calculator.html">BMI Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/one-rep-max-calculator.html">One Rep Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/calorie-calculator.html">Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heart-rate-calculator.html">Heart Rate Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-type-quiz.html">Body Type Quiz</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/body-fat-calculator.html">Body Fat Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cycling-power.html">Cycling Power Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pace-calculator.html">Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swim-pace.html">Swim Pace Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/running-calorie-calculator.html">Running Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/vo2max-calculator.html">VO2 Max Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/golf-handicap-calculator.html">Golf Handicap Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/injury-risk-calculator.html">Injury Risk Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/yoga-calorie-calculator.html">Yoga Calorie Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/basketball-vertical-jump-analyzer.html">Basketball Vertical Jump Analyzer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/soccer-match-load-calculator.html">Soccer Match Load Calculator</a></li>                        
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Performance Trackers</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/cricket-bowling-workload-tracker.html">Cricket Bowling Workload Tracker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tennis-match-energy-expenditure-tool.html">Tennis Match Energy Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/badminton-rally-intensity-calculator.html">Badminton Rally Intensity Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/combat-sports-weight-class-optimizer.html">Combat Sports Weight Class Optimizer</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/training-load-calculator.html">Training Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/race-strategy-planner.html">Race Strategy Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/heat-acclimatization-calculator.html">Heat Acclimatization Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/altitude-adjustment-calculator.html">Altitude Adjustment Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/stride-length-cadence-calculator.html">Stride Length & Cadence Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/cycling-gear-ratio-calculator.html">Cycling Gear Ratio Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/swimming-stroke-efficiency-calculator.html">Swimming Stroke Efficiency Calculator</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Nutrition Tools</h4>
+                    <nav>
+                        <ul class="footer-links">
+                            <li><a href="https://sportstoolshub.com/tools/protein-calculator.html">Protein Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/tdee-calculator.html">TDEE Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/hydration-calculator.html">Hydration Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/macro-calculator.html">Macro Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/bmr-calculator.html">BMR Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/meal-timing.html">Meal Timing Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/micronutrient-checker.html">Micronutrient Checker</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/glycemic-load-calculator.html">Glycemic Load Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/pre-workout-nutrition.html">Pre-Workout Nutrition</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/post-workout-recovery.html">Post-Workout Recovery</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/intermittent-fasting-planner.html">Intermittent Fasting Planner</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/refeed-day-calculator.html">Refeed Day Calculator</a></li>
+                            <li><a href="https://sportstoolshub.com/tools/weight-cut-gain-planner.html">Weight-Cut/Gain Planner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
