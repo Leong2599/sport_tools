@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Blog Series - Complete Guides to Soccer & Basketball Training</title>
+    <meta name="description" content="Comprehensive sports blog series covering soccer and basketball training, nutrition, equipment, tactics, and player development. 25+ expert articles for athletes and coaches.">
+    <meta name="keywords" content="sports blog, soccer training, basketball training, sports coaching, player development, sports equipment, sports nutrition">
+    <meta name="author" content="Sports Tools Hub">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sports Tools Hub">
+    <meta name="twitter:description" content="Your complete sports and fitness resource destination">
+    <meta property="og:title" content="Sports Tools Hub - Complete Sports & Fitness Resource">
+    <meta property="og:description" content="Discover premium sports tools, calculators, and expert training resources for athletes and fitness enthusiasts">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportstoolshub.com">
+    <meta property="og:image" content="https://sportstoolshub.com/images/og-image.jpg">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="canonical" href="https://sportstoolshub.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+</head>
+<body>
+    <nav class="blog-navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="https://sportstoolshub.com/index.html" class="nav-logo-link">
+                    <img src="../images/logo.png" alt="Sports Tools Hub Logo" class="nav-logo">
+                    <span class="brand-text">Sports Tools Hub</span>
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="https://sportstoolshub.com/index.html#tools" class="nav-link">Tools</a>
+                <a href="https://sportstoolshub.com/blog/blog.html" class="nav-link">Blogs</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="blog-container">
+        <header class="blog-main-header">
+            <h1>Sports Blog Series</h1>
+            <p class="blog-intro">Master your favorite sports with our comprehensive guides covering everything from basic techniques to advanced tactics. Perfect for players, coaches, and sports enthusiasts of all levels.</p>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search blog posts..." onkeyup="searchPosts()">
+                <button onclick="searchPosts()" class="search-btn">Search</button>
+            </div>
+        </header>
+
+        <div class="categories-container">
+            <h2>Browse by Sport</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="filterByCategory('soccer')">
+                    <div class="category-icon">⚽</div>
+                    <h3>Soccer</h3>
+                    <p>Training, tactics, techniques, and player development</p>
+                    <span class="post-count">15 posts</span>
+                </div>
+                
+                <div class="category-card" onclick="filterByCategory('basketball')">
+                    <div class="category-icon">🏀</div>
+                    <h3>Basketball</h3>
+                    <p>Shooting, dribbling, defense, and team strategies</p>
+                    <span class="post-count">14 posts</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Results Section -->
+        <div class="search-results" id="searchResults" style="display: none;">
+            <h2>Search Results</h2>
+            <div class="search-info" id="searchInfo">
+                <span id="searchText"></span>
+                <button onclick="clearSearch()" class="clear-search">Clear Search</button>
+            </div>
+            <div class="posts-grid" id="searchResultsGrid"></div>
+        </div>
+
+        <div class="posts-container">
+            <h2>All Blog Posts</h2>
+            <div class="filter-info" id="filterInfo" style="display: none;">
+                <span id="filterText"></span>
+                <button onclick="clearFilter()" class="clear-filter">Clear Filter</button>
+            </div>
+            <div class="posts-grid" id="postsGrid">
+                <!-- Basketball Posts -->
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Feb 5, 2026</span>
+                    </div>
+                    <h3><a href="basketball/10-essential-basketball-drills.html">10 Essential Basketball Drills Every Player Should Master</a></h3>
+                    <p>Master these 10 fundamental basketball drills to improve ball handling, shooting, defense, and overall gameplay. Perfect for players of all skill levels.</p>
+                    <div class="post-meta">
+                        <span class="read-time">8 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">basketball drills</span>
+                            <span class="tag">training</span>
+                            <span class="tag">ball handling</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Feb 4, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-dribbling-mastery.html">Basketball Dribbling Mastery: Complete Guide to Ball Handling and Control</a></h3>
+                    <p>Master basketball dribbling techniques with our comprehensive guide. Learn ball handling drills, crossover moves, and advanced dribbling skills for all levels.</p>
+                    <div class="post-meta">
+                        <span class="read-time">10 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">dribbling</span>
+                            <span class="tag">ball control</span>
+                            <span class="tag">techniques</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Feb 3, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-shooting-mastery.html">Basketball Shooting Mastery: Complete Guide to Scoring and Shot Technique</a></h3>
+                    <p>Master basketball shooting with our comprehensive guide. Learn proper shooting form, shooting drills, and scoring techniques for all positions and skill levels.</p>
+                    <div class="post-meta">
+                        <span class="read-time">11 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">shooting</span>
+                            <span class="tag">scoring</span>
+                            <span class="tag">technique</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Feb 2, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-defense-guide.html">Basketball Defense Guide: Complete Guide to Lockdown Defense and Defensive Skills</a></h3>
+                    <p>Master basketball defense with our comprehensive guide. Learn defensive stance, positioning, drills, and techniques to become a lockdown defender.</p>
+                    <div class="post-meta">
+                        <span class="read-time">10 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">defense</span>
+                            <span class="tag">defensive skills</span>
+                            <span class="tag">basketball drills</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Feb 1, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-positions-explained.html">Basketball Positions Explained: Complete Guide to Every Role on the Court</a></h3>
+                    <p>Learn about every basketball position including point guard, shooting guard, small forward, power forward, and center. Understand roles, responsibilities, and required skills.</p>
+                    <div class="post-meta">
+                        <span class="read-time">12 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">positions</span>
+                            <span class="tag">basketball roles</span>
+                            <span class="tag">tactics</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Jan 31, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-conditioning-guide.html">Basketball Conditioning Guide: Build Speed, Stamina, and Strength for Peak Performance</a></h3>
+                    <p>Complete basketball conditioning program with exercises for speed, agility, endurance, and strength. Improve your basketball fitness with expert training methods.</p>
+                    <div class="post-meta">
+                        <span class="read-time">11 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">conditioning</span>
+                            <span class="tag">fitness</span>
+                            <span class="tag">speed</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Jan 30, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-equipment-guide.html">Basketball Equipment Guide: Essential Gear for Every Player Level</a></h3>
+                    <p>Complete guide to basketball equipment including shoes, balls, training gear, and accessories. Learn what to buy for your skill level and position.</p>
+                    <div class="post-meta">
+                        <span class="read-time">9 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">equipment</span>
+                            <span class="tag">gear</span>
+                            <span class="tag">training</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Jan 29, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-nutrition-guide.html">Basketball Nutrition Guide: Fuel Your Performance and Recovery</a></h3>
+                    <p>Optimize your basketball performance with proper nutrition. Learn about pre-game meals, hydration, recovery foods, and dietary strategies for basketball players.</p>
+                    <div class="post-meta">
+                        <span class="read-time">10 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">nutrition</span>
+                            <span class="tag">diet</span>
+                            <span class="tag">performance</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Jan 28, 2026</span>
+                    </div>
+                    <h3><a href="basketball/youth-basketball-development.html">Youth Basketball Development: Age-Appropriate Training Guide</a></h3>
+                    <p>Complete guide to youth basketball development with age-specific training methods, skill progression, and coaching for players aged 5-18.</p>
+                    <div class="post-meta">
+                        <span class="read-time">13 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">youth basketball</span>
+                            <span class="tag">player development</span>
+                            <span class="tag">coaching</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Jan 27, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-mental-toughness.html">Basketball Mental Toughness: Develop the Champion's Mindset</a></h3>
+                    <p>Build mental toughness and psychological strength for basketball success. Learn concentration techniques, confidence building, and performance psychology for players.</p>
+                    <div class="post-meta">
+                        <span class="read-time">11 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">mental toughness</span>
+                            <span class="tag">sports psychology</span>
+                            <span class="tag">confidence</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Jan 26, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-formations-guide.html">Basketball Formations Guide: Understanding Tactics and Team Shapes</a></h3>
+                    <p>Complete guide to basketball formations including 2-3 zone, 3-2 zone, man-to-man, and offensive sets. Learn tactical advantages and when to use each.</p>
+                    <div class="post-meta">
+                        <span class="read-time">12 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">formations</span>
+                            <span class="tag">tactics</span>
+                            <span class="tag>basketball strategy</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Jan 25, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-injury-prevention.html">Basketball Injury Prevention Guide: Stay Healthy and Injury-Free</a></h3>
+                    <p>Complete guide to preventing basketball injuries including warm-ups, strength training, proper technique, and recovery strategies for all players.</p>
+                    <div class="post-meta">
+                        <span class="read-time">10 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">injury prevention</span>
+                            <span class="tag>basketball safety</span>
+                            <span class="tag">health</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Jan 24, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-history-guide.html">Basketball History: Evolution of the Game and Its Cultural Impact</a></h3>
+                    <p>Explore the fascinating history of basketball from its invention in 1891 to its global cultural impact. Learn about key milestones, legendary players, and the game's evolution.</p>
+                    <div class="post-meta">
+                        <span class="read-time">7 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">history</span>
+                            <span class="tag>basketball evolution</span>
+                            <span class="tag>culture</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Jan 23, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-passing-mastery.html">Basketball Passing Mastery: Complete Guide to Ball Movement and Team Play</a></h3>
+                    <p>Master basketball passing techniques, types of passes, and team passing patterns. Improve your passing accuracy, vision, and decision-making.</p>
+                    <div class="post-meta">
+                        <span class="read-time">11 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">passing</span>
+                            <span class="tag">team play</span>
+                            <span class="tag>ball movement</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Jan 22, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-rebounding-guide.html">Basketball Rebounding Guide: Master the Boards and Control the Game</a></h3>
+                    <p>Complete guide to basketball rebounding techniques, positioning, and strategies. Learn offensive and defensive rebounding, boxing out, and becoming a dominant rebounder.</p>
+                    <div class="post-meta">
+                        <span class="read-time">10 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">rebounding</span>
+                            <span class="tag">boards</span>
+                            <span class="tag>basketball fundamentals</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="basketball">
+                    <div class="post-header">
+                        <span class="post-category basketball">Basketball</span>
+                        <span class="post-date">Jan 21, 2026</span>
+                    </div>
+                    <h3><a href="basketball/basketball-tactics-101.html">Basketball Tactics 101: Understanding Team Shape and Movement Off Ball</a></h3>
+                    <p>Learn fundamental basketball tactics including team shape, movement off ball, spacing, and defensive positioning. Master tactical concepts for team success.</p>
+                    <div class="post-meta">
+                        <span class="read-time">10 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">tactics</span>
+                            <span class="tag">team shape</span>
+                            <span class="tag>off-ball movement</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Soccer Posts -->
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Feb 4, 2026</span>
+                    </div>
+                    <h3><a href="soccer/10-essential-soccer-drills.html">10 Essential Soccer Drills Every Player Should Master</a></h3>
+                    <p>Master these 10 fundamental soccer drills to improve ball control, passing, shooting, and overall gameplay. Perfect for players of all skill levels.</p>
+                    <div class="post-meta">
+                        <span class="read-time">8 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">soccer drills</span>
+                            <span class="tag">training</span>
+                            <span class="tag">ball control</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Jan 30, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-dribbling-mastery.html">Master Soccer Dribbling: Techniques and Drills for All Skill Levels</a></h3>
+                    <p>Complete guide to soccer dribbling techniques including ball control, moves, and drills. Improve your dribbling skills with expert training methods.</p>
+                    <div class="post-meta">
+                        <span class="read-time">10 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">dribbling</span>
+                            <span class="tag">ball control</span>
+                            <span class="tag">techniques</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Jan 24, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-passing-mastery.html">Soccer Passing Mastery: Complete Guide to Ball Movement and Team Play</a></h3>
+                    <p>Master soccer passing techniques, types of passes, and team passing patterns. Improve your passing accuracy, vision, and decision-making.</p>
+                    <div class="post-meta">
+                        <span class="read-time">11 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">passing</span>
+                            <span class="tag">techniques</span>
+                            <span class="tag">team play</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Jan 23, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-shooting-guide.html">Soccer Shooting Guide: Master Finishing Techniques and Score More Goals</a></h3>
+                    <p>Complete guide to soccer shooting techniques, finishing skills, and goal-scoring strategies. Improve your shooting accuracy and composure.</p>
+                    <div class="post-meta">
+                        <span class="read-time">11 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">shooting</span>
+                            <span class="tag">finishing</span>
+                            <span class="tag">goal scoring</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Feb 3, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-nutrition-guide.html">Complete Guide to Soccer Nutrition: Fuel Your Performance</a></h3>
+                    <p>Optimize your soccer performance with proper nutrition. Learn about pre-game meals, hydration, recovery foods, and dietary strategies.</p>
+                    <div class="post-meta">
+                        <span class="read-time">10 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">nutrition</span>
+                            <span class="tag">diet</span>
+                            <span class="tag">performance</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Feb 2, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-positions-explained.html">Soccer Positions Explained: Complete Guide to Every Role on the Field</a></h3>
+                    <p>Learn about every soccer position including goalkeeper, defenders, midfielders, and forwards. Understand roles, responsibilities, and required skills.</p>
+                    <div class="post-meta">
+                        <span class="read-time">12 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">positions</span>
+                            <span class="tag">formations</span>
+                            <span class="tag">tactics</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Jan 26, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-formations-guide.html">Soccer Formations Guide: Understanding Tactics and Team Shapes</a></h3>
+                    <p>Complete guide to soccer formations including 4-4-2, 4-3-3, 3-5-2 and more. Learn tactical advantages and when to use each.</p>
+                    <div class="post-meta">
+                        <span class="read-time">12 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">formations</span>
+                            <span class="tag">tactics</span>
+                            <span class="tag>soccer strategy</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Feb 1, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-conditioning-guide.html">Ultimate Soccer Conditioning Guide: Build Speed, Stamina, and Strength</a></h3>
+                    <p>Complete soccer conditioning program with exercises for speed, agility, endurance, and strength. Improve your soccer fitness with expert methods.</p>
+                    <div class="post-meta">
+                        <span class="read-time">11 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">conditioning</span>
+                            <span class="tag">fitness</span>
+                            <span class="tag">speed</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Jan 25, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-injury-prevention.html">Soccer Injury Prevention Guide: Stay Healthy and Injury-Free</a></h3>
+                    <p>Complete guide to preventing soccer injuries including warm-ups, strength training, proper technique, and recovery strategies for all players.</p>
+                    <div class="post-meta">
+                        <span class="read-time">10 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">injury prevention</span>
+                            <span class="tag">soccer safety</span>
+                            <span class="tag">health</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Jan 31, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-equipment-guide.html">Soccer Equipment Guide: Essential Gear for Every Player Level</a></h3>
+                    <p>Complete guide to soccer equipment including cleats, balls, shin guards, and training gear. Learn what to buy for your skill level.</p>
+                    <div class="post-meta">
+                        <span class="read-time">9 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">equipment</span>
+                            <span class="tag">gear</span>
+                            <span class="tag">training</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Jan 27, 2026</span>
+                    </div>
+                    <h3><a href="soccer/youth-soccer-development.html">Youth Soccer Development: Age-Appropriate Training Guide</a></h3>
+                    <p>Complete guide to youth soccer development with age-specific training methods, skill progression, and coaching for players aged 4-18.</p>
+                    <div class="post-meta">
+                        <span class="read-time">13 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">youth soccer</span>
+                            <span class="tag">player development</span>
+                            <span class="tag">coaching</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Jan 28, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-mental-toughness.html">Mental Toughness in Soccer: Develop the Champion's Mindset</a></h3>
+                    <p>Build mental toughness and psychological strength for soccer success. Learn concentration techniques, confidence building, and performance psychology.</p>
+                    <div class="post-meta">
+                        <span class="read-time">11 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">mental toughness</span>
+                            <span class="tag">sports psychology</span>
+                            <span class="tag">confidence</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Jan 29, 2026</span>
+                    </div>
+                    <h3><a href="soccer/football-vs-soccer-history.html">Football vs Soccer: The Global Game's Different Names and Histories</a></h3>
+                    <p>Explore why Americans call it soccer while the world calls it football. Learn about origins, evolution, and cultural significance.</p>
+                    <div class="post-meta">
+                        <span class="read-time">7 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">history</span>
+                            <span class="tag">terminology</span>
+                            <span class="tag">culture</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Jan 22, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-tactics-101.html">Soccer Tactics 101: Understanding Team Shape and Movement Off Ball</a></h3>
+                    <p>Learn fundamental soccer tactics including team shape, movement off ball, spacing, and defensive positioning. Master tactical concepts for team success.</p>
+                    <div class="post-meta">
+                        <span class="read-time">10 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">tactics</span>
+                            <span class="tag">team shape</span>
+                            <span class="tag">off-ball movement</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Jan 21, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-warm-up-guide.html">Complete Soccer Warm-Up Guide: Pre-Game and Training Preparation</a></h3>
+                    <p>Essential warm-up routines for soccer including dynamic stretches, activation exercises, and injury prevention techniques for optimal performance.</p>
+                    <div class="post-meta">
+                        <span class="read-time">8 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">warm-up</span>
+                            <span class="tag">injury prevention</span>
+                            <span class="tag">preparation</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card" data-category="soccer">
+                    <div class="post-header">
+                        <span class="post-category soccer">Soccer</span>
+                        <span class="post-date">Jan 20, 2026</span>
+                    </div>
+                    <h3><a href="soccer/soccer-cooling-down-guide.html">Soccer Cool-Down and Recovery Guide: Essential Post-Training Techniques</a></h3>
+                    <p>Proper cool-down techniques, stretching routines, and recovery methods for soccer players. Reduce soreness and improve flexibility.</p>
+                    <div class="post-meta">
+                        <span class="read-time">7 min read</span>
+                        <div class="post-tags">
+                            <span class="tag">recovery</span>
+                            <span class="tag">cool-down</span>
+                            <span class="tag">stretching</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <footer class="blog-footer-main">
+            <p>&copy; 2026 Sports Tools Hub. All rights reserved. | <a href="https://sportstoolshub.com/sitemap.xml">Sitemap</a> </p>
+        </footer>
+    </div>
+
+    <script>
+        let allPosts = [];
+        let currentFilter = '';
+
+        // Initialize posts on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            allPosts = Array.from(document.querySelectorAll('.post-card'));
+        });
+
+        function searchPosts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const postsGrid = document.getElementById('postsGrid');
+            const filterInfo = document.getElementById('filterInfo');
+            const filterText = document.getElementById('filterText');
+            const searchResults = document.getElementById('searchResults');
+            const searchResultsGrid = document.getElementById('searchResultsGrid');
+            const searchInfo = document.getElementById('searchInfo');
+            const searchText = document.getElementById('searchText');
+            const postsContainer = document.querySelector('.posts-container');
+            
+            // If search term is empty, hide search results and show all posts
+            if (searchTerm === '') {
+                searchResults.style.display = 'none';
+                postsContainer.style.display = 'block';
+                showAllPosts();
+                return;
+            }
+
+            // Show search results section and hide main posts
+            searchResults.style.display = 'block';
+            postsContainer.style.display = 'none';
+
+            // Clear previous search results
+            searchResultsGrid.innerHTML = '';
+            
+            let visibleCount = 0;
+            allPosts.forEach(post => {
+                const title = post.querySelector('h3 a').textContent.toLowerCase();
+                const description = post.querySelector('p').textContent.toLowerCase();
+                const tags = Array.from(post.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+                
+                const matchesSearch = searchTerm === '' || 
+                    title.includes(searchTerm) || 
+                    description.includes(searchTerm) || 
+                    tags.some(tag => tag.includes(searchTerm));
+                
+                const matchesFilter = currentFilter === '' || post.dataset.category === currentFilter;
+                
+                if (matchesSearch && matchesFilter) {
+                    // Clone the post card for search results
+                    const searchPost = post.cloneNode(true);
+                    searchResultsGrid.appendChild(searchPost);
+                    visibleCount++;
+                }
+            });
+
+            // Update search info
+            if (visibleCount > 0) {
+                let searchMessage = `Search: "${searchTerm}"`;
+                if (currentFilter !== '') {
+                    searchMessage += ` | Sport: ${currentFilter.charAt(0).toUpperCase() + currentFilter.slice(1)}`;
+                }
+                searchMessage += ` (${visibleCount} posts found)`;
+                searchText.textContent = searchMessage;
+                searchInfo.style.display = 'flex';
+            } else {
+                searchText.textContent = `No results found for "${searchTerm}"`;
+                searchInfo.style.display = 'flex';
+            }
+        }
+
+        function filterByCategory(category) {
+            currentFilter = category;
+            searchPosts();
+            
+            // Smooth scroll to search results
+            document.getElementById('searchResults').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function clearFilter() {
+            currentFilter = '';
+            document.getElementById('searchInput').value = '';
+            clearSearch();
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('searchResults').style.display = 'none';
+            document.querySelector('.posts-container').style.display = 'block';
+            showAllPosts();
+        }
+
+        function showAllPosts() {
+            allPosts.forEach(post => {
+                post.style.display = 'block';
+            });
+            document.getElementById('filterInfo').style.display = 'none';
+        }
+
+        // Search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchPosts();
+            }
+        });
+
+        // Search on input change (for real-time search)
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            searchPosts();
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+</html>
