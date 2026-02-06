@@ -426,6 +426,11 @@ body {
 .post-category.strategy { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); }
 .post-category.history { background: linear-gradient(135deg, #74b9ff, #a29bfe); }
 
+/* Sport-specific category colors */
+.post-category.soccer { background: linear-gradient(135deg, #27ae60, #16a085); }
+.post-category.basketball { background: linear-gradient(135deg, #e67e22, #d35400); }
+.post-category.tennis { background: linear-gradient(135deg, #8e44ad, #663399); }
+
 .post-date {
     color: #666;
     font-size: 0.9em;
