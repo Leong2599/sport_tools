@@ -34,7 +34,4 @@ User-agent: BLEXBot
 Disallow: /
 
 # SEO friendly robots.txt
-Sitemap: https://sportstools.com/sitemap.xml
-
-# Host directive for Yandex
-Host: https://sportstools.com
+Sitemap: https://sportstoolshub.com/sitemap.xml
