@@ -431,7 +431,13 @@ body {
 .post-category.basketball { background: linear-gradient(135deg, #e67e22, #d35400); }
 .post-category.tennis { background: linear-gradient(135deg, #8e44ad, #663399); }
 .post-category.cycling { background: linear-gradient(135deg, #00b894, #00cec9); }
-.post-category.swimming { background: linear-gradient(135deg, #d2de30, #9a9f08); }
+.post-category.swimming { 
+    background: linear-gradient(135deg, #d2de30, #9a9f08); 
+}
+
+.post-category.golf { 
+    background: linear-gradient(135deg, #27ae60, #16a085); 
+}
 
 .post-date {
     color: #666;
