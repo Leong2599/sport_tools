@@ -278,13 +278,7 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-        <url>
-        <loc>https://sportstoolshub.com/tools/pre-workout-nutrition.html</loc>
-        <lastmod>2026-01-31</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-        <url>
+    <url>
         <loc>https://sportstoolshub.com/tools/training-load-calculator.html</loc>
         <lastmod>2026-01-31</lastmod>
         <changefreq>monthly</changefreq>
@@ -473,37 +467,19 @@
 
     <!-- Tennis Blog Posts -->
     <url>
-        <loc>https://sportstoolshub.com/blog/tennis/10-essential-tennis-drills.html</loc>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-conditioning-fitness.html</loc>
         <lastmod>2026-02-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://sportstoolshub.com/blog/tennis/tennis-conditioning-guide.html</loc>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-equipment.html</loc>
         <lastmod>2026-02-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://sportstoolshub.com/blog/tennis/tennis-dribbling-mastery.html</loc>
-        <lastmod>2026-02-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://sportstoolshub.com/blog/tennis/tennis-equipment-guide.html</loc>
-        <lastmod>2026-02-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://sportstoolshub.com/blog/tennis/tennis-formations-guide.html</loc>
-        <lastmod>2026-02-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://sportstoolshub.com/blog/tennis/tennis-history-guide.html</loc>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-history-evolution.html</loc>
         <lastmod>2026-02-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -521,43 +497,61 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://sportstoolshub.com/blog/tennis/tennis-nutrition-guide.html</loc>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-nutrition.html</loc>
         <lastmod>2026-02-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://sportstoolshub.com/blog/tennis/tennis-passing-mastery.html</loc>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-serving-techniques.html</loc>
         <lastmod>2026-02-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://sportstoolshub.com/blog/tennis/tennis-positions-explained.html</loc>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-singles-tactics.html</loc>
         <lastmod>2026-02-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://sportstoolshub.com/blog/tennis/tennis-serving-guide.html</loc>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-doubles-strategy.html</loc>
         <lastmod>2026-02-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://sportstoolshub.com/blog/tennis/tennis-tactics-101.html</loc>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-footwork-movement.html</loc>
         <lastmod>2026-02-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://sportstoolshub.com/blog/tennis/tennis-volley-mastery.html</loc>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-stroke-mechanics.html</loc>
         <lastmod>2026-02-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://sportstoolshub.com/blog/tennis/youth-tennis-development.html</loc>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-fundamentals-101.html</loc>
+        <lastmod>2026-02-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-common-mistakes.html</loc>
+        <lastmod>2026-02-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-tournament-preparation.html</loc>
+        <lastmod>2026-02-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/tennis/tennis-youth-development.html</loc>
         <lastmod>2026-02-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
