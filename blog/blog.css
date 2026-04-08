@@ -439,6 +439,10 @@ body {
     background: linear-gradient(135deg, #27ae60, #16a085); 
 }
 
+.post-category.pickleball { 
+    background: linear-gradient(135deg, #e17055, #fdcb6e); 
+}
+
 .post-date {
     color: #666;
     font-size: 0.9em;

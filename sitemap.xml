@@ -288,7 +288,7 @@
     <!-- Blog Pages -->
     <url>
         <loc>https://sportstoolshub.com/blog/blog.html</loc>
-        <lastmod>2026-02-05</lastmod>
+        <lastmod>2026-04-08</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -833,5 +833,108 @@
         <priority>0.7</priority>
     </url>
 
+    <!-- Pickleball Blog Posts -->
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-tournament-play.html</loc>
+        <lastmod>2026-03-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-lobs-guide.html</loc>
+        <lastmod>2026-03-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-rules-guide.html</loc>
+        <lastmod>2026-03-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-mental-game.html</loc>
+        <lastmod>2026-03-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-singles-strategy.html</loc>
+        <lastmod>2026-03-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-doubles-play.html</loc>
+        <lastmod>2026-03-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-nutrition-guide.html</loc>
+        <lastmod>2026-02-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-injury-prevention.html</loc>
+        <lastmod>2026-02-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-fitness-conditioning.html</loc>
+        <lastmod>2026-02-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-drills-practice.html</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-strategy-tactics.html</loc>
+        <lastmod>2026-02-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-court-positions.html</loc>
+        <lastmod>2026-02-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-return-of-serve.html</loc>
+        <lastmod>2026-02-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-serve-mastery.html</loc>
+        <lastmod>2026-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-dinking-technique.html</loc>
+        <lastmod>2026-02-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-equipment-guide.html</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/pickleball/pickleball-beginners-guide.html</loc>
+        <lastmod>2026-02-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 
 </urlset>
