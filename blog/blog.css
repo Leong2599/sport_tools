@@ -443,6 +443,10 @@ body {
     background: linear-gradient(135deg, #e17055, #fdcb6e); 
 }
 
+.post-category.cricket { 
+    background: linear-gradient(135deg, #c0392b, #e74c3c); 
+}
+
 .post-date {
     color: #666;
     font-size: 0.9em;
