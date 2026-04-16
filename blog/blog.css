@@ -455,6 +455,10 @@ body {
     background: linear-gradient(135deg, #f39c12, #e74c3c); 
 }
 
+.post-category.karate { 
+    background: linear-gradient(135deg, #c0392b, #e74c3c); 
+}
+
 .post-date {
     color: #666;
     font-size: 0.9em;
