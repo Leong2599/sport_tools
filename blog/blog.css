@@ -459,6 +459,10 @@ body {
     background: linear-gradient(135deg, #c0392b, #e74c3c); 
 }
 
+.post-category.wrestling { 
+    background: linear-gradient(135deg, #8b0000, #dc143c); 
+}
+
 .post-date {
     color: #666;
     font-size: 0.9em;
