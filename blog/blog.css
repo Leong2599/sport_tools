@@ -467,6 +467,10 @@ body {
     background: linear-gradient(135deg, #8b0000, #dc143c); 
 }
 
+.post-category.table-tennis { 
+    background: linear-gradient(135deg, #e74c3c, #f39c12); 
+}
+
 .post-date {
     color: #666;
     font-size: 0.9em;

@@ -288,7 +288,7 @@
     <!-- Blog Pages -->
     <url>
         <loc>https://sportstoolshub.com/blog/blog.html</loc>
-        <lastmod>2026-04-08</lastmod>
+        <lastmod>2026-04-21</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1509,6 +1509,104 @@
     <url>
         <loc>https://sportstoolshub.com/blog/boxing/boxing-combinations.html</loc>
         <lastmod>2026-04-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Table Tennis Blog Posts -->
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-beginners-guide.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-grip-techniques.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-serving-secrets.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-footwork-fundamentals.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-topspin-mastery.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-backhand-development.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-equipment-guide.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-conditioning-fitness.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-mental-game.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-tactics-strategy.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-common-mistakes.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-injury-prevention.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-ping-pong-vs-tennis.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-tournament-preparation.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-defensive-skills.html</loc>
+        <lastmod>2026-04-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sportstoolshub.com/blog/table-tennis/table-tennis-home-practice.html</loc>
+        <lastmod>2026-04-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
